@@ -362,15 +362,34 @@ ul.list.theme-colored.check li:before,
 .widget .services-list li.active::after {
   border-color: transparent #202C45 transparent transparent;
 }
+.widget .services-list li.newstylactive::after {
+  border-color: transparent #202C45 transparent transparent;
+}
 .widget .services-list li.active {
   background-color: #202C45 !important;
   border-right: 6px solid #F2184F !important;
+}
+.widget .services-list li.newstylactive 
+{
+  background-color: #202C45 !important;
+  border-right: 6px solid rgb(245, 242, 242) !important;
 }
 /* background-color-transparent */
 .bg-theme-colored-transparent,
 .piechart-block {
   background-color: rgba(32, 44, 69, 0.75) !important;
 }
+
+div[class="widget dark"] > p{
+  color: #b7b7b7 !important;
+}
+p[class="font-11 text-black-777 m-0"]{
+  color: #b7b7b7 !important;
+}
+div[class="widget dark"] > ul{
+  color: #b7b7b7 !important;
+}
+
 .service-block .thumb .price,
 .service-block .thumb .desc,
 .team-block .team-thumb .team-overlay,
