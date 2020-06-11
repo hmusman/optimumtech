@@ -1213,7 +1213,9 @@ section > .container{
           </div>
         </div>
       </section>
-
+      <!-- <div class="row">
+        <button id="albBtn" onclick="showalbum()" >click here</button>
+                  </div> -->
       <!-- Section: Gallery -->
       <section id="gallery" class="bg-lighter">
         <div class="container">
@@ -1225,20 +1227,24 @@ section > .container{
               </div>
             </div>
           </div>
+          
           <div class="section-content">
             <div class="row">
               <div class="col-md-12">
                 <!-- Works Filter -->
                 <div class="portfolio-filter font-alt align-center">
-                  <a href="#" class="active" data-filter="*">All</a>
-                  <a href="#select1" class="" data-filter=".select1">Photos</a>
-                  <a href="#select2" class="" data-filter=".select2">Campus</a>
-                  <a href="#select3" class="" data-filter=".select3">Students</a>
+                  <a href="#" onclick="showalb()" class="active" data-filter="*">Open Album</a>
+                  <span id="phot"  style="visibility: hidden; ">
+                  <a href="#"  data-filter="*" id-="all" style="display: none;" >All</a>
+                  <a href="#select1" class="" data-filter=".select1"  >Photos</a>
+                  <a href="#select2" class="" data-filter=".select2"   >Campus</a>
+                  <a href="#select3" class="" data-filter=".select3"  > Students</a>
+                  </span>
                 </div>
                 <!-- End Works Filter -->
 
                 <!-- Portfolio Gallery Grid -->
-                <div id="grid" class="gallery-isotope grid-4 gutter clearfix">
+                <div id="grid" class="gallery-isotope grid-4 gutter clearfix" style="display: none;">
 
                   <!-- Portfolio Item Start -->
                   <div class="gallery-item select1">
@@ -1830,6 +1836,7 @@ section > .container{
           </div>
         </div>
       </section>
+
       <section class="">
         <div class="container pt-10 pb-0">
           <div class="row">
@@ -1841,11 +1848,11 @@ section > .container{
         </div>
       </section>
       <!-- Divider: Clients -->
-      <section class="clients bg-theme-color-2">
+      <!-- <section class="clients bg-theme-color-2">
         <div class="container pt-10 pb-0">
           <div class="row">
             <div class="col-md-12">
-              <!-- Section: Clients -->
+             
               <div class="owl-carousel-6col clients-logo transparent text-center owl-nav-top">
                 <div class="item"> <a href="#"><img src="images/clients/w1.jpg" alt=""></a></div>
                 <div class="item"> <a href="#"><img src="images/clients/w2.jpg" alt=""></a></div>
@@ -1856,10 +1863,56 @@ section > .container{
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
       <!-- end main-content -->
     </div>
-
+  <!-- Divider: Clients -->
+    <section class="clients bg-theme-color-2" style="height: 170px !important;">
+      <div class="container pt-10 pb-0">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Section: Clients -->
+            <div class="autoplay2 clients-logo transparent text-center owl-nav-top">
+              <div class="item"><figure>
+                <img src="images/clients/w1.jpg" alt="Trulli" >
+                <figcaption style="color: aliceblue;margin-left: -80px;">KK Security Managment</figcaption>
+              </figure>
+              </div>
+              <div class="item"><figure>
+                <img src="images/clients/w2.jpg" alt="Trulli" >
+                <figcaption style="color: aliceblue;margin-left: -80px;">ACC Care</figcaption>
+              </figure>
+              </div>
+              <div class="item"><figure>
+                <img src="images/clients/w3.jpg" alt="Trulli" >
+                <figcaption style="color: aliceblue;margin-left: -80px;">Ambulatory Center</figcaption>
+              </figure>
+              </div>
+              <div class="item"><figure>
+                <img src="images/clients/w4.jpg" alt="Trulli" >
+                <figcaption style="color: aliceblue;margin-left: -80px;">Invincible Solar Energy</figcaption>
+              </figure>
+              </div>
+              <div class="item"><figure>
+                <img src="images/clients/w5.png" alt="Trulli" >
+                <figcaption style="color: aliceblue;margin-left: -80px;">Themeforest</figcaption>
+              </figure>
+              </div>
+              <!-- <div class="item"><figure>
+                <img src="images/clients/w6.jpg" alt="Trulli" >
+                <figcaption style="color: aliceblue;">ACC Care</figcaption>
+              </figure>
+              </div> -->
+              <!-- <div class="item"> <a href="#"><img src="images/clients/w5.png" alt=""></a></div> -->
+              <!-- <div class="item"> <a href="#"><img src="images/clients/w6.png" alt=""></a></div> -->
+              <!-- <div class="item"> <a href="#"><img src="images/clients/w3.png" alt=""></a></div>
+              <div class="item"> <a href="#"><img src="images/clients/w4.png" alt=""></a></div> -->
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Footer -->
     <footer id="footer" class="footer divider layer-overlay overlay-dark-9">
       <div class="container">
@@ -2030,9 +2083,25 @@ function syncPosition2(el) {
 });
 });
 
-
+$(document).ready(function(){
+        $('.autoplay2').slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+});
+});
 </script>
 
+<script>
+  function showalb(){
+    document.getElementById('grid').style.display = "block";
+
+    document.getElementById('phot').style.visibility="visible";
+    document.getElementById('phot2').style.display="visible";
+    document.getElementById('stds').style.display="visible";
+  }
+</script>
 </body>
 
 
