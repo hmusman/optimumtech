@@ -100,8 +100,44 @@ section > .container{
     margin-top: 1px !important;
   }
 
-  div[class="card effect__hover"]{
+ 
+  /* .slick-next, .slick-prev:before{
+    background-color: #d0d1d1 !important;
+  } */
+
+
+div[class="autoplay slick-initialized slick-slider slick-dotted"] > button[class="slick-prev slick-arrow"]::before {
+color: #6263637a !important;
+}
+div[class="autoplay slick-initialized slick-slider slick-dotted"] > button[class="slick-next slick-arrow"]::before {
+color: #6263637a !important;
+}
+
+ul[class="slick-dots"]{
+  display: none !important;
+}
+
+
+
+@media (min-width:500px){
+  
+  div[class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix"]{
+    width: 87% !important;
+  }
+  img[src="images/ahsan.jpg"],
+  img[src="images/campus.jpg"],
+  img[src="images/tour.jpg"]{
+    height: 39% !important;
+  }
+  .btn-sm {
+   
+    padding: 5px 5px !important;
+}
+div[class="card effect__hover"]{
     width: 100% !important;
+  }
+
+ 
   }
 </style>
 
@@ -807,8 +843,7 @@ section > .container{
                       </div>
                       <div class="content text-left flip p-25 pt-0">
                         <h4 class="line-bottom mb-10">Php Developer</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam ipsum quis ipsum
-                          facilisis sit amet.</p>
+                        <p  style="text-align: justify;">A PHP developer is a professional who develops applications, programs, and websites, using the dynamic scripting language called PHP.Sometimes, PHP developers are referred to “software developer”.</p>
                         <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
                           href="FreeCourses.html" target="_blank">view details</a>
                       </div>
@@ -822,8 +857,7 @@ section > .container{
                       </div>
                       <div class="content text-left flip p-25 pt-0">
                         <h4 class="line-bottom mb-10">Java Script Developer</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam ipsum quis ipsum
-                          facilisis sit amet.</p>
+                        <p style="text-align: justify;"> The importance of JavaScript as a web technology can be determined from the fact that it is currently used by 94.5% of all websites.As a client-side Programming language, JavaScript helps custom client-side scripts.</p>
                         <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
                         href="FreeCourses.html" target="_blank">view details</a>
                       </div>
@@ -837,8 +871,7 @@ section > .container{
                       </div>
                       <div class="content text-left flip p-25 pt-0">
                         <h4 class="line-bottom mb-10">Node.Js Developer</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam ipsum quis ipsum
-                          facilisis sit amet.</p>
+                        <p style="text-align: justify;">Node. js has been regarded as a full-stack JavaScript for serving both the client and the server-side applications. Therefore, the advantage is that you don't have to hire separate developers for backend as well as the front-end development.</p>
                         <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
                         href="FreeCourses.html" target="_blank">view details</a>
                       </div>
@@ -852,8 +885,7 @@ section > .container{
                       </div>
                       <div class="content text-left flip p-25 pt-0">
                         <h4 class="line-bottom mb-10">Html Css Training</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam ipsum quis ipsum
-                          facilisis sit amet.</p>
+                        <p style="text-align: justify;">HTML,CSS plays a key role in web pages: It tells browsers how to display and Design the contents of a page, using special instructions called tags that tell a browser when to start a paragraph, italicize a word, or display a picture.</p>
                         <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
                         href="FreeCourses.html" target="_blank">view details</a>
                       </div>
@@ -867,8 +899,7 @@ section > .container{
                       </div>
                       <div class="content text-left flip p-25 pt-0">
                         <h4 class="line-bottom mb-10">Photoshop</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam ipsum quis ipsum
-                          facilisis sit amet.</p>
+                        <p style="text-align: justify;">Adobe Photoshop is a critical tool for designers, web developers, graphic artists, photographers, and creative professionals. It is widely used for image editing, retouching, creating image compositions, website mockups,and affects.</p>
                         <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
                         href="FreeCourses.html" target="_blank">view details</a>
                       </div>
@@ -1161,8 +1192,8 @@ section > .container{
           <div class="section-content">
             <div class="row multi-row-clearfix">
               <div class="col-sm-6 col-md-3 sm-text-center mb-sm-30">
-                <div class="team maxwidth400">
-                  <div class="thumb"><img height="270px; !important" class="img-fullwidth" src="images/ahsan.jpg" alt=""></div>
+                <div class="team maxwidth400" style="margin-right: -7px !important">
+                  <div class="thumb"><img  class="img-fullwidthnew" src="images/ahsan.jpg" alt=""></div>
                   <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
                     <h4 class="name text-theme-color-2 mt-0">Ahsan Raza - <small>Co Founder</small></h4>
                     <p class="mb-20">Lorem ipsum dolor sit amet, con amit sectetur adipisicing elit.</p>
@@ -1177,8 +1208,8 @@ section > .container{
                 </div>
               </div>
               <div class="col-sm-6 col-md-3 sm-text-center mb-sm-30">
-                <div class="team maxwidth400">
-                  <div class="thumb"><img height="270px; !important" class="img-fullwidth" src="images/campus.jpg" alt=""></div>
+                <div class="team maxwidth400" style="margin-right: -7px !important">
+                  <div class="thumb"><img class="img-fullwidthnew" src="images/campus.jpg" alt=""></div>
                   <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
                     <h4 class="name mt-0 text-theme-color-2">Ali - <small>Campus Manager</small></h4>
                     <p class="mb-20">Lorem ipsum dolor sit amet, con amit sectetur adipisicing elit.</p>
@@ -1193,8 +1224,8 @@ section > .container{
                 </div>
               </div>
               <div class="col-sm-6 col-md-3 sm-text-center mb-sm-30">
-                <div class="team maxwidth400">
-                  <div class="thumb"><img height="270px; !important" class="img-fullwidth" src="images/tour.jpg" alt=""></div>
+                <div class="team maxwidth400" style="margin-right: -7px !important">
+                  <div class="thumb"><img  class="img-fullwidthnew" src="images/tour.jpg" alt=""></div>
                   <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
                     <h4 class="name mt-0 text-theme-color-2">Ali - <small>Head Tourism</small></h4>
                     <p class="mb-20">Lorem ipsum dolor sit amet, con amit sectetur adipisicing elit.</p>
@@ -1837,7 +1868,7 @@ section > .container{
         </div>
       </section>
 
-      <section class="">
+      <section class="" style="z-index: 12;">
         <div class="container pt-10 pb-0">
           <div class="row">
             <div class="col-md-12">
@@ -1867,34 +1898,36 @@ section > .container{
       <!-- end main-content -->
     </div>
   <!-- Divider: Clients -->
+  
     <section class="clients bg-theme-color-2" style="height: 170px !important;">
       <div class="container pt-10 pb-0">
         <div class="row">
           <div class="col-md-12">
             <!-- Section: Clients -->
-            <div class="autoplay2 clients-logo transparent text-center owl-nav-top">
-              <div class="item"><figure>
-                <img src="images/clients/w1.jpg" alt="Trulli" >
-                <figcaption style="color: aliceblue;margin-left: -80px;">KK Security Managment</figcaption>
+            <div class="autoplay2 clients-logo transparent text-center ">
+              <div class="item"  ><figure > 
+                <img src="images/clients/w1.jpg" alt="Trulli" data-toggle="tooltip" data-placement="right" title="KK Security"  >
+                <figcaption style="color: aliceblue;margin-left: -80px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" >KK Security Managment</figcaption>
               </figure>
               </div>
               <div class="item"><figure>
-                <img src="images/clients/w2.jpg" alt="Trulli" >
+                <img src="images/clients/w2.jpg" alt="Trulli" data-toggle="tooltip" data-placement="right" title="ACC Care"  >
                 <figcaption style="color: aliceblue;margin-left: -80px;">ACC Care</figcaption>
               </figure>
               </div>
               <div class="item"><figure>
-                <img src="images/clients/w3.jpg" alt="Trulli" >
+                <img src="images/clients/w3.jpg" alt="Trulli"  data-toggle="tooltip" data-placement="right" title="Ambulatory Center" >
                 <figcaption style="color: aliceblue;margin-left: -80px;">Ambulatory Center</figcaption>
               </figure>
               </div>
+
               <div class="item"><figure>
-                <img src="images/clients/w4.jpg" alt="Trulli" >
+                <img src="images/clients/w4.jpg" alt="Trulli" data-toggle="tooltip" data-placement="right" title="Invincible"  >
                 <figcaption style="color: aliceblue;margin-left: -80px;">Invincible Solar Energy</figcaption>
               </figure>
               </div>
               <div class="item"><figure>
-                <img src="images/clients/w5.png" alt="Trulli" >
+                <img src="images/clients/w5.png" alt="Trulli" data-toggle="tooltip" data-placement="right" title="Themeforest"  >
                 <figcaption style="color: aliceblue;margin-left: -80px;">Themeforest</figcaption>
               </figure>
               </div>
@@ -2080,6 +2113,11 @@ function syncPosition2(el) {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 3000,
+
+
+  dots: true,
+ 
+  // variableWidth: true
 });
 });
 
@@ -2087,7 +2125,7 @@ $(document).ready(function(){
         $('.autoplay2').slick({
   slidesToShow: 4,
   slidesToScroll: 1,
-  autoplay: true,
+  // autoplay: true,
   autoplaySpeed: 3000,
 });
 });
