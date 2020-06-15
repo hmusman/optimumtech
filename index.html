@@ -122,12 +122,12 @@ ul[class="slick-dots"]{
 @media (min-width:500px){
   
   div[class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix"]{
-    width: 87% !important;
+    width: 74% !important;
   }
   img[src="images/ahsan.jpg"],
   img[src="images/campus.jpg"],
   img[src="images/tour.jpg"]{
-    height: 39% !important;
+    height: 30% !important;
   }
   .btn-sm {
    
@@ -136,9 +136,15 @@ ul[class="slick-dots"]{
 div[class="card effect__hover"]{
     width: 100% !important;
   }
-
- 
+#prodSec{
+  height: 706px !important;
+}
+.slick-dotted.slick-slider{
+  margin-bottom: -10px !important;
+}
   }
+
+
 </style>
 
 
@@ -209,9 +215,7 @@ div[class="card effect__hover"]{
         <div class="header-nav-wrapper navbar-scrolltofixed bg-lightest">
           <div class="container">
             <nav id="menuzord-right" class="menuzord orange">
-              <a class="menuzord-brand pull-left flip" href="javascript:void(0)">
-                <img src="images/logo.png" alt="">
-              </a>
+              <a href="index.html" > <img class="mt-5 mb-20" alt="" src="images/logo.png"></a>
               <ul class="menuzord-menu dark">
                 <li class="active"><a href="#home">Home</a>
                   <!-- <ul class="dropdown">
@@ -791,10 +795,10 @@ div[class="card effect__hover"]{
         <div class="section-content">
           <div class="row">
             <div class="col-md-12">
-              <h6 class="letter-space-4 text-gray-darkgray text-uppercase mt-0 mb-0">All About</h6>
+              <h6 class="letter-space-4 text-gray-darkgray text-uppercase mt-0 mb-0">Optimum Tech</h6>
               <h2 class="text-uppercase font-weight-600 mt-0 font-28 line-bottom">News</h2>
               <div class="news red" style="display: inline-flex;   overflow: hidden;     width: 100%;">
-                <span style="padding-bottom: 25px; z-index: 11;">LatestNews</span>
+                <span style="padding-bottom: 25px; z-index: 11; margin-top: -4px;">LatestNews</span>
                 <ul style="display: inline;padding-top: 3px;     z-index: 10;" >
                   <li style="float: left; overflow: hidden; display: inline;  ">
                    <pre style="display: inline; background-color: #033a45;   border-left-color: #033a45; font-weight: bolder !important;  " > <a  href="#">1- Hurrah2 Free React Bootcamp Comimg on this Weekend Beready , Held at Iqbal Auditorium</a>                                                                               <a style="" href="#">2- BeReady! React NodeJs with MongoDB database New batch is starting Soon  </a>                                                                               <a style="" href="#">3- State Of the Art Technology Cloud Computing using Kubernaties Starting  </a>                                                                               <a style="" href="#">4- Optimum Tech Offer Free Online Tutorial Classes of Digital Marketing Due to LockDown(Covid-19) </a></pre>
@@ -817,7 +821,8 @@ div[class="card effect__hover"]{
 
     </section>
       <!-- Section: COURSES -->
-      <section class="bg-lighter">
+      <section id="prodSec" class="bg-lighter" style="    margin-top: -52px;
+      padding-top: 55px;">
         <div class="container pb-60">
           <div class="section-title mb-10">
             <div class="row">
@@ -1183,7 +1188,7 @@ div[class="card effect__hover"]{
         <div class="container">
           <div class="section-title mb-10">
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-12">
                 <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Our <span
                     class="text-theme-color-2 font-weight-400">Team</span></h2>
               </div>
@@ -1202,8 +1207,8 @@ div[class="card effect__hover"]{
                       <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                       <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
-                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="#">view
-                      details</a>
+                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="CoFounder-details.html" target="_blank">
+                      Detail</a>
                   </div>
                 </div>
               </div>
@@ -1218,8 +1223,8 @@ div[class="card effect__hover"]{
                       <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                       <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
-                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="#">view
-                      details</a>
+                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="CampusManager.html" target="_blank" >
+                      Detail</a>
                   </div>
                 </div>
               </div>
@@ -1234,8 +1239,8 @@ div[class="card effect__hover"]{
                       <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                       <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
-                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="#">view
-                      details</a>
+                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="HeadTourisim.html" target="_blank" >
+                      Detail</a>
                   </div>
                 </div>
               </div>
@@ -1264,18 +1269,22 @@ div[class="card effect__hover"]{
               <div class="col-md-12">
                 <!-- Works Filter -->
                 <div class="portfolio-filter font-alt align-center">
-                  <a href="#" onclick="showalb()" class="active" data-filter="*">Open Album</a>
-                  <span id="phot"  style="visibility: hidden; ">
-                  <a href="#"  data-filter="*" id-="all" style="display: none;" >All</a>
+                  <a href="#"  class="active" data-filter="">Album</a>
+                  <span  >
+              
+
+                   
+                    
                   <a href="#select1" class="" data-filter=".select1"  >Photos</a>
                   <a href="#select2" class="" data-filter=".select2"   >Campus</a>
                   <a href="#select3" class="" data-filter=".select3"  > Students</a>
+                   <a href="#" class="" data-filter="*"  > All</a>
                   </span>
                 </div>
                 <!-- End Works Filter -->
 
                 <!-- Portfolio Gallery Grid -->
-                <div id="grid" class="gallery-isotope grid-4 gutter clearfix" style="display: none;">
+                <div id="grid" class="gallery-isotope grid-4 gutter clearfix" >
 
                   <!-- Portfolio Item Start -->
                   <div class="gallery-item select1">
@@ -1286,17 +1295,17 @@ div[class="card effect__hover"]{
                         <div class="icons-holder-inner">
                           <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
                             <a data-lightbox="image" href="images/gallery/1.jpg"><i class="fa fa-plus"></i></a>
-                            <a href="#"><i class="fa fa-link"></i></a>
+                            <a  href="#select2" class="" data-filter=".select2"><i class="fa fa-link"></i></a>
                           </div>
                         </div>
                       </div>
-                      <a class="hover-link" data-lightbox="image" href="images/gallery/1.jpg">View more</a>
+                      <a class="hover-link" data-lightbox="image">View more</a>
                     </div>
                   </div>
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select1">
+                  <div class="gallery-item select1" style="display: none;">
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/3.png" alt="project">
                       <div class="overlay-shade"></div>
@@ -1314,7 +1323,7 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select2">
+                  <div class="gallery-item select2" >
                     <div class="thumb">
                       <img class="img-fullwidth"
                         src="images/gallery/18121754_221522995000944_5339271467144642711_o_001.png" alt="project">
@@ -1333,7 +1342,7 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select3">
+                  <div class="gallery-item select3" >
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/74569040_730588634094375_7909991017925836800_n.png"
                         alt="project">
@@ -1352,7 +1361,7 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select1">
+                  <div class="gallery-item select1" style="display: none;">
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/4.png" alt="project">
                       <div class="overlay-shade"></div>
@@ -1370,7 +1379,7 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select3">
+                  <div class="gallery-item select3" style="display: none;">
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/89781155_824834268003144_8111982161625612288_n.png"
                         alt="project">
@@ -1389,7 +1398,7 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select2">
+                  <div class="gallery-item select2" style="display: none;">
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/74718064_728296787656893_8236631041792540672_n.png"
                         alt="project">
@@ -1409,8 +1418,8 @@ div[class="card effect__hover"]{
                   </div>
                   <!-- Portfolio Item End -->
 
-                  <!-- Portfolio Item Start -->
-                  <div class="gallery-item select3">
+           
+                  <div class="gallery-item select3" style="display: none;">
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/75464337_730588604094378_2234728066007957504_n.png"
                         alt="project">
@@ -1429,7 +1438,7 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select1">
+                  <div class="gallery-item select1" style="display: none;">
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/18077402_221522838334293_3325708510959900204_o.png"
                         alt="project">
@@ -1448,7 +1457,7 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select2">
+                  <div class="gallery-item select2" style="display: none;">
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/75576422_728296730990232_5716211028384022528_n.png"
                         alt="project">
@@ -1467,7 +1476,7 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select1">
+                  <div class="gallery-item select1" style="display: none;">
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/91282881_839250586561512_6176455218402689024_n.png"
                         alt="project">
@@ -1486,7 +1495,7 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                   <!-- Portfolio Item Start -->
-                  <div class="gallery-item select3">
+                  <div class="gallery-item select3" style="display: none;">
                     <div class="thumb">
                       <img class="img-fullwidth" src="images/gallery/89346801_824834311336473_7340721312186236928_n.png"
                         alt="project">
@@ -1505,6 +1514,10 @@ div[class="card effect__hover"]{
                   <!-- Portfolio Item End -->
 
                 </div>
+
+
+
+
                 <!-- End Portfolio Gallery Grid -->
               </div>
             </div>
@@ -1521,42 +1534,42 @@ div[class="card effect__hover"]{
                 <h3 class="text-uppercase line-bottom mt-0 line-height-1"><i class="fa fa-calendar mr-10"></i>Upcoming
                   <span class="text-theme-color-2">Events</span></h3>
                 <article class="post media-post clearfix pb-0 mb-10">
-                  <a href="#" class="post-thumb mr-20"><img alt="" src="images/gallery/blodd (1).png"></a>
+                  <a href="BookEvents.html" target="_blank" class="post-thumb mr-20"><img alt="" src="images/gallery/blodd (1).png"></a>
                   <div class="post-right">
-                    <h4 class="mt-0 mb-5"><a href="#">Blood Donation</a></h4>
+                    <h4 class="mt-0 mb-5"><a href="BookEvents.html" target="_blank">Blood Donation</a></h4>
                     <ul class="list-inline font-12 mb-5">
                       <li class="pr-0"><i class="fa fa-calendar mr-5"></i> June 26, 2016 |</li>
                       <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>New York</li>
                     </ul>
                     <p class="mb-0 font-13">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas eveniet, nemo
                       dicta. Ullam nam.</p>
-                    <a class="text-theme-colored font-13" href="#">Read More →</a>
+                    <a class="text-theme-colored font-13" href="BookEvents.html" target="_blank">Read More →</a>
                   </div>
                 </article>
                 <article class="post media-post clearfix pb-0 mb-10">
-                  <a href="#" class="post-thumb mr-20"><img alt="" src="images/gallery/wordpress-bg-medblue-square.png"></a>
+                  <a  href="BookEvents.html" target="_blank" class="post-thumb mr-20"><img alt="" src="images/gallery/wordpress-bg-medblue-square.png"></a>
                   <div class="post-right">
-                    <h4 class="mt-0 mb-5"><a href="#">1 Day Training Session on Wordpress</a></h4>
+                    <h4 class="mt-0 mb-5"><a  href="BookEvents.html" target="_blank">1 Day Training Session on Wordpress</a></h4>
                     <ul class="list-inline font-12 mb-5">
                       <li class="pr-0"><i class="fa fa-calendar mr-5"></i> June 26, 2016 |</li>
                       <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>New York</li>
                     </ul>
                     <p class="mb-0 font-13">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas eveniet, nemo
                       dicta. Ullam nam.</p>
-                    <a class="text-theme-colored font-13" href="#">Read More →</a>
+                    <a class="text-theme-colored font-13"  href="BookEvents.html" target="_blank">Read More →</a>
                   </div>
                 </article>
                 <article class="post media-post clearfix pb-0 mb-10">
-                  <a href="#" class="post-thumb mr-20"><img alt="" src="images/gallery/page_1.png"></a>
+                  <a  href="BookEvents.html" target="_blank" class="post-thumb mr-20"><img alt="" src="images/gallery/page_1.png"></a>
                   <div class="post-right">
-                    <h4 class="mt-0 mb-5"><a href="#">Digital Marketing Master Class</a></h4>
+                    <h4 class="mt-0 mb-5"><a href="BookEvents.html" target="_blank">Digital Marketing Master Class</a></h4>
                     <ul class="list-inline font-12 mb-5">
                       <li class="pr-0"><i class="fa fa-calendar mr-5"></i> June 26, 2016 |</li>
                       <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>New York</li>
                     </ul>
                     <p class="mb-0 font-13">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas eveniet, nemo
                       dicta. Ullam nam.</p>
-                    <a class="text-theme-colored font-13" href="#">Read More →</a>
+                    <a class="text-theme-colored font-13" href="BookEvents.html" target="_blank">Read More →</a>
                   </div>
                 </article>
               </div>
@@ -1640,11 +1653,11 @@ div[class="card effect__hover"]{
             </div>
           </div>
 
-          <div class="section-content">
+          <div class="section-content" style="height: 442px !important;">
             <div class="row">
               <!-- <div class="col-md-4"></div> -->
               <div class="col-md-6">
-                <div class="owl-carousel-2col owl-carousel owl-theme owl-loaded">
+                <div class="autoplay3" >
                   <div class="item" data-wow-duration="1s" data-wow-delay="0.3s">
                     <article class="post clearfix mb-sm-30">
                       <div class="entry-header">
@@ -1673,7 +1686,7 @@ div[class="card effect__hover"]{
                         </div>
                         <p class="mt-10">Optimum-Tech  Service. Himanshu and the team have always provided us with a prompt, reliable, and top rated service. Not only do they resolve any of our hardware.
                         </p>
-                        <a href="#" class="btn-read-more">Read more</a>
+                        <a href="LatestNewsDetails.html" target="_blank" class="btn-read-more">Read more</a>
                         <div class="clearfix"></div>
                       </div>
                     </article>
@@ -1707,7 +1720,7 @@ div[class="card effect__hover"]{
                         <p class="mt-10">Optimum tech has played a significant role in the development of web based projects. They have been able to become a central part of
                            the team punctually.
                         </p>
-                        <a href="#" class="btn-read-more">Read more</a>
+                        <a href="LatestNewsDetails.html" target="_blank" class="btn-read-more">Read more</a>
                         <div class="clearfix"></div>
                       </div>
                     </article>
@@ -1740,7 +1753,7 @@ div[class="card effect__hover"]{
                         </div>
                         <p class="mt-10"> This develop amazing features that perform under the highest performance and demanded requirements possible part of
                           the team punctually.</p>
-                        <a href="#" class="btn-read-more">Read more</a>
+                        <a href="LatestNewsDetails.html" target="_blank" class="btn-read-more">Read more</a>
                         <div class="clearfix"></div>
                       </div>
                     </article>
@@ -1773,7 +1786,7 @@ div[class="card effect__hover"]{
                         </div>
                         <p class="mt-10">Lorem ipsum dolor sit amet, consectetur adipisi cing elit. Molestias eius illum
                           libero dolor nobis deleniti, sint assumenda Pariatur iste.</p>
-                        <a href="#" class="btn-read-more">Read more</a>
+                        <a href="LatestNewsDetails.html" target="_blank" class="btn-read-more">Read more</a>
                         <div class="clearfix"></div>
                       </div>
                     </article>
@@ -1947,18 +1960,21 @@ div[class="card effect__hover"]{
       </div>
     </section>
     <!-- Footer -->
-    <footer id="footer" class="footer divider layer-overlay overlay-dark-9">
+    
+    <footer  id="footer" class="footer divider layer-overlay overlay-dark-9" data-bg-img="images/bg/bg2.jpg">
       <div class="container">
         <div class="row border-bottom">
           <div class="col-sm-6 col-md-3">
             <div class="widget dark">
-              <img class="mt-5 mb-20" alt="" src="images/logo.png">
-              <p>25-a, batala colony main road 1st floor gourmet bakers near hardees Faisalabad, Batala Colony </p>
+             <a href="index.html" > <img class="mt-5 mb-20" alt="" src="images/logo.png"></a>
+              <p style="text-align: justify;">25-a, batala colony main road 1st floor gourmet bakers near hardees  Batala Colony Faisalabad. </p>
+         <br/>
               <ul class="list-inline mt-5">
-                <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-color-2 mr-5"></i> <a class="text-gray"
-                    href="#">+92 313 6650965 </a> </li>
+              
                 <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-color-2 mr-5"></i> <a
                     class="text-gray" href="#"> info@optimumtech.com </a> </li>
+                    <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-color-2 mr-5"></i> <a class="text-gray"
+                      href="#">+92 313 6650965 </a> </li>
               </ul>
             </div>
           </div>
@@ -2125,7 +2141,19 @@ $(document).ready(function(){
         $('.autoplay2').slick({
   slidesToShow: 4,
   slidesToScroll: 1,
-  // autoplay: true,
+  autoplay: true,
+  autoplaySpeed: 3000,
+});
+});
+
+
+
+
+$(document).ready(function(){
+        $('.autoplay3').slick({
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  autoplay: true,
   autoplaySpeed: 3000,
 });
 });

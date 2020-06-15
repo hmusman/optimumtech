@@ -6439,12 +6439,12 @@ blockquote p {
   background: #000;
 }
 .footer a {
-  color: #b7b7b7;
+  color: #e4e2e2  ;
 }
 .footer a:focus,
 .footer a:hover,
 .footer a:active {
-  color: #666666;
+  color: #f9f3f3;
 }
 .footer .widget .widget-title {
   margin-top: 0px;

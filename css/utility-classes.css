@@ -36,7 +36,7 @@
   color: #777777 !important;
 }
 .text-gray {
-  color: #b7b7b7 !important;
+  color: #e4e2e2   !important;
 }
 .text-gray-darkgray {
   color: #a9a9a9 !important;
@@ -681,7 +681,7 @@ footer.bg-deep {
 }
 
 .img-fullwidthnew {
-  width: 87% !important;
+  width: 73% !important;
 }
 /* -------- Absolute Image Positioning ---------- */
 .overflow-visible {
