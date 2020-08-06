@@ -31,15 +31,21 @@ Route::view('Domain&Hosting','domain_hosting');
 Route::view('Outsourcing','outsourcing');
 Route::view('TaxationAudit','taxation_audit');
 Route::view('Admin','admin.index');
-Route::view('Admin/AddCourse','admin.add_course');
-Route::view('Admin/AddLatestNews','admin.add_latest_news');
-Route::view('Admin/AddOptimumClient','admin.add_optimum_client');
-Route::view('Admin/AddSliderTicker','admin.add_slider_ticker');
-Route::view('Admin/AddTestimonial','admin.add_testimonial');
-Route::view('Admin/AddUpcomingEvent','admin.add_upcoming_event');
-Route::view('Admin/ViewCourses','admin.view_courses');
-Route::view('Admin/ViewLatestNews','admin.view_news');
-Route::view('Admin/ViewClients','admin.view_clients');
-Route::view('Admin/ViewSliders','admin.view_sliders');
-Route::view('Admin/ViewTestimonials','admin.view_testimonials');
-Route::view('Admin/ViewUpcomingEvents','admin.view_events');
+Route::prefix('Admin')->group(function(){
+
+
+	Route::resource('/Course','CourseController');
+	Route::view('/AddLatestNews','admin.add_latest_news');
+	Route::view('/AddOptimumClient','admin.add_optimum_client');
+	Route::resource('/Slider','SliderController');
+	Route::view('/AddTestimonial','admin.add_testimonial');
+	Route::view('/AddUpcomingEvent','admin.add_upcoming_event');
+	Route::view('/ViewCourses','admin.view_courses');
+	Route::resource('/News','NewModelController');
+	Route::view('/ViewClients','admin.view_clients');
+	Route::view('/ViewSliders','admin.view_sliders');
+	Route::view('/ViewTestimonials','admin.view_testimonials');
+	Route::view('/ViewUpcomingEvents','admin.view_events');
+
+});
+

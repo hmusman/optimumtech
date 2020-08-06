@@ -50,17 +50,22 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <div>
-                                                        <form action="{{ route('Slider.store') }}" method="post" enctype="multipart/form-data">
+                                                        <form action="{{ route('Slider.update',$slider->id) }}" method="post" enctype="multipart/form-data">
                                                             @csrf
+                                                            @method('put')
                                                             <div class="form-group">
                                                                 <label>Select Image :</label>
+                                                                @php $img = 'storage/'.$slider->img @endphp
+                                                                <input type="hidden" name="oldImg" value="{{ $slider->img }}">
                                                                 <input name="img" type="file">
+                                                                <img src="{{ asset($img) }}" style="widows: 100px; height: 100px;">
                                                             </div>
+                                                           
                                                             @error('warningMsg')
                                                                 <p class="text-danger">{{ $message }}</p>
                                                             @enderror
                                                             <div class="form-group mt-4">
-                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Send Files</button>
+                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Update Slider</button>
                                                             </div>
                                                         </form>
                                                     </div>

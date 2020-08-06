@@ -46,17 +46,16 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Add New Courses</h4>
-                                    @error('existMsg')
-                                        <div class="alert alert-warning">{{ $message }}</div>
-                                    @enderror
-                                    <form method="post" action="{{ route('Course.store') }}" enctype="multipart/form-data">
+                                    <h4 class="header-title">Update Course</h4>
+                               
+                                    <form method="post" action="{{ route('Course.update',$course->id) }}" enctype="multipart/form-data">
 
-                                        @csrf                                        
+                                        @csrf     
+                                        @method('put')                                   
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Course Title</label>
                                             <div class="col-md-10">
-                                                <input class="form-control" value="{{ old('title') }}" name="title" type="text" placeholder="Enter Title" id="example-text-input">
+                                                <input class="form-control" value="{{ $course->title }}" name="title" type="text" placeholder="Enter Title" id="example-text-input">
                                                 @error('title')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
@@ -66,7 +65,7 @@
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Course Detail</label>
                                             <div class="col-md-10">
-                                                <textarea id="textarea" class="form-control" name="detail" maxlength="230" rows="3" placeholder="This textarea has a limit of 230 chars.">{{ old('detail') }}</textarea>
+                                                <textarea id="textarea" class="form-control" name="detail" maxlength="230" rows="3" placeholder="This textarea has a limit of 230 chars.">{{ $course->detail }}</textarea>
                                                 @error('detail')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
@@ -76,7 +75,10 @@
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label"> Picture</label>
                                             <div class="col-md-10">
+                                                <input type="hidden" name="oldImg" value="{{ $course->img }}">
                                                 <input name="img" type="file" style="margin-left: 10px;" >
+                                                @php $img = 'storage/'.$course->img  @endphp
+                                                <img src="{{ asset($img) }}" style="width: 100px; height: 100px;">
                                                 @error('img')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
@@ -92,8 +94,8 @@
                                              <div class="col-md-10">
                                                   <select class="form-control" name="type">
                                                         <option selected="" disabled="">Select</option>
-                                                        <option <?php if(old('type')=='free'){ echo "selected=''"; } ?> value="free">Free Course</option>
-                                                        <option <?php if(old('type')=='paid'){ echo "selected=''"; } ?> value="paid">Paid Course</option>
+                                                        <option <?php if($course->type=='free'){ echo "selected=''"; } ?> value="free">Free Course</option>
+                                                        <option <?php if($course->type=='paid'){ echo "selected=''"; } ?> value="paid">Paid Course</option>
                                                     </select>
                                                      @error('type')
                                                         <p class="text-danger mt-3">{{ $message }}</p>

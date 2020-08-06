@@ -20,27 +20,10 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Slider View</h4>
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                            <li class="breadcrumb-item active">File Upload</li>
-                            </ol>
+                            <h4 class="page-title mb-1">Courses View</h4>
+                            
                         </div>
                         <div class="col-md-4">
-                            <div class="float-right d-none d-md-block">
-                                <div class="dropdown">
-                                    <button class="btn btn-light btn-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="mdi mdi-settings-outline mr-1"></i> Settings
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -56,93 +39,58 @@
                       
                             <div class="card">
                                 <div class="card-body">
-    
+                                    @if(Session::has('msg'))
+                                        <div class="alert alert-success">{{ Session::get('msg') }}</div>
+                                    @endif
                                     
     
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
-                                            <!-- <tr style="background-color: #626363;">
-                                                <td class="text-center  " colspan="5" style="color:white; font-weight: 600; font-size: larger; " >Courses View</td>
-                                              </tr> -->
-                                        <tr>
-                                            <th>Course Title</th>
-                                            <th>Course Detail</th>
-                                            <th>Type</th>
-                                            <th>Image</th>
-                                            <th>Actions</th>
-                                        </tr>
+                                            
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Course Title</th>
+                                                <th>Course Detail</th>
+                                                <th>Type</th>
+                                                <th>Image</th>
+                                                <th>Actions</th>
+                                            </tr>
                                         </thead>
     
     
                                         <tbody>
-                                        <tr>
-                                            <td>AdobePhotoshop</td>
-                                            <td><p>
-                                                Adobe Photoshop is a critical tool for designers, web developers, graphic artists, photographers, and creative professionals. It is widely used for
-                                                 image editing, retouching, creating image compositions, website mockups,and affects.
-                                            </p></td>
-                                            <td>Free</td>
-                                            <td><img src="{{ asset('storage/admin/images/8.jpg') }}" style="height: 50px; width: 100px; "/></td>
-                                            <td> 
+                                            @if($courses->count()>0)
+                                                @php $i=1; @endphp
+                                                @foreach($courses as $course)
+                                                    @php $img = 'storage/'.$course->img  @endphp
+                                                    <tr>
+                                                        <td>{{ $i }}</td>
+                                                        <td>{{ ucwords($course->title)}}</td>
+                                                        <td><p>
+                                                          {{ ucfirst($course->detail) }}
+                                                        </p></td>
+                                                        <td>{{ ucfirst($course->type) }}</td>
+                                                        <td><img src="{{ asset($img) }}" style="height: 50px; width: 100px; "/></td>
+                                                        <td> 
 
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button    type="button" class="btn btn-primary mdi mdi-delete-alert"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-shield-edit"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                                </div>
-                                            </td>
-                                           
-                                           
-                                        </tr>
-                                      
-                                      
+                                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                                <a href="{{ route('Course.edit',$course->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a>&nbsp;
+                                                                <form style="margin-left: 10px;" method="post" action="{{ route('Course.destroy',$course->id) }}">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <button type="submit" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
+                                                                </form>
+                                                            </div>
+                                                        </td>
+                                                       
+                                                       
+                                                    </tr>
+                                                @endforeach
 
-                                        <tr>
-                                            <td>NodeJs</td>
-                                            <td><p>
-                                                Node. js has been regarded as a full-stack JavaScript for serving both the client and the server-side applications. Therefore, the advantage is that you don't have to hire separate developers for backend as well as the front-end development.
-                                            </p></td>
-                                            <td>Paid</td>
-                                            <td><img src="{{ asset('storage/admin/images/6.jpg') }}" style="height: 50px; width: 100px; "/></td>
-                                            <td> 
-
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button    type="button" class="btn btn-primary mdi mdi-delete-alert"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-shield-edit"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                                </div>
-                                            </td>
-                                           
-                                           
-                                        </tr>
-
-
-
-
-
-
-                                        <tr>
-                                            <td>JavaScript</td>
-                                            <td><p>
-                                                The importance of JavaScript as a web technology can be determined from the fact that it is currently used by 94.5% of all websites.As a client-side Programming language, JavaScript helps custom client-side scripts.
-                                            </p></td>
-                                            <td>Free</td>
-                                            <td><img src="{{ asset('storage/admin/images/5.jpg') }}" style="height: 50px; width: 100px; "/></td>
-                                            <td> 
-
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button    type="button" class="btn btn-primary mdi mdi-delete-alert"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-shield-edit"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                                </div>
-                                            </td>
-                                           
-                                           
-                                        </tr>
-
-
-
+                                            @else
+                                                <tr><td colspan="5" class="text-center">No Course Available</td></tr>
+                                            @endif
 
                               
                                         </tbody>

@@ -21,26 +21,9 @@
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <h4 class="page-title mb-1">Slider View</h4>
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                            <li class="breadcrumb-item active">File Upload</li>
-                            </ol>
                         </div>
                         <div class="col-md-4">
-                            <div class="float-right d-none d-md-block">
-                                <div class="dropdown">
-                                    <button class="btn btn-light btn-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="mdi mdi-settings-outline mr-1"></i> Settings
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                </div>
-                            </div>
+                           
                         </div>
                     </div>
 
@@ -56,8 +39,9 @@
                       
                             <div class="card">
                                 <div class="card-body">
-    
-                                    
+                                    @if(Session::has('msg'))
+                                        <div class="alert alert-success">{{ Session::get('msg') }}</div>
+                                    @endif
     
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
@@ -66,53 +50,45 @@
                                                 <td class="text-center  " colspan="3" style="color:white; font-weight: 600; font-size: larger; " >Slider View</td>
                                               </tr> -->
                                         <tr>
-                                            <th>Slide No.</th>
-                                            <th>Slide</th>
-                                            <th>Actions</th>
+                                            <th>#</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
                                             
                                         </tr>
                                         </thead>
     
     
                                         <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><img src="{{ asset('storage/admin/images/bgnew2.png') }}"  style="height: 50px; width: 150px; "/></td>
-                                            <td> 
+                                            @if($sliders->count()>0)
+                                                @php $i = 1 @endphp
+                                                @foreach($sliders as $slider)
+                                                    @php $img = 'storage/'.$slider->img  @endphp
+                                                    <tr>
+                                                        <td>{{ $i++ }}</td>
+                                                        <td><img src="{{ asset($img) }}"  style="height: 50px; width: 150px; "/></td>
+                                                        <td> 
 
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button    type="button" class="btn btn-primary mdi mdi-delete-alert"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-shield-edit"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                                </div>
-                                            </td>
-                                           
-                                           
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><img src="{{ asset('storage/admin/images/bgnew2.png') }}" style="height: 50px; width: 150px; "/></td>
-                                            <td>
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button    type="button" class="btn btn-primary mdi mdi-delete-alert"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-shield-edit"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                                </div>
-                                            </td>
-                                           
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td><img src="{{ asset('storage/admin/images/bgnew2.png') }}" style="height: 50px; width: 150px; " /></td>
-                                            <td>
-                                                <div class="btn-group" role="group" aria-label="Basic example">
-                                                    <button    type="button" class="btn btn-primary mdi mdi-delete-alert"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-shield-edit"></button>&nbsp;
-                                                    <button type="button" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                                </div>
-                                            </td>
-                                           
-                                        </tr>
+                                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                                <a href="{{ route('Slider.edit',$slider->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a>&nbsp;
+                                                                <form style="margin-left: 10px;" method="post" action="{{ route('Slider.destroy',$slider->id) }}">
+                                                                    @csrf
+                                                                    @method('delete')
+                                                                    <button type="submit" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
+                                                                </form>
+                                                                
+                                                            </div>
+                                                        </td>
+                                                       
+                                                       
+                                                    </tr>
+                                        
+                                                @endforeach
+                                            @else
+
+                                                <tr>
+                                                    <td colspan="3" class="text-center">No Slider Available</td>
+                                                </tr>
+                                            @endif
                               
                                         </tbody>
                                     </table>

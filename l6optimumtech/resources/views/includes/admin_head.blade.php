@@ -4,7 +4,7 @@
 <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
 <meta content="Themesdesign" name="author" />
 <!-- App favicon -->
-<link rel="shortcut icon" href="{{ asset('storage/admin/images/favicon.ico') }}">
+<link rel="shortcut icon" href="{{ asset('storage/admin/images/logo.png') }}">
 
  <!-- Plugins css -->
  <link href="{{ asset('assets/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
