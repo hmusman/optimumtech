@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2020 at 02:13 PM
+-- Generation Time: Aug 07, 2020 at 02:41 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `l6optimumtech`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clients`
+--
+
+CREATE TABLE `clients` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `name`, `url`, `img`, `created_at`, `updated_at`) VALUES
+(2, 'kksecurity', 'www.kksecurity.com', 'admin/images/client/PxdQvBmm0fJOhrGAUITQCMFpNqYqItMFF9K4KGyj.jpeg', '2020-08-07 05:00:22', '2020-08-07 05:12:54');
 
 -- --------------------------------------------------------
 
@@ -50,6 +72,32 @@ INSERT INTO `courses` (`id`, `title`, `detail`, `img`, `type`, `created_at`, `up
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `events`
+--
+
+CREATE TABLE `events` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `event_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `detail`, `event_date`, `address`, `img`, `created_at`, `updated_at`) VALUES
+(1, 'first', 'this is detail', '2020-08-11', 'address', 'admin/images/events/jn9JJl8bytavHSYzQRZDCdLIwriIWj4wgzBaCMbF.jpeg', '2020-08-07 00:39:10', '2020-08-07 00:59:18'),
+(2, 'second', 'this is detail', '2020-08-26', 'thsi is address', 'admin/images/events/U4ay5IG7MxeIT1rrsamNTh4MvbsEMmg2hPIBkyBU.jpeg', '2020-08-07 01:05:50', '2020-08-07 01:05:50'),
+(3, 'third', 'this is detail', '2020-08-29', 'address', 'admin/images/events/Q4tyiI2ikAdJHdiOgwa7NWeEcRZdd1LOatAEt1qq.jpeg', '2020-08-07 01:06:27', '2020-08-07 01:06:27');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -61,6 +109,27 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `galleries`
+--
+
+CREATE TABLE `galleries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `category` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `galleries`
+--
+
+INSERT INTO `galleries` (`id`, `category`, `img`, `created_at`, `updated_at`) VALUES
+(1, 'photo', 'admin/images/gallery/yi3RrHbTGkSFGZZuGIAvetAiKI4zrpt9jKVwebZm.png', '2020-08-07 04:16:16', '2020-08-07 04:24:13');
 
 -- --------------------------------------------------------
 
@@ -84,7 +153,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2020_08_05_124601_create_sliders_table', 1),
 (5, '2020_08_06_091145_courses', 2),
-(6, '2020_08_06_100858_news', 3);
+(6, '2020_08_06_100858_news', 3),
+(7, '2020_08_07_051647_events', 4),
+(8, '2020_08_07_060938_testimonials', 5),
+(9, '2020_08_07_071631_teams', 6),
+(10, '2020_08_07_074802_galleries', 7),
+(11, '2020_08_07_093923_clients', 8);
 
 -- --------------------------------------------------------
 
@@ -101,6 +175,13 @@ CREATE TABLE `news` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `detail`, `news_date`, `img`, `created_at`, `updated_at`) VALUES
+(4, 'first', 'this is latest news', '2020-08-07', 'admin/images/news/qKrismQkIF5mhO4HP6BVt5mmFx307D39KEFXBfnD.jpeg', '2020-08-06 07:16:56', '2020-08-06 07:16:56');
 
 -- --------------------------------------------------------
 
@@ -139,6 +220,52 @@ INSERT INTO `sliders` (`id`, `img`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `teams`
+--
+
+CREATE TABLE `teams` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `teams`
+--
+
+INSERT INTO `teams` (`id`, `name`, `designation`, `detail`, `img`, `created_at`, `updated_at`) VALUES
+(1, 'dddds', 'dd', 'dd', 'admin/images/team/4JcGP5cXVchXva6kWX4yEigLchmmhPYZmVdab3QY.jpeg', '2020-08-07 02:37:43', '2020-08-07 02:41:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testimonials`
+--
+
+CREATE TABLE `testimonials` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `testimonials`
+--
+
+INSERT INTO `testimonials` (`id`, `name`, `designation`, `detail`, `img`, `created_at`, `updated_at`) VALUES
+(1, 'firsts', 'tests', 'details', 'admin/images/testimonials/Xs6szJlkuncoTPbqD9uwlAwjAlCkg7JEtuw6gADp.jpeg', '2020-08-07 01:44:36', '2020-08-07 02:07:20');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -146,6 +273,7 @@ CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -154,8 +282,22 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `user_type`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'administrator', 'admin@gmail.com', 'admin', NULL, '$2y$10$YaQ47Lb/Ry/LFJMBHyjl6u/sNi7r8AAizIPjAtwcnhuKvkHtYqb76', NULL, '2020-08-07 06:23:10', '2020-08-07 06:23:10'),
+(2, 'user', 'test@gmail.com', NULL, NULL, '$2y$10$2DjIoSUJyekIOppbQlj5pei7HtbnqDN2oG9h22yPeP72y4OACmCEq', NULL, '2020-08-07 06:30:38', '2020-08-07 06:30:38');
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `clients`
+--
+ALTER TABLE `clients`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `courses`
@@ -164,9 +306,21 @@ ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `galleries`
+--
+ALTER TABLE `galleries`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -194,6 +348,18 @@ ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `teams`
+--
+ALTER TABLE `teams`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `testimonials`
+--
+ALTER TABLE `testimonials`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -205,10 +371,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `clients`
+--
+ALTER TABLE `clients`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -217,16 +395,22 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `galleries`
+--
+ALTER TABLE `galleries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sliders`
@@ -235,10 +419,22 @@ ALTER TABLE `sliders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `teams`
+--
+ALTER TABLE `teams`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `testimonials`
+--
+ALTER TABLE `testimonials`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

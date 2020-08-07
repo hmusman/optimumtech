@@ -51,7 +51,7 @@
                                                         <div class="alert alert-warning">{{ $message }}</div>
                                                     @enderror
 
-                                                    <form action="{{ route('Testimonial.store') }}" method="post" enctype="multipart/form-data">
+                                                    <form action="{{ route('Team.store') }}" method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
@@ -85,7 +85,7 @@
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture 66*66</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture 262*300</label>
                                                             <div class="col-md-10">
                                                                 <input name="img" type="file">
                                                                 @error('img')

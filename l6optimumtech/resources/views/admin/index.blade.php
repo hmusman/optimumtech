@@ -21,25 +21,8 @@
                             <div class="row align-items-center">
                                 <div class="col-md-8">
                                     <h4 class="page-title mb-1">AdminPanel</h4>
-                                    <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item active">Welcome to Optimum Admin Panel</li>
-                                    </ol>
                                 </div>
                                 <div class="col-md-4">
-                                    <div class="float-right d-none d-md-block">
-                                        <div class="dropdown">
-                                            <button class="btn btn-light btn-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="mdi mdi-settings-outline mr-1"></i> Settings
-                                            </button>
-                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Separated link</a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
 
@@ -59,7 +42,7 @@
                                                     <p class="text-muted">Home Page Slider</p>
 
                                                     <div class="mt-4">
-                                                        <a href="/Admin/AddSliderTicker" class="btn btn-primary btn-sm">Add Slider <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Slider.create') }}" class="btn btn-primary btn-sm">Add Slider <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -108,7 +91,7 @@
                                                     <p class="text-muted">Optimum Courses</p>
 
                                                     <div class="mt-4">
-                                                        <a href="/Admin/AddCourse" class="btn btn-primary btn-sm">Add course <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Course.create') }}" class="btn btn-primary btn-sm">Add course <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -134,7 +117,7 @@
                                                     <p class="text-muted">Upcomming Events</p>
 
                                                     <div class="mt-4">
-                                                        <a href="/Admin/AddUpcomingEvent" class="btn btn-primary btn-sm">Add Event <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Event.create') }}" class="btn btn-primary btn-sm">Add Event <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -158,7 +141,7 @@
                                                     <p class="text-muted">Optimum Home</p>
 
                                                     <div class="mt-4">
-                                                        <a href="HomeFAQs.html" class="btn btn-primary btn-sm">Add FAQ <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="" class="btn btn-primary btn-sm">Add FAQ <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -183,7 +166,7 @@
                                                     <p class="text-muted">Optimum Courses</p>
 
                                                     <div class="mt-4">
-                                                        <a href="/Admin/AddLatestNews" class="btn btn-primary btn-sm">Add course <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('News.create') }}" class="btn btn-primary btn-sm">Add course <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -212,7 +195,7 @@
                                                     <p class="text-muted">Optimum Reviews</p>
 
                                                     <div class="mt-4">
-                                                        <a href="/Admin/AddTestimonial" class="btn btn-primary btn-sm">Add Testimonial <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Testimonial.create') }}" class="btn btn-primary btn-sm">Add Testimonial <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -242,7 +225,7 @@
                                                     <p class="text-muted">Upcomming Events</p>
 
                                                     <div class="mt-4">
-                                                        <a href="/Admin/AddOptimumClient" class="btn btn-primary btn-sm">Add Client <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Client.create') }}" class="btn btn-primary btn-sm">Add Client <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 

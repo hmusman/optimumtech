@@ -20,7 +20,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Add Testimonials
+                            <h4 class="page-title mb-1">Update Team
                         </div>
                         <div class="col-md-4">
                         </div>
@@ -46,17 +46,14 @@
                                             <div class="card">
                                                 <div class="card-body">
             
-                                                    <h4 class="header-title">Testimonial </h4>
-                                                    @error('warningMsg')
-                                                        <div class="alert alert-warning">{{ $message }}</div>
-                                                    @enderror
-
-                                                    <form action="{{ route('Testimonial.store') }}" method="post" enctype="multipart/form-data">
+                                                    <h4 class="header-title"> Update Team Member </h4>
+                                                    <form action="{{ route('Team.update',$member->id) }}" method="post" enctype="multipart/form-data">
                                                         @csrf
+                                                        @method('put')
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
                                                             <div class="col-md-10">
-                                                                <textarea id="textarea" class="form-control" name="detail" maxlength="95" rows="3" placeholder="This textarea has a limit of 95 chars.">{{ old('detail') }}</textarea>
+                                                                <textarea id="textarea" class="form-control" name="detail" maxlength="95" rows="3" placeholder="This textarea has a limit of 95 chars.">{{ $member->detail }}</textarea>
                                                                 @error('detail')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
@@ -67,7 +64,7 @@
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" type="text" name="name" value="{{ old('name') }}" maxlength="100" placeholder="Enter  title" id="example-text-input">
+                                                                <input class="form-control" type="text" name="name" value="{{ $member->name }}" maxlength="100" placeholder="Enter  title" id="example-text-input">
                                                                 @error('name')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
@@ -77,7 +74,7 @@
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Designation</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="designation" value="{{ old('designation') }}"  type="text" maxlength="100" placeholder="Enter  Designation" id="example-text-input">
+                                                                <input class="form-control" name="designation" value="{{ $member->designation }}"  type="text" maxlength="100" placeholder="Enter  Designation" id="example-text-input">
                                                                 @error('designation')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
@@ -85,9 +82,12 @@
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture 66*66</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture 262*300</label>
                                                             <div class="col-md-10">
+                                                                @php $img = 'storage/'.$member->img  @endphp
+                                                                <input type="hidden" name="oldImg" value="{{ $member->img }}">
                                                                 <input name="img" type="file">
+                                                                <img src="{{ asset($img) }}" style="width: 100px; height: 100px;">
                                                                 @error('img')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror  
@@ -105,7 +105,7 @@
 
                                                       
                                                         <div class="mt-4">
-                                                            <button type="submit" class="btn btn-primary waves-effect waves-light" type="submit">Save</button>
+                                                            <button type="submit" class="btn btn-primary waves-effect waves-light" type="submit">Update</button>
                                                         </div>
 
                                                     </form>

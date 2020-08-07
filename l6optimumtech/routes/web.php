@@ -30,22 +30,28 @@ Route::view('OffshoreITStaffing','offshore_it');
 Route::view('Domain&Hosting','domain_hosting');
 Route::view('Outsourcing','outsourcing');
 Route::view('TaxationAudit','taxation_audit');
-Route::view('Admin','admin.index');
-Route::prefix('Admin')->group(function(){
 
+Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function(){
 
+	Route::view('/','admin.index');
 	Route::resource('/Course','CourseController');
 	Route::view('/AddLatestNews','admin.add_latest_news');
 	Route::view('/AddOptimumClient','admin.add_optimum_client');
 	Route::resource('/Slider','SliderController');
 	Route::view('/AddTestimonial','admin.add_testimonial');
-	Route::view('/AddUpcomingEvent','admin.add_upcoming_event');
+	Route::resource('/Event','EventController');
 	Route::view('/ViewCourses','admin.view_courses');
 	Route::resource('/News','NewModelController');
-	Route::view('/ViewClients','admin.view_clients');
+	Route::resource('/Client','ClientController');
 	Route::view('/ViewSliders','admin.view_sliders');
-	Route::view('/ViewTestimonials','admin.view_testimonials');
+	Route::resource('/Testimonial','TestimonialController');
+	Route::resource('/Team','TeamController');
+	Route::resource('/Gallery','GalleryController');
 	Route::view('/ViewUpcomingEvents','admin.view_events');
 
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

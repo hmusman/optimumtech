@@ -21,25 +21,11 @@
                     <div class="row align-items-center">
                         <div class="col-md-8">
                             <h4 class="page-title mb-1">Testimonial View</h4>
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                            <li class="breadcrumb-item active">File Upload</li>
-                            </ol>
+                           
                         </div>
                         <div class="col-md-4">
                             <div class="float-right d-none d-md-block">
-                                <div class="dropdown">
-                                    <button class="btn btn-light btn-rounded dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="mdi mdi-settings-outline mr-1"></i> Settings
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -56,115 +42,61 @@
                       
                             <div class="card">
                                 <div class="card-body">
-    
                                     
+                                    @if(Session::has('msg'))
+                                        <div class="alert alert-success">{{ Session::get('msg') }}</div>
+                                    @endif
     
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
-                                            <!-- <tr style="background-color: #626363;">
-                                                <td class="text-center  " colspan="6" style="color:white; font-weight: 600; font-size: larger; " >Testimonial View</td>
-                                              </tr> -->
-                                        <tr>
-                                           
-                                            <th>Testimonial Detail</th>
-                                            <th>Person Name</th>
-                                             <th>Person Designation</th>
-                                         <th>Person Location</th>
-                                         <th>Person Picture</th>
-                                         <th>Action</th>
-                                        </tr>
+                                          
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Detail</th>
+                                                <th>Designation</th>
+                                                <th>Picture</th>
+                                                <th>Action</th>
+                                            </tr>
+
                                         </thead>
     
     
                                         <tbody>
-                                        <tr>
+
+                                            @if($testimonials->count()>0)
+                                                @php $i=1 @endphp
+                                                @foreach($testimonials as $testimonial)
+                                                    @php $img = 'storage/'.$testimonial->img @endphp
+                                                    <tr>
+                                                        <td>{{ $i++ }}</td>
+                                                        <td> {{ ucfirst($testimonial->name)}}</td>
+                                                        <td><p>
+                                                            {{ ucfirst($testimonial->detail) }}
+                                                        </p></td>
+                                                        <td> {{ ucfirst($testimonial->designation) }}</td>
+                                                        <td><img src="{{ asset($img) }} "/></td>
+                                                       <td>
+                                                         
+                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                           <a href="{{ route('Testimonial.edit',$testimonial->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a>&nbsp;
+                                                            <form style="margin-left: 10px;" method="post" action="{{ route('Testimonial.destroy',$testimonial->id) }}">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button type="submit" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
+                                                            </form>
+                                                        </div>
+                                                       </td>
+                                                    </tr>
+                                                @endforeach
+
+                                            @else
+                                                <tr><td colspan="6" class="text-center">No Testimonial Available</td></tr>
+
+                                            @endif
+
                                             
-                                            <td><p>
-                                                Optimum-Tech Service. Himanshu and the team have always provided us with a prompt, reliable, and top rated service. Not only do they resolve any of our hardware 
-                                                or software technical issues quickly and efficiently but do so with a very personable nature
-                                            </p></td>
-
-
-											<td>Michael A. Monroeville Dodge</td>
-
-                                            <td>Chlinical Chemistry Technologist</td>
-											<td>Officeal All Star Cafe</td>
-                                            <td><img src="{{ asset('storage/admin/images/jack.jpg') }} " style="width: 180px; height: 110px; " /></td>
-                                           <td>
-                                             
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button    type="button" class="btn btn-primary mdi mdi-delete-alert"></button>&nbsp;
-                                                <button type="button" class="btn btn-primary mdi mdi-shield-edit"></button>&nbsp;
-                                                <button type="button" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                            </div>
-                                           </td>
-                                        </tr>
-
-
-
-
-
-
-                                        <tr>
-                                            
-                                            <td><p>
-                                                Optimum-Tech Service. Himanshu and the team have always provided us with a prompt, reliable, and top rated service. Not only do they resolve any of our hardware 
-                                                or software technical issues quickly and efficiently but do so with a very personable nature
-                                            </p></td>
-
-
-											<td>Michael A. Monroeville Dodge</td>
-
-                                            <td>Chlinical Chemistry Technologist</td>
-											<td>Officeal All Star Cafe</td>
-                                            <td><img src="{{ asset('storage/admin/images/jack.jpg') }}" style="width: 180px; height: 110px; " /></td>
-                                           <td>
-                                             
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button    type="button" class="btn btn-primary mdi mdi-delete-alert"></button>&nbsp;
-                                                <button type="button" class="btn btn-primary mdi mdi-shield-edit"></button>&nbsp;
-                                                <button type="button" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                            </div>
-                                           </td>
-                                        </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-                                        <tr>
-                                            
-                                            <td><p>
-                                                Optimum-Tech Service. Himanshu and the team have always provided us with a prompt, reliable, and top rated service. Not only do they resolve any of our hardware 
-                                                or software technical issues quickly and efficiently but do so with a very personable nature
-                                            </p></td>
-
-
-											<td>Michael A. Monroeville Dodge</td>
-
-                                            <td>Chlinical Chemistry Technologist</td>
-											<td>Officeal All Star Cafe</td>
-                                            <td><img src="{{ asset('storage/admin/images/jack.jpg') }}" style="width: 180px; height: 110px; " /></td>
-                                           <td>
-                                             
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <button    type="button" class="btn btn-primary mdi mdi-delete-alert"></button>&nbsp;
-                                                <button type="button" class="btn btn-primary mdi mdi-shield-edit"></button>&nbsp;
-                                                <button type="button" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                            </div>
-                                           </td>
-                                        </tr>
-
-                                      
-
                                                     
                                         </tbody>
                                     </table>

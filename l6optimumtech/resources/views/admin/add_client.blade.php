@@ -11,7 +11,7 @@
 
 @section('content')
 	
-	 <div class="main-content">
+	<div class="main-content">
 
         <div class="page-content">
 
@@ -20,9 +20,10 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Add Testimonials
+                            <h4 class="page-title mb-1">Add Clients</h4>
                         </div>
                         <div class="col-md-4">
+                            
                         </div>
                     </div>
 
@@ -40,65 +41,49 @@
                       
                             <div class="card">
                                 <div class="card-body">
+                                    <h4 class="header-title">Add Client</h4>
+                                  
                                     <!-- Tab panes -->
                                     <div class="tab-content p-3">
                                         <div class="tab-pane active" id="home-1" role="tabpanel">
                                             <div class="card">
                                                 <div class="card-body">
             
-                                                    <h4 class="header-title">Testimonial </h4>
-                                                    @error('warningMsg')
-                                                        <div class="alert alert-warning">{{ $message }}</div>
-                                                    @enderror
-
-                                                    <form action="{{ route('Testimonial.store') }}" method="post" enctype="multipart/form-data">
+                                                    <form action="{{ route('Client.store') }}" method="post" enctype="multipart/form-data">
                                                         @csrf
-                                                        <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
-                                                            <div class="col-md-10">
-                                                                <textarea id="textarea" class="form-control" name="detail" maxlength="95" rows="3" placeholder="This textarea has a limit of 95 chars.">{{ old('detail') }}</textarea>
-                                                                @error('detail')
-                                                                    <p class="text-danger mt-3">{{ $message }}</p>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
-
-                                                        
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" type="text" name="name" value="{{ old('name') }}" maxlength="100" placeholder="Enter  title" id="example-text-input">
+                                                                <input name="name" class="form-control" value="{{ old('name') }}" type="text" maxlength="100" placeholder="Enter Client Name" id="example-text-input">
                                                                 @error('name')
-                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                    <p class="text-danger mt-3 ">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Designation</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label"> Site Url</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="designation" value="{{ old('designation') }}"  type="text" maxlength="100" placeholder="Enter  Designation" id="example-text-input">
-                                                                @error('designation')
-                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                <input class="form-control" type="text"  value="{{ old('url') }}" name="url" maxlength="100" placeholder="Enter Site Link" id="example-text-input">
+                                                                @error('url')
+                                                                    <p class="text-danger mt-3 ">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture 66*66</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label"> Logo 200*120</label>
                                                             <div class="col-md-10">
                                                                 <input name="img" type="file">
                                                                 @error('img')
-                                                                    <p class="text-danger mt-3">{{ $message }}</p>
-                                                                @enderror  
-
+                                                                    <p class="text-danger mt-3 ">{{ $message }}</p>
+                                                                @enderror
                                                                 @error('sizeWarning')
-                                                                    <p class="text-danger mt-3">{{ $message }}</p>
-                                                                @enderror  
-
+                                                                    <p class="text-danger mt-3 ">{{ $message }}</p>
+                                                                @enderror
                                                                 @error('extWarning')
-                                                                    <p class="text-danger mt-3">{{ $message }}</p>
-                                                                @enderror    
+                                                                    <p class="text-danger mt-3 ">{{ $message }}</p>
+                                                                @enderror
                                                             </div>
                                                         </div>
 
@@ -109,7 +94,8 @@
                                                         </div>
 
                                                     </form>
-                                                    
+
+
                                                 </div>
                                             </div>
                                         </div>
@@ -127,7 +113,8 @@
             </div> 
             <!-- end page-content-wrapper -->
         </div>
-        <!-- End Page-content -->
+        <!-- End Page-content -->   
+   
     </div>
 
 @endsection<!-- end content -->
