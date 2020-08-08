@@ -15,18 +15,18 @@
 		
 		<!-- Section: home -->
 	    <section id="home" class="divider"  style="background-color: #f7f7f7;">
-		    <div id="sync1" class="owl-carousel owl-theme">
-		      <div class="item">
-		        <!-- <h1>1</h1> -->
-		        <img src="{{  asset('storage/images/bg/bgnew1.png') }}" alt="">
-		      </div>
-		      <div class="item">
-		        <img src="{{  asset('storage/images/bg/bgnew2.png') }}" alt="">
-		      </div>
-		      <div class="item">
-		        <img src="{{  asset('storage/images/bg/bgnew3.png') }}" alt="">
-		      </div>
-		    </div>
+	    	@if($sliders->count()>0)
+		    	<div id="sync1" class="owl-carousel owl-theme">
+		    		@foreach($sliders as $slider)
+		    			@php $sliderImg = 'storage/'.$slider->img @endphp
+		    			<div class="item">					       
+		    				<img src="{{  asset($sliderImg) }}" alt="">
+					    </div>
+
+		    		@endforeach
+			    </div>
+	    	@endif
+		    
 	    </section>
 	     
 	    <!-- Section News Ticker -->
@@ -64,11 +64,14 @@
 		        <div class="container pb-60">
 		          <div class="section-title mb-10">
 		            <div class="row">
-		              <div class="col-md-4">
-		                <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Free <span
+		              <div class="col-md-3">
+		              	@if($freeCourses->count()>0)
+		              		 <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Free <span
 		                    class="text-theme-color-2 font-weight-400">COURSES</span></h2>
+		              	@endif
+		               
 		              </div>
-		              <div class="col-md-8">
+		              <div class="col-md-9">
 		                <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Premium <span
 		                    class="text-theme-color-2 font-weight-400">Services</span></h2>
 		              </div>
@@ -78,303 +81,151 @@
 		            <div class="row">
 
 		              <div class="col-md-3">
-		                <div class="autoplay" data-dots="true">
-		                  <div class="item ">
-		                    <div class="service-block bg-white">
-		                      <div class="thumb"> <img alt="featured project" src="{{  asset('storage/images/project/4.jpg') }}" class="img-fullwidth">
-		                        <h4 class="text-white mt-0 mb-0"><span class="price">Free</span></h4>
-		                      </div>
-		                      <div class="content text-left flip p-25 pt-0">
-		                        <h4 class="line-bottom mb-10">Php Developer</h4>
-		                        <p  style="text-align: justify;">A PHP developer is a professional who develops applications, programs, and websites, using the dynamic scripting language called PHP.Sometimes, PHP developers are referred to “software developer”.</p>
-		                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
-		                          href="/FreeCourses" target="_blank">view details</a>
-		                      </div>
-		                    </div>
-		                  </div>
-		                  <div class="item">
-		                    <div class="service-block mb-md-30 bg-white">
-		                      <div class="thumb"> <img alt="featured project" src="{{  asset('storage/images/project/5.jpg') }}"
-		                          class="img-responsive img-fullwidth">
-		                        <h4 class="text-white mt-0 mb-0"><span class="price">Free</span></h4>
-		                      </div>
-		                      <div class="content text-left flip p-25 pt-0">
-		                        <h4 class="line-bottom mb-10">Java Script Developer</h4>
-		                        <p style="text-align: justify;"> The importance of JavaScript as a web technology can be determined from the fact that it is currently used by 94.5% of all websites.As a client-side Programming language, JavaScript helps custom client-side scripts.</p>
-		                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
-		                        href="/FreeCourses" target="_blank">view details</a>
-		                      </div>
-		                    </div>
-		                  </div>
-		                  <div class="item">
-		                    <div class="service-block mb-md-30 bg-white">
-		                      <div class="thumb"> <img alt="featured project" src="{{  asset('storage/images/project/6.jpg') }}"
-		                          class="img-responsive img-fullwidth">
-		                        <h4 class="text-white mt-0 mb-0"><span class="price">Free</span></h4>
-		                      </div>
-		                      <div class="content text-left flip p-25 pt-0">
-		                        <h4 class="line-bottom mb-10">Node.Js Developer</h4>
-		                        <p style="text-align: justify;">Node. js has been regarded as a full-stack JavaScript for serving both the client and the server-side applications. Therefore, the advantage is that you don't have to hire separate developers for backend as well as the front-end development.</p>
-		                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
-		                        href="/FreeCourses" target="_blank">view details</a>
-		                      </div>
-		                    </div>
-		                  </div>
-		                  <div class="item">
-		                    <div class="service-block mb-md-30 bg-white">
-		                      <div class="thumb"> <img alt="featured project" src="{{  asset('storage/images/project/7.jpg') }}"
-		                          class="img-responsive img-fullwidth">
-		                        <h4 class="text-white mt-0 mb-0"><span class="price">Free</span></h4>
-		                      </div>
-		                      <div class="content text-left flip p-25 pt-0">
-		                        <h4 class="line-bottom mb-10">Html Css Training</h4>
-		                        <p style="text-align: justify;">HTML,CSS plays a key role in web pages: It tells browsers how to display and Design the contents of a page, using special instructions called tags that tell a browser when to start a paragraph, italicize a word, or display a picture.</p>
-		                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
-		                        href="/FreeCourses" target="_blank">view details</a>
-		                      </div>
-		                    </div>
-		                  </div>
-		                  <div class="item">
-		                    <div class="service-block mb-md-30 bg-white">
-		                      <div class="thumb"> <img alt="featured project" src="{{  asset('storage/images/project/8.jpg') }}"
-		                          class="img-responsive img-fullwidth">
-		                        <h4 class="text-white mt-0 mb-0"><span class="price">Free</span></h4>
-		                      </div>
-		                      <div class="content text-left flip p-25 pt-0">
-		                        <h4 class="line-bottom mb-10">Photoshop</h4>
-		                        <p style="text-align: justify;">Adobe Photoshop is a critical tool for designers, web developers, graphic artists, photographers, and creative professionals. It is widely used for image editing, retouching, creating image compositions, website mockups,and affects.</p>
-		                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
-		                        href="/FreeCourses" target="_blank">view details</a>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div>
+		              	@if($freeCourses->count()>0)
+		              		<div class="autoplay" data-dots="true">
+		              			@foreach($freeCourses as $course)
+		              				@php $img = 'storage/'.$course->img  @endphp
+		              				<div class="item ">
+					                    <div class="service-block bg-white">
+					                      <div class="thumb"> <img alt="featured project" src="{{  asset($img) }}" class="img-fullwidth">
+					                        <h4 class="text-white mt-0 mb-0"><span class="price">Free</span></h4>
+					                      </div>
+					                      <div class="content text-left flip p-25 pt-0">
+					                        <h4 class="line-bottom mb-10">{{ ucfirst($course->title) }}</h4>
+					                        <p  style="text-align: justify;">{{ ucfirst($course->detail) }}</p>
+					                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
+					                          href="" target="_blank">view details</a>
+					                      </div>
+					                    </div>
+					                </div>	
+		              			@endforeach
+				                
+				                  
+				            </div>
+
+		              	@endif
+		                
 		              </div>
 		              <div class="col-md-9" >
 		                <div class="row ">
-		                  	<div  class="col-lg-4 col-md-4 col-sm-4" >
-			                    <div class="card effect__hover" style="min-height: 243px !important;">
-			                      <div class="card__front border-3px bg-lighter">
-			                          <div class="card__text">
-			                            <div class="display-table-parent">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">
-			                                  <div class="icon-box mb-0">
-			                                    <a href="#" class="icon mb-0">
-			                                      <i class="text-theme-colored pe-7s-phone font-72" style="color: #087b92 !important;"></i>
-			                                    </a>
-			                                    <h3  class="icon-box-title text-theme-colored">Online Learning</h3>
-			                                  </div>
-			                                </div>
-			                              </div>
-			                            </div>
-			                          </div>
-			                       </div>
-			                      <div class="card__back" data-bg-color="#202c45">
-			                        <div class="card__text">
-			                          <div class="display-table-parent p-30">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">
-			                                  <h3 id="specialhed" class="text-theme-color-2">Online Learning</h3>
-			                                  <p id="specialp" class="text-gray-lightgray">
-			                                    It gives you more flexibility. ...
-			                                 
-			                    
-			                                    Self-discipline and responsibility. ...
-			                                    More choice of course topics.</p>
-			                                  <a href="/OnlineLearning" class="btn btn-default mt-10"> Read More </a>
-			                                </div>
-			                              </div>
-			                          </div>
-			                        </div>
-			                      </div>
-			                    </div>
-		                  	</div>
+		                  	
+		                  	@if($courses->count()>0)
+		                  	
+		                  		<div  class="col-lg-4 col-md-4 col-sm-4"   >
+				                    <div class="card effect__hover" style="min-height: 243px !important;">
+				                      <div class="card__front border-3px bg-lighter">
+				                          <div class="card__text">
+				                            <div class="display-table-parent">
+				                              <div class="display-table">
+				                                <div class="display-table-cell">
+				                                  <div class="icon-box mb-0">
+				                                    <a href="#" class="icon mb-0">
+				                                      <i class="text-theme-colored pe-7s-note2 font-72" style="color: #087b92 !important;"></i>
+				                                    </a>
+				                                    <h3  class="icon-box-title text-theme-colored">Certification Courses</h3>
+				                                  </div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </div>
+				                       </div>
+				                      <div class="card__back" data-bg-color="#202c45">
+				                        <div class="card__text">
+				                          <div class="display-table-parent p-30">
+				                              <div class="display-table">
+				                                <div class="display-table-cell">
+				                                  <h3 id="specialhed" class="text-theme-color-2">Certification Courses</h3>
+				                                  <p id="specialp" class="text-gray-lightgray">Web Designing, Web Development , React , PHP , NodeJs , Cloud , Docker , Flutter , MongoDB , .NET</p>
+				                                  <a href="/Courses" class="btn btn-default mt-10"> Read More </a>
+				                                </div>
+				                              </div>
+				                          </div>
+				                        </div>
+				                      </div>
+				                    </div>
+			                  	</div>
 
-		                  	<div  class="col-lg-4 col-md-4 col-sm-4"   >
-			                    <div class="card effect__hover" style="min-height: 243px !important;">
-			                      <div class="card__front border-3px bg-lighter">
-			                          <div class="card__text">
-			                            <div class="display-table-parent">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">
-			                                  <div class="icon-box mb-0">
-			                                    <a href="#" class="icon mb-0">
-			                                      <i class="text-theme-colored pe-7s-note2 font-72" style="color: #087b92 !important;"></i>
-			                                    </a>
-			                                    <h3  class="icon-box-title text-theme-colored">Certification Courses</h3>
-			                                  </div>
-			                                </div>
-			                              </div>
-			                            </div>
-			                          </div>
-			                       </div>
-			                      <div class="card__back" data-bg-color="#202c45">
-			                        <div class="card__text">
-			                          <div class="display-table-parent p-30">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">
-			                                  <h3 id="specialhed" class="text-theme-color-2">Certification Courses</h3>
-			                                  <p id="specialp" class="text-gray-lightgray">Web Designing, Web Development , React , PHP , NodeJs , Cloud , Docker , Flutter , MongoDB , .NET</p>
-			                                  <a href="/Courses" class="btn btn-default mt-10"> Read More </a>
-			                                </div>
-			                              </div>
-			                          </div>
-			                        </div>
-			                      </div>
-			                    </div>
-		                  	</div>
+		                  	@endif
 
-						  	<div  class="col-lg-4 col-md-4 col-sm-4"  >
-							  <div class="card effect__hover" style="min-height: 243px !important;">
-							    <div class="card__front border-3px bg-lighter">
-							        <div class="card__text">
-							          <div class="display-table-parent">
-							            <div class="display-table">
-							              <div class="display-table-cell">
-							                <div class="icon-box mb-0">
-							                  <a href="#" class="icon mb-0">
-							                    <i class="text-theme-colored pe-7s-gift font-72" style="color: #087b92 !important;"></i>
-							                  </a>
-							                  <h3  class="icon-box-title text-theme-colored">Our Products</h3>
-							                </div>
-							              </div>
-							            </div>
-							          </div>
-							        </div>
-							     </div>
-							    <div class="card__back" data-bg-color="#202c45">
-							      <div class="card__text">
-							        <div class="display-table-parent p-30">
-							            <div class="display-table">
-							              <div class="display-table-cell">
-							                <h3 id="specialhed" class="text-theme-color-2">Our Products</h3>
-							                <p id="specialp" class="text-gray-lightgray">Our Products  are positively associated with student achievement gains throughout a teacher's career</p>
-							                <a href="/Products" class="btn btn-default mt-10"> Read More </a>
-							              </div>
-							            </div>
-							        </div>
-							      </div>
-							    </div>
-							  </div>  
-							</div>
+		                  	@if($products->count()>0)
+		                  		
+		                  		<div  class="col-lg-4 col-md-4 col-sm-4"  >
+								  <div class="card effect__hover" style="min-height: 243px !important;">
+								    <div class="card__front border-3px bg-lighter">
+								        <div class="card__text">
+								          <div class="display-table-parent">
+								            <div class="display-table">
+								              <div class="display-table-cell">
+								                <div class="icon-box mb-0">
+								                  <a href="#" class="icon mb-0">
+								                    <i class="text-theme-colored pe-7s-gift font-72" style="color: #087b92 !important;"></i>
+								                  </a>
+								                  <h3  class="icon-box-title text-theme-colored">Our Products</h3>
+								                </div>
+								              </div>
+								            </div>
+								          </div>
+								        </div>
+								     </div>
+								    <div class="card__back" data-bg-color="#202c45">
+								      <div class="card__text">
+								        <div class="display-table-parent p-30">
+								            <div class="display-table">
+								              <div class="display-table-cell">
+								                <h3 id="specialhed" class="text-theme-color-2">Our Products</h3>
+								                <p id="specialp" class="text-gray-lightgray">Our Products  are positively associated with student achievement gains throughout a teacher's career</p>
+								                <a href="/Products" class="btn btn-default mt-10"> Read More </a>
+								              </div>
+								            </div>
+								        </div>
+								      </div>
+								    </div>
+								  </div>  
+								</div>
+
+		                  	@endif
+
+		                  	@if($services->count()>0)
+		                  		
+		                  		<div  class="col-lg-4 col-md-4 col-sm-4"  >
+				                    <div class="card effect__hover" style="min-height: 243px !important; ">
+				                      <div class="card__front border-3px bg-lighter">
+				                          <div class="card__text">
+				                            <div class="display-table-parent">
+				                              <div class="display-table">
+				                                <div class="display-table-cell">z
+				                                  <div class="icon-box mb-0">
+				                                    <a href="#" class="icon mb-0" style="
+				                                    margin-top: -20px;">
+				                                      <i class="text-theme-colored pe-7s-world font-72" style="color: #087b92 !important;"></i>
+				                                    </a>
+				                                    <h3  class="icon-box-title text-theme-colored" style="color: #626363 !important">Services</h3>
+				                                  </div>
+				                                </div>
+				                              </div>
+				                            </div>
+				                          </div>
+				                       </div>
+				                      <div class="card__back" data-bg-color="#202c45">
+				                        <div class="card__text">
+				                          <div class="display-table-parent p-30">
+				                              <div class="display-table">
+				                                <div class="display-table-cell">
+				                                  <h3 id="specialhed" class="text-theme-color-2">Services</h3>
+				                                  <p id="specialp" class="text-gray-lightgray">our Services is a way of analyzing and building websites so that they can be found a lot easier 
+				                                    when they are indexed by the Search Engines. </p>
+				                                  <a href="/Services" class="btn btn-default mt-10"> Read More </a>
+				                                </div>
+				                              </div>
+				                          </div>
+				                        </div>
+				                      </div>
+				                    </div>
+			                    </div>
+
+		                  	@endif
 
 		                </div>
-
-
-		                <br/>
-
-		                <div class="row" style="height: 50%;">
-		                    <div  class="col-lg-4 col-md-4 col-sm-4"  >
-			                    <div class="card effect__hover" style="min-height: 243px !important; ">
-			                      <div class="card__front border-3px bg-lighter">
-			                          <div class="card__text">
-			                            <div class="display-table-parent">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">z
-			                                  <div class="icon-box mb-0">
-			                                    <a href="#" class="icon mb-0" style="
-			                                    margin-top: -20px;">
-			                                      <i class="text-theme-colored pe-7s-world font-72" style="color: #087b92 !important;"></i>
-			                                    </a>
-			                                    <h3  class="icon-box-title text-theme-colored" style="color: #626363 !important">Services</h3>
-			                                  </div>
-			                                </div>
-			                              </div>
-			                            </div>
-			                          </div>
-			                       </div>
-			                      <div class="card__back" data-bg-color="#202c45">
-			                        <div class="card__text">
-			                          <div class="display-table-parent p-30">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">
-			                                  <h3 id="specialhed" class="text-theme-color-2">Services</h3>
-			                                  <p id="specialp" class="text-gray-lightgray">our Services is a way of analyzing and building websites so that they can be found a lot easier 
-			                                    when they are indexed by the Search Engines. </p>
-			                                  <a href="/Services" class="btn btn-default mt-10"> Read More </a>
-			                                </div>
-			                              </div>
-			                          </div>
-			                        </div>
-			                      </div>
-			                    </div>
-		                    </div>
-
-		                  	<div  class="col-lg-4 col-md-4 col-sm-4"  >
-			                    <div class="card effect__hover" style="min-height: 243px !important;">
-			                      <div class="card__front border-3px bg-lighter">
-			                          <div class="card__text">
-			                            <div class="display-table-parent">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">
-			                                  <div class="icon-box mb-0">
-			                                    <a href="#" class="icon mb-0">
-			                                      <i class="text-theme-colored pe-7s-display1 font-72" style="color: #087b92 !important;"></i>
-			                                    </a>
-			                                    <h3  class="icon-box-title text-theme-colored">Designing and Printing</h3>
-			                                  </div>
-			                                </div>
-			                              </div>
-			                            </div>
-			                          </div>
-			                       </div>
-			                      <div class="card__back" data-bg-color="#202c45">
-			                        <div class="card__text">
-			                          <div class="display-table-parent p-30">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">
-			                                  <h3 id="specialhed" class="text-theme-color-2">Designing and Printing</h3>
-			                                  <p id="specialp" class="text-gray-lightgray">As an IT Service Provider, OPTIMUM TECH strives to provide our customers quality
-			                                     application development services.</p>
-			                                  <a href="/DesigningAndPrint" class="btn btn-default mt-10"> Read More </a>
-			                                </div>
-			                              </div>
-			                          </div>
-			                        </div>
-			                      </div>
-			                    </div>
-		                  	</div>
-
-		                  	<div  class="col-lg-4 col-md-4 col-sm-4"  >
-			                  	 <div class="card effect__hover" style="min-height: 243px !important;">
-			                      <div class="card__front border-3px bg-lighter">
-			                          <div class="card__text">
-			                            <div class="display-table-parent">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">
-			                                  <div class="icon-box mb-0">
-			                                    <a href="#" class="icon mb-0" style="
-			                                    margin-top: -10px;">
-			                                      <i class="text-theme-colored pe-7s-plane font-72" style="color: #087b92 !important;"></i>
-			                                    </a>
-			                                    <h3  class="icon-box-title text-theme-colored">Tourism</h3>
-			                                  </div>
-			                                </div>
-			                              </div>
-			                            </div>
-			                          </div>
-			                       </div>
-			                      <div class="card__back" data-bg-color="#202c45">
-			                        <div class="card__text">
-			                          <div class="display-table-parent p-30">
-			                              <div class="display-table">
-			                                <div class="display-table-cell">
-			                                  <h3 id="specialhed" class="text-theme-color-2">Tourism</h3>
-			                                  <p id="specialp" class="text-gray-lightgray"> Tourism is travel for pleasure or business; also the theory and practice of touring, the business of attracting, accommodating, and entertaining tourists, and the business of operating tours.
-			                                   </p>
-			                                  <a href="/Tourism" class="btn btn-default mt-10"> Read More </a>
-			                                </div>
-			                              </div>
-			                          </div>
-			                        </div>
-			                      </div>
-			                    </div>
-		                  
-		                  
-		                  	</div>
-		                </div>
-
 
 
 		            </div>
@@ -383,75 +234,51 @@
 		        </div>
 	      	</section>
 			 <!-- Section: team -->
-		     <section>
-		        <div class="container">
-		          <div class="section-title mb-10">
-		            <div class="row">
-		              <div class="col-md-12">
-		                <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Our <span
-		                    class="text-theme-color-2 font-weight-400">Team</span></h2>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="section-content">
-		            <div class="row multi-row-clearfix">
-		              <div class="col-sm-6 col-md-3 sm-text-center mb-sm-30">
-		                <div class="team maxwidth400" style="margin-right: -7px !important">
-		                  <div class="thumb"><img  class="img-fullwidthnew" src="{{  asset('storage/images/ahsan.jpg') }}" alt=""></div>
-		                  <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
-		                    <h4 class="name text-theme-color-2 mt-0">Ahsan Raza - <small>Co Founder</small></h4>
-		                    <p class="mb-20">OPTIMUM-TECH enjoying a very positive reputation across the town by the grace of Allah Almighty.
-		                     </p>
-		                    <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
-		                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-		                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-		                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-		                    </ul>
-		                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="/CoFounder" target="_blank">
-		                      Detail</a>
-		                  </div>
-		                </div>
-		              </div>
-		              <div class="col-sm-6 col-md-3 sm-text-center mb-sm-30">
-		                <div class="team maxwidth400" style="margin-right: -7px !important">
-		                  <div class="thumb"><img class="img-fullwidthnew" src="{{  asset('storage/images/campus.jpg') }}" alt=""></div>
-		                  <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
-		                    <h4 class="name mt-0 text-theme-color-2">Ali - <small>Campus Manager</small></h4>
-		                    <p class="mb-20"> Our main focus is to make our Students enough capable to support their family financially.</p>
-		                    <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
-		                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-		                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-		                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-		                    </ul>
-		                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="/CampusManager" target="_blank" >
-		                      Detail</a>
-		                  </div>
-		                </div>
-		              </div>
-		              <div class="col-sm-6 col-md-3 sm-text-center mb-sm-30">
-		                <div class="team maxwidth400" style="margin-right: -7px !important">
-		                  <div class="thumb"><img  class="img-fullwidthnew" src="{{  asset('storage/images/tour.jpg') }}" alt=""></div>
-		                  <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
-		                    <h4 class="name mt-0 text-theme-color-2">Ali - <small>Head Tourism</small></h4>
-		                    <p class="mb-20">Tourism is travel for pleasure to boost energy of our staff and students to become mentally Strong. </p>
-		                    <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
-		                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-		                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-		                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-		                    </ul>
-		                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="/HeadTourism" target="_blank" >
-		                      Detail</a>
-		                  </div>
-		                </div>
-		              </div>
+		    @if($members->count()>0)
 
-		            </div>
-		          </div>
-		        </div>
-		    </section>
+			    <section>
+			        <div class="container">
+			          <div class="section-title mb-10">
+			            <div class="row">
+			              <div class="col-md-12">
+			                <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Our <span
+			                    class="text-theme-color-2 font-weight-400">Team</span></h2>
+			              </div>
+			            </div>
+			          </div>
+			          <div class="section-content">
+			            <div class="row multi-row-clearfix">
+			            	@foreach($members as $member)
+			            		@php $img = 'storage/'.$member->img @endphp
+			            		<div class="col-sm-6 col-md-3 sm-text-center mb-sm-30">
+					                <div class="team maxwidth400" style="margin-right: -7px !important">
+					                  	<div class="thumb"><img  class="img-fullwidthnew" src="{{  asset($img) }}" alt=""></div>
+						                <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
+						                    <h4 class="name text-theme-color-2 mt-0">{{ $member->name }} - <small>{{ $member->designation }}</small></h4>
+						                    <p class="mb-20">{{ $member->detail }}</p>
+						                    <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
+						                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+						                    </ul>
+						                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="/{{ str_replace(' ','',$member->designation) }}" target="_blank">
+						                      Detail</a>
+						                 </div>
+					                </div>
+					             </div>
+
+			            	@endforeach
+
+			            </div>
+			          </div>
+			        </div>
+			    </section>
+
+		    @endif
+		   
 	     
 	      	<!-- Section: Gallery -->
-		     <section id="gallery" class="bg-lighter">
+		     <section id="gallery" class="bg-lighter mt-60 mb-60">
 		        <div class="container">
 		          <div class="section-title mb-10">
 		            <div class="row">
@@ -467,253 +294,86 @@
 		              <div class="col-md-12">
 		                <!-- Works Filter -->
 		                <div class="portfolio-filter font-alt align-center">
-		                  <a href="#select4"  class="active" data-filter=".select4">Album</a>
-		                  <span  >
-		              
+		                  <!-- <a href="#select4"  class="active" data-filter=".select4">Album</a>
+		                  <span  > -->
+		              		@if($photoFilter->count()>0)
+		              			@php $i = 1; @endphp
+		              			 <a href="#" class="active" data-filter="*"  > All</a>
+		              			@foreach($photoFilter as $filter)
+		              				@php 
+		              					if($filter->category=='photo')
+		              					{
+		              						$href = '#select1';
+		              						$dataFilter = '.select1';
+		              					}
 
-		                    
-		                  <a href="#select1" class="" data-filter=".select1"  >Photos</a>
-		                  <a href="#select2" class="" data-filter=".select2"   >Campus</a>
-		                  <a href="#select3" class="" data-filter=".select3"  > Students</a>
-		                   <a href="#" class="" data-filter="*"  > All</a>
+		              					else if($filter->category=='campus')
+		              					{
+		              						$href = '#select2';
+		              						$dataFilter = '.select2';
+		              					}
+
+		              					else if($filter->category=='student')
+		              					{
+		              						$href = '#select3';
+		              						$dataFilter = '.select3';
+		              					}
+		              				@endphp
+		              				<a href="{{ $href }}" class="" data-filter="{{ $dataFilter }}"  >{{ ucfirst($filter->category) }}</a>
+		              				@php $i++; @endphp
+		              			@endforeach
+		              			
+				               
+		              		@endif
+		                 
 		                  </span>
 		                </div>
 		                <!-- End Works Filter -->
 
 		                <!-- Portfolio Gallery Grid -->
 		                <div id="grid" class="gallery-isotope grid-4 gutter clearfix" >
+		                	@if($photos->count()>0)
+		                		@php $displayClass = ''; $i=1; @endphp
+		                		@foreach($photos as $photo)
+		                			@php 
+		              					if($photo->category=='photo')
+		              					{
+		              						$filterClass = 'select1';
+		              					}
 
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select1 select4">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/1.png') }}" alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/1.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a  href="#select2" class="" data-filter=".select2"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
+		              					else if($photo->category=='campus')
+		              					{
+		              						$filterClass = 'select2';
+		              					}
 
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select1 " style="display: none;">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/3.png') }}" alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/2.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/2.png') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
+		              					else if($photo->category=='student')
+		              					{
+		              						$filterClass = 'select3';
+		              					}
+		              					$img = 'storage/'.$photo->img;
+		              					if($i==1){ $displayClass = $filterClass; }
+		              				@endphp
 
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select2 select4" >
-		                    <div class="thumb">
-		                      <img class="img-fullwidth"
-		                        src="{{  asset('storage/images/gallery/18121754_221522995000944_5339271467144642711_o_001.png') }}" alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/3.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/3.png') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
-
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select3 select4" >
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{ asset('storage/images/gallery/74569040_730588634094375_7909991017925836800_n.png') }}"
-		                        alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/4.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{ asset('storage/images/gallery/4.png') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
-
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select1" style="display: none;">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/4.png') }}" alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/2.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/2.png') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
-
-		                 <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select3" style="display: none;">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/89781155_824834268003144_8111982161625612288_n.png') }} "
-		                        alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/4.png') }} "><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/4.png') }} ">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
-
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select2" style="display: none;">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/74718064_728296787656893_8236631041792540672_n.png') }} "
-		                        alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image"
-		                              href="{{  asset('storage/images/gallery/3.png') }} "><i
-		                                class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/3.jpng') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
-
-		           
-		                  <div class="gallery-item select3" style="display: none;">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/75464337_730588604094378_2234728066007957504_n.png') }} "
-		                        alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/2.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/2.png') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
-
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select1" style="display: none;">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/18077402_221522838334293_3325708510959900204_o.png') }}  "
-		                        alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/4.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/4.png') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
-
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select2" style="display: none;">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/75576422_728296730990232_5716211028384022528_n.png') }} "
-		                        alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/1.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/1.png') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
-
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select1" style="display: none;">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/91282881_839250586561512_6176455218402689024_n.png') }} "
-		                        alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/1.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/1.png') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
-
-		                  <!-- Portfolio Item Start -->
-		                  <div class="gallery-item select3" style="display: none;">
-		                    <div class="thumb">
-		                      <img class="img-fullwidth" src="{{  asset('storage/images/gallery/89346801_824834311336473_7340721312186236928_n.png') }}"
-		                        alt="project">
-		                      <div class="overlay-shade"></div>
-		                      <div class="icons-holder">
-		                        <div class="icons-holder-inner">
-		                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
-		                            <a data-lightbox="image" href="{{  asset('storage/images/gallery/1.png') }}"><i class="fa fa-plus"></i></a>
-		                            <a href="#"><i class="fa fa-link"></i></a>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <a class="hover-link" data-lightbox="image" href="{{  asset('storage/images/gallery/1.png') }}">View more</a>
-		                    </div>
-		                  </div>
-		                  <!-- Portfolio Item End -->
+		              				<div class="gallery-item {{ $filterClass }}" style="display:<?php if($filterClass==$displayClass){ echo "block"; }else{ echo "none"; } ?>;">
+					                    <div class="thumb">
+					                      <img class="img-fullwidth" src="{{  asset($img) }}" alt="project">
+					                      <div class="overlay-shade"></div>
+					                      <div class="icons-holder">
+					                        <div class="icons-holder-inner">
+					                          <div class="styled-icons icon-sm icon-dark icon-circled icon-theme-colored">
+					                            <a data-lightbox="image" href="{{  asset($img) }}"><i class="fa fa-plus"></i></a>
+					                            <a href="#"><i class="fa fa-link"></i></a>
+					                          </div>
+					                        </div>
+					                      </div>
+					                      <a class="hover-link" data-lightbox="image" href="{{  asset($img) }}">View more</a>
+					                    </div>
+					                </div>
+		                		@endforeach
+		                	@endif
+		                  
 
 		                </div>
-
-
-
 
 		                <!-- End Portfolio Gallery Grid -->
 		              </div>
@@ -728,44 +388,28 @@
 		          <div class="section-content">
 		            <div class="row">
 		              <div class="col-md-6">
-		                <h3 class="text-uppercase line-bottom mt-0 line-height-1"><i class="fa fa-calendar mr-10"></i>Upcoming
-		                  <span class="text-theme-color-2">Events</span></h3>
-		                <article class="post media-post clearfix pb-0 mb-10">
-		                  <a href="/BookEvents" target="_blank" class="post-thumb mr-20"><img alt="" src="{{ asset('storage/images/gallery/blodd (1).png') }}"></a>
-		                  <div class="post-right">
-		                    <h4 class="mt-0 mb-5"><a href="/BookEvents" target="_blank">Blood Donation</a></h4>
-		                    <ul class="list-inline font-12 mb-5">
-		                      <li class="pr-0"><i class="fa fa-calendar mr-5"></i> June 26, 2016 |</li>
-		                      <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>New York</li>
-		                    </ul>
-		                    <p class="mb-0 font-13">"Saving One Life Is As If Saving Whole Of Humanity…"</p>
-		                    <a class="text-theme-colored font-13" href="/BookEvents" target="_blank">Read More →</a>
-		                  </div>
-		                </article>
-		                <article class="post media-post clearfix pb-0 mb-10">
-		                  <a  href="/BookEvents" target="_blank" class="post-thumb mr-20"><img alt="" src="{{ asset('storage/images/gallery/wordpress-bg-medblue-square.png') }} "></a>
-		                  <div class="post-right">
-		                    <h4 class="mt-0 mb-5"><a  href="BookEvents" target="_blank">3 Day's Training Session on Wordpress</a></h4>
-		                    <ul class="list-inline font-12 mb-5">
-		                      <li class="pr-0"><i class="fa fa-calendar mr-5"></i> June 26, 2016 |</li>
-		                      <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>New York</li>
-		                    </ul>
-		                    <p class="mb-0 font-13">Optimum Provide For all of its Current or Past Students A Workshop About Wordpress at Nusrat Auditorium.</p>
-		                    <a class="text-theme-colored font-13"  href="/BookEvents" target="_blank">Read More →</a>
-		                  </div>
-		                </article>
-		                <article class="post media-post clearfix pb-0 mb-10">
-		                  <a  href="/BookEvents" target="_blank" class="post-thumb mr-20"><img alt="" src="{{ asset('storage/images/gallery/page_1.png') }}"></a>
-		                  <div class="post-right">
-		                    <h4 class="mt-0 mb-5"><a href="" target="_blank">Digital Marketing Master Class</a></h4>
-		                    <ul class="list-inline font-12 mb-5">
-		                      <li class="pr-0"><i class="fa fa-calendar mr-5"></i> June 26, 2016 |</li>
-		                      <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>New York</li>
-		                    </ul>
-		                    <p class="mb-0 font-13">Digital Marketing Master Class Session is going to start this month, Be ready and Cennected.</p>
-		                    <a class="text-theme-colored font-13" href="/BookEvents" target="_blank">Read More →</a>
-		                  </div>
-		                </article>
+		              	@if($events->count()>0)
+		              		<h3 class="text-uppercase line-bottom mt-0 line-height-1"><i class="fa fa-calendar mr-10"></i>Upcoming
+		                  		<span class="text-theme-color-2">Events</span></h3>	
+		                  	@foreach($events as $event)
+		                  		@php $img = 'storage/'.$event->img; @endphp
+		                  		<article class="post media-post clearfix pb-0 mb-10">
+				                  <a href="/BookEvents" target="_blank" class="post-thumb mr-20"><img alt="" src="{{ asset($img) }}"></a>
+				                  <div class="post-right">
+				                    <h4 class="mt-0 mb-5"><a href="/BookEvents" target="_blank">{{ $event->title }}</a></h4>
+				                    <ul class="list-inline font-12 mb-5">
+				                      <li class="pr-0"><i class="fa fa-calendar mr-5"></i> <!--June 26, 2016 --> {{ date('F',strtotime($event->event_date)) }} {{ date('d',strtotime($event->event_date)) }}, {{ date('Y',strtotime($event->event_date)) }} |</li>
+				                      <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>{{ $event->address }}</li>
+				                    </ul>
+				                    <p class="mb-0 font-13">{{ $event->detail }}</p>
+				                    <a class="text-theme-colored font-13" href="/BookEvents" target="_blank">Read More →</a>
+				                  </div>
+				                </article>
+
+		                  	@endforeach
+
+		              	@endif
+		                
 		              </div>
 		              <div class="col-md-6">
 		                <h3 class="line-bottom mt-0 line-height-1">Why <span class="text-theme-color-2">Choose Us?</span></h3>
@@ -832,306 +476,167 @@
 
 
 	       <!-- Section: blog -->
-	       <section id="blog" class="bg-lighter">
+	      
+       		<section id="blog" class="bg-lighter">
 		        <div class="container" style="padding-top: 0px !important ;">
-		          <div class="section-title mb-10">
-		            <div class="row">
-		              <div class="col-md-6">
-		                <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Latest <span
-		                    class="text-theme-color-2 font-weight-400">News</span></h2>
+			          <div class="section-title mb-10">
+			            <div class="row">
+			                <div class="col-md-6">
+				              	@if($news->count()>0)
+				                	<h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Latest <span
+				                    class="text-theme-color-2 font-weight-400">News</span></h2>
+				                @endif
+			                </div>
+
+			                <div class="col-md-6">
+				              	@if($news->count()>0)
+				                	<h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Few <span
+				                    class="text-theme-color-2 font-weight-400">Testimonials</span></h2>
+				                @endif
+			               </div>
+			            </div>
+			          </div>
+
+			          <div class="section-content" style="height: 442px !important;">
+			            <div class="row">
+			              <!-- <div class="col-md-4"></div> -->
+			              <div class="col-md-6">
+			              	@if($news->count()>0)
+				                <div class="autoplay3" >
+				                	@foreach($news as $row)
+				                		@php $img = 'storage/'.$row->img @endphp
+				                		<div class="item" data-wow-duration="1s" data-wow-delay="0.3s">
+						                    <article class="post clearfix mb-sm-30">
+						                      <div class="entry-header">
+						                        <div class="post-thumb thumb">
+						                          <a href="/LatestNewsDetail" target="_blank"> <img src="{{  asset($img) }}" alt="" class="img-responsive img-fullwidth"></a>
+						                        </div>
+						                      </div>
+						                      <div class="entry-content p-20 pr-10 bg-white">
+						                        <div class="entry-meta media mt-0 no-bg no-border">
+						                          <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
+						                            <ul>
+						                              <li class="font-16 text-white font-weight-600 border-bottom">{{ date('d',strtotime($row->news_date)) }}</li>
+						                              <li class="font-12 text-white text-uppercase">{{ date('M',strtotime($row->news_date)) }}</li>
+						                            </ul>
+						                          </div>
+						                          <div class="media-body pl-15">
+						                            <div class="event-content pull-left flip">
+						                              <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="#">{{ ucfirst($row->testimonial_subtitle) }}</a>
+						                              </h4>
+						                              <!-- <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
+						                                  class="fa fa-commenting-o mr-5 text-theme-colored"></i> 214 Comments</span>
+						                              <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
+						                                  class="fa fa-heart-o mr-5 text-theme-colored"></i> 895 Likes</span> -->
+						                            </div>
+						                          </div>
+						                        </div>
+						                        <p class="mt-10">{{ ucfirst($row->detail) }}</p>
+						                        <a href="/LatestNewsDetail" target="_blank" class="btn-read-more">Read more</a>
+						                        <div class="clearfix"></div>
+						                      </div>
+						                    </article>
+						                  </div>
+				                	@endforeach
+				                  
+				                </div>
+			                @endif
+			              </div>
+			              <div class="col-md-6">
+			                <div class="container">
+			                  <div class="row">
+			                    <div class="col-sm-6">
+			                        @if($testimonials->count()>0)
+
+			                      		<h3><strong>Testimonial</strong></h3>
+					                     <div class="seprator"></div>
+					                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
+					                        <!-- Wrapper for slides -->
+					                    	<div class="carousel-inner">
+					                    		@php $i=1; @endphp
+					                    		@foreach($testimonials as $testimonial)
+					                    			@php $img = 'storage/'.$testimonial->img @endphp
+					                    			<div class="item <?php if($i==1){ echo "active"; } ?>">
+							                            <div class="row" style="padding: 20px">
+							                              <button style="border: none;"><i class="fa fa-quote-left testimonial_fa"
+							                                  aria-hidden="true"></i></button>
+							                              <p class="testimonial_para">{{ ucfirst($testimonial->detail) }}</p><br>
+							                              <div class="row">
+							                                <div class="col-sm-2">
+							                                  <img src="{{ asset($img) }}"
+							                                    class="img-responsive" style="width: 80px">
+							                                </div>
+							                                <div class="col-sm-10">
+							                                  <h4><strong>{{ $testimonial->name }}</strong></h4>
+							                                  <p class="testimonial_subtitle"><span>{{ $testimonial->designation }}</span><br>
+							                                   <!--  <span>Officeal All Star Cafe</span> -->
+							                                  </p>
+							                                </div>
+							                              </div>
+							                            </div>
+							                        </div>
+							                        @php $i+=1; @endphp
+					                    		@endforeach
+					                          
+					                        </div>
+					                    </div>
+				                        <div class="controls testimonial_control pull-right">
+					                        <a class="left fa fa-chevron-left btn btn-default testimonial_btn"
+					                          href="#myCarousel" data-slide="prev"></a>
+
+					                        <a class="right fa fa-chevron-right btn btn-default testimonial_btn"
+				                          href="#myCarousel" data-slide="next"></a>
+				                        </div>
+
+			                        @endif
+			                    </div>
+			                  </div>
+			                </div>
+			              </div>
+
+
+			            </div>
+			          </div>
+		     
+		        </div>
+	       </section>
+	       
+	    @if($clients->count()>0)
+
+	    	<section class="" style="z-index: 12;">
+		        <div class="container pt-10 pb-0">
+		          <div class="row">
+		            <div class="col-md-12">
+		              <h3 class="line-bottom mt-0 line-height-1">Our<span class="text-theme-color-2">Clients</span></h3>
 		              </div>
-		              <div class="col-md-6">
-		                <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Few <span
-		                    class="text-theme-color-2 font-weight-400">Testimonials</span></h2>
-		              </div>
-		            </div>
-		          </div>
-
-		          <div class="section-content" style="height: 442px !important;">
-		            <div class="row">
-		              <!-- <div class="col-md-4"></div> -->
-		              <div class="col-md-6">
-		                <div class="autoplay3" >
-		                  <div class="item" data-wow-duration="1s" data-wow-delay="0.3s">
-		                    <article class="post clearfix mb-sm-30">
-		                      <div class="entry-header">
-		                        <div class="post-thumb thumb">
-		                          <a href="/LatestNewsDetail" target="_blank"> <img src="{{  asset('storage/images/news/79294404_748482028971702_2754632774856998912_n.png') }}" alt="" class="img-responsive img-fullwidth"></a>
-		                        </div>
-		                      </div>
-		                      <div class="entry-content p-20 pr-10 bg-white">
-		                        <div class="entry-meta media mt-0 no-bg no-border">
-		                          <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
-		                            <ul>
-		                              <li class="font-16 text-white font-weight-600 border-bottom">28</li>
-		                              <li class="font-12 text-white text-uppercase">Feb</li>
-		                            </ul>
-		                          </div>
-		                          <div class="media-body pl-15">
-		                            <div class="event-content pull-left flip">
-		                              <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="#">Post title here</a>
-		                              </h4>
-		                              <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
-		                                  class="fa fa-commenting-o mr-5 text-theme-colored"></i> 214 Comments</span>
-		                              <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
-		                                  class="fa fa-heart-o mr-5 text-theme-colored"></i> 895 Likes</span>
-		                            </div>
-		                          </div>
-		                        </div>
-		                        <p class="mt-10">Optimum-Tech  Service. Himanshu and the team have always provided us with a prompt, reliable, and top rated service. Not only do they resolve any of our hardware.
-		                        </p>
-		                        <a href="/LatestNewsDetail" target="_blank" class="btn-read-more">Read more</a>
-		                        <div class="clearfix"></div>
-		                      </div>
-		                    </article>
-		                  </div>
-		                  <div class="item" data-wow-duration="1s" data-wow-delay="0.4s">
-		                    <article class="post clearfix mb-sm-30">
-		                      <div class="entry-header">
-		                        <div class="post-thumb thumb">
-		                          <a href="/LatestNewsDetail" target="_blank"><img src="{{  asset('storage/images/news/20664580_268775906942319_3544987007584739268_n.png') }} " alt="" class="img-responsive img-fullwidth"></a> 
-		                        </div>
-		                      </div>
-		                      <div class="entry-content p-20 pr-10 bg-white">
-		                        <div class="entry-meta media mt-0 no-bg no-border">
-		                          <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
-		                            <ul>
-		                              <li class="font-16 text-white font-weight-600 border-bottom">28</li>
-		                              <li class="font-12 text-white text-uppercase">Feb</li>
-		                            </ul>
-		                          </div>
-		                          <div class="media-body pl-15">
-		                            <div class="event-content pull-left flip">
-		                              <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="#">Post title here</a>
-		                              </h4>
-		                              <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
-		                                  class="fa fa-commenting-o mr-5 text-theme-colored"></i> 214 Comments</span>
-		                              <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
-		                                  class="fa fa-heart-o mr-5 text-theme-colored"></i> 895 Likes</span>
-		                            </div>
-		                          </div>
-		                        </div>
-		                        <p class="mt-10">Optimum tech has played a significant role in the development of web based projects. They have been able to become a central part of
-		                           the team punctually.
-		                        </p>
-		                        <a href="/LatestNewsDetail" target="_blank" class="btn-read-more">Read more</a>
-		                        <div class="clearfix"></div>
-		                      </div>
-		                    </article>
-		                  </div>
-		                  <div class="item" data-wow-duration="1s" data-wow-delay="0.4s">
-		                    <article class="post clearfix">
-		                      <div class="entry-header">
-		                        <div class="post-thumb thumb">
-		                          <a href="/LatestNewsDetail" target="_blank"> <img src="{{  asset('storage/images/news/36521293_410924319394143_6739456831690637312_n.png') }}" alt="" class="img-responsive img-fullwidth"></a>
-		                        </div>
-		                      </div>
-		                      <div class="entry-content p-20 pr-10 bg-white">
-		                        <div class="entry-meta media mt-0 no-bg no-border">
-		                          <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
-		                            <ul>
-		                              <li class="font-16 text-white font-weight-600 border-bottom">28</li>
-		                              <li class="font-12 text-white text-uppercase">Feb</li>
-		                            </ul>
-		                          </div>
-		                          <div class="media-body pl-15">
-		                            <div class="event-content pull-left flip">
-		                              <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="#">Post title here</a>
-		                              </h4>
-		                              <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
-		                                  class="fa fa-commenting-o mr-5 text-theme-colored"></i> 214 Comments</span>
-		                              <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
-		                                  class="fa fa-heart-o mr-5 text-theme-colored"></i> 895 Likes</span>
-		                            </div>
-		                          </div>
-		                        </div>
-		                        <p class="mt-10"> This develop amazing features that perform under the highest performance and demanded requirements possible part of
-		                          the team punctually.</p>
-		                        <a href="/LatestNewsDetail" target="_blank" class="btn-read-more">Read more</a>
-		                        <div class="clearfix"></div>
-		                      </div>
-		                    </article>
-		                  </div>
-		                  <div class="item" data-wow-duration="1s" data-wow-delay="0.3s">
-		                    <article class="post clearfix mb-sm-30">
-		                      <div class="entry-header">
-		                        <div class="post-thumb thumb">
-		                          <a href="/LatestNewsDetail" target="_blank"><img src="{{  asset('storage/images/news/72692185_709402352879670_7138306182199902208_n.png') }} " alt="" class="img-responsive img-fullwidth"></a>
-		                        </div>
-		                      </div>
-		                      <div class="entry-content p-20 pr-10 bg-white">
-		                        <div class="entry-meta media mt-0 no-bg no-border">
-		                          <div class="entry-date media-left text-center flip bg-theme-colored pt-5 pr-15 pb-5 pl-15">
-		                            <ul>
-		                              <li class="font-16 text-white font-weight-600 border-bottom">28</li>
-		                              <li class="font-12 text-white text-uppercase">Feb</li>
-		                            </ul>
-		                          </div>
-		                          <div class="media-body pl-15">
-		                            <div class="event-content pull-left flip">
-		                              <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="#">Post title here</a>
-		                              </h4>
-		                              <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
-		                                  class="fa fa-commenting-o mr-5 text-theme-colored"></i> 214 Comments</span>
-		                              <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
-		                                  class="fa fa-heart-o mr-5 text-theme-colored"></i> 895 Likes</span>
-		                            </div>
-		                          </div>
-		                        </div>
-		                        <p class="mt-10">Optimum-Tech  has played a significant role in the development of web projects. They have been able to become a central part of the team punctually.</p>
-		                        <a href="/LatestNewsDetail" target="_blank" class="btn-read-more">Read more</a>
-		                        <div class="clearfix"></div>
-		                      </div>
-		                    </article>
-		                  </div>
-		                </div>
-		              </div>
-		              <div class="col-md-6">
-		                <div class="container">
-		                  <div class="row">
-		                    <div class="col-sm-6">
-		                      <h3><strong>Testimonial</strong></h3>
-		                      <div class="seprator"></div>
-		                      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		                        <!-- Wrapper for slides -->
-		                        <div class="carousel-inner">
-		                          <div class="item active">
-		                            <div class="row" style="padding: 20px">
-		                              <button style="border: none;"><i class="fa fa-quote-left testimonial_fa"
-		                                  aria-hidden="true"></i></button>
-		                              <p class="testimonial_para">Optimum-Tech  Service. Himanshu and the team have always provided us with a prompt, reliable, and top rated service. Not only do they resolve any of our hardware or software
-		                                 technical issues quickly and efficiently but do so with a very personable nature</p><br>
-		                              <div class="row">
-		                                <div class="col-sm-2">
-		                                  <img src="http://demos1.showcasedemos.in/jntuicem2017/html/v1/assets/images/jack.jpg"
-		                                    class="img-responsive" style="width: 80px">
-		                                </div>
-		                                <div class="col-sm-10">
-		                                  <h4><strong>Michael A. Monroeville Dodge</strong></h4>
-		                                  <p class="testimonial_subtitle"><span>Chlinical Chemistry Technologist</span><br>
-		                                    <span>Officeal All Star Cafe</span>
-		                                  </p>
-		                                </div>
-		                              </div>
-		                            </div>
-		                          </div>
-		                          <div class="item">
-		                            <div class="row" style="padding: 20px">
-		                              <button style="border: none;"><i class="fa fa-quote-left testimonial_fa"
-		                                  aria-hidden="true"></i></button>
-		                              <p class="testimonial_para">Trustworthy with their advice.  Its been 3 years since we started getting our SEO and marketing done with ItsGuru and I must say that they give you honest advice on where to and where not to spend your marketing budget on which is very helpful and cost efficient</p><br>
-		                              <div class="row">
-		                                <div class="col-sm-2">
-		                                  <img src="http://demos1.showcasedemos.in/jntuicem2017/html/v1/assets/images/kiara.jpg"
-		                                    class="img-responsive" style="width: 80px">
-		                                </div>
-		                                <div class="col-sm-10">
-		                                  <h4><strong>Jim Momin, Jasmine Trading</strong></h4>
-		                                  <p class="testimonial_subtitle"><span>Chlinical Chemistry Technologist</span><br>
-		                                    <span>Officeal All Star Cafe</span>
-		                                  </p>
-		                                </div>
-		                              </div>
-		                            </div>
-		                          </div>
-
-		                          <div class="item">
-		                            <div class="row" style="padding: 20px">
-		                              <button style="border: none;"><i class="fa fa-quote-left testimonial_fa"
-		                                  aria-hidden="true"></i></button>
-		                              <p class="testimonial_para">Optimum-Tech  has played a significant role in the development of web based projects. They have been able to become a central part of the team punctually and develop amazing features that perform under the highest performance and demanded requirements possible.</p><br>
-		                              <div class="row">
-		                                <div class="col-sm-2">
-		                                  <img src="{{ asset('storage/images/newgh.jpg') }}"
-		                                    class="img-responsive" style="width: 80px">
-		                                </div>
-		                                <div class="col-sm-10">
-		                                  <h4><strong>Muhammad Usman Aftab CEO DevBeta</strong></h4>
-		                                  <p class="testimonial_subtitle"><span>Chlinical Chemistry Technologist</span><br>
-		                                    <span>Officeal All Star Cafe</span>
-		                                  </p>
-		                                </div>
-		                              </div>
-		                            </div>
-		                          </div>
-		                        </div>
-		                      </div>
-		                      <div class="controls testimonial_control pull-right">
-		                        <a class="left fa fa-chevron-left btn btn-default testimonial_btn"
-		                          href="#carousel-example-generic" data-slide="prev"></a>
-
-		                        <a class="right fa fa-chevron-right btn btn-default testimonial_btn"
-		                          href="#carousel-example-generic" data-slide="next"></a>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div>
-		              </div>
-
-
 		            </div>
 		          </div>
 		        </div>
-	       </section>
+		    </section>
 
-	     <section class="" style="z-index: 12;">
-	        <div class="container pt-10 pb-0">
-	          <div class="row">
-	            <div class="col-md-12">
-	              <h3 class="line-bottom mt-0 line-height-1">Our<span class="text-theme-color-2">Clients</span></h3>
-	              </div>
-	            </div>
-	          </div>
-	        </div>
-	    </section>
+		    <section class="clients bg-theme-color-2" style="height: 170px !important;">
+		      <div class="container pt-10 pb-0">
+		        <div class="row">
+		          <div class="col-md-12">
+		            <!-- Section: Clients -->
+		            <div class="autoplay2 clients-logo transparent text-center ">
+		            	@foreach($clients as $client)
+		            		@php $img = 'storage/'.$client->img;  @endphp
+		            		<div class="item"  ><figure > 
+				                <img src="{{ asset($img) }}" alt="Trulli" data-toggle="tooltip" data-placement="right" title="KK Security"  >
+				                <figcaption style="color: aliceblue;margin-left: -80px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" >{{ ucwords($client->name) }}</figcaption>
+				              </figure>
+				              </div>
+		            	@endforeach
+		             
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </section>
 
-	    <section class="clients bg-theme-color-2" style="height: 170px !important;">
-	      <div class="container pt-10 pb-0">
-	        <div class="row">
-	          <div class="col-md-12">
-	            <!-- Section: Clients -->
-	            <div class="autoplay2 clients-logo transparent text-center ">
-	              <div class="item"  ><figure > 
-	                <img src="{{ asset('storage/images/clients/w1.jpg') }}" alt="Trulli" data-toggle="tooltip" data-placement="right" title="KK Security"  >
-	                <figcaption style="color: aliceblue;margin-left: -80px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" >KK Security Managment</figcaption>
-	              </figure>
-	              </div>
-	              <div class="item"><figure>
-	                <img src="{{ asset('storage/images/clients/w2.jpg') }}" alt="Trulli" data-toggle="tooltip" data-placement="right" title="ACC Care"  >
-	                <figcaption style="color: aliceblue;margin-left: -80px;">ACC Care</figcaption>
-	              </figure>
-	              </div>
-	              <div class="item"><figure>
-	                <img src="{{ asset('storage/images/clients/w3.jpg') }}" alt="Trulli"  data-toggle="tooltip" data-placement="right" title="Ambulatory Center" >
-	                <figcaption style="color: aliceblue;margin-left: -80px;">Ambulatory Center</figcaption>
-	              </figure>
-	              </div>
-
-	              <div class="item" ><a href="http://invincibleenergy.com.au" target="_blank" > <figure> 
-	                <img src="{{ asset('storage/images/clients/w4.jpg') }}" alt="Trulli" data-toggle="tooltip" data-placement="right" title="Invincible"  >
-	                <figcaption style="color: aliceblue;margin-left: -80px;">Invincible Solar Energy</figcaption>
-	              </figure></a>
-	              </div>
-	              <div class="item"><figure>
-	                <img src="{{ asset('storage/images/clients/w5.png') }}" alt="Trulli" data-toggle="tooltip" data-placement="right" title="Themeforest"  >
-	                <figcaption style="color: aliceblue;margin-left: -80px;">Themeforest</figcaption>
-	              </figure>
-	              </div>
-	              <!-- <div class="item"><figure>
-	                <img src="images/clients/w6.jpg" alt="Trulli" >
-	                <figcaption style="color: aliceblue;">ACC Care</figcaption>
-	              </figure>
-	              </div> -->
-	              <!-- <div class="item"> <a href="#"><img src="images/clients/w5.png" alt=""></a></div> -->
-	              <!-- <div class="item"> <a href="#"><img src="images/clients/w6.png" alt=""></a></div> -->
-	              <!-- <div class="item"> <a href="#"><img src="images/clients/w3.png" alt=""></a></div>
-	              <div class="item"> <a href="#"><img src="images/clients/w4.png" alt=""></a></div> -->
-	              
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </section>
+	    @endif
+	    
 
 
 

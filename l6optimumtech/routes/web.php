@@ -1,5 +1,5 @@
 <?php
-Route::view('/', 'index');
+Route::get('/', 'FrontEndController@index');
 Route::view('Products', 'products');
 Route::view('Services','services');
 Route::view('Courses','courses');
@@ -35,6 +35,8 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 
 	Route::view('/','admin.index');
 	Route::resource('/Course','CourseController');
+	Route::resource('Product','ProductController');
+	Route::resource('/Service','ServiceController');
 	Route::view('/AddLatestNews','admin.add_latest_news');
 	Route::view('/AddOptimumClient','admin.add_optimum_client');
 	Route::resource('/Slider','SliderController');

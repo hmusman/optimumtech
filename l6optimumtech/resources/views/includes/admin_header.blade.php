@@ -116,13 +116,38 @@
                         <!-- <li><a href="ViewTicker.html">View Ticker</a></li> -->
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
+                        <span>Products</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('Product.create') }}">Add Product</a></li>
+                        <li><a href="{{ route('Product.index') }}">View Products</a></li>
+                       
+                    </ul>
+                </li>
+
+                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
+                        <span>Services</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('Service.create') }}">Add Service</a></li>
+                        <li><a href="{{ route('Service.index') }}">View Services</a></li>
+                       
+                    </ul>
+                </li>
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
                         <span>Courses</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('Course.create') }}">Add Courses</a></li>
+                        <li><a href="{{ route('Course.create') }}">Add Course</a></li>
                         <li><a href="{{ route('Course.index') }}">View Courses</a></li>
                        
                     </ul>

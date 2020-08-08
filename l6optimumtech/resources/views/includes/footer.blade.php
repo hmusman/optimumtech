@@ -103,7 +103,7 @@
 
   <!-- Footer Scripts -->
   <script src="{{ asset('js/jquery-2.2.4.min.js') }} "></script>
-  <script src="j{{ asset('s/bootstrap.min.js') }} "></script>
+  <script src="{{ asset('js/bootstrap.min.js') }} "></script>
 
   <!-- JS | jquery plugin collection for this theme -->
   <script src="{{ asset('js/jquery-plugin-collection.js') }} "></script>

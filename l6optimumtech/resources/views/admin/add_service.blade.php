@@ -11,7 +11,7 @@
 
 @section('content')
 	
-	<div class="main-content">
+	 <div class="main-content">
 
         <div class="page-content">
 
@@ -20,10 +20,9 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Add Latest News
+                            <h4 class="page-title mb-1">Add Service
                         </div>
                         <div class="col-md-4">
-                            
                         </div>
                     </div>
 
@@ -41,83 +40,79 @@
                       
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Add Latest News</h4>
-                                    @error('warningMsg')
-                                        <div class="alert alert-warning">{{ $message }}</div>
-                                    @enderror
                                     <!-- Tab panes -->
                                     <div class="tab-content p-3">
                                         <div class="tab-pane active" id="home-1" role="tabpanel">
                                             <div class="card">
                                                 <div class="card-body">
             
-                                                    <form method="post" action="{{ route('News.store') }}" enctype="multipart/form-data">
+                                                    <h4 class="header-title">Service</h4>
+                                                    @error('warningMsg')
+                                                        <div class="alert alert-warning">{{ $message }}</div>
+                                                    @enderror
+
+                                                    <form action="{{ route('Service.store') }}" method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">News Title</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="title" value="{{ old('title') }}" type="text" maxlength="100" placeholder="Enter  title" id="example-text-imgt">
-                                                                @error('title')
+                                                                <textarea id="textarea" class="form-control" name="detail"  rows="3" placeholder="This textarea has a limit of 700 chars.">{{ old('detail') }}</textarea>
+                                                                @error('detail')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
                                                         </div>
 
-
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">News Detail</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Why take this Service</label>
                                                             <div class="col-md-10">
-                                                                <textarea id="textarea" name="detail" class="form-control" maxlength="95" rows="3" placeholder="This textarea has a limit of 95 chars.">{{ old('detail') }}</textarea>
-                                                                @error('detial')
+                                                                <textarea id="textarea" class="form-control" name="why"  rows="3" placeholder="This textarea has a limit of 500 chars.">{{ old('why') }}</textarea>
+                                                                @error('why')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
                                                         </div>
 
-
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">News Date</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" name="news_date" type="date" value="{{ old('news_date') }}" id="example-date-input">
-                                                                @error('news_date')
+                                                                <input class="form-control" type="text" name="name" value="{{ old('name') }}" maxlength="100" placeholder="Enter  title" id="example-text-input">
+                                                                @error('name')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
                                                         </div>
 
-
-
-
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label"> Picture 270*184</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture 700*500</label>
                                                             <div class="col-md-10">
                                                                 <input name="img" type="file">
                                                                 @error('img')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
-                                                                @enderror
+                                                                @enderror  
 
-                                                                 @error('sizeWarning')
+                                                                @error('sizeWarning')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
-                                                                @enderror
+                                                                @enderror  
 
-                                                                 @error('extWarning')
+                                                                @error('extWarning')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
-                                                                @enderror
+                                                                @enderror    
                                                             </div>
                                                         </div>
 
 
                                                       
                                                         <div class="mt-4">
-                                                            <button type="submit" class="btn btn-primary waves-effect waves-light" type="submit">Save News</button>
+                                                            <button type="submit" class="btn btn-primary waves-effect waves-light" type="submit">Save</button>
                                                         </div>
 
                                                     </form>
-
+                                                    
                                                 </div>
                                             </div>
                                         </div>
-                                  
+                                        
                                     </div>
     
                                 </div>
@@ -133,7 +128,6 @@
         </div>
         <!-- End Page-content -->
     </div>
-	
 
 @endsection<!-- end content -->
 

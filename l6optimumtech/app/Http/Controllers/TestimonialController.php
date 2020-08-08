@@ -46,13 +46,13 @@ class TestimonialController extends Controller
                if($ext=='png' || $ext=='jpg' || $ext=='jpeg')
                {
                    $size =getimagesize($img);
-                   if ($size[0]==66 && $size[1]==66)
+                   if ($size[0]==100 && $size[1]==100)
                    {
                         $filename = $request->file('img')->store('admin/images/testimonials','public');
                    }
                    else
                    {
-                        return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 66*66'])->withInput();
+                        return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 100*100'])->withInput();
                    }
                }
                else
@@ -110,13 +110,13 @@ class TestimonialController extends Controller
                    if($ext=='png' || $ext=='jpg' || $ext=='jpeg')
                    {
                        $size =getimagesize($img);
-                       if ($size[0]==66 && $size[1]==66)
+                       if ($size[0]==100 && $size[1]==100)
                        {
                             $filename = $request->file('img')->store('admin/images/testimonials','public');
                        }
                        else
                        {
-                            return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 66*66'])->withInput();
+                            return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 100*100'])->withInput();
                        }
                    }
                    else

@@ -41,7 +41,7 @@
                       
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="header-title">Add Latest News</h4>
+                                    <h4 class="header-title">Update News</h4>
                                     @error('warningMsg')
                                         <div class="alert alert-warning">{{ $message }}</div>
                                     @enderror
@@ -90,7 +90,7 @@
 
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label"> Picture 278*189</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label"> Picture 270*184</label>
                                                             <div class="col-md-10">
                                                                 <input type="hidden" name="oldImg" value="{{ $news->img }}">
                                                                 <input name="img" type="file">

@@ -4,82 +4,150 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('admin.view_products')->with(compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
-        //
+        return view('admin.add_product');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
+   
     public function store(Request $request)
     {
-        //
+       
+        $validations = Validator::make($request->all(),[
+            'name'=>'bail | required | string | max:50',
+            'detail'=>'bail | required | string | max:200',
+            'img'=>'required'
+        ]);
+
+        if ($validations->fails())
+        {
+            return back()->withErrors($validations)->withInput();
+        }
+        else
+        {
+               if(Product::where('name','=',$request->name)->get()->count()>0)
+               {
+                    return back()->withErrors(['warningMsg'=>"Product Already Exist"])->withInput();
+               } 
+            
+               $img = $request->file('img');
+               $ext = $img->extension();
+               if($ext=='png' || $ext=='jpg' || $ext=='jpeg')
+               {
+                   $size =getimagesize($img);
+                   if ($size[0]==262 && $size[1]==175)
+                   {
+                        $filename = $request->file('img')->store('admin/images/product','public');
+                   }
+                   else
+                   {
+                        return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 262*175'])->withInput();
+                   }
+               }
+               else
+               {
+                    return back()->withErrors(['extWarning'=>'Please Choose Correct Image'])->withInput();
+               }
+
+              
+               $product = new Product();
+               $product->name= $request->name;
+               $product->detail = $request->detail;
+               $product->img = $filename;
+               if($product->save())
+               {
+                    $request->session()->flash('msg','Product Added Successfully');
+                    return redirect(route('Product.index'));
+               }
+          
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
+    
+    public function show(NewModel $newModel)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
+   
+    public function edit($id)
     {
-        //
+        $product= Product::where('id',$id)->first();
+        return view('admin.update_product',compact('product'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
+    
+    public function update(Request $request, $id)
     {
-        //
+       $validations = Validator::make($request->all(),[
+            'name'=>'bail | required | string | max:50',
+            'detail'=>'bail | required | string | max:200',
+        ]);
+
+        if ($validations->fails())
+        {
+            return back()->withErrors($validations)->withInput();
+        }
+        else
+        {
+            if($request->hasFile('img'))
+            {
+                    $img = $request->file('img');
+                   $ext = $img->extension();
+                   if($ext=='png' || $ext=='jpg' || $ext=='jpeg')
+                   {
+                       $size =getimagesize($img);
+                       if ($size[0]==262 && $size[1]==175)
+                       {
+                            $filename = $request->file('img')->store('admin/images/product','public');
+                       }
+                       else
+                       {
+                            return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 262*175'])->withInput();
+                       }
+                   }
+                   else
+                   {
+                        return back()->withErrors(['extWarning'=>'Please Choose Correct Image'])->withInput();
+                   }
+            }
+            else
+            {
+                $filename = $request->oldImg;
+            }
+          
+            $product = Product::find($id);
+            $product->name = $request->name;
+            $product->detail = $request->detail;
+            $product->img = $filename;
+            if($product->save())
+            {
+                $request->session()->flash('msg','Product Updated Successfully');
+                return redirect(route('Product.index'));
+            }
+          
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
+   
+    public function destroy(Request $request, $id)
     {
-        //
+        if (Product::where('id',$id)->delete()) 
+        {
+           $request->session()->flash('msg','Product Deleted Successfully');
+            return redirect(route('Product.index'));
+        }
     }
 }
