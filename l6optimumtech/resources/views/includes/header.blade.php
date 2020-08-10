@@ -64,82 +64,26 @@
               <ul class="menuzord-menu dark">
                 <li class="active"><a href="/">Home</a>
                 </li>
-                <li><a href="Products">Products <span class="label label-info">New</span></a>
-                  <ul class="dropdown">
-                    <li><a href="/Products">MIS Development</a></li>
-                    <li><a href="/Products">Taxi App Solutions Cream & Uber</a>
-                    </li>
-                    <li><a href="/Products">Umrah Voucher Software</a>
-                    </li>
-                    <li><a href="/Products">Property Management System</a>
-                    </li>
-                    <li><a href="/Products">Hotel Rooms Reservation System</a>
-                    </li>
-                    <li><a href="/Products">Hospital Management System</a>
-                    </li>
-                    <li><a href="/Products">Job Portal like NTS System</a>
-                     
-                    </li>
-                    <li><a href="/Products">Ecommerce web Portal</a>
-                     
-                    </li>
-                    
-                    <li><a href="/Products">Property Management System</a></li>
-                    <li><a href="/Products">Content Management System</a></li>
-                    <li><a href="/Products">Finance and Accounting System</a></li>
-                    <li><a href="/Products">Student Information System</a></li>
-                   
-                   
-                  </ul>
-                </li>
+                @if($products->count()>0)
+                  <li><a href="Products">Products <span class="label label-info">New</span></a>
+                    <ul class="dropdown">
+                      @foreach($products as $product)
+                         <li><a href="{{ route('Product.Detail',$product->id) }}">{{ ucwords($product->name) }}</a></li>
+                      @endforeach
+                    </ul>
+                  </li>
+                @endif
                
-                <li><a href="/Services">Services <span class="label label-info">New</span></a>
 
-
-
-
-
-                  <ul class="dropdown">
-                    <li><a href="/Services">Search Engine Marketing Company <br />in I8 Islamabad
-                        Pakistan</a></li>
-                    <li><a href="/Services">Product Branding</a>
-                     
-                    </li>
-                    <li><a href="/Services">Website Designing Website Development</a>
+                @if($services->count()>0)
+                  <li><a href="/Services">Services <span class="label label-info">New</span></a>
                       <ul class="dropdown">
-                        <li><a href="/Services"> Software Development</a></li>
-                        <li><a href="/Services">Website Redesigning</a></li>
-                        <li><a href="/Services">Graphic Design in Islamabad</a></li>
-
+                        @foreach($services as $service)
+                           <li><a href="{{ route('Service.Detail',$service->id) }}">{{ ucwords($service->name) }}</a></li>
+                        @endforeach
                       </ul>
-                    </li>
-                    <li><a href="/Services">Mobile Application Development in Pakistan</a>
-                      
-                    </li>
-                    <li><a href="/Services">SEO Expert Serivces in Islamabad</a>
-                      
-                    </li>
-                    <li><a href="/Services">ERP Solution Services</a>
-                      <ul class="dropdown">
-                        <li><a href="/Services"> Microsoft Dynamics ERP Software <br />Partner
-                            in Pakistan</a></li>
-
-
-                      </ul>
-                    </li>
-                    <li><a href="/Services">Offshore IT Staffing</a>
-                    </li>
-                    <li><a href="/Services">Outsourcing</a>
-                    
-                    </li>
-                    <li><a href="/Services">Domain & Hosting</a>
-                     
-                    </li>
-                    <li><a href="/Services">Taxation Audit and Professional Consultancy</a></li>
-
-                  </ul>
-                </li>
-                
+                  </li>
+                @endif
               
                 <li><a href="/Courses">Courses</a>
                   

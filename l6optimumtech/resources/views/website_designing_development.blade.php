@@ -126,25 +126,6 @@
           <p>
             To fulfill these unique strategic and administrative talent needs, offshore staffing services prove to be a great substitute. The world that we experience now is growing at an exponential pace. In this modern digital world, online presence is the thing that matters the most, and if that is not appealing enough, then you may fail to create the impression that you envisioned. Optimum Tech can help you create that impression with the help of a customized website
           </p>
-          <!-- <p style="text-align: justify;"> We extend your brand’s reach with displays, events and promotions to catch reader’s attention and create a memorable impression instantaneously, leaving him/her thinking about the advertisement after they have driven past it.
-            
-          </p> -->
-
-          <!-- <h4 class="text-theme-colored line-bottom text-theme-colored">Advantages</h4>
-          <ul class="list">
-            <li>We can get you recognition. Your customers will get to know you well.</li>
-            <li>We can increase your business value</li>
-            <li>We can generate new customers for you</li>
-
-            <li>Our services for product branding can even improve your employee’s satisfaction level.</li>
-            <li>We can create a professional appearance and well-strategized branding that will help the company build trust with consumers, potential clients and customers.</li>
-
-          
-            <ul>     -->
-
-
-
-        
         </div>
       </div>
     </div>

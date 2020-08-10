@@ -28,7 +28,7 @@ class ServiceController extends Controller
         $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:50',
             'detail'=>'bail | required | string | max:1500',
-            'why'=>'bail | required | string | max:500',
+            'why'=>'bail | required | string | max:1000',
             'img'=>'required'
         ]);
 
@@ -96,7 +96,7 @@ class ServiceController extends Controller
        $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:50',
             'detail'=>'bail | required | string | max:1500',
-            'why'=>'bail | required | string | max:500',
+            'why'=>'bail | required | string | max:1000',
         ]);
 
         if ($validations->fails())

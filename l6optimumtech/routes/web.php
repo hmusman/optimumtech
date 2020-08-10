@@ -1,7 +1,11 @@
 <?php
 Route::get('/', 'FrontEndController@index');
-Route::view('Products', 'products');
-Route::view('Services','services');
+Route::get('ProductDetail/{id}','FrontEndController@productShow')->name('Product.Detail');
+Route::get('ServiceDetail/{id}','FrontEndController@serviceShow')->name('Service.Detail');
+Route::get('/Products','FrontEndController@products');
+Route::get('/Services','FrontEndController@services');
+// Route::view('Products', 'products');
+// Route::view('Services','services');
 Route::view('Courses','courses');
 Route::view('ContactUs','contactus');
 Route::view('Courses/PHP','single_course');
