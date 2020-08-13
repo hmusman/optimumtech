@@ -66,8 +66,8 @@
         </div>
         <div class="row mt-60">
           <div class="col-md-6">
-            <h4 class="mt-0">{{ $product->name }}</h4>
-            <p style="text-align: justify" >{{ $product->detail }}</p>
+            <h4 class="mt-0">{{ ucwords($product->name) }}</h4>
+            <p style="text-align: justify" >{{ ucfirst($product->detail) }}</p>
           </div>
           <div class="col-md-6">
             <blockquote>
