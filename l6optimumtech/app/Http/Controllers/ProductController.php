@@ -26,8 +26,8 @@ class ProductController extends Controller
     {
        
         $validations = Validator::make($request->all(),[
-            'name'=>'bail | required | string | max:50',
-            'detail'=>'bail | required | string | max:200',
+            'name'=>'bail | required | string | max:100',
+            'detail'=>'bail | required | string | max:500',
             'img'=>'required'
         ]);
 
@@ -92,8 +92,8 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
        $validations = Validator::make($request->all(),[
-            'name'=>'bail | required | string | max:50',
-            'detail'=>'bail | required | string | max:200',
+            'name'=>'bail | required | string | max:100',
+            'detail'=>'bail | required | string | max:500',
         ]);
 
         if ($validations->fails())

@@ -60,7 +60,7 @@
         <div class="header-nav-wrapper navbar-scrolltofixed bg-lightest">
           <div class="container">
             <nav id="menuzord-right" class="menuzord orange">
-              <a href="http://theoptimumtech.com/" > <img class="mt-5 mb-20" alt="" src="{{ asset('storage/images/logo.png') }}"></a>
+              <a href="/" > <img class="mt-5 mb-20" alt="" src="{{ asset('storage/images/logo.png') }}"></a>
               <ul class="menuzord-menu dark">
                 <li class="active"><a href="/">Home</a>
                 </li>
@@ -85,11 +85,11 @@
                   </li>
                 @endif
               
-                <li><a href="/Courses">Courses</a>
+                <li><a href="{{ route('Courses') }}">Courses</a>
                   
                 </li>
               
-                <li><a href="/ContactUs">Contact Us</a>
+                <li><a href="{{ route('ContactUs')}}">Contact Us</a>
                
                 </li>
 

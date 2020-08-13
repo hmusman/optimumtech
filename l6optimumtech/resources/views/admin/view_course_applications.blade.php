@@ -20,7 +20,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Courses View</h4>
+                            <h4 class="page-title mb-1">Course Applications View</h4>
                             
                         </div>
                         <div class="col-md-4">
@@ -50,37 +50,44 @@
                                             
                                             <tr>
                                                 <th>#</th>
-                                                <th>Title</th>
-                                                <th>Detail</th>
-                                                <th>Type</th>
-                                                <th>Price</th>
-                                                <th>Image</th>
-                                                <th>Applications</th>
+                                                <th>Number</th>
+                                                <th>Course</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>CNIC</th>
+                                                <th>City</th>
+                                                <th>Province</th>
+                                                <th>Country</th>
+                                                <th>Date</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
     
     
                                         <tbody>
-                                            @if($courses->count()>0)
+                                            @if($applications->count()>0)
                                                 @php $i=1; @endphp
-                                                @foreach($courses as $course)
-                                                    @php $img = 'storage/'.$course->img  @endphp
+                                                @foreach($applications as $application)
+                                                    
                                                     <tr>
                                                         <td>{{ $i++ }}</td>
-                                                        <td>{{ ucwords($course->title)}}</td>
-                                                        <td><p>
-                                                          {{ ucfirst($course->detail) }}
-                                                        </p></td>
-                                                        <td>{{ ucfirst($course->type) }}</td>
-                                                        <td>{{ $course->price }}</td>
-                                                        <td><img src="{{ asset($img) }}" style="height: 50px; width: 100px; "/></td>
-                                                        <td>{{ count($course->applications) }}</td>
+                                                        <td>{{ $application->applicant_number }}</td>
+                                                        <td>{{ ucwords($application->course->title) }}</td>
+                                                        <td>{{ ucwords($application->first." ". $application->last_name)}}</td>
+                                                        <td>{{ $application->email }}</td>
+                                                        <td>{{ $application->phone }}</td>
+                                                        <td>{{ $application->cnic }}</td>
+                                                        <td>{{ ucfirst($application->city) }}</td>
+                                                        <td>{{ ucfirst($application->province) }}</td>
+                                                        <td>{{ ucfirst($application->country) }}</td>
+                                                        <td>{{ date('m/d/y',strtotime($application->created_at)) }}</td>
+                                
                                                         <td> 
 
                                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                                <a href="{{ route('Course.edit',$course->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a>&nbsp;
-                                                                <form style="margin-left: 10px;" method="post" action="{{ route('Course.destroy',$course->id) }}">
+                                                               <!--  <a href="{{ route('CourseApplication.edit',$application->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a> -->&nbsp;
+                                                                <form style="margin-left: 10px;" method="post" action="{{ route('CourseApplication.destroy',$application->id) }}">
                                                                     @csrf
                                                                     @method('delete')
                                                                     <button type="submit" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
@@ -93,7 +100,7 @@
                                                 @endforeach
 
                                             @else
-                                                <tr><td colspan="5" class="text-center">No Course Available</td></tr>
+                                                <tr><td colspan="12" class="text-center">No Course Application Available</td></tr>
                                             @endif
 
                               

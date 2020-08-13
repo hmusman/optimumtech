@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2020 at 11:13 AM
+-- Generation Time: Aug 13, 2020 at 12:38 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -21,6 +21,83 @@ SET time_zone = "+00:00";
 --
 -- Database: `l6optimumtech`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `applications`
+--
+
+CREATE TABLE `applications` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `applicant_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` bigint(20) NOT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cnic` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `province` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `zip` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `applications`
+--
+
+INSERT INTO `applications` (`id`, `applicant_number`, `course_id`, `first_name`, `last_name`, `email`, `address`, `cnic`, `phone`, `city`, `province`, `zip`, `country`, `created_at`, `updated_at`) VALUES
+(5, 'AppNo -69466', 1, 'testfirst', 'testlast', 'test@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', '2020-08-13 03:59:58', '2020-08-13 03:59:58'),
+(6, 'AppNo -29163', 1, 'testfirst', 'testlast', 'test1@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', '2020-08-13 04:00:22', '2020-08-13 04:00:22'),
+(7, 'AppNo -48563', 2, 'testfirst', 'testlast', 'test@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', '2020-08-13 04:02:51', '2020-08-13 04:02:51');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `batches`
+--
+
+CREATE TABLE `batches` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `course_id` bigint(20) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `class_duration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `class_start` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `class_end` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch_duration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `title`, `description`, `img`, `created_at`, `updated_at`) VALUES
+(1, 'final semster', 'this is description', NULL, '2020-08-12 05:21:39', '2020-08-12 05:21:39'),
+(2, 'technical', 'this is description', NULL, '2020-08-12 05:30:21', '2020-08-12 05:50:07'),
+(3, 'designing', 'this is description', NULL, '2020-08-12 05:31:38', '2020-08-12 05:31:38'),
+(4, 'short', 'this is description', NULL, '2020-08-12 05:31:52', '2020-08-12 05:31:52');
 
 -- --------------------------------------------------------
 
@@ -56,10 +133,12 @@ INSERT INTO `clients` (`id`, `name`, `url`, `img`, `created_at`, `updated_at`) V
 
 CREATE TABLE `courses` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `category_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -68,10 +147,10 @@ CREATE TABLE `courses` (
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id`, `title`, `detail`, `img`, `type`, `created_at`, `updated_at`) VALUES
-(1, 'adobe photo', 'this is descriptionn of adobe course', 'admin/images/courses/4tdunslm5YGMpY2qQDhC1ik0H7up1gJS48D3Jnhe.png', 'free', '2020-08-06 04:48:31', '2020-08-08 01:15:52'),
-(2, 'node', 'this is description of node', 'admin/images/courses/nyVeOR3BOtFMpRuTsRHdAYtawNMCbr3VLJJN3fLm.jpeg', 'paid', '2020-08-06 05:04:30', '2020-08-08 01:07:57'),
-(3, 'photo shop', 'this is description of photo shop', 'admin/images/courses/Sxv5JsNBFDT9XqZLyej9evTD3jZS0fx1ZypNWUGS.jpeg', 'free', '2020-08-06 05:05:13', '2020-08-08 01:12:25');
+INSERT INTO `courses` (`id`, `category_id`, `title`, `detail`, `img`, `type`, `price`, `created_at`, `updated_at`) VALUES
+(1, '1', 'adobe photo', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/4tdunslm5YGMpY2qQDhC1ik0H7up1gJS48D3Jnhe.png', 'free', '0', '2020-08-06 04:48:31', '2020-08-12 06:31:34'),
+(2, '3', 'node', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/JNb2pJGQBl2xfq0Qd7y4ytGKQmpib04khsn7ahyA.png', 'paid', '13500', '2020-08-06 05:04:30', '2020-08-12 07:58:06'),
+(3, '2', 'photo shop', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/ChIFuQtYhSqoskttOsmjDXMxue8RgqB7ImdqbObI.png', 'free', '0', '2020-08-06 05:05:13', '2020-08-12 06:33:49');
 
 -- --------------------------------------------------------
 
@@ -166,7 +245,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2020_08_07_074802_galleries', 7),
 (11, '2020_08_07_093923_clients', 8),
 (12, '2020_08_08_102427_products', 9),
-(13, '2020_08_08_102427_services', 10);
+(13, '2020_08_08_102427_services', 10),
+(14, '2020_07_24_064351_create_categories_table', 11),
+(15, '2020_08_12_114322_create_batches_table', 12),
+(16, '2020_08_13_054233_applications', 13),
+(17, '2020_08_13_064606_add_column_phone_applications', 14),
+(18, '2020_08_13_074558_add_column_applicant_number_applications', 15);
 
 -- --------------------------------------------------------
 
@@ -225,9 +309,16 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `detail`, `img`, `created_at`, `updated_at`) VALUES
-(1, 'ECOMMERCE WEBSITE DEVELOPMENT', 'We build according to the demand of clients’ with an efficient way using customer features.And Deleiver our Best Solutions to Clients According to their Demands.', 'admin/images/product/pNmD23fpO0d8UAxdQRREkpGiaK84RAxKwFM5vwx4.png', '2020-08-08 05:34:36', '2020-08-08 05:34:36'),
-(2, 'HOTEL ROOMS RESERVATION SYSTEM', 'Determining all the necessities, Optimum Tech Pvt. Ltd gives you Hotel and Restaurant Management Software solution.', 'admin/images/product/qNegmAy9BpvB7Z8ec5uLzIIeuDxl0F7u8rPhZet9.png', '2020-08-10 01:49:12', '2020-08-10 01:49:12'),
-(3, 'MANAGEMENT INFORMATION SYSTEM DEVELOPMENT', 'We believe that our highly customized Management Information System Development in Islamabad work wonder for our clients.', 'admin/images/product/nZL9OfPkPBgZIvRaK8Zbwm7Tde3G0p7zZqhqEzYZ.png', '2020-08-10 01:49:54', '2020-08-10 01:49:54');
+(1, 'ecommerce website development', 'We build according to the demand of clients’ with an efficient way using customer features.And Deleiver our Best Solutions to Clients According to their Demands.', 'admin/images/product/pNmD23fpO0d8UAxdQRREkpGiaK84RAxKwFM5vwx4.png', '2020-08-08 05:34:36', '2020-08-13 05:04:04'),
+(2, 'hotel rooms reservation system', 'Determining all the necessities, Optimum Tech Pvt. Ltd gives you Hotel and Restaurant Management Software solution.', 'admin/images/product/qNegmAy9BpvB7Z8ec5uLzIIeuDxl0F7u8rPhZet9.png', '2020-08-10 01:49:12', '2020-08-13 05:04:29'),
+(3, 'management information system development', 'We believe that our highly customized Management Information System Development in Islamabad work wonder for our clients.', 'admin/images/product/nZL9OfPkPBgZIvRaK8Zbwm7Tde3G0p7zZqhqEzYZ.png', '2020-08-10 01:49:54', '2020-08-13 05:03:41'),
+(4, 'finance management system', 'Today No business can imagine achieving aspiring growth targets and beating the competition without consistent, high‑functioning business.', 'admin/images/product/GvzXJYm1LlVH5VeH8z8459O2QY5fmeMp86cXu6Ix.png', '2020-08-13 05:02:37', '2020-08-13 05:02:37'),
+(5, 'student information system', 'Student Information System developed by Optimum tech is the leading web-based solution provider for all type of schools and educational institutions.', 'admin/images/product/xbAHFopGMzzfg9eaFh7S9l30kbiSpdjgZ5fXoBAG.png', '2020-08-13 05:05:52', '2020-08-13 05:05:52'),
+(6, 'content management system', 'Helping you control and monitor the content within your CMS product without any advanced technical training or expertise.', 'admin/images/product/wv5cl6xtpx4OsPuZ5sQ3FqBBJrtJ8ApJTtTBs0TW.png', '2020-08-13 05:06:36', '2020-08-13 05:06:36'),
+(7, 'property management system', 'Management as the core module designed to facilitate comprehensive property management system open source for rentals, sales, purchase.', 'admin/images/product/VsxSviSrxwIDI39j604W89gwdW9iqMDi1wjFsIZg.png', '2020-08-13 05:08:14', '2020-08-13 05:08:14'),
+(8, 'develpment of job portal', 'We also develop Job portal in Pakistan with innovative and advance features like National Testing Services (NTS).Includes all the features', 'admin/images/product/a1BxZndMddlpKvmW8qYp2t1HYDak6BW6GURy3TWX.png', '2020-08-13 05:09:27', '2020-08-13 05:09:27'),
+(9, 'development of taxi app', 'Taxi app development is one such area of specialization that involves drivers and passengers, engaging on the interactive platform of taxi app in Pakistan.', 'admin/images/product/T9FYfQ3KYeG8XAzMmBQ8wvycqn3m78FPTABiYcL9.png', '2020-08-13 05:10:12', '2020-08-13 05:10:12'),
+(10, 'hajj umra voucher management system', 'he Vouchers Management System for Hajj and Umrah is a complete web based Umrah Management Software System suitable for the companies', 'admin/images/product/ZR45pvli9JhfWgI4X90OnVQsS8LNIUgpSnrHwW4N.png', '2020-08-13 05:11:11', '2020-08-13 05:11:11');
 
 -- --------------------------------------------------------
 
@@ -252,7 +343,11 @@ CREATE TABLE `services` (
 INSERT INTO `services` (`id`, `name`, `detail`, `why`, `img`, `created_at`, `updated_at`) VALUES
 (1, 'Website Designing Website Development', 'Delivering flawless Web applications is our métier/ forte. Optimum Tech has a proficient and a devoted team of developers which have been developing high performance websites since 2005. If you choose to work with OPTIMUM TECH, your product is in safe hands. Optimum tech is located in Faisalabad and it has been providing excellent services regarding web designing and web development, also provide services regarding designing Task for Business Goals Creative design and custom development work. Optimum tech aims to change that with its intergalactic range of judicious web designing and development packages. By joining hands with our experienced and qualified designers, you will not only get great website development designs and influential website features but also end up saving a fortune. Designing professionals at optimum tech has helped web traders in creating websites that undertake visitor engagement and greater makeovers.\r\n\r\nOptimum Tech has the team of proficient web developers and designers. We proudly provide our service of progress that helping businesses and online marketers realize the true power of web. With the many years of software industry experience and archetypal website development work in Faisalabad, Pakistan, we earn the reward of best development company from our clients. We have completed more than 2000 projects, and are determined to make web development services reasonable for all.', 'To fulfill these unique strategic and administrative talent needs, offshore staffing services prove to be a great substitute. The world that we experience now is growing at an exponential pace. In this modern digital world, online presence is the thing that matters the most, and if that is not appealing enough, then you may fail to create the impression that you envisioned. Optimum Tech can help you create that impression with the help of a customized website', 'admin/images/service/K8fUBN53ZLOSjXbZ8rzKuq7LeIC0Yebv7pO498gC.png', '2020-08-08 06:01:43', '2020-08-08 06:01:43'),
 (2, 'Mobile Application Development', 'Day by day the new devices are introduced to the market with innovative options just because of growing technology. The evolution of mobile application development technology with new devices made our lives much easier. Optimum tech has set up an advanced Mobile Application Development Course in Faisalabad , Pakistan. Mobile app development is a great way to reach the potential customers. You can improve your customer experience by creating the best mobile app.\r\n\r\nOptimum tech is here to provide their customers the premium services with years of involvement in mobile apps development in Faisalabad , Pakistan and we are creating applications for clients along with best apps designing. We focus on supporting the local and international based clients with client engagement, sales, software management, application & website deployment and a complete deliverance cycle. You will find the great philosophies at the core of all of optimum tech mobile apps user experience intend, and bestow with the framework that formulate our developed apps.', 'These services will be proved to be matching perfectly with your requirements as far as these services are being provided by considering costumers interest to fulfill and to take these services unique strategic and administrative talent is applied, . The world that we experience now is mounting at an exponential pace and optimum tech has proven itself and satisfied its customers.\r\n\r\nCompanies equal to the size of countries lead the industries and make it very difficult for new entrants to survive the competition. To grow in such monopolistic environment, companies needs to falsify this myth and give new comers a chance to take part and grow and compete bigger companies. Optimum tech is providing such kind of opportunities to their customers.', 'admin/images/service/ypEmQ41ZxdDVio45DcXcLkXGdT5DyzH6EAmUR8UF.png', '2020-08-10 01:45:57', '2020-08-10 01:45:57'),
-(3, 'Search Engine Marketing', 'With the advancement of marketing world, business companies need more efficient ways to capture their position in the competitive market. And what can be more efficient than Search Engine Marketing? Around 85% of retailers consider SEM as the most effective route for client acquisition. If you want to use the SEM service, Optimum Tech can be your best choice in Faisalabad, Pakistan as we provide the most effective and efficient Pay Per Click Services which can be your fastest way to get qualified leads.\r\n\r\nOptimum Tech can help you purchase ads online and get your product, services, or websites more presence and visibility. You will have a perfect chance to get more than ever web audience.', 'Search Engine Marketing is the most effective way in current era to nourish your business. There are thousands of businesses out there all aiming for the same eyeballs, it has become essential to advertise online, and for this purpose, SEM can be your best option to promote your business.\r\n\r\nOptimum Tech will help you gain through a viable paid search on Internet marketing strategy to offer your business with immense flexibility and control in your advertising campaigns. You can implement it as a temporary, seasonal or long-term strategy and monthly budgets can be closely monitored and controlled. It is about ensuring that through our Search Engine Marketing efforts we will deliver to the right person, the right message and the right experience at the right time.', 'admin/images/service/Ca8anNq7p9MSr3PmJXWE05tM144fNIVjMKDU0b3A.png', '2020-08-10 01:47:28', '2020-08-10 01:47:28');
+(3, 'Search Engine Marketing', 'With the advancement of marketing world, business companies need more efficient ways to capture their position in the competitive market. And what can be more efficient than Search Engine Marketing? Around 85% of retailers consider SEM as the most effective route for client acquisition. If you want to use the SEM service, Optimum Tech can be your best choice in Faisalabad, Pakistan as we provide the most effective and efficient Pay Per Click Services which can be your fastest way to get qualified leads.\r\n\r\nOptimum Tech can help you purchase ads online and get your product, services, or websites more presence and visibility. You will have a perfect chance to get more than ever web audience.', 'Search Engine Marketing is the most effective way in current era to nourish your business. There are thousands of businesses out there all aiming for the same eyeballs, it has become essential to advertise online, and for this purpose, SEM can be your best option to promote your business.\r\n\r\nOptimum Tech will help you gain through a viable paid search on Internet marketing strategy to offer your business with immense flexibility and control in your advertising campaigns. You can implement it as a temporary, seasonal or long-term strategy and monthly budgets can be closely monitored and controlled. It is about ensuring that through our Search Engine Marketing efforts we will deliver to the right person, the right message and the right experience at the right time.', 'admin/images/service/Ca8anNq7p9MSr3PmJXWE05tM144fNIVjMKDU0b3A.png', '2020-08-10 01:47:28', '2020-08-10 01:47:28'),
+(4, 'product branding', 'Our world is in a state of dynamic innovations which sometimes seems to be pretty exciting and productive but at the same time, really intimidating. Many entrepreneurs might find it appalling catching up with evolving trends on their own. In such case, product branding comes handy. Product Branding is the process of developing a unique name and identity for a product ensuring awareness and credibility and creating customer loyalty, among other advantages. Building a brand takes time and involves a lot of resources. It is however an important marketing tool for stimulating recognition.\r\n\r\nOptimum Tech can help you in leading your product to topnotch position. We won’t be just designing an attractive logo and printing all your collateral in the company’s colors we’ll be establishing a brand message which conveys the key point of the difference between you and your competitor.', 'What do you offer to clients that no one else does? To find that crux, apart from only deep understanding of your product and company culture, we also explore what your competitors have to deliver as well. We also examine your target market segment and identify it’s both needs and wants. Only then, after knowing the bigger picture, do we develop digital media to represent your brand.\r\n\r\nWe extend your brand’s reach with displays, events and promotions to catch reader’s attention and create a memorable impression instantaneously, leaving him/her thinking about the advertisement after they have driven past it.', 'admin/images/service/ehgxCmdHjucx0ueKwePCdIcasVqolDz54oNz4GK4.png', '2020-08-13 04:51:02', '2020-08-13 04:51:02'),
+(5, 'Offshore IT Staffing', 'OPTIMUM-TECH, Faisalabad is a trusted name for offshore support and development services. It has been a trusted name since years. The idea of providing top-notch service of Offshore It staffing is to promote the small and big scale businesses and organizations , helping businesses to innovate and implement digital modifications. Finding good staff with remarkable capabilities is still a big difficult task among business and organization\'s set-up. And it\'s even more difficult to find the right staff at right price. OPTIMUM TECH is providing all the basic and necessary facilities to all the representative based workers in our office with the pertinent packages. You, as our client don\'t need to worry about the management, housing, taxes, requirements of staff members and other overheads that are connected to your offshore work. Offshore staffing can help you expand without overcrowding your current office space and without overspending.', 'ffshore IT staffing is the optimal solutions for those companies who wish to save considerable money, time and efforts. We truly understand your basic requirements and offer IT staffing solutions that you can depend on! To fulfill these unique strategic, offshore staffing is the great alternative.\r\n\r\nYou can outsource a small part or full departments of your workforce. Our impeccable range of services (include creative services, customer care, recruitment of employees or back office work)', 'admin/images/service/JwV9Q24xrKT2zRQAMVyvjIcmSxynwOthg0GcUA4H.png', '2020-08-13 04:54:14', '2020-08-13 04:54:14'),
+(6, 'Domain & Hosting', 'Domain & Hosting service of Solutions Player (Pvt) Ltd is the online portal which is all the way through an individual or a business project can get premium Domain Registration to mechanize their business procedures, functions, requirements and needs at most favorable or negotiable rates. Electrical & Electronic corporis dolorum blanditiis ullam officia .\r\nIn our hosting services select the best one with: Shared Hosting (also known as multiple hosting, perfect for websites and blogs) WordPress Hosting (the best way to run WordPress open source) Virtual Private Servers (Perfect for businesses, Ecommerce, and developers) Dedicated Servers (Perfect for huge websites and resource heavy apps)\r\n\r\nDomain names on the internet are much similar to entry in a phone book and the hosting is much similar to the place that rented out to have a business in. we are as top ranked domain and web hosting provider, offers with an extensive range of hosting packages appropriate to small, medium and large enterprises.', 'To fulfill these unique strategic and administrative talent needs, offshore staffing services prove to be a great alternative.The world that we experience now is growing at an exponential pace. Companies equal to the size of countries lead the industries and make it very difficult for new entrants to survive the competition. To take on the big boys at their game and to grow in such monopolistic environment, companies need to shove off the orthodox techniques and need to think out-of-box techniques. Talent plays a big role in taking a company from 0 to 1 and then 1 to ’n’. However attracting top talent for a company is far from easy.', 'admin/images/service/rrGcs3GlLUis5ZrJWFuwM1JAdys1W1s5Dulu7Epg.png', '2020-08-13 04:55:11', '2020-08-13 04:55:11'),
+(7, 'Outsourcing', 'The outside company, known as a third-party provider arranges for it\'s own workers or and systems to perform their tasks or services either on site at the hiring company\'s own facilities. Outsourcing is a getting more popular in data innovation and for the administration of different business that have viewed as natural for delaying with business. For a company to effectively outsource responsibilities, it is crucial to focus on business partnership, managing relationship more than service-level agreements.\r\n\r\nMaintaining and securing a trusted relationship is important in outsourcing efforts and is more complex than establishing service levels and relationships. Optimum Tech work nearly with the customer to enhance the employment efficiencies of nature of contract, staffing flexibility, rate of conveyance and expense regulation provide the best Outsourcing Service.', 'Outsourcing is the most effective way to promote you business in today\'s era. There is thousands of business here that are in same boat and trying to up hold their business, aiming for the best logistics in the community.\r\n\r\nOptimum Tech will give you the service at low and pertinent costs, increased efficiency of whole system/management, provide access to skills or resources, we focus more on strategy and core competencies. It is about ensuring that through our services and efforts we will deliver to the right person, the right message and the right experience at the right time.', 'admin/images/service/J7caCm0neYhnzeCPK2JdEZfYcp02pb6KwZTqGm69.jpeg', '2020-08-13 04:56:14', '2020-08-13 04:56:14');
 
 -- --------------------------------------------------------
 
@@ -322,7 +417,7 @@ CREATE TABLE `testimonials` (
 --
 
 INSERT INTO `testimonials` (`id`, `name`, `designation`, `detail`, `img`, `created_at`, `updated_at`) VALUES
-(1, 'firsts', 'tests', 'Optimum-Tech  Service. Himanshu and the team have always provided us with a prompt, reliable, a', 'admin/images/testimonials/1IcAwXeFvwkjTakB6fUO0HAWdivnsVMqzSpJ5sGM.jpeg', '2020-08-07 01:44:36', '2020-08-08 05:12:54'),
+(1, 'firsts', 'tests', 'Optimum-Tech  Service. Himanshu and the team have always provided us with a prompt, reliable, a', 'admin/images/testimonials/1IcAwXeFvwkjTakB6fUO0HAWdivnsVMqzSpJ5sGM.jpeg', '2020-08-07 01:44:36', '2020-08-08 05:12:54'),
 (4, 'Second', 'Developer', 'Trustworthy with their advice.  Its been 3 years since we started getting our SEO and marketing', 'admin/images/testimonials/3tjVxafxlPhmqNn7Ml67jHhNs61O4tznW0m0yWM7.jpeg', '2020-08-08 04:50:06', '2020-08-08 05:12:21'),
 (5, 'third', 'content writer', 'Optimum-Tech  has played a significant role in the development of web based projects. They have', 'admin/images/testimonials/IylkJWIN5ms6xy7WrVnCJwVYKP7fJZ98NWRrP3IG.jpeg', '2020-08-08 04:50:52', '2020-08-08 05:11:55');
 
@@ -355,6 +450,25 @@ INSERT INTO `users` (`id`, `name`, `email`, `user_type`, `email_verified_at`, `p
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `applications`
+--
+ALTER TABLE `applications`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `applications_applicant_number_unique` (`applicant_number`);
+
+--
+-- Indexes for table `batches`
+--
+ALTER TABLE `batches`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `clients`
@@ -446,6 +560,24 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `applications`
+--
+ALTER TABLE `applications`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `batches`
+--
+ALTER TABLE `batches`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
@@ -479,7 +611,7 @@ ALTER TABLE `galleries`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -491,13 +623,13 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sliders`

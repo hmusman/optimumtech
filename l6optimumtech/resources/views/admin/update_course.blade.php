@@ -51,9 +51,25 @@
                                     <form method="post" action="{{ route('Course.update',$course->id) }}" enctype="multipart/form-data">
 
                                         @csrf     
-                                        @method('put')                                   
+                                        @method('put') 
+
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label">Course Title</label>
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Category</label>
+                                            <div class="col-md-10">
+                                                <select class="form-control" name="category">
+                                                    <option selected="" disabled="">Select Category</option>
+                                                    @foreach($categories as $category)
+                                                         <option <?php if($course->category_id==$category->id){ echo "selected=''"; } ?>  value="{{ $category->id }}">{{ ucwords($category->title) }}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('category')
+                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        </div>    
+
+                                        <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Title</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" value="{{ $course->title }}" name="title" type="text" placeholder="Enter Title" id="example-text-input">
                                                 @error('title')
@@ -63,9 +79,9 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label">Course Detail</label>
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
                                             <div class="col-md-10">
-                                                <textarea id="textarea" class="form-control" name="detail" maxlength="230" rows="3" placeholder="This textarea has a limit of 230 chars.">{{ $course->detail }}</textarea>
+                                                <textarea id="textarea" class="form-control" name="detail" maxlength="500" rows="3" placeholder="This textarea has a limit of 230 chars.">{{ $course->detail }}</textarea>
                                                 @error('detail')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
@@ -73,7 +89,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label"> Picture</label>
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture</label>
                                             <div class="col-md-10">
                                                 <input type="hidden" name="oldImg" value="{{ $course->img }}">
                                                 <input name="img" type="file" style="margin-left: 10px;" >
@@ -90,19 +106,27 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label"> Course Option</label>
-                                             <div class="col-md-10">
-                                                  <select class="form-control" name="type">
-                                                        <option selected="" disabled="">Select</option>
-                                                        <option <?php if($course->type=='free'){ echo "selected=''"; } ?> value="free">Free Course</option>
-                                                        <option <?php if($course->type=='paid'){ echo "selected=''"; } ?> value="paid">Paid Course</option>
-                                                    </select>
-                                                     @error('type')
-                                                        <p class="text-danger mt-3">{{ $message }}</p>
-                                                    @enderror
-                                             </div>
-                                           
-                                           
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Free</label>
+                                            <div class="col-md-10">
+                                                <select class="form-control" name="type">
+                                                    <option selected="" disabled="">Select</option>
+                                                    <option <?php if($course->type=='free'){ echo "selected=''"; } ?> value="free">Free</option>
+                                                    <option <?php if($course->type=='paid'){ echo "selected=''"; } ?> value="paid">Paid</option>
+                                                </select>
+                                                @error('type')
+                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Price</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="{{ $course->price }}" name="price" type="number" placeholder="Enter Price" id="example-text-input">
+                                                @error('price')
+                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                @enderror
+                                            </div>
                                         </div>
 
                                         <div class="form-group">

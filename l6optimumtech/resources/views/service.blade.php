@@ -25,7 +25,7 @@
                     <div class="featured-blog-details">
                       <h2 class="text-white mb-5 " style="color: #626363; font-size: 22px; font-weight: bold;" >{{ $sliderservice->name }}</h2>
                       <p class="text-white" style="color: #626363;" >{{ substr($sliderservice->detail ,0,100) }}</p>
-                      <a href="{{ route('Service.Detail',$service->id) }}" class="btn btn-theme-colored btn-sm mt-5">Read More</a>
+                      <a href="{{ route('Service.Detail',$sliderservice->id) }}" class="btn btn-theme-colored btn-sm mt-5">Read More</a>
                     </div>
                   </div>
                 </div>
@@ -65,7 +65,7 @@
               <div class="services-list">
                 <ul class="list list-border angle-double-right">
                   	@foreach($services as $servicelist)
-                      <li class="active"><a href="{{ route('Service.Detail',$service->id) }}">{{ $servicelist->name }}</a></li>
+                      <li class="active"><a href="{{ route('Service.Detail',$servicelist->id) }}">{{ ucwords($servicelist->name) }}</a></li>
                     @endforeach
  
                  </ul>
@@ -80,7 +80,7 @@
         <div class="col-md-12">
 
         
-          <h3 class="text-theme-colored mb-20">{{ $service->name }}</h3>
+          <h3 class="text-theme-colored mb-20">{{ ucwords($service->name) }}</h3>
          
 
           <p style="text-align: justify;"> {{ $service->detail }} </p>

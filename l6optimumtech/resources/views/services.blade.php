@@ -11,58 +11,31 @@
 
 @section('content')
 	
-	<section id="home" class="divider">
-        <div class="container-fluid p-0">
-          <div class="row">
-            <div class="col-md-12">
-              <div  class="serviceautoplay" >
-                <div class="item">
-                  <div class="featured-blog">
-                    <img src="{{ asset('storage/images/products/seo3d.png') }}" alt="">
-                    <div class="featured-blog-details">
-                      <h2 class="text-white mb-5" style="color: #626363;" >Search Engine Marketing </h2>
-                      <p class="text-white" style="color: #626363;" >The key is to mine keywords properly and group them into relevant themes with correct match types.</p>
-                      <a href="" class="btn btn-theme-colored btn-sm mt-5">read more</a>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="item">
-                  <div class="featured-blog">
-                    <img src="{{ asset('storage/images/products/blog.png') }}" alt="">
-                    <div class="featured-blog-details">
-                      <h2 class="text-white" style="color: #626363;" >Blog Title Here</h2>
-                      <p class="text-white" style="color: #626363;" >Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                      <a href="" class="btn btn-theme-colored btn-sm mt-5">read more</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="featured-blog">
-                    <img src="{{ asset('storage/images/products/dNFlDhTyc0.png') }}" alt="">
-                    <div class="featured-blog-details">
-                      <h2 class="text-white" style="color: #626363;" >Domain & Hosting</h2>
-                      <p class="text-white" style="color: #626363;" >We work for excellence and cannot conciliation on industry standards</p>
-                      <a href="" class="btn btn-theme-colored btn-sm mt-5">read more</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="featured-blog">
-                    <img src="{{ asset('storage/images/products/pbrand.png') }}" alt="">
-                    <div class="featured-blog-details">
-                      <h2 class="text-white" style="color: #626363;" >Product Branding</h2>
-                      <p class="text-white" style="color: #626363;" >We present you online in homes, offices and on the go
-                    </p>
-                      <a href="" class="btn btn-theme-colored btn-sm mt-5">read more</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </section>
+	 @if($services->count()>0)
+	    <section id="home" class="divider">
+	      <div class="container-fluid p-0">
+	        <div class="row">
+	          <div class="col-md-12">
+	            <div class="owl-carousel-3col">
+	              @foreach($services as $sliderservice)
+	                @php $img = 'storage/'.$sliderservice->img  @endphp
+	                <div class="item">
+	                  <div class="featured-blog">
+	                    <img src="{{ asset($img) }} " alt="" class="img-responsive">
+	                    <div class="featured-blog-details">
+	                      <h2 class="text-white mb-5 " style="color: #626363; font-size: 22px; font-weight: bold;" >{{ $sliderservice->name }}</h2>
+	                      <p class="text-white" style="color: #626363;" >{{ substr($sliderservice->detail ,0,100) }}</p>
+	                      <a href="{{ route('Service.Detail',$sliderservice->id) }}" class="btn btn-theme-colored btn-sm mt-5">Read More</a>
+	                    </div>
+	                  </div>
+	                </div>
+	              @endforeach
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </section>
+	  @endif
 
     <!-- Section: Blog -->
     @if($services->count()>0)
@@ -83,7 +56,7 @@
 		              <div class="services-list">
 		                <ul class="list list-border angle-double-right">
 		                	@foreach($services as $service)
-		                		<li class="active"><a href="{{ route('Service.Detail',$service->id) }}">{{ $service->name }}</a></li>
+		                		<li class="active"><a href="{{ route('Service.Detail',$service->id) }}">{{ ucwords($service->name) }}</a></li>
 		                	@endforeach
 		                	<!-- <li class="active"><a href="SearchEngineMarketing">Search Engine Marketing</a></li> -->
 		                   <!--  <li class="active"><a href="ProductBranding">Product Branding</a></li>
@@ -98,71 +71,6 @@
 		            </div>
 		            
 		          </div>
-		        </div>
-		      </div>
-
-		      <div class="row">
-		        <div class="col-md-12">
-
-		          <h3 class="text-theme-colored">Offshore IT Staffing</h3>
-		            <h5><em>Offshore IT Staffing in Islamabad, Pakistan
-
-		              For as long as 8 years Solutions Player (Pvt) Ltd has been a trusted name for offshore support and development services. The idea of offshore staffing is getting to be progressively well known with little and medium size organizations.
-		       </em></h5>
-		            <p style="text-align: justify;">All representatives based offshore work at our office in Islamabad, Pakistan and here we give our workers all necessary facilities and standard benefits packages. You as a client are not in charge of superintendent duties, medicinal costs or some other overheads that are connected with your offshore worker. You just pay a settled month to month charge for each one devoted worker which is commonly half short of what contracting in the Pakistan.
-
-		              We at Solutions Player with offshore IT staffing in Islamabad spent years for refining our dealings to make it sure that clients get the highest quality and approval from our services and we frequently look for customs to develop our models. We have a wide range of software programs, consent us to adapt variety of industries, while left over an affordable and cost-effective option for our respected clients.</p>
-
-
-		              <h3 class="text-theme-colored">Why to take this Services</h3>
-		          <p style="text-align: justify;">To fulfill these unique strategic and administrative talent needs, offshore staffing services prove to be a great alternative.The world that we experience now is growing at an exponential pace. Companies equal to the size of countries lead the industries and make it very difficult for new entrants to survive the competition. To take on the big boys at their game and to grow in such monopolistic environment, companies need to shove off the orthodox techniques and need to think out-of-box techniques. Talent plays a big role in taking a company from 0 to 1 and then 1 to ’n’. However attracting top talent for a company is far from easy.</p>
-		                        <h3 class="text-theme-colored">What whould be the Advantages?</h3>
-		                        <div class="esc-heading heading-line-bottom lr-line left-heading">
-		                          <h4>Cost</h4>
-		                        </div>
-		                        <p>
-		            
-		             A very fundamental reason for offshore outsourcing is cost benefits. Expensive resources are easy to find but difficult to endure with. Many firms avoid increasing their operational costs and reducing their profits by investing hugely in human capital. And therefore they approach affordable geographies where they can find equally good talent acquirable at much lower costs.
-		                        </p>
-		                        <div class="esc-heading heading-line-bottom lr-line left-heading">
-		                          <h4> Advantage of choosing from a large pool</h4>
-		                        </div>
-		                        <p>
-		          By adopting offshore staffing solutions, firms get to choose from a large talent pool. Different countries have different work styles, different cost-to-benefit ratios and different talents hailing from great educational and training institutions. Companies get a wide variety of talent to choose from.
-		          </p>
-		          <div class="esc-heading heading-line-bottom lr-line left-heading">
-		            <h4> Fresh Perspective and Ideas</h4>
-		          </div>
-		          <p>
-		          Having someone across the world view your product, service or idea will definitely bring in a different perspective to the team. Historically only customers/clients could complete this feedback loop. How about having someone in-house with a different mindset provide feedback and fresh perspective?
-
-		          </p>
-		          <div class="esc-heading heading-line-bottom lr-line left-heading">
-		            <h4> Increased Flexibility</h4>
-		          </div>
-		          <p>
-		           The offshore partner is like an extension of your team. Though the employees are not employed by your company, they are like an additional arm for you. This provides the company an unusual flexibility to work in difficult situations and to meet the expectations of various demand-supply scenarios.
-		          </p>
-		           <div class="esc-heading heading-line-bottom lr-line left-heading">
-		            <h4> Unwavering Focus</h4>
-		          </div>
-		          <p>
-		           Having an offshore team assigned for a specific purpose enables companies to focus on their sole purpose i.e. their core business rather than investing time and energy on non-core functions.
-		          </p>
-
-		           <div class="esc-heading heading-line-bottom lr-line left-heading">
-		            <h4> 24/7 Support</h4>
-		          </div>
-		          <p>Most of the Offshore outsourcing companies have abilities of 24/7 support. No matter in which time-zone the company is, it is provided by full support whenever and wherever required, which the company may not get even while having all the team onshore.
-		          </p>
-		            <div class="esc-heading heading-line-bottom lr-line left-heading">
-		            <h4> Increased advantage for start-ups</h4>
-		          </div>
-		          <p>
-		           Most of the IT start-ups these days, especially SaaS(Software-as-a-Service) and PaaS(Platform-as-a-Service) require quality software engineers and testers. Moreover, the scalability of their work is inconsistent. In this case, having an offshore team is an added advantage which not only provides added support but also helps in market expansion and branding at Global level.
-		          </p>
-		             
-		        
 		        </div>
 		      </div>
 		    </div>

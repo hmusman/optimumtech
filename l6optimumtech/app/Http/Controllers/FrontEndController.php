@@ -13,7 +13,7 @@ use App\Team;
 use App\Event;
 use App\Product;
 use App\Service;
-
+use App\Category;
 class FrontEndController extends Controller
 {
     public function index()
@@ -62,5 +62,30 @@ class FrontEndController extends Controller
     	$products  = Product::all();
     	$services = Service::all();
     	return view('services',compact(['products','services']));
+    }
+
+    public function courses()
+    {
+        $products  = Product::all();
+        $services = Service::all();
+        $courses = Course::where('type','paid')->get();
+        $categories = Category::join('courses','categories.id','=','courses.category_id')->get();
+        $freeCourses = Course::where('type','free')->get();
+        return view('courses',compact(['products','services','courses','freeCourses','categories']));
+    }
+
+    public function showCourse($id)
+    {
+        $products = Product::all();
+        $services = Service::all();
+        $course = Course::where('id',$id)->first();
+        return view('course_detail',compact(['course','products','services']));
+    }
+
+    public function contactUs()
+    {
+        $products = Product::all();
+        $services = Service::all();
+        return view('contactus',compact(['products','services']));
     }
 }

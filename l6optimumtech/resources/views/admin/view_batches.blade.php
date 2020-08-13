@@ -50,12 +50,12 @@
                                             
                                             <tr>
                                                 <th>#</th>
-                                                <th>Title</th>
-                                                <th>Detail</th>
-                                                <th>Type</th>
+                                                <th>Name</th>
+                                                <th>Class Time</th>
+                                                <th>Class Start</th>
+                                                <th>Class End</th>
+                                                <th>Batch Duration</th>
                                                 <th>Price</th>
-                                                <th>Image</th>
-                                                <th>Applications</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -75,7 +75,6 @@
                                                         <td>{{ ucfirst($course->type) }}</td>
                                                         <td>{{ $course->price }}</td>
                                                         <td><img src="{{ asset($img) }}" style="height: 50px; width: 100px; "/></td>
-                                                        <td>{{ count($course->applications) }}</td>
                                                         <td> 
 
                                                             <div class="btn-group" role="group" aria-label="Basic example">

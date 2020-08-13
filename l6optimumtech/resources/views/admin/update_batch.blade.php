@@ -20,7 +20,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Add Optimum Courses</h4>
+                            <h4 class="page-title mb-1">Add Optimum Course Batch</h4>
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
                             <li class="breadcrumb-item active">File Upload</li>
@@ -46,75 +46,76 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Add New Courses</h4>
-                                    @error('existMsg')
-                                        <div class="alert alert-warning">{{ $message }}</div>
-                                    @enderror
-                                    <form method="post" action="{{ route('Course.store') }}" enctype="multipart/form-data">
+                                    <h4 class="header-title">Update Course Batch</h4>
+                               
+                                    <form method="post" action="{{ route('Batch.update',$batch->id) }}" enctype="multipart/form-data">
 
-                                        @csrf
+                                        @csrf     
+                                        @method('put') 
 
-                                        <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label">Category</label>
+                                       <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Course</label>
                                             <div class="col-md-10">
-                                                <select class="form-control" name="category">
-                                                    <option selected="" disabled="">Select Category</option>
-                                                    @foreach($categories as $category)
-                                                         <option <?php if(old('category')==$category->id){ echo "selected=''"; } ?>  value="{{ $category->id }}">{{ ucwords($category->title) }}</option>
+                                                <select class="form-control" name="course">
+                                                    <option selected="" disabled="">Select Course</option>
+                                                    @foreach($courses as $course)
+                                                         <option <?php if(old('course')==$course->id){ echo "selected=''"; } ?>  value="{{ $course->id }}">{{ ucwords($course->title) }}</option>
                                                     @endforeach
                                                 </select>
-                                                @error('category')
+                                                @error('course')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label">Title</label>
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
                                             <div class="col-md-10">
-                                                <input class="form-control" value="{{ old('title') }}" name="title" type="text" placeholder="Enter Title" id="example-text-input">
-                                                @error('title')
+                                                <input class="form-control" value="{{ old('name') }}" name="name" type="text" placeholder="Enter Name" id="example-text-input">
+                                                @error('name')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Class Duration</label>
                                             <div class="col-md-10">
-                                                <textarea id="textarea" class="form-control" name="detail" maxlength="500" rows="3" placeholder="This textarea has a limit of 230 chars.">{{ old('detail') }}</textarea>
-                                                @error('detail')
+                                                <input class="form-control" value="{{ old('class_duration') }}" name="name" type="text" placeholder="Enter Class Duration" id="example-text-input">
+                                                @error('class_duration')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture</label>
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Class Start</label>
                                             <div class="col-md-10">
-                                                <input name="img" type="file" style="margin-left: 10px;" >
-                                                @error('img')
-                                                    <p class="text-danger mt-3">{{ $message }}</p>
-                                                @enderror
-                                                @error('warningMsg')
+                                                <input class="form-control" value="{{ old('class_start') }}" name="class_start" type="time"  id="example-text-input">
+                                                @error('class_start')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
                                             </div>
-                                            
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label"> Course Option</label>
-                                             <div class="col-md-10">
-                                                  <select class="form-control" name="type">
-                                                        <option selected="" disabled="">Select</option>
-                                                        <option <?php if(old('type')=='free'){ echo "selected=''"; } ?> value="free">Free Course</option>
-                                                        <option <?php if(old('type')=='paid'){ echo "selected=''"; } ?> value="paid">Paid Course</option>
-                                                    </select>
-                                                     @error('type')
-                                                        <p class="text-danger mt-3">{{ $message }}</p>
-                                                    @enderror
-                                             </div> 
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Class End</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="{{ old('class_end') }}" name="class_end" type="time"  id="example-text-input">
+                                                @error('class_end')
+                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Duration</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" value="{{ old('batch_duration') }}" name="batch_duration" type="text" placeholder="Enter Batch Duration" id="example-text-input">
+                                                @error('batch_duration')
+                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                @enderror
+                                            </div>
                                         </div>
 
                                         <div class="form-group row">

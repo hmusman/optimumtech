@@ -56,7 +56,7 @@
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
                                                             <div class="col-md-10">
-                                                                <textarea id="textarea" class="form-control" name="detail"  rows="3" placeholder="This textarea has a limit of 700 chars.">{{ old('detail') }}</textarea>
+                                                                <textarea id="textarea" class="form-control" name="detail"  rows="3" placeholder="This textarea has a limit of 1500 chars.">{{ old('detail') }}</textarea>
                                                                 @error('detail')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
@@ -66,7 +66,7 @@
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Why take this Service</label>
                                                             <div class="col-md-10">
-                                                                <textarea id="textarea" class="form-control" name="why"  rows="3" placeholder="This textarea has a limit of 500 chars.">{{ old('why') }}</textarea>
+                                                                <textarea id="textarea" class="form-control" name="why"  rows="3" placeholder="This textarea has a limit of 1000 chars.">{{ old('why') }}</textarea>
                                                                 @error('why')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
@@ -84,7 +84,7 @@
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture 700*500</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture 750*500</label>
                                                             <div class="col-md-10">
                                                                 <input name="img" type="file">
                                                                 @error('img')

@@ -2,12 +2,13 @@
 Route::get('/', 'FrontEndController@index');
 Route::get('ProductDetail/{id}','FrontEndController@productShow')->name('Product.Detail');
 Route::get('ServiceDetail/{id}','FrontEndController@serviceShow')->name('Service.Detail');
-Route::get('/Products','FrontEndController@products');
-Route::get('/Services','FrontEndController@services');
-// Route::view('Products', 'products');
-// Route::view('Services','services');
-Route::view('Courses','courses');
-Route::view('ContactUs','contactus');
+Route::get('Products','FrontEndController@products');
+Route::get('Services','FrontEndController@services');
+Route::get('Courses','FrontEndController@courses')->name('Courses');
+Route::get('CourseDetail/{id}','FrontEndController@showCourse')->name('CourseDetail');
+Route::get('ApplyForCourse/{id}','CourseApplicationController@create')->name('ApplyForCourse');
+Route::post('Apply','CourseApplicationController@store')->name('Apply');
+Route::get('ContactUs','FrontEndController@contactUs')->name('ContactUs');
 Route::view('Courses/PHP','single_course');
 Route::view('Courses/NodeJs','single_course');
 Route::view('Courses/Javascript','single_course');
@@ -38,22 +39,20 @@ Route::view('TaxationAudit','taxation_audit');
 Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function(){
 
 	Route::view('/','admin.index');
-	Route::resource('/Course','CourseController');
+	Route::resource('Course','CourseController');
+	Route::resource('Batch','BatchController');
+	Route::resource('CourseApplication','CourseApplicationController');
+	Route::resource('Category','CategoryController');
 	Route::resource('Product','ProductController');
-	Route::resource('/Service','ServiceController');
-	Route::view('/AddLatestNews','admin.add_latest_news');
-	Route::view('/AddOptimumClient','admin.add_optimum_client');
-	Route::resource('/Slider','SliderController');
-	Route::view('/AddTestimonial','admin.add_testimonial');
+	Route::resource('Service','ServiceController');
+	Route::resource('Slider','SliderController');
+	Route::view('AddTestimonial','admin.add_testimonial');
 	Route::resource('/Event','EventController');
-	Route::view('/ViewCourses','admin.view_courses');
-	Route::resource('/News','NewModelController');
-	Route::resource('/Client','ClientController');
-	Route::view('/ViewSliders','admin.view_sliders');
-	Route::resource('/Testimonial','TestimonialController');
-	Route::resource('/Team','TeamController');
-	Route::resource('/Gallery','GalleryController');
-	Route::view('/ViewUpcomingEvents','admin.view_events');
+	Route::resource('News','NewModelController');
+	Route::resource('Client','ClientController');
+	Route::resource('Testimonial','TestimonialController');
+	Route::resource('Team','TeamController');
+	Route::resource('Gallery','GalleryController');
 
 });
 

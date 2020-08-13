@@ -153,6 +153,41 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
+                        <span>Course Application</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <!-- <li><a href="">Add Course</a></li> -->
+                        <li><a href="{{ route('CourseApplication.index') }}">View Course Application</a></li>
+                       
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
+                        <span>Course Batches</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('Batch.create') }}">Add Batch</a></li>
+                        <li><a href="{{ route('Batch.index') }}">View Batchs</a></li>
+                       
+                    </ul>
+                </li>
+
+                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
+                        <span>Category</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('Category.create') }}">Add Category</a></li>
+                        <li><a href="{{ route('Category.index') }}">View Categorys</a></li>
+                       
+                    </ul>
+                </li>
 
 
 

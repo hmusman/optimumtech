@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use App\Category;
 class CourseController extends Controller
 {
     public function index()
@@ -17,7 +17,8 @@ class CourseController extends Controller
     
     public function create()
     {
-        return view('admin.add_course');
+        $categories = Category::all();
+        return view('admin.add_course',compact('categories'));
     }
 
    
@@ -25,9 +26,10 @@ class CourseController extends Controller
     {
         $validations = Validator::make($request->all(),[
             'title'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:250',
+            'detail'=>'bail | required | string | max:500',
             'img'=>'required',
-            'type'=>'required'
+            'type'=>'required',
+            'price'=>'bail | required | numeric'
 
         ]);
 
@@ -52,6 +54,7 @@ class CourseController extends Controller
             $course->detail = $request->detail;
             $course->img= $filename;
             $course->type = $request->type;
+            $course->price = $request->price;
             if($course->save())
             {
                 $request->session()->flash('msg','Course Added Successfully');
@@ -63,14 +66,15 @@ class CourseController extends Controller
    
     public function show($id)
     {
-        //
+
     }
 
    
     public function edit($id)
     {
+        $categories = Category::all();
         $course = Course::where('id',$id)->first();
-        return view('admin.update_course',compact('course'));
+        return view('admin.update_course',compact(['course','categories']));
     }
 
     
@@ -78,8 +82,9 @@ class CourseController extends Controller
     {
         $validations = Validator::make($request->all(),[
             'title'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:250',
-            'type'=>'required'
+            'detail'=>'bail | required | string | max:500',
+            'type'=>'required',
+            'price'=>'bail | required | numeric'
 
         ]);
 
@@ -106,6 +111,7 @@ class CourseController extends Controller
             $course->detail = $request->detail;
             $course->img= $filename;
             $course->type = $request->type;
+            $course->price = $request->price;
             if($course->save())
             {
                 $request->session()->flash('msg','Course Updated Successfully');
