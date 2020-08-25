@@ -254,6 +254,39 @@
                        
                     </ul>
                 </li>
+
+                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-apps"></i></div>
+                        <span>Menus</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-apps"></i></div>
+                                <span>Main Menu</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('MainMenu.create') }}">Add Main Menu</a></li>
+                                <li><a href="{{ route('MainMenu.index') }}">View Main Menu</a></li>
+                               
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <div class="d-inline-block icons-sm mr-1"><i class="uim uim-apps"></i></div>
+                                <span>Sub Menu</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="{{ route('SubMenu.create')}}">Add Sub Menu</a></li>
+                                <li><a href="{{ route('SubMenu.index') }}">View Sub Menu</a></li>
+                               
+                            </ul>
+                        </li>
+                       
+                    </ul>
+                </li>
                
 
             </ul>

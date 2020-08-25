@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2020 at 12:38 PM
+-- Generation Time: Aug 25, 2020 at 07:21 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -42,6 +42,8 @@ CREATE TABLE `applications` (
   `province` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `zip` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `country` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -50,10 +52,8 @@ CREATE TABLE `applications` (
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`id`, `applicant_number`, `course_id`, `first_name`, `last_name`, `email`, `address`, `cnic`, `phone`, `city`, `province`, `zip`, `country`, `created_at`, `updated_at`) VALUES
-(5, 'AppNo -69466', 1, 'testfirst', 'testlast', 'test@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', '2020-08-13 03:59:58', '2020-08-13 03:59:58'),
-(6, 'AppNo -29163', 1, 'testfirst', 'testlast', 'test1@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', '2020-08-13 04:00:22', '2020-08-13 04:00:22'),
-(7, 'AppNo -48563', 2, 'testfirst', 'testlast', 'test@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', '2020-08-13 04:02:51', '2020-08-13 04:02:51');
+INSERT INTO `applications` (`id`, `applicant_number`, `course_id`, `first_name`, `last_name`, `email`, `address`, `cnic`, `phone`, `city`, `province`, `zip`, `country`, `img`, `status`, `created_at`, `updated_at`) VALUES
+(8, 'AppNo -33763', 3, 'testfirst', 'testlast', 'test786@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/35zyl3dsT842Xh0FVXn3EhSJ6dQa5UQXz21poWb9.png', 1, '2020-08-24 06:21:38', '2020-08-24 07:10:48');
 
 -- --------------------------------------------------------
 
@@ -139,6 +139,8 @@ CREATE TABLE `courses` (
   `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -147,10 +149,11 @@ CREATE TABLE `courses` (
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id`, `category_id`, `title`, `detail`, `img`, `type`, `price`, `created_at`, `updated_at`) VALUES
-(1, '1', 'adobe photo', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/4tdunslm5YGMpY2qQDhC1ik0H7up1gJS48D3Jnhe.png', 'free', '0', '2020-08-06 04:48:31', '2020-08-12 06:31:34'),
-(2, '3', 'node', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/JNb2pJGQBl2xfq0Qd7y4ytGKQmpib04khsn7ahyA.png', 'paid', '13500', '2020-08-06 05:04:30', '2020-08-12 07:58:06'),
-(3, '2', 'photo shop', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/ChIFuQtYhSqoskttOsmjDXMxue8RgqB7ImdqbObI.png', 'free', '0', '2020-08-06 05:05:13', '2020-08-12 06:33:49');
+INSERT INTO `courses` (`id`, `category_id`, `title`, `detail`, `img`, `type`, `price`, `url`, `status`, `created_at`, `updated_at`) VALUES
+(1, '1', 'adobe photo', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/4tdunslm5YGMpY2qQDhC1ik0H7up1gJS48D3Jnhe.png', 'free', '0', 'http://127.0.0.1:8000/CourseDetail/1', '0', '2020-08-06 04:48:31', '2020-08-24 06:05:32'),
+(2, '3', 'nodejs', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/JNb2pJGQBl2xfq0Qd7y4ytGKQmpib04khsn7ahyA.png', 'paid', '13500', 'http://127.0.0.1:8000/CourseDetail/2', '1', '2020-08-06 05:04:30', '2020-08-24 06:05:27'),
+(3, '2', 'photo shop', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/ChIFuQtYhSqoskttOsmjDXMxue8RgqB7ImdqbObI.png', 'free', '0', 'http://127.0.0.1:8000/CourseDetail/3', '1', '2020-08-06 05:05:13', '2020-08-24 05:02:38'),
+(4, '', 'first', 'first', 'admin/images/courses/tgR797ZErdKlsJU2rZ7dR3d2KQZlH4k0I4pTBcwC.png', 'free', '45', 'http://127.0.0.1:8000/CourseDetail/4', '0', '2020-08-24 04:54:34', '2020-08-24 06:03:27');
 
 -- --------------------------------------------------------
 
@@ -219,6 +222,30 @@ INSERT INTO `galleries` (`id`, `category`, `img`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `main_menus`
+--
+
+CREATE TABLE `main_menus` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `main_menus`
+--
+
+INSERT INTO `main_menus` (`id`, `title`, `created_at`, `updated_at`) VALUES
+(5, 'home', '2020-08-22 04:55:50', '2020-08-22 04:55:50'),
+(6, 'products', '2020-08-22 04:56:12', '2020-08-22 04:56:34'),
+(7, 'services', '2020-08-22 04:56:28', '2020-08-22 04:56:28'),
+(8, 'courses', '2020-08-22 04:56:46', '2020-08-22 05:46:46'),
+(9, 'contact us', '2020-08-22 05:43:54', '2020-08-22 05:47:03');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -250,7 +277,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2020_08_12_114322_create_batches_table', 12),
 (16, '2020_08_13_054233_applications', 13),
 (17, '2020_08_13_064606_add_column_phone_applications', 14),
-(18, '2020_08_13_074558_add_column_applicant_number_applications', 15);
+(18, '2020_08_13_074558_add_column_applicant_number_applications', 15),
+(19, '2020_08_22_070739_create_main_menus_table', 16),
+(20, '2020_08_22_070804_create_sub_menus_table', 16),
+(21, '2020_08_24_091547_add_new_columns_courses', 17),
+(22, '2020_08_24_091944_add_new_columns_courses', 18);
 
 -- --------------------------------------------------------
 
@@ -374,6 +405,47 @@ INSERT INTO `sliders` (`id`, `img`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sub_menus`
+--
+
+CREATE TABLE `sub_menus` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `main_id` bigint(20) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `route` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sub_menus`
+--
+
+INSERT INTO `sub_menus` (`id`, `main_id`, `title`, `route`, `item_id`, `created_at`, `updated_at`) VALUES
+(1, 6, 'Ecommerce Web Site', '/ProductDetail/1', 1, '2020-08-22 02:58:35', '2020-08-22 06:27:53'),
+(2, 6, 'hotel rooms reservation system', '/ProductDetail/2', 2, '2020-08-22 05:00:20', '2020-08-22 06:28:21'),
+(3, 6, 'management information system development', '/ProductDetail/3', 3, '2020-08-22 05:01:49', '2020-08-22 06:28:28'),
+(4, 6, 'finance management system', '/ProductDetail/4', 4, '2020-08-22 05:04:01', '2020-08-22 06:29:43'),
+(5, 6, 'student information system', '/ProductDetail/5', 5, '2020-08-22 05:04:43', '2020-08-22 06:29:52'),
+(6, 6, 'content management system', '/ProductDetail/6', 6, '2020-08-22 05:05:10', '2020-08-22 06:30:01'),
+(7, 6, 'property management system', '/ProductDetail/7', 7, '2020-08-22 05:05:32', '2020-08-22 06:30:09'),
+(8, 6, 'develpment of job portal', '/ProductDetail/8', 8, '2020-08-22 05:05:51', '2020-08-22 06:30:20'),
+(9, 6, 'development of taxi app', '/ProductDetail/9', 9, '2020-08-22 05:06:09', '2020-08-22 06:30:29'),
+(10, 7, 'Website Designing Website Development', '/ServiceDetail/1', 1, '2020-08-22 05:11:50', '2020-08-22 06:30:43'),
+(11, 7, 'Mobile Application Development', '/ServiceDetail/2', 2, '2020-08-22 05:12:21', '2020-08-22 06:30:51'),
+(12, 7, 'Search Engine Marketing', '/ServiceDetail/3', 3, '2020-08-22 05:12:42', '2020-08-22 06:31:21'),
+(13, 7, 'Product branding', '/ServiceDetail/4', 4, '2020-08-22 05:12:55', '2020-08-22 05:20:10'),
+(14, 7, 'Offshore IT Staffing', '/ServiceDetail/5', 5, '2020-08-22 05:13:09', '2020-08-22 06:31:32'),
+(15, 7, 'Domain & Hosting', '/ServiceDetail/6', 6, '2020-08-22 05:13:23', '2020-08-22 06:32:08'),
+(16, 7, 'Outsourcing', '/ServiceDetail/7', 7, '2020-08-22 05:13:44', '2020-08-22 06:32:37'),
+(18, 8, 'adobe photo', '/CourseDetail/1', 1, '2020-08-22 05:44:32', '2020-08-22 06:33:22'),
+(19, 8, 'nodejs', '/CourseDetail/2', 2, '2020-08-22 05:45:10', '2020-08-22 06:33:36'),
+(20, 8, 'Photo Shop', '/CourseDetail/3', 3, '2020-08-22 05:45:46', '2020-08-22 06:33:48');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `teams`
 --
 
@@ -444,7 +516,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `user_type`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'administrator', 'admin@gmail.com', 'admin', NULL, '$2y$10$YaQ47Lb/Ry/LFJMBHyjl6u/sNi7r8AAizIPjAtwcnhuKvkHtYqb76', NULL, '2020-08-07 06:23:10', '2020-08-07 06:23:10'),
+(1, 'administrator', 'admin@gmail.com', 'admin', NULL, '$2y$10$YaQ47Lb/Ry/LFJMBHyjl6u/sNi7r8AAizIPjAtwcnhuKvkHtYqb76', 'kXJisyz6A7CD1wgrHNqohrhb2WabaXsek2m5CsUDyEXfRW3MHlUUPTZOVw1Y', '2020-08-07 06:23:10', '2020-08-07 06:23:10'),
 (2, 'user', 'test@gmail.com', NULL, NULL, '$2y$10$2DjIoSUJyekIOppbQlj5pei7HtbnqDN2oG9h22yPeP72y4OACmCEq', NULL, '2020-08-07 06:30:38', '2020-08-07 06:30:38');
 
 --
@@ -501,6 +573,12 @@ ALTER TABLE `galleries`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `main_menus`
+--
+ALTER TABLE `main_menus`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -537,6 +615,12 @@ ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sub_menus`
+--
+ALTER TABLE `sub_menus`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `teams`
 --
 ALTER TABLE `teams`
@@ -563,7 +647,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `batches`
@@ -587,7 +671,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `events`
@@ -608,10 +692,16 @@ ALTER TABLE `galleries`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `main_menus`
+--
+ALTER TABLE `main_menus`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -636,6 +726,12 @@ ALTER TABLE `services`
 --
 ALTER TABLE `sliders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `sub_menus`
+--
+ALTER TABLE `sub_menus`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `teams`

@@ -25,3 +25,53 @@
 <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
 
 <script src="{{ asset('assets/js/app.js') }}"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    // $('#subMenuTable').DataTable();
+	});
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.status').change(function(){
+        	var id = $(this).parent().data('id');
+        	var value = $(this).val();
+        	$.ajax({
+        		url:"{{ route('CourseStatus')}}",
+        		type:"get",
+        		data:{id:id,status:value },
+        		success:function(data)
+        		{
+        			$('.statusMsg').css('display','block');
+        			$('.statusMsg').html("Status Has Been Changed");
+        		}
+        	});
+        });
+
+        $('.appStatus').change(function(){
+        	var id = $(this).parent().data('id');
+        	if($('.appStatus').is(':checked')){var value = 1;}else{var value = 0;}
+        	$.ajax({
+        		url:"{{ route('CourseApplicationStatus')}}",
+        		type:"get",
+        		data:{id:id,status:value },
+        		success:function(data)
+        		{ 
+        			$('.statusMsg').css('display','block');
+        			if(value==1){$('.statusMsg').html("Payment Has Been Confirmed"); }
+        			else{ $('.statusMsg').html("Payment Has Been Un Confirmed");  }
+        			
+        		}
+        	});
+        });
+
+        $('.appImg').click(function(){
+        	alert($(this).attr('src'));
+        });
+    });
+</script>

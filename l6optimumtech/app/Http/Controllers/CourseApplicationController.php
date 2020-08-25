@@ -6,6 +6,7 @@ use App\CourseApplication;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Service;
+use App\MainMenu;
 use Illuminate\Support\Facades\Validator;
 class CourseApplicationController extends Controller
 {
@@ -18,9 +19,10 @@ class CourseApplicationController extends Controller
 
     public function create($id)
     {
+        $mains = MainMenu::all();
         $products  = Product::all();
         $services = Service::all();
-       return view('course_application',compact(['products','services','id']));
+       return view('course_application',compact(['mains','products','services','id']));
     }
 
     
@@ -47,7 +49,8 @@ class CourseApplicationController extends Controller
             'zip'=>'bail | required',
             'city'=>'bail | required',
             'province'=>'required',
-            'country'=>'required'
+            'country'=>'required',
+            'img'=>'required'
        ]);
 
        if($validations->fails())
@@ -56,6 +59,13 @@ class CourseApplicationController extends Controller
        }
        else
        {
+            $ext = $request->file('img')->extension();
+            if($ext =='png' || $ext=='jpg' || $ext=='jpeg') {$filename = $request->file('img')->store('admin/images/courseApplication','public');}
+            else
+            {
+                return back()->withErrors(['warningMsg'=>"Please Select Correct Image"])->withInput();
+            }
+
             if(CourseApplication::where([['email','=',$request->email],['course_id','=',$request->course]])->get()->count()>0)
             {
                 $request->session()->flash('warningMsg',"You Are Already Applied");
@@ -74,8 +84,10 @@ class CourseApplicationController extends Controller
             $application->province = $request->province;
             $application->country = $request->country;
             $application->zip = $request->zip;
+            $application->img = $filename;
             if($application->save())
             {
+
                 $request->session()->flash('msg','Your Application Has Been Submitted Successfully');
                 return back();
             }
@@ -108,5 +120,12 @@ class CourseApplicationController extends Controller
             $request->session()->flash('msg','Application Has Been Deleted Successfully');
             return redirect(route('CourseApplication.index'));
         }
+    }
+
+    public function courseApplicationStatus(Request $request)
+    {
+        $courseApplication = CourseApplication::find($request->id);
+        $courseApplication->status=$request->status;
+        $courseApplication->save();
     }
 }

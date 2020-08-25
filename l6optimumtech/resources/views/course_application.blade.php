@@ -35,7 +35,7 @@
 	      <div class="container">
 	        <div class="section-content">
 	          <div class="row mt-30">
-	            <form id="checkout-form" action="{{ route('Apply') }}" method="post">
+	            <form id="checkout-form" action="{{ route('Apply') }}" method="post" enctype="multipart/form-data">
 	            	@csrf
 	              <div class="col-md-2"></div>	
 	              <div class="col-md-8">
@@ -139,6 +139,19 @@
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
 	                       @enderror
 	                    </div>
+
+	                    <div class="form-group col-md-6">
+	                    	<label>Upload Image</label>
+	                    	<input type="file" name="img">
+	                    	@error('img')
+	                      	  <p class="text-danger mt-3">{{ $message }}</p>
+	                        @enderror
+
+	                        @error('warningMsg')
+	                       	  <p class="text-danger mt-3">{{ $message }}</p>
+	                        @enderror
+	                    </div>
+
 	                  </div>
 	                </div>
 	              </div>

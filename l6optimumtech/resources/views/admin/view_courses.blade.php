@@ -42,7 +42,7 @@
                                     @if(Session::has('msg'))
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
-                                    
+                                    <div class="alert alert-success statusMsg" style="display: none;"></div>
     
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
@@ -56,6 +56,8 @@
                                                 <th>Price</th>
                                                 <th>Image</th>
                                                 <th>Applications</th>
+                                                <th>URL</th>                                                t
+                                                <th>Status</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -70,12 +72,20 @@
                                                         <td>{{ $i++ }}</td>
                                                         <td>{{ ucwords($course->title)}}</td>
                                                         <td><p>
-                                                          {{ ucfirst($course->detail) }}
+                                                          {{ \Illuminate\Support\Str::limit($course->detail, 100, $end='...') }}
                                                         </p></td>
                                                         <td>{{ ucfirst($course->type) }}</td>
                                                         <td>{{ $course->price }}</td>
                                                         <td><img src="{{ asset($img) }}" style="height: 50px; width: 100px; "/></td>
                                                         <td>{{ count($course->applications) }}</td>
+                                                        <td>{{ $course->url }}</td>
+                                                        <td data-id="{{ $course->id }}">
+                                                            <select class="status">
+                                                                <option <?php echo ($course->status==1) ?  "selected=''" :''?> value="1">Active</option>
+                                                                <option <?php echo ($course->status==0) ? "selected=''" : ''?> value="0">Blocked</option>
+                                                            </select>
+                                                            
+                                                        </td>
                                                         <td> 
 
                                                             <div class="btn-group" role="group" aria-label="Basic example">
@@ -93,7 +103,7 @@
                                                 @endforeach
 
                                             @else
-                                                <tr><td colspan="5" class="text-center">No Course Available</td></tr>
+                                                <tr><td colspan="7" class="text-center">No Course Available</td></tr>
                                             @endif
 
                               

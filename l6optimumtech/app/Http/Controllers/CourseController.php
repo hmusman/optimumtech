@@ -57,6 +57,10 @@ class CourseController extends Controller
             $course->price = $request->price;
             if($course->save())
             {
+                $url = url('/');
+                $furl = $url.'/CourseDetail/'.$course->id;
+                $course->url = $furl;
+                $course->save();
                 $request->session()->flash('msg','Course Added Successfully');
                 return redirect(route('Course.index'));
             }
@@ -112,6 +116,9 @@ class CourseController extends Controller
             $course->img= $filename;
             $course->type = $request->type;
             $course->price = $request->price;
+            $url = url('/');
+            $furl = $url.'/CourseDetail/'.$course->id;
+            $course->url = $furl;
             if($course->save())
             {
                 $request->session()->flash('msg','Course Updated Successfully');
@@ -128,5 +135,12 @@ class CourseController extends Controller
             $request->session()->flash('msg','Course Deleted Successfully');
             return redirect(route('Course.index'));
         }
+    }
+
+    public function courseStatus(Request $request)
+    {
+        $course = Course::find($request->id);
+        $course->status=$request->status;
+        $course->save();
     }
 }

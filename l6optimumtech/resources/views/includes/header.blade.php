@@ -62,9 +62,32 @@
             <nav id="menuzord-right" class="menuzord orange">
               <a href="/" > <img class="mt-5 mb-20" alt="" src="{{ asset('storage/images/logo.png') }}"></a>
               <ul class="menuzord-menu dark">
-                <li class="active"><a href="/">Home</a>
-                </li>
-                @if($products->count()>0)
+                {{--<li class="active"><a href="/">Home</a>
+                </li>--}}
+                
+               @if($mains->count()>0)
+                  @foreach($mains as $main)
+                      @if($main->title=='home' || $main->title=='Home')
+                          <li class="active"><a href="/">Home</a>
+                      @else
+                        @if(($main->title=='contact us' || $main->title=='Contact Us') && $main->submenus->count()==0)
+                             <li><a href="/ContactUs" >{{ ucwords($main->title) }}</a></li>
+                        @else
+                          @if($main->submenus->count()>0)
+                            <li><a>{{ ucwords($main->title) }}<span class="label label-info">New</span></a>
+                              <ul class="dropdown">
+                                @foreach($main->submenus as $sub)
+                                   <li><a href="{{ $sub->route }}">{{ ucwords($sub->title) }}</a></li>
+                                @endforeach
+                              </ul>
+                            </li>
+                          @endif
+                        @endif
+                      @endif
+                  @endforeach
+                @endif 
+
+               {{-- @if($products->count()>0)
                   <li><a href="Products">Products <span class="label label-info">New</span></a>
                     <ul class="dropdown">
                       @foreach($products as $product)
@@ -72,10 +95,10 @@
                       @endforeach
                     </ul>
                   </li>
-                @endif
+                @endif --}}
                
 
-                @if($services->count()>0)
+               {{-- @if($services->count()>0)
                   <li><a href="/Services">Services <span class="label label-info">New</span></a>
                       <ul class="dropdown">
                         @foreach($services as $service)
@@ -84,14 +107,14 @@
                       </ul>
                   </li>
                 @endif
-              
-                <li><a href="{{ route('Courses') }}">Courses</a>
+              --}}
+                {{-- <li><a href="{{ route('Courses') }}">Courses</a>
                   
                 </li>
               
-                <li><a href="{{ route('ContactUs')}}">Contact Us</a>
+                <li><a href="{{ route('ContactUs')}}">Contact Us</a> 
                
-                </li>
+                </li>--}}
 
               </ul>
               </li>

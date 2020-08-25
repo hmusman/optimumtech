@@ -40,9 +40,13 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 
 	Route::view('/','admin.index');
 	Route::resource('Course','CourseController');
+	Route::get('CourseStatus','CourseController@courseStatus')->name('CourseStatus');
+	Route::get('CourseApplicationStatus','CourseApplicationController@courseApplicationStatus')->name('CourseApplicationStatus');
 	Route::resource('Batch','BatchController');
 	Route::resource('CourseApplication','CourseApplicationController');
 	Route::resource('Category','CategoryController');
+	Route::resource('MainMenu','MainMenuController');
+	Route::resource('SubMenu','SubMenuController');
 	Route::resource('Product','ProductController');
 	Route::resource('Service','ServiceController');
 	Route::resource('Slider','SliderController');
