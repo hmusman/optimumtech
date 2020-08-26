@@ -261,7 +261,7 @@
 						                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
 						                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 						                    </ul>
-						                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="/{{ str_replace(' ','',$member->designation) }}" target="_blank">
+						                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="{{ route('TeamDetail',$member->id) }}" target="_blank">
 						                      Detail</a>
 						                 </div>
 					                </div>
@@ -394,7 +394,7 @@
 		                  	@foreach($events as $event)
 		                  		@php $img = 'storage/'.$event->img; @endphp
 		                  		<article class="post media-post clearfix pb-0 mb-10">
-				                  <a href="/BookEvents" target="_blank" class="post-thumb mr-20"><img alt="" src="{{ asset($img) }}"></a>
+				                  <a href="{{ route('EventDetail',$event->id) }}" target="_blank" class="post-thumb mr-20"><img alt="" src="{{ asset($img) }}"></a>
 				                  <div class="post-right">
 				                    <h4 class="mt-0 mb-5"><a href="/BookEvents" target="_blank">{{ $event->title }}</a></h4>
 				                    <ul class="list-inline font-12 mb-5">
@@ -402,7 +402,7 @@
 				                      <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>{{ $event->address }}</li>
 				                    </ul>
 				                    <p class="mb-0 font-13">{{ $event->detail }}</p>
-				                    <a class="text-theme-colored font-13" href="/BookEvents" target="_blank">Read More →</a>
+				                    <a class="text-theme-colored font-13" href="{{ route('EventDetail',$event->id) }}" target="_blank">Read More →</a>
 				                  </div>
 				                </article>
 
@@ -509,7 +509,7 @@
 						                    <article class="post clearfix mb-sm-30">
 						                      <div class="entry-header">
 						                        <div class="post-thumb thumb">
-						                          <a href="/LatestNewsDetail" target="_blank"> <img src="{{  asset($img) }}" alt="" class="img-responsive img-fullwidth"></a>
+						                          <a href="{{ route('NewsDetail',$row->id) }}" target="_blank"> <img src="{{  asset($img) }}" alt="" class="img-responsive img-fullwidth"></a>
 						                        </div>
 						                      </div>
 						                      <div class="entry-content p-20 pr-10 bg-white">
@@ -522,7 +522,7 @@
 						                          </div>
 						                          <div class="media-body pl-15">
 						                            <div class="event-content pull-left flip">
-						                              <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="#">{{ ucfirst($row->testimonial_subtitle) }}</a>
+						                              <h4 class="entry-title text-white text-uppercase m-0 mt-5"><a href="#">{{ ucfirst($row->title) }}</a>
 						                              </h4>
 						                              <!-- <span class="mb-10 text-gray-darkgray mr-10 font-13"><i
 						                                  class="fa fa-commenting-o mr-5 text-theme-colored"></i> 214 Comments</span>
@@ -532,7 +532,7 @@
 						                          </div>
 						                        </div>
 						                        <p class="mt-10">{{ ucfirst($row->detail) }}</p>
-						                        <a href="/LatestNewsDetail" target="_blank" class="btn-read-more">Read more</a>
+						                        <a href="{{ route('NewsDetail',$row->id) }}" target="_blank" class="btn-read-more">Read more</a>
 						                        <div class="clearfix"></div>
 						                      </div>
 						                    </article>

@@ -164,7 +164,7 @@
                                             </tr>
                                         </thead>
                                       
-                                        <form class="changeStatus" method="post" action="">
+                                        <form id="changeStatus" method="post" action="">
                                             @csrf
                                             <tbody>
                                                 @if($applications->count()>0)
@@ -174,7 +174,7 @@
                                                         <tr>
                                                             <td>
                                                               <div class="custom-control custom-checkbox" data-id="{{ $application->id }}">
-                                                                    <input type="checkbox" class="custom-control-input changeStatusBox" id="customCheck{{ $application->id }}" name="checkboxes[]" value="{{ $application->id }}">
+                                                                    <input type="checkbox" class="custom-control-input changeStatusBox" id="customCheck{{ $application->id }}" name="checkboxes[{{ $counter }}]" value="{{ [$application->id] }}">
                                                                     <label class="custom-control-label" for="customCheck{{ $application->id }}"></label>
                                                                 </div>
                                                               {{-- <div class="custom-control custom-checkbox" data-id="{{ $application->id }}">
@@ -183,7 +183,7 @@
                                                                 </div> --}}
                                                             </td>
                                                             <td>{{ $i++ }}</td>
-                                                            <td><?php echo ($application->status==1) ? 'Confirmed' : ' ' ?></td>
+                                                            <td></td>
                                                             <td>{{ $application->applicant_number }}</td>
                                                             <td><img src="{{ asset($img) }}" class="appImg" style="width: 100px; height: 100px"></td>
                                                             <td>{{ ucwords($application->course->title) }}</td>
@@ -199,9 +199,12 @@
                                                             <td> 
 
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                                   
-                                                                      <a href="{{ route('CourseApplication.delete',$application->id) }}" class="btn btn-primary mdi mdi-close-box-multiple-outline"></a>
-                                                                    
+                                                                   <!--  <a href="{{ route('CourseApplication.edit',$application->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a> -->&nbsp;
+                                                                    {{-- <form style="margin-left: 10px;" method="post" action="{{ route('CourseApplication.destroy',$application->id) }}">
+                                                                        @csrf
+                                                                        @method('delete')
+                                                                        <button type="submit" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
+                                                                    </form> --}}
                                                                 </div>
                                                             </td>
                                                            

@@ -128,4 +128,30 @@ class CourseApplicationController extends Controller
         $courseApplication->status=$request->status;
         $courseApplication->save();
     }
+
+    public function courseApplicationConfirmStatus(Request $request)
+    {
+       for($i=0;$i<count($request->checkboxes);$i++)
+       {
+            $id = $request->checkboxes[$i];
+            $application = CourseApplication::find($id);
+            $application->status =1;
+            $application->save();
+       }
+       $request->session()->flash('msg','Payment is confirmed');
+       return redirect(route('CourseApplication.index'));
+    }
+
+    public function courseApplicationUnConfirmStatus(Request $request)
+    {
+        for($i=0;$i<count($request->checkboxes);$i++)
+        {
+            $id = $request->checkboxes[$i];
+            $application = CourseApplication::find($id);
+            $application->status =0;
+            $application->save();
+        }
+       $request->session()->flash('msg','Payment is not confirmed');
+        return redirect(route('CourseApplication.index'));
+    }
 }

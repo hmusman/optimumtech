@@ -128,7 +128,7 @@ class CourseController extends Controller
     }
 
    
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         if(Course::where('id',$id)->delete())
         {

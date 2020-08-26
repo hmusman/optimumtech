@@ -55,7 +55,7 @@
 
         $('.appStatus').change(function(){
         	var id = $(this).parent().data('id');
-        	if($('.appStatus').is(':checked')){var value = 1;}else{var value = 0;}
+        	if($(this).is(':checked')){var value = 1;}else{var value = 0;}
         	$.ajax({
         		url:"{{ route('CourseApplicationStatus')}}",
         		type:"get",
@@ -64,14 +64,41 @@
         		{ 
         			$('.statusMsg').css('display','block');
         			if(value==1){$('.statusMsg').html("Payment Has Been Confirmed"); }
-        			else{ $('.statusMsg').html("Payment Has Been Un Confirmed");  }
+        			else if(value==0){ $('.statusMsg').html("Payment Has Been Un Confirmed");  }
         			
         		}
         	});
         });
 
         $('.appImg').click(function(){
-        	alert($(this).attr('src'));
+            var imgSrc =$(this).attr('src');
+            var img = $('#img01');
+            img.attr("src",imgSrc);
+            $('.myModel').css('display','block');
         });
+
+        $('.close').click(function(){
+            $('.myModel').css('display','none');
+        });
+        
+
+        $('.unconfirm').click(function(){
+            if($('.changeStatusBox:checkbox').is(":checked"))
+            {
+                $('.changeStatus').attr('action',"{{ route('CourseApplicationUnConfirmStatus') }}");
+                $('.changeStatus').submit();
+            }
+        });
+
+        $('.confirm').click(function(){
+            if($('.changeStatusBox:checkbox').is(":checked"))
+            {
+                $('.changeStatus').attr('action',"{{ route('CourseApplicationConfirmStatus') }}");
+                $('.changeStatus').submit();
+            }
+        });
+
+
+        
     });
 </script>

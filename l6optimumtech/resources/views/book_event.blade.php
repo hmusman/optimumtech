@@ -92,10 +92,8 @@
           <div class="col-md-12">
             <div class="row mt-60">
               <div class="col-md-6">
-                <h4 class="mt-0">Optimum Tech Events </h4>
-                <p style="text-align: justify" >You’re sure to want your taxi-booking application to be ahead of the game. Learning from your competitors’ failures and wins is a proven way to success. Let’s learn from the competition together.
-                  If the taxi industry still needs disruption in your city or region, you’re lucky to have found a team that can help you build a mobile taxi service as good as Uber.
-                </p>
+                <h4 class="mt-0">{{ $event->title }} </h4>
+                <p style="text-align: justify" >{{ $event->detail }}</p>
               </div>
               <div class="col-md-6">
                 <blockquote>

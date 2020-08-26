@@ -94,9 +94,28 @@ class FrontEndController extends Controller
 
     public function contactUs()
     {
-        $products = Product::all();
-        $services = Service::all();
         $mains = MainMenu::all();
-        return view('contactus',compact(['mains','products','services']));
+        return view('contactus',compact(['mains']));
+    }
+
+    public function newsDetail($id)
+    {
+        $news = NewModel::where('id',$id)->first();
+        $mains = MainMenu::all();
+        return view('news_detail',compact(['mains','news']));
+    }
+
+    public function eventDetail($id)
+    {
+        $event = Event::where('id',$id)->first();
+        $mains = MainMenu::all();
+        return view('book_event',compact(['mains','event']));
+    }
+
+    public function teamDetail($id)
+    {
+        $team = Team::where('id',$id)->first();
+        $mains = MainMenu::all();
+        return view('team_detail',compact(['mains','team']));
     }
 }
