@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 25, 2020 at 07:21 AM
+-- Generation Time: Aug 26, 2020 at 12:01 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -53,7 +53,8 @@ CREATE TABLE `applications` (
 --
 
 INSERT INTO `applications` (`id`, `applicant_number`, `course_id`, `first_name`, `last_name`, `email`, `address`, `cnic`, `phone`, `city`, `province`, `zip`, `country`, `img`, `status`, `created_at`, `updated_at`) VALUES
-(8, 'AppNo -33763', 3, 'testfirst', 'testlast', 'test786@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/35zyl3dsT842Xh0FVXn3EhSJ6dQa5UQXz21poWb9.png', 1, '2020-08-24 06:21:38', '2020-08-24 07:10:48');
+(8, 'AppNo -33763', 1, 'testfirst', 'testlast', 'test786@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/35zyl3dsT842Xh0FVXn3EhSJ6dQa5UQXz21poWb9.png', 1, '2020-08-24 06:21:38', '2020-08-26 04:47:11'),
+(10, 'AppNo -90259', 2, 'testfirst', 'testlast', 'test@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/zOZ9tbTZ0jPK8N1AnDUAgoCLUiUPZ6y8pRUui6dK.png', 0, '2020-08-26 00:04:31', '2020-08-26 04:47:04');
 
 -- --------------------------------------------------------
 
@@ -151,9 +152,7 @@ CREATE TABLE `courses` (
 
 INSERT INTO `courses` (`id`, `category_id`, `title`, `detail`, `img`, `type`, `price`, `url`, `status`, `created_at`, `updated_at`) VALUES
 (1, '1', 'adobe photo', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/4tdunslm5YGMpY2qQDhC1ik0H7up1gJS48D3Jnhe.png', 'free', '0', 'http://127.0.0.1:8000/CourseDetail/1', '0', '2020-08-06 04:48:31', '2020-08-24 06:05:32'),
-(2, '3', 'nodejs', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/JNb2pJGQBl2xfq0Qd7y4ytGKQmpib04khsn7ahyA.png', 'paid', '13500', 'http://127.0.0.1:8000/CourseDetail/2', '1', '2020-08-06 05:04:30', '2020-08-24 06:05:27'),
-(3, '2', 'photo shop', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/ChIFuQtYhSqoskttOsmjDXMxue8RgqB7ImdqbObI.png', 'free', '0', 'http://127.0.0.1:8000/CourseDetail/3', '1', '2020-08-06 05:05:13', '2020-08-24 05:02:38'),
-(4, '', 'first', 'first', 'admin/images/courses/tgR797ZErdKlsJU2rZ7dR3d2KQZlH4k0I4pTBcwC.png', 'free', '45', 'http://127.0.0.1:8000/CourseDetail/4', '0', '2020-08-24 04:54:34', '2020-08-24 06:03:27');
+(2, '3', 'nodejs', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/JNb2pJGQBl2xfq0Qd7y4ytGKQmpib04khsn7ahyA.png', 'paid', '13500', 'http://127.0.0.1:8000/CourseDetail/2', '1', '2020-08-06 05:04:30', '2020-08-24 06:05:27');
 
 -- --------------------------------------------------------
 
@@ -440,8 +439,7 @@ INSERT INTO `sub_menus` (`id`, `main_id`, `title`, `route`, `item_id`, `created_
 (15, 7, 'Domain & Hosting', '/ServiceDetail/6', 6, '2020-08-22 05:13:23', '2020-08-22 06:32:08'),
 (16, 7, 'Outsourcing', '/ServiceDetail/7', 7, '2020-08-22 05:13:44', '2020-08-22 06:32:37'),
 (18, 8, 'adobe photo', '/CourseDetail/1', 1, '2020-08-22 05:44:32', '2020-08-22 06:33:22'),
-(19, 8, 'nodejs', '/CourseDetail/2', 2, '2020-08-22 05:45:10', '2020-08-22 06:33:36'),
-(20, 8, 'Photo Shop', '/CourseDetail/3', 3, '2020-08-22 05:45:46', '2020-08-22 06:33:48');
+(19, 8, 'nodejs', '/CourseDetail/2', 2, '2020-08-22 05:45:10', '2020-08-22 06:33:36');
 
 -- --------------------------------------------------------
 
@@ -516,7 +514,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `user_type`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'administrator', 'admin@gmail.com', 'admin', NULL, '$2y$10$YaQ47Lb/Ry/LFJMBHyjl6u/sNi7r8AAizIPjAtwcnhuKvkHtYqb76', 'kXJisyz6A7CD1wgrHNqohrhb2WabaXsek2m5CsUDyEXfRW3MHlUUPTZOVw1Y', '2020-08-07 06:23:10', '2020-08-07 06:23:10'),
+(1, 'administrator', 'admin@gmail.com', 'admin', NULL, '$2y$10$YaQ47Lb/Ry/LFJMBHyjl6u/sNi7r8AAizIPjAtwcnhuKvkHtYqb76', '8wdq4hbyt94xdRFeANCVpshIQ6OruCYt5CJBSuwj9JjeeCfdAPzQ8trztnsd', '2020-08-07 06:23:10', '2020-08-07 06:23:10'),
 (2, 'user', 'test@gmail.com', NULL, NULL, '$2y$10$2DjIoSUJyekIOppbQlj5pei7HtbnqDN2oG9h22yPeP72y4OACmCEq', NULL, '2020-08-07 06:30:38', '2020-08-07 06:30:38');
 
 --
@@ -647,7 +645,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `batches`
