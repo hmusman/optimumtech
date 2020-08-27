@@ -94,7 +94,7 @@
 					                        <h4 class="line-bottom mb-10">{{ ucfirst($course->title) }}</h4>
 					                        <p  style="text-align: justify;">{{ ucfirst($course->detail) }}</p>
 					                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
-					                          href="" target="_blank">view details</a>
+					                          href="{{ route('CourseDetail',$course->id)}}" target="_blank">view details</a>
 					                      </div>
 					                    </div>
 					                </div>	

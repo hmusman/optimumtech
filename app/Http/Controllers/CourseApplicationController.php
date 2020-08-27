@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Service;
 use App\MainMenu;
+use App\Course;
 use Illuminate\Support\Facades\Validator;
+
+// PDF is a alias  define in app.php which in config folder
+use PDF;
+
 class CourseApplicationController extends Controller
 {
     
@@ -20,9 +25,8 @@ class CourseApplicationController extends Controller
     public function create($id)
     {
         $mains = MainMenu::all();
-        $products  = Product::all();
-        $services = Service::all();
-       return view('course_application',compact(['mains','products','services','id']));
+        $course = Course::where('id',$id)->first(); 
+       return view('course_application',compact(['mains','course']));
     }
 
     
@@ -39,32 +43,56 @@ class CourseApplicationController extends Controller
             $applicant_number = rand(10000, 99999);
         } while (in_array($applicant_number, $arr));
 
-       $validations = Validator::make($request->all(),[
-            'first_name'=>'bail | required',
-            'last_name'=>'bail | required',
-            'email'=>'bail | required',
-            'cnic'=>'bail | required | numeric',
-            'phone'=>'bail | required | numeric',
-            'address'=>'bail | required | string | max:100',
-            'zip'=>'bail | required',
-            'city'=>'bail | required',
-            'province'=>'required',
-            'country'=>'required',
-            'img'=>'required'
-       ]);
+        $priceCheckData = Course::where('id',$request->course)->first();
+        if($priceCheckData->pricie > 0)
+        {
+            $validations = Validator::make($request->all(),[
+                'first_name'=>'bail | required',
+                'last_name'=>'bail | required',
+                'email'=>'bail | required',
+                'cnic'=>'bail | required | numeric',
+                'phone'=>'bail | required | numeric',
+                'address'=>'bail | required | string | max:100',
+                'zip'=>'bail | required',
+                'city'=>'bail | required',
+                'province'=>'required',
+                'country'=>'required'
+           ]);
+        }
+        else
+        {
+            $validations = Validator::make($request->all(),[
+                'first_name'=>'bail | required',
+                'last_name'=>'bail | required',
+                'email'=>'bail | required',
+                'cnic'=>'bail | required | numeric',
+                'phone'=>'bail | required | numeric',
+                'address'=>'bail | required | string | max:100',
+                'zip'=>'bail | required',
+                'city'=>'bail | required',
+                'province'=>'required',
+                'country'=>'required', 
+                'img'=>'required'
+           ]);
+        }
+        
 
        if($validations->fails())
        {
             return back()->withErrors($validations)->withInput();
        }
        else
-       {
-            $ext = $request->file('img')->extension();
-            if($ext =='png' || $ext=='jpg' || $ext=='jpeg') {$filename = $request->file('img')->store('admin/images/courseApplication','public');}
-            else
+       {    
+            if($priceCheckData->price>0)
             {
-                return back()->withErrors(['warningMsg'=>"Please Select Correct Image"])->withInput();
+                $ext = $request->file('img')->extension();
+                if($ext =='png' || $ext=='jpg' || $ext=='jpeg') {$filename = $request->file('img')->store('admin/images/courseApplication','public');}
+                else
+                {
+                    return back()->withErrors(['warningMsg'=>"Please Select Correct Image"])->withInput();
+                } 
             }
+            
 
             if(CourseApplication::where([['email','=',$request->email],['course_id','=',$request->course]])->get()->count()>0)
             {
@@ -84,7 +112,7 @@ class CourseApplicationController extends Controller
             $application->province = $request->province;
             $application->country = $request->country;
             $application->zip = $request->zip;
-            $application->img = $filename;
+            if($priceCheckData->price > 0) {$application->img = $filename;}
             if($application->save())
             {
 
@@ -153,5 +181,47 @@ class CourseApplicationController extends Controller
         }
        $request->session()->flash('msg','Payment is not confirmed');
         return redirect(route('CourseApplication.index'));
+    }
+
+    public function confirmedRecord()
+    {
+        $pdf = \App::make('dompdf.wrapper');
+        $data = CourseApplication::where('status','=','1')->get();
+        $output = "";
+        if($data->count()>0)
+        {
+            $output.=' <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Course</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>';
+            $i = 1;
+            foreach($data as $row)
+            {
+                $output.='<tr>
+                            <td>'. $i.'</td>
+                            <td>'. $row->course->title .'</td>
+                            <td>'. $row->first_name.' '.$row->last_name .'</td>
+                            <td>'. $row->email .'</td>
+                            <td>'. $row->phone .'</td>
+                        </tr>';
+                $i++;
+            }
+            $output.=' </tbody>
+                </table>';
+             
+        }
+        else
+        {
+            $output = "No Record Confirmed";
+        }
+        $pdf->loadHTML($output);   
+        $pdf->stream();
     }
 }

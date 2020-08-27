@@ -1,17 +1,17 @@
 @extends('layouts.basic')
 
 @section('head')
-    @include('includes.admin_head')
+	@include('includes.admin_head')
 @endsection<!-- end head -->
 
 @section('header')
-    @include('includes.admin_header')
+	@include('includes.admin_header')
 @endsection<!-- end header -->
 
 
 @section('content')
-    
-    <div class="main-content">
+	
+	<div class="main-content">
 
         <div class="page-content">
 
@@ -20,7 +20,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Courses cView</h4>
+                            <h4 class="page-title mb-1">Courses View</h4>
                             
                         </div>
                         <div class="col-md-4">
@@ -48,7 +48,7 @@
                                         <div class="row">
                                             <div class="col-md-8"></div>
                                             <div class="col-md-2">
-                                                <button type="button" style="width: 100%; float: right;" class="btn-primary btn c_active">Acddddtive</button>
+                                                <button type="button" style="width: 100%; float: right;" class="btn-primary btn c_active">Active</button>
                                             </div>
                                             <div class="col-md-2">
                                                 <button type="button" style="width: 100%; float: right;" class="btn-primary btn blocked">Blocked</button>
@@ -71,59 +71,54 @@
                                             </tr>
                                         </thead>
     
-    
-                                        <tbody>
-                                            @if($courses->count()>0)
-                                                @php $i=1; @endphp
-                                                @foreach($courses as $course)
-                                                    @php $img = 'storage/'.$course->img  @endphp
-                                                    <tr>
-                                                        <td>
-                                                            <div class="custom-control custom-checkbox" data-id="{{ $course->id }}">
-                                                                    <input type="checkbox" class="custom-control-input changeStatusBox" id="customCheck{{ $course->id }}" name="checkboxes[]" value="{{ $course->id }}">
-                                                                    <label class="custom-control-label" for="customCheck{{ $course->id }}"></label>
+                                        <form class="changeStatus" method="post" action="" >
+                                        @csrf    
+                                            <tbody>
+                                                @if($courses->count()>0)
+                                                    @php $i=1; @endphp
+                                                    @foreach($courses as $course)
+                                                        @php $img = 'storage/'.$course->img  @endphp
+                                                        <tr>
+                                                            <td>
+                                                                <div class="custom-control custom-checkbox" data-id="{{ $course->id }}">
+                                                                        <input type="checkbox" class="custom-control-input changeStatusBox" id="customCheck{{ $course->id }}" name="checkboxes[]" value="{{ $course->id }}">
+                                                                        <label class="custom-control-label" for="customCheck{{ $course->id }}"></label>
+                                                                    </div>
+
+                                                            </td>
+                                                            <td>{{ $i++ }}</td>
+                                                            <td>{{ ucwords($course->title)}}</td>
+                                                            <td><p>
+                                                              {{ \Illuminate\Support\Str::limit($course->detail, 100, $end='...') }}
+                                                            </p></td>
+                                                            <td>{{ ucfirst($course->type) }}</td>
+                                                            <td>{{ $course->price }}</td>
+                                                            <td><img src="{{ asset($img) }}" style="height: 50px; width: 100px; "/></td>
+                                                            <td>{{ count($course->applications) }}</td>
+                                                            <td>{{ $course->url }}</td>
+                                                            <td data-id="{{ $course->id }}">
+                                                                <?php echo ($course->status==1) ?  "active" :'blocked'?> 
+                                                            </td>
+                                                            <td> 
+
+                                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                                    <a href="{{ route('Course.edit',$course->id) }}" class="btn btn-primary mdi mdi-delete-alert"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;
+                                                                    
+                                                                        <a href="{{ route('Course.delete',$course->id) }}" class="btn btn-danger mdi mdi-close-box-multiple-outline"></a>
                                                                 </div>
+                                                            </td>
+                                                           
+                                                           
+                                                        </tr>
+                                                    @endforeach
 
-                                                        </td>
-                                                        <td>{{ $i++ }}</td>
-                                                        <td>{{ ucwords($course->title)}}</td>
-                                                        <td><p>
-                                                          {{ \Illuminate\Support\Str::limit($course->detail, 100, $end='...') }}
-                                                        </p></td>
-                                                        <td>{{ ucfirst($course->type) }}</td>
-                                                        <td>{{ $course->price }}</td>
-                                                        <td><img src="{{ asset($img) }}" style="height: 50px; width: 100px; "/></td>
-                                                        <td>{{ count($course->applications) }}</td>
-                                                        <td>{{ $course->url }}</td>
-                                                        <td data-id="{{ $course->id }}">
-                                                            <select class="status">
-                                                                <option <?php echo ($course->status==1) ?  "selected=''" :''?> value="1">Active</option>
-                                                                <option <?php echo ($course->status==0) ? "selected=''" : ''?> value="0">Blocked</option>
-                                                            </select>
-                                                            
-                                                        </td>
-                                                        <td> 
+                                                @else
+                                                    <tr><td colspan="7" class="text-center">No Course Available</td></tr>
+                                                @endif
 
-                                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                                <a href="{{ route('Course.edit',$course->id) }}" class="btn btn-primary mdi mdi-delete-alert"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;
-                                                                <form style="margin-left: 10px;" method="post" action="{{ route('Course.destroy',$course->id) }}">
-                                                                    @csrf
-                                                                    @method('delete')
-                                                                    <button type="submit" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
-                                                                </form>
-                                                            </div>
-                                                        </td>
-                                                       
-                                                       
-                                                    </tr>
-                                                @endforeach
-
-                                            @else
-                                                <tr><td colspan="7" class="text-center">No Course Available</td></tr>
-                                            @endif
-
-                              
-                                        </tbody>
+                                  
+                                            </tbody>
+                                        </form>
                                     </table>
     
                                 </div>
@@ -141,10 +136,10 @@
         </div>
         <!-- End Page-content -->
     </div>
-    
+	
 
 @endsection<!-- end content -->
 
 @section('footer')
-    @include('includes.admin_footer')
+	@include('includes.admin_footer')
 @endsection<!-- end footer -->

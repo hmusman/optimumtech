@@ -98,10 +98,21 @@
             }
         });
 
-        $('.c_active').click(function(){
-            alert("ok");
+         $('.c_active').click(function(){
+            if($('.changeStatusBox:checkbox').is(":checked"))
+            {
+                $('.changeStatus').attr('action',"{{ route('CourseActive') }}");
+                $('.changeStatus').submit();
+            }
         });
 
+         $('.blocked').click(function(){
+            if($('.changeStatusBox:checkbox').is(":checked"))
+            {
+                $('.changeStatus').attr('action',"{{ route('CourseBlocked') }}");
+                $('.changeStatus').submit();
+            }
+        }); 
         
     });
 </script>

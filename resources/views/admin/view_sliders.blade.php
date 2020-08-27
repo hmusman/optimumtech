@@ -73,7 +73,7 @@
                                                                 <form style="margin-left: 10px;" method="post" action="{{ route('Slider.destroy',$slider->id) }}">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    <button type="submit" class="btn btn-primary mdi mdi-close-box-multiple-outline"></button>
+                                                                    <button type="submit" class="btn btn-danger mdi mdi-close-box-multiple-outline"></button>
                                                                 </form>
                                                                 
                                                             </div>

@@ -53,7 +53,7 @@
 					                    </li>
 					                  </ul>
 					                  <p>{{ ucfirst($course->detail) }}</p>
-					                  <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10" href="{{ route('CourseDetail',$course->id) }}">read more</a> &nbsp; <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10" href="">Book Course</a>
+					                  <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10" href="{{ route('CourseDetail',$course->id) }}">read more</a> &nbsp; <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10" href="{{ route('ApplyForCourse',$course->id) }}">Book Course</a>
 					                </div>
 					            </div>
 
@@ -94,7 +94,7 @@
 
 		                @endif
 		               
-		                <div class="widget">
+		                <!-- <div class="widget">
 		                  <h5 class="widget-title line-bottom">Latest <span class="text-theme-color-2">Course</span></h5>
 		                  <div class="latest-posts">
 		                    <article class="post media-post clearfix pb-0 mb-10">
@@ -119,7 +119,7 @@
 		                      </div>
 		                    </article>
 		                  </div>
-		                </div>
+		                </div> -->
 		                @if($freeCourses->count()>0)
 		                	<div class="widget">
 				                <h5 class="widget-title line-bottom">Free <span class="text-theme-color-2">Course</span></h5>

@@ -143,4 +143,30 @@ class CourseController extends Controller
         $course->status=$request->status;
         $course->save();
     }
+
+    public function courseActive(Request $request)
+    {
+       for($i=0;$i<count($request->checkboxes);$i++)
+       {
+            $id = $request->checkboxes[$i];
+            $course = Course::find($id);
+            $course->status =1;
+            $course->save();
+       }
+       $request->session()->flash('msg','Course is Active');
+       return redirect(route('Course.index'));
+    }
+
+    public function courseBlocked(Request $request)
+    {
+        for($i=0;$i<count($request->checkboxes);$i++)
+        {
+            $id = $request->checkboxes[$i];
+            $course = Course::find($id);
+            $course->status =0;
+            $course->save();
+        }
+       $request->session()->flash('msg','Course is not Active');
+        return redirect(route('Course.index'));
+    }
 }

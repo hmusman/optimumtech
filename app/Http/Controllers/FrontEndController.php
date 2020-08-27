@@ -24,7 +24,7 @@ class FrontEndController extends Controller
         // $exactProducts = DB::table('main_menus')->join('sub_menus','main_menus.id','=','sub_menus.main_id')->where('main_menus.title','products')->orWhere('main_menus.title','product')->select('sub_menus.item_id')->get()->toArray();
     	$sliders = Slider::all();
         $mains = MainMenu::all();
-    	$freeCourses = Course::where('type','free')->get();
+    	$freeCourses = Course::where([['type','=','free'],['status','=','1']])->get();
     	$members = Team::all();
     	$photoFilter = Gallery::select('category')->get();
     	$photos = Gallery::all();
@@ -33,7 +33,7 @@ class FrontEndController extends Controller
     	$testimonials = Testimonial::all();
     	$products = Product::all();
     	$services = Service::all();
-    	$courses = Course::all();
+    	$courses = Course::where('status','1')->get();;
     	$clients = Client::all();
     	return view('index',compact(['sliders','clients','mains','products','services','courses','freeCourses','members','photoFilter','photos','events','news','testimonials']));
     }
@@ -42,54 +42,45 @@ class FrontEndController extends Controller
     {
     	$product = Product::where('id',$id)->first();
         $mains = MainMenu::all();
-    	$products  = Product::all();
-    	$services = Service::all();
-    	return view('product',compact(['mains','product','services','products']));
+    	return view('product',compact(['mains','product']));
     }
 
     public function serviceShow($id)
     {
-    	$products  = Product::all();
         $mains = MainMenu::all();
-    	$services = Service::all();
+        $services = Service::all();
     	$service = Service::where('id',$id)->first();
-    	return view('service',compact(['mains','service','services','products']));
+    	return view('service',compact(['mains','service','services']));
     }
 
     public function products()
     {
     	$products  = Product::all();
-    	$services = Service::all();
         $mains = MainMenu::all();
-    	return view('products',compact(['mains','products','services']));
+    	return view('products',compact(['mains','products']));
     }
 
     public function services()
     {
-    	$products  = Product::all();
     	$services = Service::all();
         $mains = MainMenu::all();
-    	return view('services',compact(['mains','products','services']));
+    	return view('services',compact(['mains','services']));
     }
 
     public function courses()
     {
-        $products  = Product::all();
-        $services = Service::all();
         $mains = MainMenu::all();
-        $courses = Course::where('type','paid')->get();
-        $categories = Category::join('courses','categories.id','=','courses.category_id')->get();
-        $freeCourses = Course::where('type','free')->get();
-        return view('courses',compact(['mains','products','services','courses','freeCourses','categories']));
+        $courses = Course::where([['type','=','paid'],['status','=','1']])->get();
+        $categories = Category::join('courses','categories.id','=','courses.category_id')->where('courses.status','1')->select('categories.title')->get();
+        $freeCourses = Course::where([['type','=','free'],['status','=','1']])->get();
+        return view('courses',compact(['mains','courses','freeCourses','categories']));
     }
 
     public function showCourse($id)
     {
-        $products = Product::all();
-        $services = Service::all();
         $course = Course::where('id',$id)->first();
         $mains = MainMenu::all();
-        return view('course_detail',compact(['mains','course','products','services']));
+        return view('course_detail',compact(['mains','course']));
     }
 
     public function contactUs()

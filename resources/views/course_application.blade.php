@@ -51,7 +51,7 @@
 	                  	@endif
 	                    <div class="form-group col-md-6">
 	                      <label for="checkuot-form-fname">First Name</label>
-	                      <input type="hidden" name="course" value="{{ $id }}">
+	                      <input type="hidden" name="course" value="{{ $course->id }}">
 	                      <input id="checkuot-form-fname" type="test" name="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="First Name">
 	                      @error('first_name')
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
@@ -140,27 +140,31 @@
 	                       @enderror
 	                    </div>
 
-	                    <div class="col-md-12" style="margin-top: 10px;">
-	                    	<label>Our Accounts Information</label>
-	                    	<div style="border: 1px solid #ccc;padding: 10px 10px;color: #000; margin-bottom: 30px;">
-	                    		Easy Paisa Number : 03434<br>
-		                    	Jazz Cash         : 0301<br>
-		                    	A/c               : 034343345678901<br>
-		                    	Contact No        : 032111221212<br>
-		                    	Note              : Please take a photo of your payment transaction and then upload it
-	                    	</div>
-	                    </div>
-	                    <div class="form-group col-md-6">
-	                    	<label>Upload Payment Image</label>
-	                    	<input type="file" name="img">
-	                    	@error('img')
-	                      	  <p class="text-danger mt-3">{{ $message }}</p>
-	                        @enderror
+	                    @if($course->price>0)
 
-	                        @error('warningMsg')
-	                       	  <p class="text-danger mt-3">{{ $message }}</p>
-	                        @enderror
-	                    </div>
+		                    <div class="col-md-12" style="margin-top: 10px;">
+		                    	<label>Our Accounts Information</label>
+		                    	<div style="border: 1px solid #ccc;padding: 10px 10px;color: #000; margin-bottom: 30px;">
+		                    		Easy Paisa Number : 03434<br>
+			                    	Jazz Cash         : 0301<br>
+			                    	A/c               : 034343345678901<br>
+			                    	Contact No        : 032111221212<br>
+			                    	Note              : Please take a photo of your payment transaction and then upload it
+		                    	</div>
+		                    </div>
+		                    <div class="form-group col-md-6">
+		                    	<label>Upload Payment Image</label>
+		                    	<input type="file" name="img" id="img">
+		                    	@error('img')
+		                      	  <p class="text-danger mt-3">{{ $message }}</p>
+		                        @enderror
+		                        <div id="uploadForm"></div>
+
+		                        @error('warningMsg')
+		                       	  <p class="text-danger mt-3">{{ $message }}</p>
+		                        @enderror
+		                    </div>
+	                    @endif
 
 	                  </div>
 	                </div>
@@ -242,8 +246,62 @@
 	      </div>
 	    </section>
   <!-- end main-content -->
-
+  		<div class="myModel" >
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
   </div>
+
+    <style type="text/css">
+        .myModel {
+              display: none; 
+              position: fixed;
+              z-index: 9999;
+              padding-top: 100px; 
+              left: 0;
+              top: 0;
+              width: 100%; 
+              height: 100%; 
+              overflow: auto; 
+              background-color: rgb(0,0,0); 
+              background-color: rgba(0,0,0,0.9); 
+            }
+
+            .modal-content {
+              display: block;
+              width: 80%;
+              max-width: 700px;
+              margin-left: 20%;
+            }
+            
+            .modal-content{
+              animation-name: zoom;
+              animation-duration: 0.6s;
+            }
+
+            .close {
+              position: absolute;
+              top: 15px;
+              right: 35px;
+              color: #f1f1f1;
+              font-size: 40px;
+              font-weight: bold;
+              transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: #fff;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            @media only screen and (max-width: 700px){
+              .modal-content {
+                width: 100%;
+              }
+            }                      
+        </style>
 
 @endsection<!-- end content -->
 

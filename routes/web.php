@@ -44,12 +44,16 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 	Route::view('/','admin.index');
 	Route::resource('Course','CourseController');
 	Route::get('CourseStatus','CourseController@courseStatus')->name('CourseStatus');
+	Route::post('CourseActive','CourseController@courseActive')->name('CourseActive');
+	Route::post('CourseBlocked','CourseController@courseBlocked')->name('CourseBlocked');
 	Route::get('CourseApplicationStatus','CourseApplicationController@courseApplicationStatus')->name('CourseApplicationStatus');
 	Route::post('CourseApplicationConfirmStatus','CourseApplicationController@courseApplicationConfirmStatus')->name('CourseApplicationConfirmStatus');
 	Route::post('CourseApplicationUnConfirmStatus','CourseApplicationController@courseApplicationUnConfirmStatus')->name('CourseApplicationUnConfirmStatus');
 	Route::resource('Batch','BatchController');
 	Route::resource('CourseApplication','CourseApplicationController');
+	Route::get('ConfirmedRecord','CourseApplicationController@confirmedRecord')->name('ConfirmedRecord');
 	Route::get('CourseApplicationDelete/{id}','CourseApplicationController@destroy')->name('CourseApplication.delete');
+	Route::get('CourseDelete/{id}','CourseController@destroy')->name('Course.delete');
 	Route::resource('Category','CategoryController');
 	Route::resource('MainMenu','MainMenuController');
 	Route::resource('SubMenu','SubMenuController');
@@ -69,4 +73,4 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');

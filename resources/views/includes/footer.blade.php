@@ -228,3 +228,34 @@
       document.getElementById('stds').style.display="visible";
     }
   </script>
+
+  <script type="text/javascript">
+  
+      function filePreview(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                  $('#uploadForm + img').remove();
+                  $('#uploadForm').after('<img onclick="selectImg(this)" src="'+e.target.result+'" style="margin-top:10px;" width="200" height="200"/>');
+              };
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+
+    $("#img").change(function () {
+      filePreview(this);
+    });
+
+    function selectImg(param)
+    {
+      var imgSrc =$(param).attr('src');
+      var img = $('#img01');
+      img.attr("src",imgSrc);
+      $('.myModel').css('display','block');
+    }
+
+    $('.close').click(function(){
+      $('.myModel').css('display','none');
+    });
+        
+</script>

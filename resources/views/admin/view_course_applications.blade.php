@@ -109,7 +109,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Course Applications ddd View</h4>
+                            <h4 class="page-title mb-1">Course Applications View</h4>
                             
                         </div>
                         <div class="col-md-4">
@@ -135,7 +135,10 @@
                                     <div class="alert alert-success statusMsg" style="display: none;"></div>
                                     <table id="datatable" class="table table-bordered table-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         <div class="row">
-                                          <div class="col-md-8"></div>
+                                          <div class="col-md-5"></div>
+                                          <div class="col-md-3">
+                                              <a href="{{ route('ConfirmedRecord') }}" style="width: 100%; float: right;" class="btn-primary btn confirmRecords">Confirmed Records</a>
+                                          </div>
                                           <div class="col-md-2">
                                               <button type="button" style="width: 100%; float: right;" class="btn-primary btn confirm">Confirm</button>
                                           </div>
@@ -185,7 +188,12 @@
                                                             <td>{{ $i++ }}</td>
                                                             <td><?php echo ($application->status==1) ? 'Confirmed' : ' ' ?></td>
                                                             <td>{{ $application->applicant_number }}</td>
-                                                            <td><img src="{{ asset($img) }}" class="appImg" style="width: 100px; height: 100px"></td>
+                                                            <td>
+                                                               @if($application->course->price > 0)
+                                                                  <img src="{{ asset($img) }}" class="appImg" style="width: 100px; height: 100px">
+                                                               @endif
+                                                               
+                                                            </td>
                                                             <td>{{ ucwords($application->course->title) }}</td>
                                                             <td>{{ ucwords($application->first." ". $application->last_name)}}</td>
                                                             <td>{{ $application->email }}</td>
@@ -200,7 +208,7 @@
 
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
                                                                    
-                                                                      <a href="{{ route('CourseApplication.delete',$application->id) }}" class="btn btn-primary mdi mdi-close-box-multiple-outline"></a>
+                                                                      <a href="{{ route('CourseApplication.delete',$application->id) }}" class="btn btn-danger mdi mdi-close-box-multiple-outline"></a>
                                                                     
                                                                 </div>
                                                             </td>

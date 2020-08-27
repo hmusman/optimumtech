@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 26, 2020 at 12:01 PM
+-- Generation Time: Aug 27, 2020 at 01:35 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -53,8 +53,8 @@ CREATE TABLE `applications` (
 --
 
 INSERT INTO `applications` (`id`, `applicant_number`, `course_id`, `first_name`, `last_name`, `email`, `address`, `cnic`, `phone`, `city`, `province`, `zip`, `country`, `img`, `status`, `created_at`, `updated_at`) VALUES
-(8, 'AppNo -33763', 1, 'testfirst', 'testlast', 'test786@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/35zyl3dsT842Xh0FVXn3EhSJ6dQa5UQXz21poWb9.png', 1, '2020-08-24 06:21:38', '2020-08-26 04:47:11'),
-(10, 'AppNo -90259', 2, 'testfirst', 'testlast', 'test@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/zOZ9tbTZ0jPK8N1AnDUAgoCLUiUPZ6y8pRUui6dK.png', 0, '2020-08-26 00:04:31', '2020-08-26 04:47:04');
+(8, 'AppNo -33763', 1, 'testfirst', 'testlast', 'test786@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/35zyl3dsT842Xh0FVXn3EhSJ6dQa5UQXz21poWb9.png', 1, '2020-08-24 06:21:38', '2020-08-27 03:02:34'),
+(10, 'AppNo -90259', 2, 'testfirst', 'testlast', 'test@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/zOZ9tbTZ0jPK8N1AnDUAgoCLUiUPZ6y8pRUui6dK.png', 0, '2020-08-26 00:04:31', '2020-08-27 05:41:58');
 
 -- --------------------------------------------------------
 
@@ -96,7 +96,7 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `title`, `description`, `img`, `created_at`, `updated_at`) VALUES
 (1, 'final semster', 'this is description', NULL, '2020-08-12 05:21:39', '2020-08-12 05:21:39'),
-(2, 'technical', 'this is description', NULL, '2020-08-12 05:30:21', '2020-08-12 05:50:07'),
+(2, 'technical', 'this is description', NULL, '2020-08-12 05:30:21', '2020-08-27 06:04:54'),
 (3, 'designing', 'this is description', NULL, '2020-08-12 05:31:38', '2020-08-12 05:31:38'),
 (4, 'short', 'this is description', NULL, '2020-08-12 05:31:52', '2020-08-12 05:31:52');
 
@@ -151,8 +151,8 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `category_id`, `title`, `detail`, `img`, `type`, `price`, `url`, `status`, `created_at`, `updated_at`) VALUES
-(1, '1', 'adobe photo', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/4tdunslm5YGMpY2qQDhC1ik0H7up1gJS48D3Jnhe.png', 'free', '0', 'http://127.0.0.1:8000/CourseDetail/1', '0', '2020-08-06 04:48:31', '2020-08-24 06:05:32'),
-(2, '3', 'nodejs', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/JNb2pJGQBl2xfq0Qd7y4ytGKQmpib04khsn7ahyA.png', 'paid', '13500', 'http://127.0.0.1:8000/CourseDetail/2', '1', '2020-08-06 05:04:30', '2020-08-24 06:05:27');
+(1, '1', 'adobe photo', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/4tdunslm5YGMpY2qQDhC1ik0H7up1gJS48D3Jnhe.png', 'free', '0', 'http://127.0.0.1:8000/CourseDetail/1', '1', '2020-08-06 04:48:31', '2020-08-27 05:51:23'),
+(2, '3', 'nodejs', 'The Cweren Law Firm is a recognized leader in landlord tenant representation throughout Texas.The largests professional property management companies the region.The largest professional property management companies is a recognized leader in landlord tenant representation throughout Texas', 'admin/images/courses/JNb2pJGQBl2xfq0Qd7y4ytGKQmpib04khsn7ahyA.png', 'paid', '13500', 'http://127.0.0.1:8000/CourseDetail/2', '1', '2020-08-06 05:04:30', '2020-08-27 05:52:52');
 
 -- --------------------------------------------------------
 
@@ -514,7 +514,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `user_type`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'administrator', 'admin@gmail.com', 'admin', NULL, '$2y$10$YaQ47Lb/Ry/LFJMBHyjl6u/sNi7r8AAizIPjAtwcnhuKvkHtYqb76', '8wdq4hbyt94xdRFeANCVpshIQ6OruCYt5CJBSuwj9JjeeCfdAPzQ8trztnsd', '2020-08-07 06:23:10', '2020-08-07 06:23:10'),
+(1, 'administrator', 'admin@gmail.com', 'admin', NULL, '$2y$10$YaQ47Lb/Ry/LFJMBHyjl6u/sNi7r8AAizIPjAtwcnhuKvkHtYqb76', 'PUxPAViw7he5o7cF1mTTzblpANXee4SDQKj2PrfhUM6QaPeHuQkFoRiD7TwM', '2020-08-07 06:23:10', '2020-08-07 06:23:10'),
 (2, 'user', 'test@gmail.com', NULL, NULL, '$2y$10$2DjIoSUJyekIOppbQlj5pei7HtbnqDN2oG9h22yPeP72y4OACmCEq', NULL, '2020-08-07 06:30:38', '2020-08-07 06:30:38');
 
 --
@@ -645,7 +645,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `batches`
@@ -669,7 +669,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `events`
