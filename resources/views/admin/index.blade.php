@@ -39,7 +39,7 @@
                                         <div class="row">
                                                 <div class="col-6">
                                                     <h5>Slider</h5>
-                                                    <p class="text-muted">Optimum Slider</p>
+                                                    <p class="text-muted">Slider</p>
                                                     <div class="mt-4">
                                                         <a href="{{ route('Slider.index') }}" class="btn btn-primary btn-sm">View Slider <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
@@ -47,7 +47,7 @@
 
                                                 <div class="col-5 ml-auto">
                                                     <div>
-                                                        <img src="{{ asset('storage/admin/images/widget-img.png') }}" alt="" class="img-fluid">
+                                                        <img src="{{ asset('storage/admin/images/widget-img.png') }}" alt="" class="img-fluid" style="height:80px;">
                                                     </div>
                                                 </div>
                                             </div>
@@ -62,7 +62,7 @@
                                         <div class="row">
                                                 <div class="col-6">
                                                     <h5>Testimonial</h5>
-                                                    <p class="text-muted">Optimum Testimonial</p>
+                                                    <p class="text-muted">Testimonial</p>
                                                     <div class="mt-4">
                                                         <a href="{{ route('Testimonial.index') }}" class="btn btn-primary btn-sm">View Testimonial <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
@@ -70,7 +70,7 @@
 
                                                 <div class="col-5 ml-auto">
                                                     <div>
-                                                        <img src="{{ asset('storage/admin/images/ykgc6CTcoa.jpg') }}" alt="" class="img-fluid">
+                                                        <img src="{{ asset('storage/admin/images/ykgc6CTcoa.jpg') }}" alt="" class="img-fluid" style="height:80px;">
                                                     </div>
                                                 </div>
                                             </div>
@@ -86,7 +86,7 @@
                                         <div class="row">
                                                 <div class="col-6">
                                                     <h5>Courses</h5>
-                                                    <p class="text-muted">Optimum Courses</p>
+                                                    <p class="text-muted">Courses</p>
 
                                                     <div class="mt-4">
                                                         <a href="{{ route('Course.index') }}" class="btn btn-primary btn-sm">View Course <i class="mdi mdi-arrow-right ml-1"></i></a>
@@ -95,7 +95,7 @@
 
                                                 <div class="col-5 ml-auto">
                                                     <div>
-                                                        <img src="{{ asset('storage/admin/images/ctFAfmI7z8.jpg') }}" alt="" class="img-fluid">
+                                                        <img src="{{ asset('storage/admin/images/ctFAfmI7z8.jpg') }}" alt="" class="img-fluid" style="height:80px;">
                                                     </div>
                                                 </div>
                                             </div>
@@ -112,7 +112,7 @@
                                         <div class="row">
                                                 <div class="col-6">
                                                     <h5>Events</h5>
-                                                    <p class="text-muted">Optimum Events</p>
+                                                    <p class="text-muted">Events</p>
 
                                                     <div class="mt-4">
                                                         <a href="{{ route('Event.index') }}" class="btn btn-primary btn-sm">View Event <i class="mdi mdi-arrow-right ml-1"></i></a>
@@ -121,7 +121,7 @@
 
                                                 <div class="col-5 ml-auto">
                                                     <div>
-                                                        <img src="{{ asset('storage/admin/images/AnFvXzPXNY.jpg') }}" alt="" class="img-fluid">
+                                                        <img src="{{ asset('storage/admin/images/AnFvXzPXNY.jpg') }}" alt="" class="img-fluid" style="height:80px;">
                                                     </div>
                                                 </div>
                                             </div>
@@ -136,7 +136,7 @@
                                         <div class="row">
                                                 <div class="col-6">
                                                     <h5>Client</h5>
-                                                   <p class="text-muted">Optimum Client</p>
+                                                   <p class="text-muted">Client</p>
                                                     <div class="mt-4">
                                                         <a href="{{ route('Client.index') }}" class="btn btn-primary btn-sm">View Client <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
@@ -144,7 +144,7 @@
 
                                                 <div class="col-5 ml-auto">
                                                     <div>
-                                                        <img src="{{ asset('storage/admin/images/01ce7Ljd9r.jpg') }}" alt="" class="img-fluid">
+                                                        <img src="{{ asset('storage/admin/images/01ce7Ljd9r.jpg') }}" alt="" class="img-fluid" style="height:80px;">
                                                     </div>
                                                 </div>
                                             </div>
@@ -160,7 +160,7 @@
                                         <div class="row">
                                                 <div class="col-6">
                                                     <h5>News</h5>
-                                                    <p class="text-muted">Optimum News</p>
+                                                    <p class="text-muted">News</p>
                                                     <div class="mt-4">
                                                         <a href="{{ route('News.index') }}" class="btn btn-primary btn-sm">View course <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
@@ -168,7 +168,7 @@
 
                                                 <div class="col-5 ml-auto">
                                                     <div>
-                                                        <img src="{{ asset('storage/admin/images/dI3ljp28Hd.jpg') }}" alt="" class="img-fluid">
+                                                        <img src="{{ asset('storage/admin/images/dI3ljp28Hd.jpg') }}" alt="" class="img-fluid" style="height:80px;">
                                                     </div>
                                                 </div>
                                             </div>
