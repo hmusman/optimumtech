@@ -50,17 +50,7 @@
                                                     <form action="{{ route('Team.update',$member->id) }}" method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('put')
-                                                        <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
-                                                            <div class="col-md-10">
-                                                                <textarea id="textarea" class="form-control" name="detail" maxlength="95" rows="3" placeholder="This textarea has a limit of 95 chars.">{{ $member->detail }}</textarea>
-                                                                @error('detail')
-                                                                    <p class="text-danger mt-3">{{ $message }}</p>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
-
-                                                        
+                                                       
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
                                                             <div class="col-md-10">
@@ -70,6 +60,86 @@
                                                                 @enderror
                                                             </div>
                                                         </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Email</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="email" name="email" value="{{ $member->email }}" placeholder="Enter  Email" id="example-text-input">
+                                                                @error('email')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Phone</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="text" name="phone" value="{{ $member->phone }}" placeholder="Enter  Phone" id="example-text-input">
+                                                                @error('phone')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Education</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="text" name="education" value="{{ $member->education }}" placeholder="Enter  Education" id="example-text-input">
+                                                                @error('education')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Experience</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="text" name="experience" value="{{ $member->experience }}" placeholder="Enter  Experience" id="example-text-input">
+                                                                @error('experience')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                         <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Address</label>
+                                                            <div class="col-md-10">
+                                                                <textarea id="textarea" class="form-control" name="address" rows="3" placeholder="Enter Address">{{ $member->address }}</textarea>
+                                                                @error('address')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                         <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
+                                                            <div class="col-md-10">
+                                                                <textarea id="textarea" class="form-control" name="detail" rows="3" placeholder="Enter Detail">{{ $member->detail }}</textarea>
+                                                                @error('detail')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Meta Name</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="text" name="meta_name" value="{{ $member->meta_name }}" placeholder="Enter Meta Name" id="example-text-input">
+                                                                @error('meta_name')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Meta Detail</label>
+                                                            <div class="col-md-10">
+                                                                <textarea id="textarea" class="form-control" name="meta_detail" rows="3" placeholder="Enter Meta Detail">{{ $member->meta_detail }}</textarea>
+                                                                @error('meta_detail')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div> 
 
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Designation</label>

@@ -35,7 +35,8 @@ class FrontEndController extends Controller
     	$services = Service::all();
     	$courses = Course::where('status','1')->get();;
     	$clients = Client::all();
-    	return view('index',compact(['sliders','clients','mains','products','services','courses','freeCourses','members','photoFilter','photos','events','news','testimonials']));
+        $latestNews = NewModel::orderBy('id','desc')->take(5)->get();
+    	return view('index',compact(['sliders','clients','mains','products','services','courses','freeCourses','members','photoFilter','photos','events','news','testimonials','latestNews']));
     }
 
     public function productShow($id)
@@ -108,5 +109,107 @@ class FrontEndController extends Controller
         $team = Team::where('id',$id)->first();
         $mains = MainMenu::all();
         return view('team_detail',compact(['mains','team']));
+    }
+
+    public function subMenuAutoTitle(Request $request)
+    {
+        $tbl = $request->tbl;
+        $filter = '';
+        if($tbl=="courses" || $tbl=="course" ){ $filter ="courses"; $data = Course::all();}
+        else if($tbl=="products" || $tbl=="product"){ $filter="products"; $data = Product::all();}
+        else if($tbl=="services" || $tbl=="service"){ $filter="services"; $data = Service::all();}
+        if($data->count()>0)
+        {
+            $output = '';
+            $output = '<select name="title" class="form-control">';
+            $output.='<option selected="" disabled="">Select Title</option>';
+            foreach($data as $row)
+            {
+                if($filter=='courses'){
+                    if($request->has('title'))
+                    {
+                        $output.='<option value="'.$row->title.'"';
+                        if($row->title==$request->title){ $output.='selected=""'; }
+                        $output.='>'.ucwords($row->title).'</option>';
+
+                    }
+                    else
+                    {
+                        $output.='<option value="'.$row->title.'">'.ucwords($row->title).'</option>';
+                    }
+                    
+                }
+                else if($filter!="courses")
+                {
+                    if($request->has('title'))
+                    {
+                        $output.='<option value="'.$row->name.'"';
+                        if($row->name==$request->title){ $output.='selected=""'; }
+                        $output.='>'.ucwords($row->name).'</option>';
+
+                    }
+                    else
+                    {
+                        $output.='<option value="'.$row->name.'">'.ucwords($row->name).'</option>';
+                    }
+                    
+                }
+            }
+            $output.='</select> <input type="hidden" name="tbl" value="'.$filter.'" >';
+            return $output;
+        }
+
+    }
+
+    public function subMenuAutoRoute(Request $request)
+    {
+        $tbl = $request->tbl;
+        $filter = '';
+        $route = "";
+        if($tbl=="courses" || $tbl=="course" ){ $route="/CourseDetail/"; $filter ="course"; $data = Course::all();}
+        else if($tbl=="products" || $tbl=="product"){ $route="/ProductDetail/";  $data = Product::all();}
+        else if($tbl=="services" || $tbl=="service"){ $route="/ServiceDetail/"; $data = Service::all();}
+        if($data->count()>0)
+        {
+            $output = '';
+            $output = '<select name="route" class="form-control">';
+            $output.='<option selected="" disabled="">Select Route</option>';
+            foreach($data as $row)
+            {
+               if($filter=='course')
+               {
+                    if($request->has('title'))
+                    {
+                        $output.='<option value="'.$route.$row->id.'"';
+                        if($row->title==$request->title){ $output.='selected=""'; }
+                        $output.='>'.ucwords($row->title).'</option>';
+
+                    }
+                    else
+                    {
+                       $output.='<option value="'.$route.$row->id.'">'.ucwords($row->title).'</option>';
+                    }
+
+                }
+                else if($filter=="")
+                {
+                    if($request->has('title'))
+                    {
+                        $output.='<option value="'.$route.$row->id.'"';
+                        if($row->name==$request->title){ $output.='selected=""'; }
+                        $output.='>'.ucwords($row->name).'</option>';
+
+                    }
+                    else
+                    {
+                        $output.='<option value="'.$route.$row->id.'">'.ucwords($row->name).'</option>';
+                    }
+                    
+                }
+            }
+            $output.='</select>';
+            return $output;
+        }
+
     }
 }

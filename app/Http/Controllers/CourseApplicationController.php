@@ -190,14 +190,15 @@ class CourseApplicationController extends Controller
         $output = "";
         if($data->count()>0)
         {
-            $output.=' <table class="table table-bordered">
+            $output.=' <table width="100%" style="border-collapse: collapse; border: 0px;" >
+                        <tr> <td colspan="5" style="text-align:center;"><h2> Confirmed Payment </h2></td> </tr>
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Course</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
+                            <th style="border: 1px solid; padding:12px;text-align:center;" width="10%">#</th>
+                            <th style="border: 1px solid; padding:12px;text-align:center;" width="20%">Course</th>
+                            <th style="border: 1px solid; padding:12px;text-align:center;" width="30%">Name</th>
+                            <th style="border: 1px solid; padding:12px;text-align:center;" width="20%">Email</th>
+                            <th style="border: 1px solid; padding:12px;text-align:center;" width="20%">Phone</th>
                         </tr>
                     </thead>
                     <tbody>';
@@ -205,11 +206,11 @@ class CourseApplicationController extends Controller
             foreach($data as $row)
             {
                 $output.='<tr>
-                            <td>'. $i.'</td>
-                            <td>'. $row->course->title .'</td>
-                            <td>'. $row->first_name.' '.$row->last_name .'</td>
-                            <td>'. $row->email .'</td>
-                            <td>'. $row->phone .'</td>
+                            <td style="border: 1px solid; padding:12px;text-align:center;">'. $i.'</td>
+                            <td style="border: 1px solid; padding:12px;text-align:center;">'. $row->course->title .'</td>
+                            <td style="border: 1px solid; padding:12px;text-align:center;">'. $row->first_name.' '.$row->last_name .'</td>
+                            <td style="border: 1px solid; padding:12px;text-align:center;">'. $row->email .'</td>
+                            <td style="border: 1px solid; padding:12px;text-align:center;">'. $row->phone .'</td>
                         </tr>';
                 $i++;
             }
@@ -219,9 +220,26 @@ class CourseApplicationController extends Controller
         }
         else
         {
-            $output = "No Record Confirmed";
+            $output = '<div style="width:100%; text-align:center;">No Record Confirmed</div>';
         }
+
         $pdf->loadHTML($output);   
-        $pdf->stream();
+        return $pdf->stream();
+    }
+
+    public function notification()
+    {
+        $output ='';
+        $data = CourseApplication::where('status',0)->get();
+        $output.=' <button type="button" class="btn header-item waves-effect" id="page-header-flag-dropdown"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell"></i><span style="top: 19px;position: absolute;margin-left: 2px;width: 10px;height: 15px;border-radius: 32%;font-size: 13px;color: red;">'.$data->count().'</span>
+                </button>';
+
+        $output.='<div class="dropdown-menu dropdown-menu-right">
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                       q
+                    </a>
+                </div>';
+        echo $output;
     }
 }

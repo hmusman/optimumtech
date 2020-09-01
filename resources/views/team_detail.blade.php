@@ -61,41 +61,70 @@
               <h4 class="line-bottom">About Me:</h4>
               <div class="volunteer-address">
                 <ul>
-                  <li>
-                    <div class="bg-light media border-bottom p-15 mb-20">
-                      <div class="media-left">
-                        <i class="pe-7s-pen text-theme-colored font-24 mt-5"></i>
+                  @if($team->education!="")
+                    <li>
+                      <div class="bg-light media border-bottom p-15 mb-20">
+                        <div class="media-left">
+                          <i class="pe-7s-pen text-theme-colored font-24 mt-5"></i>
+                        </div>
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-0">Qualification:</h5>
+                          <p>{{ $team->education }}</p>
+                        </div>
                       </div>
-                      <div class="media-body">
-                        <h5 class="mt-0 mb-0">Experiences:</h5>
-                        <p>BS-IT, MS-CS</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="bg-light media border-bottom p-15 mb-20">
-                      <div class="media-left">
-                        <i class="fa fa-map-marker text-theme-colored font-24 mt-5"></i>
-                      </div>
-                      <div class="media-body">
-                        <h5 class="mt-0 mb-0">Address:</h5>
-                        <p>25-a, batala colony Faisalabad</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="bg-light media border-bottom p-15">
-                      <div class="media-left">
-                        <i class="fa fa-phone text-theme-colored font-24 mt-5"></i>
-                      </div>
-                      <div class="media-body">
-                        <h5 class="mt-0 mb-0">Contact:</h5>
-                        <p><span  >Phone:</span><a href="tel:+923136650965"> +92 313 6650965</a><br><span> &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;  </span><a href="tel:+923216650964"> +92 321 6650964</a><br><span>Email:</span> <a href="mailto:ahsanraza363@gmail.com">ahsanraza363@gmail.com</a></p>
-                      </div>
+                    </li>
+                  @endif
 
-                      <!-- +923136650965, +923216650964 -->
-                    </div>
-                  </li>
+                  @if($team->experience!="")
+                    <li>
+                      <div class="bg-light media border-bottom p-15 mb-20">
+                        <div class="media-left">
+                          <i class="pe-7s-pen text-theme-colored font-24 mt-5"></i>
+                        </div>
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-0">Experience:</h5>
+                          <p>{{ $team->experience}}</p>
+                        </div>
+                      </div>
+                    </li>
+                  @endif
+
+                  @if($team->address!="")
+                    <li>
+                      <div class="bg-light media border-bottom p-15 mb-20">
+                        <div class="media-left">
+                          <i class="fa fa-map-marker text-theme-colored font-24 mt-5"></i>
+                        </div>
+                        <div class="media-body">
+                          <h5 class="mt-0 mb-0">Address:</h5>
+                          <p>{{ $team->address }}</p>
+                        </div>
+                      </div>
+                    </li>
+                  @endif
+                  
+                  @if($team->phone!="" || $team->email !="")
+                    <li>
+                      <div class="bg-light media border-bottom p-15">
+                          <div class="media-left">
+                            <i class="fa fa-phone text-theme-colored font-24 mt-5"></i>
+                          </div>
+                          <div class="media-body">
+                            <h5 class="mt-0 mb-0">Contact:</h5>
+                            <p>
+                            @if($team->phone !='')
+                              <span  >Phone:</span><a href="tel:{{ str_replace(' ','',$team->phone) }}">{{ $team->phone }}</a><br><span>  </span>
+                            @endif
+
+                             @if($team->email !='')
+                               <span>Email:</span> <a href="mailto:{{ $team->email }}">{{ $team->email }}</a>
+                            @endif
+                           </p>
+                          </div>
+                      </div>
+                    </li>
+                  @endif
+                 
                 </ul>
               </div>
             </div>

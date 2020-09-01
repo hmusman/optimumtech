@@ -47,7 +47,7 @@
                                 <div class="card">
                                     <div class="card-body">
 
-                                        <h4 class="header-title">Add New Category Sub Menu </h4>
+                                        <h4 class="header-title">Add New Sub Menu </h4>
                                         @if(Session::has('msg'))
                                             <div class="alert alert-warning col-md-4">{{ Session::get('msg') }}</div>
                                         @endif
@@ -55,10 +55,10 @@
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Main</label>
                                             <div class="col-md-10">
-                                                <select class="form-control" name="main">
+                                                <select class="form-control" name="main" id="main">
                                                     <option selected="" disabled="">Select Main Menu</option>
                                                     @foreach($mains as $main)
-                                                         <option <?php if(old('main')==$main->id){ echo "selected=''"; } ?>  value="{{ $main->id }}">{{ ucwords($main->title) }}</option>
+                                                        <option <?php if(old('main')==$main->id){ echo "selected=''"; } ?>  value="{{ $main->id }}">{{ ucwords($main->title) }}</option>
                                                     @endforeach
                                                 </select>
                                                 @error('main')
@@ -69,10 +69,10 @@
 
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Title</label>
-                                            <div class="col-md-10">
-                                                <input class="form-control" name="title" type="text" value="{{ old('title') }}" placeholder="Enter Title" id="example-text-input">
+                                            <div class="col-md-10 sub_title">
+                                                <input class="form-control" name="title" id="title" type="text" value="{{ old('title') }}" placeholder="Enter Title" id="example-text-input">
                                                 @error('title')
-                                                    <p class="text-danger">{{ $message }}</p>
+                                                    <p class="text-danger title_error">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                             
@@ -80,16 +80,16 @@
 
                                        <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Route</label>
-                                            <div class="col-md-10">
+                                            <div class="col-md-10 sub_route">
                                                 <input class="form-control" name="route" type="text" value="{{ old('route') }}" placeholder="Enter Route" id="example-text-input">
                                                 @error('route')
-                                                    <p class="text-danger">{{ $message }}</p>
+                                                    <p class="text-danger title_error">{{ $message }}</p>
                                                 @enderror
                                             </div>
                                             
                                         </div>
 
-                                        <div class="form-group row">
+                                        {{-- <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Item Id</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" name="item_id" type="text" value="{{ old('item_id') }}" placeholder="Enter Item Id" id="example-text-input">
@@ -97,7 +97,7 @@
                                                     <p class="text-danger">{{ $message }}</p>
                                                 @enderror
                                             </div>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="card">
                                             <div class="card-body row">

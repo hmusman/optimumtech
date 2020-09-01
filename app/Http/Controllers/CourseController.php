@@ -29,7 +29,9 @@ class CourseController extends Controller
             'detail'=>'bail | required | string | max:500',
             'img'=>'required',
             'type'=>'required',
-            'price'=>'bail | required | numeric'
+            'price'=>'bail | required | numeric',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
 
         ]);
 
@@ -55,6 +57,8 @@ class CourseController extends Controller
             $course->img= $filename;
             $course->type = $request->type;
             $course->price = $request->price;
+            $course->meta_name = $request->meta_name;
+            $course->meta_detail = $request->meta_detail;
             if($course->save())
             {
                 $url = url('/');
@@ -88,7 +92,9 @@ class CourseController extends Controller
             'title'=>'bail | required | string | max:25',
             'detail'=>'bail | required | string | max:500',
             'type'=>'required',
-            'price'=>'bail | required | numeric'
+            'price'=>'bail | required | numeric',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
 
         ]);
 
@@ -119,6 +125,8 @@ class CourseController extends Controller
             $url = url('/');
             $furl = $url.'/CourseDetail/'.$course->id;
             $course->url = $furl;
+            $course->meta_name = $request->meta_name;
+            $course->meta_detail = $request->meta_detail;
             if($course->save())
             {
                 $request->session()->flash('msg','Course Updated Successfully');

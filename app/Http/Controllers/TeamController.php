@@ -27,9 +27,16 @@ class TeamController extends Controller
        
         $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:25',
+            'email'=>'bail | required | email',
+            'phone'=>'bail | required | string',
+            'education'=>'bail | required | string',
+            'experience'=>'bail | required | string',
+            'address'=>'bail | required | string',
             'detail'=>'bail | required | string | max:95',
             'designation'=>'bail | required | string | max:100',
-            'img'=>'required'
+            'img'=>'required',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -65,9 +72,16 @@ class TeamController extends Controller
               
                $team = new Team();
                $team->name= $request->name;
+               $team->email = $request->email;
+               $team->phone = $request->phone;
+               $team->education = $request->education;
+               $team->experience = $request->experience;
+               $team->address = $request->address;
                $team->detail = $request->detail;
                $team->designation = $request->designation;
                $team->img = $filename;
+               $team->meta_name = $request->meta_name;
+               $team->meta_detail = $request->meta_detail;
                if($team->save())
                {
                     $request->session()->flash('msg','Team Member Added Successfully');
@@ -95,8 +109,15 @@ class TeamController extends Controller
     {
        $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:25',
+            'email'=>'bail | required | email',
+            'phone'=>'bail | required | string',
+            'education'=>'bail | required | string',
+            'experience'=>'bail | required | string',
+            'address'=>'bail | required | string',
             'detail'=>'bail | required | string | max:95',
-            'designation'=>'bail | required | string | max:100'
+            'designation'=>'bail | required | string | max:100',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -133,9 +154,16 @@ class TeamController extends Controller
           
             $team = Team::find($id);
             $team->name = $request->name;
+            $team->email = $request->email;
+            $team->phone = $request->phone;
+            $team->education = $request->education;
+            $team->experience = $request->experience;
+            $team->address = $request->address;
             $team->detail = $request->detail;
             $team->designation = $request->designation;
             $team->img = $filename;
+            $team->meta_name = $request->meta_name;
+            $team->meta_detail = $request->meta_detail;
             if($team->save())
             {
                 $request->session()->flash('msg','Team Member Updated Successfully');
@@ -150,8 +178,8 @@ class TeamController extends Controller
     {
         if (Team::where('id',$id)->delete()) 
         {
-           $request->session()->flash('msg','Team Member Deleted Successfully');
-            return redirect(route('Team.index'));
+          $request->session()->flash('msg','Team Member Deleted Successfully');
+          return redirect(route('Team.index'));
         }
     }
 }

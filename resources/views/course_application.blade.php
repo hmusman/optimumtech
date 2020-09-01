@@ -149,7 +149,8 @@
 			                    	Jazz Cash         : 0301<br>
 			                    	A/c               : 034343345678901<br>
 			                    	Contact No        : 032111221212<br>
-			                    	Note              : Please take a photo of your payment transaction and then upload it
+			                    	Note              : Please take a photo of your payment transaction and then upload it<br>
+			                    	<h3>Your Payment Is   : {{ $course->price }}</h3>
 		                    	</div>
 		                    </div>
 		                    <div class="form-group col-md-6">

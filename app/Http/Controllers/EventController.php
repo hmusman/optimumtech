@@ -31,7 +31,9 @@ class EventController extends Controller
             'detail'=>'bail | required | string | max:95',
             'event_date'=>'required',
             'address'=>'bail | required | string | max:100',
-            'img'=>'required'
+            'img'=>'required',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -71,6 +73,8 @@ class EventController extends Controller
            $event->event_date = $request->event_date;
            $event->address = $request->address;
            $event->img = $filename;
+           $event->meta_name = $request->meta_name;
+           $event->meta_detail = $request->meta_detail;
            if($event->save())
            {
                 $request->session()->flash('msg','Event Added Successfully');
@@ -100,7 +104,9 @@ class EventController extends Controller
             'title'=>'bail | required | string | max:25',
             'detail'=>'bail | required | string | max:95',
             'event_date'=>'required',
-            'address'=>'bail | required | string | max:100'
+            'address'=>'bail | required | string | max:100',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -141,6 +147,8 @@ class EventController extends Controller
             $event->event_date = $request->event_date;
             $event->address = $request->address;
             $event->img = $filename;
+            $event->meta_name = $request->meta_name;
+            $event->meta_detail = $request->meta_detail;
             if($event->save())
             {
                 $request->session()->flash('msg','Event Updated Successfully');

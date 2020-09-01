@@ -57,6 +57,7 @@
                                                <th>#</th>
                                                <th>Main</th>
                                                <th>Title</th>
+                                               <th>Route</th>
                                                <th>Action</th>
                                            </tr>
                                        </thead>
@@ -68,6 +69,7 @@
                                                        <td>{{ $i }}</td>
                                                        <td>{{ ucwords($sub->mainmenu->title) }}</td>
                                                        <td>{{ ucwords($sub->title) }}</td>
+                                                       <td>{{ $sub->route }}</td>
                                                        <td>
                                                            <table>
                                                                <tr>
@@ -87,7 +89,7 @@
                                                 @endforeach
                                             @else
                                                 <tr>
-                                                   <td colspan="4" class="text-center">No Sub Menu Is Available</td>
+                                                   <td colspan="5" class="text-center">No Sub Menu Is Available</td>
                                                    
                                                 </tr>
                                             @endif

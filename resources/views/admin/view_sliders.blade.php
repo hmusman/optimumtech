@@ -65,7 +65,7 @@
                                                     @php $img = 'storage/'.$slider->img  @endphp
                                                     <tr>
                                                         <td>{{ $i++ }}</td>
-                                                        <td><img src="{{ asset($img) }}"  style="height: 50px; width: 150px; "/></td>
+                                                        <td><img src="{{ asset($img) }}" class="appImg"  style="height: 50px; width: 150px; "/></td>
                                                         <td> 
 
                                                             <div class="btn-group" role="group" aria-label="Basic example">

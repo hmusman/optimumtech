@@ -6,6 +6,9 @@ use App\SubMenu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\MainMenu;
+use App\Product;
+use App\Course;
+use App\Service;
 class SubMenuController extends Controller
 {
    public function index()
@@ -37,7 +40,7 @@ class SubMenuController extends Controller
         
         else
         {
-             if(SubMenu::where('title',$request->title)->count() >0)
+            if(SubMenu::where('title',$request->title)->count() >0)
             {
                 $request->session()->flash('msg','Sub Menu is already exist');
                 return back()->withInput();
@@ -46,7 +49,8 @@ class SubMenuController extends Controller
             $sub->title = $request->title;
             $sub->main_id = $request->main;
             $sub->route = $request->route;
-            $submenu->item_id = $request->item_id;
+            // $sub->item_id = $request->item_id;
+            // $request->tbl!="" ? $sub->tbl = $request->tbl :"";
             if ($sub->save())
             {
                 $request->session()->flash('msg','Sub Menu has been added successfully');
@@ -66,6 +70,14 @@ class SubMenuController extends Controller
     {
         $mains = MainMenu::all();
         $sub = SubMenu::where('id',$id)->first();
+        // $tbl = $sub->tbl;
+        // if($tbl !='')
+        // {
+        //     if($tbl=="products"){ $data = Product::all(); }
+        //     else if($tbl=="courses"){ $data = Course::all(); }
+        //     else if($tbl=="services"){ $data = Service::all(); }
+
+        // }
         return view('admin.update_sub_menu',compact(['sub','mains']));
     }
 
@@ -88,7 +100,8 @@ class SubMenuController extends Controller
             $submenu->title = $request->title;
             $submenu->main_id = $request->main;
             $submenu->route = $request->route;
-            $submenu->item_id = $request->item_id;
+            // $request->tbl!="" ? $submenu->tbl = $request->tbl :"";
+            // $submenu->item_id = $request->item_id;
             if ($submenu->save())
             {
                 $request->session()->flash('msg','Sub Menu has been updated successfully');

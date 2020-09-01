@@ -8,6 +8,7 @@
 
  <!-- Plugins css -->
  <link href="{{ asset('assets/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
+<!-- Plugins css -->
 
 <!-- datepicker -->
 <link href="{{ asset('assets/libs/air-datepicker/css/datepicker.min.css') }} " rel="stylesheet" type="text/css" />
@@ -22,4 +23,5 @@
 <!-- App Css-->
 <link href="{{ asset('assets/css/app.min.css') }} " rel="stylesheet" type="text/css" />
 
+<link href="{{ asset('assets/tinymce/tinymce.min.css') }} " rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href=https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css">

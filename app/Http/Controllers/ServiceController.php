@@ -27,9 +27,11 @@ class ServiceController extends Controller
        
         $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:50',
-            'detail'=>'bail | required | string | max:1500',
-            'why'=>'bail | required | string | max:1000',
-            'img'=>'required'
+            'detail'=>'bail | required | string',
+            'why'=>'',
+            'img'=>'required',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -66,8 +68,10 @@ class ServiceController extends Controller
                $service = new service();
                $service->name= $request->name;
                $service->detail = $request->detail;
-                $service->why = $request->why;
+               $service->why = $request->why;
                $service->img = $filename;
+               $service->meta_name = $request->meta_name;
+               $service->meta_detail = $request->meta_detail;
                if($service->save())
                {
                     $request->session()->flash('msg','service Added Successfully');
@@ -95,8 +99,10 @@ class ServiceController extends Controller
     {
        $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:50',
-            'detail'=>'bail | required | string | max:1500',
-            'why'=>'bail | required | string | max:1000',
+            'detail'=>'bail | required | string',
+            'why'=>'',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -136,6 +142,8 @@ class ServiceController extends Controller
             $service->detail = $request->detail;
             $service->why = $request->why;
             $service->img = $filename;
+            $service->meta_name = $request->meta_name;
+            $service->meta_detail = $request->meta_detail;
             if($service->save())
             {
                 $request->session()->flash('msg','Service Updated Successfully');

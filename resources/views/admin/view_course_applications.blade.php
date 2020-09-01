@@ -245,7 +245,7 @@
         </div>
         <!-- End Page-content -->
 
-        <style type="text/css">
+        <!-- <style type="text/css">
           .myModel {
               display: none; 
               position: fixed;
@@ -297,7 +297,7 @@
         <div class="myModel" >
             <span class="close">&times;</span>
             <img class="modal-content" id="img01">
-        </div>
+        </div> -->
     </div>
 	 
 @endsection<!-- end content -->

@@ -47,7 +47,7 @@
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
     
-                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <table id="datatable" class="table table-bordered table-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
                                           
@@ -55,6 +55,8 @@
                                                 <th>#</th>
                                                 <th>Name</th>
                                                 <th>Detail</th>
+                                                <th>Meta Name</th>
+                                                <th>Meta Detail</th>
                                                  <th>Why</th>
                                                 <th>Picture</th>
                                                 <th>Action</th>
@@ -73,12 +75,17 @@
                                                         <td>{{ $i++ }}</td>
                                                         <td> {{ ucfirst($service->name)}}</td>
                                                         <td>
-                                                            {{ ucfirst(substr($service->detail,0,100)) }}
+                                                            {!! $service->detail !!}
+                                                        </td>
+                                                        <td> {{ ucfirst($service->meta_name)}}</td>
+                                                        <td>
+                                                            {{ ucfirst(substr($service->meta_detail,0,100)) }}
                                                         </td>
                                                         <td>
                                                            {{ ucfirst(substr($service->why,0,50)) }}
                                                         </td>
-                                                        <td><img src="{{ asset($img) }} " style="width: 100px; height: 100px;" /></td>
+
+                                                        <td><img src="{{ asset($img) }} " class="appImg" style="width: 100px; height: 100px;" /></td>
                                                        <td>
                                                          
                                                         <div class="btn-group" role="group" aria-label="Basic example">

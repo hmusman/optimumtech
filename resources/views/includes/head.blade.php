@@ -2,9 +2,12 @@
   <!-- Meta Tags -->
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <meta name="description" content="StudyPress | Education & Courses HTML Template" />
-  <meta name="keywords" content="academy, course, education, education html theme, elearning, learning," />
-  <meta name="author" content="ThemeMascot" />
+  <meta name="{{ @$product->meta_name }}" content="{{ @$product->meta_detail }}" />
+  <meta name="{{ @$service->meta_name }}" content="{{ @$service->meta_detail }}" />
+  <meta name="{{ @$team->meta_name }}" content="{{ @$team->meta_detail }}" />
+  <meta name="{{ @$course->meta_name }}" content="{{ @$course->meta_detail }}" />
+  <meta name="{{ @$event->meta_name }}" content="{{ @$event->meta_detail }}" />
+  {{--<meta name="{{ @$news->meta_name }}" content="{{ @$news->meta_detail }}" />--}}
 
   <!-- Page Title -->
   <title>Optimum Tech</title>

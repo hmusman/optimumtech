@@ -76,7 +76,7 @@
                                                             {{ ucfirst($testimonial->detail) }}
                                                         </p></td>
                                                         <td> {{ ucfirst($testimonial->designation) }}</td>
-                                                        <td><img src="{{ asset($img) }} "/></td>
+                                                        <td><img src="{{ asset($img) }} " class="appImg"/></td>
                                                        <td>
                                                          
                                                         <div class="btn-group" role="group" aria-label="Basic example">

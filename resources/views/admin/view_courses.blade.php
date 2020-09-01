@@ -67,6 +67,8 @@
                                                 <th>Applications</th>
                                                 <th>URL</th>                                                
                                                 <th>Status</th>
+                                                <th>Meta Name</th>
+                                                <th>Meta Detail</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -81,9 +83,9 @@
                                                         <tr>
                                                             <td>
                                                                 <div class="custom-control custom-checkbox" data-id="{{ $course->id }}">
-                                                                        <input type="checkbox" class="custom-control-input changeStatusBox" id="customCheck{{ $course->id }}" name="checkboxes[]" value="{{ $course->id }}">
-                                                                        <label class="custom-control-label" for="customCheck{{ $course->id }}"></label>
-                                                                    </div>
+                                                                    <input type="checkbox" class="custom-control-input changeStatusBox" id="customCheck{{ $course->id }}" name="checkboxes[]" value="{{ $course->id }}">
+                                                                    <label class="custom-control-label" for="customCheck{{ $course->id }}"></label>
+                                                                </div>
 
                                                             </td>
                                                             <td>{{ $i++ }}</td>
@@ -93,12 +95,16 @@
                                                             </p></td>
                                                             <td>{{ ucfirst($course->type) }}</td>
                                                             <td>{{ $course->price }}</td>
-                                                            <td><img src="{{ asset($img) }}" style="height: 50px; width: 100px; "/></td>
+                                                            <td><img src="{{ asset($img) }}" class="appImg" style="height: 50px; width: 100px; "/></td>
                                                             <td>{{ count($course->applications) }}</td>
                                                             <td>{{ $course->url }}</td>
                                                             <td data-id="{{ $course->id }}">
                                                                 <?php echo ($course->status==1) ?  "active" :'blocked'?> 
                                                             </td>
+                                                            <td> {{ ucfirst($course->meta_name)}}</td>
+                                                            <td><p>
+                                                                {{ ucfirst($course->meta_detail) }}
+                                                            </p></td>
                                                             <td> 
 
                                                                 <div class="btn-group" role="group" aria-label="Basic example">

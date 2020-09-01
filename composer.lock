@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16f7bd9955da3fb0a4104585bbfac2b8",
+    "content-hash": "5a57fd713bfc163aa043846c4ac65b15",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -1193,6 +1193,59 @@
                 "random"
             ],
             "time": "2018-07-02T15:55:56+00:00"
+        },
+        {
+            "name": "petehouston/laravel-tinymce-simple-imageupload",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/petehouston/laravel-tinymce-simple-imageupload.git",
+                "reference": "6d8023f4281544b248705978f47577755f176b9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/petehouston/laravel-tinymce-simple-imageupload/zipball/6d8023f4281544b248705978f47577755f176b9f",
+                "reference": "6d8023f4281544b248705978f47577755f176b9f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.1|~6.0",
+                "php": "~5.5|~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Petehouston\\Tinymce\\TinymceServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Petehouston\\Tinymce\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pete Houston",
+                    "email": "contact@petehouston.com",
+                    "homepage": "http://petehouston.com"
+                }
+            ],
+            "description": "Simple image upload for TinyMCE in Laravel.",
+            "homepage": "https://github.com/petehouston/laravel-tinymce-simple-imageupload",
+            "keywords": [
+                "Image upload",
+                "laravel",
+                "laravel 5",
+                "php",
+                "tinymce"
+            ],
+            "time": "2019-10-01T03:38:18+00:00"
         },
         {
             "name": "phenx/php-font-lib",
@@ -4466,6 +4519,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {

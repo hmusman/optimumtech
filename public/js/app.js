@@ -37004,7 +37004,12 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('tinymce/themes/silver');
+// import tinymce from 'tinymce';
+// tinymce.init({
+// 	selector:'textarea#product_detail',
+// 	height:400,
+// });
 
 /***/ }),
 
@@ -37060,7 +37065,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleNotFoundError: Module not found: Error: Can't resolve '../../node_modules/tinymce/skins/ui/skins/ui/oxide/skin.min.css' in 'F:\\Installation\\xampp\\htdocs\\l6optimumtech\\resources\\sass'\n    at factory.create (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\webpack\\lib\\Compilation.js:925:10)\n    at factory (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\webpack\\lib\\NormalModuleFactory.js:401:22)\n    at resolver (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\webpack\\lib\\NormalModuleFactory.js:130:21)\n    at asyncLib.parallel (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\webpack\\lib\\NormalModuleFactory.js:224:22)\n    at F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\neo-async\\async.js:2830:7\n    at F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\neo-async\\async.js:6877:13\n    at normalResolver.resolve (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\webpack\\lib\\NormalModuleFactory.js:214:25)\n    at doResolve (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\Resolver.js:213:14)\n    at hook.callAsync (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5)\n    at _fn0 (eval at create (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at resolver.doResolve (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\UnsafeCachePlugin.js:44:7)\n    at hook.callAsync (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5)\n    at _fn0 (eval at create (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at hook.callAsync (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5)\n    at _fn0 (eval at create (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at resolver.doResolve (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:67:43)\n    at hook.callAsync (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5)\n    at _fn43 (eval at create (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at hook.callAsync (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5)\n    at _fn0 (eval at create (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at resolver.doResolve (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:67:43)\n    at hook.callAsync (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5)\n    at _fn1 (eval at create (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at hook.callAsync (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\Resolver.js:285:5)\n    at _fn0 (eval at create (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at fs.stat (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\DirectoryExistsPlugin.js:27:15)\n    at process.nextTick (F:\\Installation\\xampp\\htdocs\\l6optimumtech\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:85:15)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
 /***/ }),
 
@@ -37071,8 +37076,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\Installation\wamp64\www\l6setup\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\Installation\wamp64\www\l6setup\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! F:\Installation\xampp\htdocs\l6optimumtech\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\Installation\xampp\htdocs\l6optimumtech\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

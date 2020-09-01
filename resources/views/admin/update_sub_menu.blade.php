@@ -53,7 +53,7 @@
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Main</label>
                                             <div class="col-md-10">
-                                                <select class="form-control" name="main">
+                                                <select class="form-control" name="main" id="main">
                                                     <option selected="" disabled="">Select Main Menu</option>
                                                     @foreach($mains as $main)
                                                          <option <?php if($sub->main_id==$main->id){ echo "selected=''"; } ?>  value="{{ $main->id }}">{{ ucwords($main->title) }}</option>
@@ -67,7 +67,8 @@
 
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Title</label>
-                                            <div class="col-md-10">
+                                            <div class="col-md-10 sub_title">
+                                                <input type="hidden" id="hidden_title" value="{{ $sub->title }}">
                                                 <input class="form-control" name="title" type="text" value="{{ $sub->title }}" placeholder="Enter Title" id="example-text-input">
                                                 @error('title')
                                                     <p class="text-danger">{{ $message }}</p>
@@ -78,7 +79,7 @@
 
                                        <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Route</label>
-                                            <div class="col-md-10">
+                                            <div class="col-md-10 sub_route">
                                                 <input class="form-control" name="route" type="text" value="{{ $sub->route }}" placeholder="Enter Route" id="example-text-input">
                                                 @error('route')
                                                     <p class="text-danger">{{ $message }}</p>
@@ -86,7 +87,7 @@
                                             </div> 
                                         </div>
 
-                                        <div class="form-group row">
+                                        {{-- <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Item Id</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" name="item_id" type="text" value="{{ $sub->item_id }}" placeholder="Enter Item Id" id="example-text-input">
@@ -94,7 +95,7 @@
                                                     <p class="text-danger">{{ $message }}</p>
                                                 @enderror
                                             </div>
-                                        </div>
+                                        </div> --}}
 
 
                                         <div class="card">

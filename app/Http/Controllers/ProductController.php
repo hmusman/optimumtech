@@ -27,8 +27,11 @@ class ProductController extends Controller
        
         $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:100',
-            'detail'=>'bail | required | string | max:500',
-            'img'=>'required'
+            'detail'=>'bail | required | string',
+            'img'=>'required',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
+
         ]);
 
         if ($validations->fails())
@@ -66,6 +69,8 @@ class ProductController extends Controller
                $product->name= $request->name;
                $product->detail = $request->detail;
                $product->img = $filename;
+               $product->meta_name = $request->meta_name;
+               $product->meta_detail = $request->meta_detail;
                if($product->save())
                {
                     $request->session()->flash('msg','Product Added Successfully');
@@ -93,7 +98,9 @@ class ProductController extends Controller
     {
        $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:100',
-            'detail'=>'bail | required | string | max:500',
+            'detail'=>'bail | required | string',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -132,6 +139,8 @@ class ProductController extends Controller
             $product->name = $request->name;
             $product->detail = $request->detail;
             $product->img = $filename;
+            $product->meta_name = $request->meta_name;
+            $product->meta_detail = $request->meta_detail;
             if($product->save())
             {
                 $request->session()->flash('msg','Product Updated Successfully');

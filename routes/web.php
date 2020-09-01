@@ -67,6 +67,9 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 	Route::resource('Testimonial','TestimonialController');
 	Route::resource('Team','TeamController');
 	Route::resource('Gallery','GalleryController');
+	Route::get('SubMenuAuto','FrontEndController@subMenuAutoTitle')->name('SubMenuAuto');
+	Route::get('SubMenuAutoRoute','FrontEndController@subMenuAutoRoute')->name('SubMenuAutoRoute');
+	Route::get('Notification','CourseApplicationController@notification')->name('Notification');
 
 });
 

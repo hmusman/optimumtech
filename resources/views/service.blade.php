@@ -81,15 +81,15 @@
 
         
           <h3 class="text-theme-colored mb-20">{{ ucwords($service->name) }}</h3>
-         
+         	{!! $service->detail !!}
 
-          <p style="text-align: justify;"> {{ $service->detail }} </p>
+         {{-- <p style="text-align: justify;"> {{ $service->detail }} </p>
           <div class="clearfix"></div>
           <h4 class="text-theme-colored line-bottom text-theme-colored mb-20">Why to take this service?</h4>
          
           <p>
            {{ $service->why }}
-          </p>
+          </p>--}}
         </div>
       </div>
     </div>

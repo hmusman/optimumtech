@@ -25,6 +25,10 @@
 <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
 
 <script src="{{ asset('assets/js/app.js') }}"></script>
+<!-- <script src="{{ asset('assets/libs/') }}"></script> -->
+<script src="{{ asset('assets/tinymce/tinymce/tinymce.js') }}"></script>
+<script src="{{ asset('assets/tinymce/editor-tinymce.js') }}"></script>
+
 
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script>
@@ -37,7 +41,27 @@
 </script>
 
 <script type="text/javascript">
+
+    function notificationFun()
+    {
+        $.ajax({
+            url:"{{ route('Notification') }}",
+            type:"get",
+            data:{notification:"notification"},
+            success:function(data)
+            {
+                $('.notification').html(data);
+            }
+
+        });
+    }
+
+   
+
     $(document).ready(function(){
+
+        // notificationFun();
+
         $('.status').change(function(){
         	var id = $(this).parent().data('id');
         	var value = $(this).val();
@@ -113,6 +137,73 @@
                 $('.changeStatus').submit();
             }
         }); 
-        
+       
+       $('#main').change(function(){
+            var title_html = '<input class="form-control" name="title" id="title" type="text" placeholder="Enter Title"/>';  
+            var route_html = '<input class="form-control" name="route" id="route" type="text" placeholder="Enter Route"/>';  
+            var value = ($('#main option:selected').html()).toLowerCase();
+            if(value=="products" || value=="courses" || value=="services" || value=="service" || value=="course" || value=="product")
+            {
+                $.ajax({
+                    url:"{{ route('SubMenuAuto') }}",
+                    type:'get',
+                    data:{ tbl:value },
+                    success:function(data){
+                        $('.sub_title').html(data);
+                    }
+                });
+
+                $.ajax({
+                    url:"{{ route('SubMenuAutoRoute') }}",
+                    type:'get',
+                    data:{ tbl:value },
+                    success:function(data){
+                        $('.sub_route').html(data);
+                    }
+                });
+
+            }
+            else
+            {
+                $('.sub_title').html(title_html);
+                $('.sub_route').html(route_html);
+            }
+            
+       }); 
+
+        function subAutoLoad(value,title)
+        {   
+            var title_html = '<input class="form-control" name="title" id="title" type="text" placeholder="Enter Title"/>';  
+            var route_html = '<input class="form-control" name="route" id="route" type="text" placeholder="Enter Route"/>';   
+            if(value=="products" || value=="courses" || value=="services" || value=="service" || value=="course" || value=="product")
+            {
+                $.ajax({
+                    url:"{{ route('SubMenuAuto') }}",
+                    type:'get',
+                    data:{ tbl:value,title:title },
+                    success:function(data){
+                        $('.sub_title').html(data);
+                    }
+                });
+
+                $.ajax({
+                    url:"{{ route('SubMenuAutoRoute') }}",
+                    type:'get',
+                    data:{ tbl:value,title:title },
+                    success:function(data){
+                        $('.sub_route').html(data);
+                    }
+                });
+
+            }
+            else
+            {
+                $('.sub_title').html(title_html);
+                $('.sub_route').html(route_html);
+            }
+        }
+
+        subAutoLoad(($('#main option:selected').html()).toLowerCase(),$('#hidden_title').val());
+       
     });
 </script>

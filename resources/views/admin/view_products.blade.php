@@ -47,7 +47,7 @@
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
     
-                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <table id="datatable" class="table table-bordered table-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
                                           
@@ -55,6 +55,8 @@
                                                 <th>#</th>
                                                 <th>Name</th>
                                                 <th>Detail</th>
+                                                <th>Meta Name</th>
+                                                <th>Meta Detail</th>
                                                 <th>Picture</th>
                                                 <th>Action</th>
                                             </tr>
@@ -72,9 +74,13 @@
                                                         <td>{{ $i++ }}</td>
                                                         <td> {{ ucfirst($product->name)}}</td>
                                                         <td><p>
-                                                            {{ ucfirst($product->detail) }}
+                                                            {!! $product->detail !!}
                                                         </p></td>
-                                                        <td><img src="{{ asset($img) }} " style="width: 100px; height: 100px;" /></td>
+                                                         <td> {{ ucfirst($product->meta_name)}}</td>
+                                                        <td><p>
+                                                            {{ ucfirst($product->meta_detail) }}
+                                                        </p></td>
+                                                        <td><img src="{{ asset($img) }} " class="appImg" style="width: 100px; height: 100px;" /></td>
                                                        <td>
                                                          
                                                         <div class="btn-group" role="group" aria-label="Basic example">

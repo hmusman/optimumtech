@@ -50,26 +50,46 @@
                                                     <form action="{{ route('Product.update',$product->id) }}" method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('put')
-                                                        <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
-                                                            <div class="col-md-10">
-                                                                <textarea id="textarea" class="form-control" name="detail" maxlength="95" rows="3" placeholder="This textarea has a limit of 95 chars.">{{ $product->detail }}</textarea>
-                                                                @error('detail')
-                                                                    <p class="text-danger mt-3">{{ $message }}</p>
-                                                                @enderror
-                                                            </div>
-                                                        </div>
-
                                                         
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" type="text" name="name" value="{{ $product->name }}" maxlength="100" placeholder="Enter  title" id="example-text-input">
+                                                                <input class="form-control" type="text" name="name" value="{{ $product->name }}" placeholder="Enter Name" id="example-text-input">
                                                                 @error('name')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
                                                         </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
+                                                            <div class="col-md-10">
+                                                                <textarea id="textarea" class="form-control tinymce-classic" name="detail" rows="3" placeholder="Enter Detail">{{ $product->detail }}</textarea>
+                                                                @error('detail')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div> 
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Meta Name</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="text" name="meta_name" value="{{ $product->meta_name }}" placeholder="Enter Meta Name" id="example-text-input">
+                                                                @error('meta_name')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Meta Detail</label>
+                                                            <div class="col-md-10">
+                                                                <textarea id="textarea" class="form-control" name="meta_detail" rows="3" placeholder="Enter Meta Detail">{{ $product->meta_detail }}</textarea>
+                                                                @error('meta_detail')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div> 
 
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Picture 262*175</label>
@@ -99,6 +119,7 @@
                                                         </div>
 
                                                     </form>
+                                                    @include('mceImageUpload::upload_form')
                                                     
                                                 </div>
                                             </div>

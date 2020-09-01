@@ -67,7 +67,7 @@
                                                     <tr>
                                                         <td>{{ $i++ }}</td>
                                                         <td>{{ ucfirst($photo->category) }}</td>
-                                                        <td><img src="{{ asset($img) }}"  style="height: 100px; width: 100px; "/></td>
+                                                        <td><img src="{{ asset($img) }}" class="appImg"  style="height: 100px; width: 100px; "/></td>
                                                         <td> 
 
                                                             <div class="btn-group" role="group" aria-label="Basic example">

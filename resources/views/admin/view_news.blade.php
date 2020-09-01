@@ -52,6 +52,8 @@
                                                 <th>#</th>
                                                 <th>News Title</th>
                                                 <th>News Description</th>
+                                                <th>Meta Name</th>
+                                                <th>Meta Detail</th>
                                                 <th>News Date</th>
                                                  <th>News Picture</th>
                                              <th>Action</th>
@@ -70,9 +72,13 @@
                                                         <td><p>
                                                             {{ ucfirst($row->detail) }}
                                                         </p></td>
+                                                         <td> {{ ucfirst($row->meta_name)}}</td>
+                                                        <td><p>
+                                                            {{ ucfirst($row->meta_detail) }}
+                                                        </p></td>
                                                         <td>{{ date('d/m/yy',strtotime($row->news_date)) }}</td>
 
-                                                        <td><img src="{{ asset($img) }}" style="width: 180px; height: 110px; " /></td>
+                                                        <td><img src="{{ asset($img) }}" class="appImg" style="width: 180px; height: 110px; " /></td>
                                                        <td>
                                                          
                                                         <div class="btn-group" role="group" aria-label="Basic example">

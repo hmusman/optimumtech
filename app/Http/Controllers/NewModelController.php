@@ -29,7 +29,9 @@ class NewModelController extends Controller
             'title'=>'bail | required | string | max:25',
             'detail'=>'bail | required | string | max:95',
             'news_date'=>'required',
-            'img'=>'required'
+            'img'=>'required',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -66,6 +68,8 @@ class NewModelController extends Controller
            $news->detail = $request->detail;
            $news->news_date = $request->news_date;
            $news->img = $filename;
+           $news->meta_name = $request->meta_name;
+           $news->meta_detail = $request->meta_detail;
            if($news->save())
            {
                 $request->session()->flash('msg','Latest News Added Successfully');
@@ -95,6 +99,8 @@ class NewModelController extends Controller
             'title'=>'bail | required | string | max:25',
             'detail'=>'bail | required | string | max:95',
             'news_date'=>'required',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -134,6 +140,8 @@ class NewModelController extends Controller
             $news->detail = $request->detail;
             $news->news_date = $request->news_date;
             $news->img = $filename;
+            $news->meta_name = $request->meta_name;
+            $news->meta_detail = $request->meta_detail;
             if($news->save())
             {
                 $request->session()->flash('msg','Latest News Updated Successfully');

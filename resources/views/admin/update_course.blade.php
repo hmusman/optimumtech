@@ -89,6 +89,26 @@
                                         </div>
 
                                         <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Meta Name</label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="text" name="meta_name" value="{{ $course->meta_name }}" placeholder="Enter Meta Name" id="example-text-input">
+                                                @error('meta_name')
+                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Meta Detail</label>
+                                            <div class="col-md-10">
+                                                <textarea id="textarea" class="form-control" name="meta_detail" rows="3" placeholder="Enter Meta Detail">{{ $course->meta_detail }}</textarea>
+                                                @error('meta_detail')
+                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                @enderror
+                                            </div>
+                                        </div> 
+
+                                        <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Picture</label>
                                             <div class="col-md-10">
                                                 <input type="hidden" name="oldImg" value="{{ $course->img }}">

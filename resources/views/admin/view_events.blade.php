@@ -53,6 +53,8 @@
                                                 <th>#</th>
                                                 <th>Event Title</th>
                                                 <th>Event Detail</th>
+                                                <th>Meta Name</th>
+                                                <th>Meta Detail</th>
                                                 <th>Event Date</th>
                                                 <th>Event Address</th>
                                                 <th>Banner</th>
@@ -72,11 +74,15 @@
                                                         <td><p>
                                                            {{ ucfirst($event->detail) }}
                                                         </p></td>
+                                                        <td> {{ ucfirst($event->meta_name)}}</td>
+                                                        <td><p>
+                                                            {{ ucfirst($event->meta_detail) }}
+                                                        </p></td>
                                                         <td>{{ date('d/m/yy',strtotime($event->event_date)) }}</td>
                                                         <td>{{ ucfirst($event->address) }}</td>
                                                         
                                                         <td> 
-                                                            <img src="{{ asset($img) }}" style="height: 50px; width: 100px; "/>
+                                                            <img src="{{ asset($img) }}" class="appImg" style="height: 50px; width: 100px; "/>
                                                         </td>
                                                        
                                                        <td>

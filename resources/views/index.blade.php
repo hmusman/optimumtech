@@ -58,6 +58,7 @@
 	        </div>
 	    </section><!-- end section -->
 
+
 	      <!-- Section: COURSES -->
 	      <section id="prodSec" class="bg-lighter" style="   
 	      padding-top: 55px;">

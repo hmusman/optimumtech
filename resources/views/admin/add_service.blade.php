@@ -53,10 +53,21 @@
 
                                                     <form action="{{ route('Service.store') }}" method="post" enctype="multipart/form-data">
                                                         @csrf
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="text" name="name" value="{{ old('name') }}" maxlength="100" placeholder="Enter  title" id="example-text-input">
+                                                                @error('name')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
                                                             <div class="col-md-10">
-                                                                <textarea id="textarea" class="form-control" name="detail"  rows="3" placeholder="This textarea has a limit of 1500 chars.">{{ old('detail') }}</textarea>
+                                                                <textarea id="textarea" class="form-control tinymce-classic" name="detail"  rows="3" placeholder="This textarea has a limit of 1500 chars.">{{ old('detail') }}</textarea>
                                                                 @error('detail')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
@@ -74,10 +85,20 @@
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Name</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Meta Name</label>
                                                             <div class="col-md-10">
-                                                                <input class="form-control" type="text" name="name" value="{{ old('name') }}" maxlength="100" placeholder="Enter  title" id="example-text-input">
-                                                                @error('name')
+                                                                <input class="form-control" value="{{ old('meta_name') }}" type="text" name="meta_name" placeholder="Enter Meta Name" id="example-text-input">
+                                                                @error('meta_name')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Meta Detail</label>
+                                                            <div class="col-md-10">
+                                                                <textarea id="textarea" class="form-control " name="meta_detail" rows="3" placeholder="Enter Meta Detail">{{ old('meta_detail') }}</textarea>
+                                                                @error('meta_detail')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
@@ -108,6 +129,7 @@
                                                         </div>
 
                                                     </form>
+                                                    @include('mceImageUpload::upload_form')
                                                     
                                                 </div>
                                             </div>

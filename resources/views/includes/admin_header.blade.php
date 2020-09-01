@@ -58,6 +58,17 @@
                 </div>
             </div>
 
+            <div class="dropdown d-inline-block notification ">
+                <!-- <button type="button" class="btn header-item waves-effect" id="page-header-flag-dropdown"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell"></i><span style="top: 19px;position: absolute;margin-left: 2px;width: 10px;height: 15px;border-radius: 32%;font-size: 13px;color: red;">5</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                       q
+                    </a>
+                </div> -->
+            </div>
+
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="{{ asset('storage/admin/images/users/admin.jpg') }}" alt="Header Avatar">
@@ -296,3 +307,57 @@
     </div>
 </div>
 <!-- Left Sidebar End -->
+<style type="text/css">
+          .myModel {
+              display: none; 
+              position: fixed;
+              z-index: 9999;
+              padding-top: 100px; 
+              left: 0;
+              top: 0;
+              width: 100%; 
+              height: 100%; 
+              overflow: auto; 
+              background-color: rgb(0,0,0); 
+              background-color: rgba(0,0,0,0.9); 
+            }
+
+            .modal-content {
+              display: block;
+              width: 80%;
+              max-width: 700px;
+              margin-left: 24%;
+            }
+            
+            .modal-content{
+              animation-name: zoom;
+              animation-duration: 0.6s;
+            }
+
+            .close {
+              position: absolute;
+              top: 15px;
+              right: 35px;
+              color: #f1f1f1;
+              font-size: 40px;
+              font-weight: bold;
+              transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: #bbb;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            @media only screen and (max-width: 700px){
+              .modal-content {
+                width: 100%;
+              }
+            }                      
+        </style>
+        <div class="myModel" >
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
