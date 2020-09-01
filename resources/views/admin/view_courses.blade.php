@@ -46,12 +46,15 @@
     
                                     <table id="datatable" class="table table-bordered table-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                         <div class="row">
-                                            <div class="col-md-8"></div>
+                                            <div class="col-md-6"></div>
                                             <div class="col-md-2">
                                                 <button type="button" style="width: 100%; float: right;" class="btn-primary btn c_active">Active</button>
                                             </div>
                                             <div class="col-md-2">
                                                 <button type="button" style="width: 100%; float: right;" class="btn-primary btn blocked">Blocked</button>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a style="margin-bottom: 15px; " href="{{ route('Course.create') }}" class="btn btn-primary">Add New</a>
                                             </div>
                                         </div>
                                         <thead>
@@ -91,7 +94,7 @@
                                                             <td>{{ $i++ }}</td>
                                                             <td>{{ ucwords($course->title)}}</td>
                                                             <td><p>
-                                                              {{ \Illuminate\Support\Str::limit($course->detail, 100, $end='...') }}
+                                                              {{ \Illuminate\Support\Str::limit($course->detail, 50, $end='...') }}
                                                             </p></td>
                                                             <td>{{ ucfirst($course->type) }}</td>
                                                             <td>{{ $course->price }}</td>

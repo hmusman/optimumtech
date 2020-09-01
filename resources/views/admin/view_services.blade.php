@@ -46,7 +46,7 @@
                                     @if(Session::has('msg'))
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
-    
+                                    <a style="float: right;margin-bottom: 15px; " href="{{ route('Service.create') }}" class="pull-right btn btn-primary">Add New</a>
                                     <table id="datatable" class="table table-bordered table-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
@@ -54,7 +54,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Name</th>
-                                                <th>Detail</th>
+                                                <!-- <th>Detail</th> -->
                                                 <th>Meta Name</th>
                                                 <th>Meta Detail</th>
                                                  <th>Why</th>
@@ -74,9 +74,9 @@
                                                     <tr>
                                                         <td>{{ $i++ }}</td>
                                                         <td> {{ ucfirst($service->name)}}</td>
-                                                        <td>
+                                                        {{--<td>
                                                             {!! $service->detail !!}
-                                                        </td>
+                                                        </td>--}}
                                                         <td> {{ ucfirst($service->meta_name)}}</td>
                                                         <td>
                                                             {{ ucfirst(substr($service->meta_detail,0,100)) }}

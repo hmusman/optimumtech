@@ -46,15 +46,14 @@
                                     @if(Session::has('msg'))
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
-    
-                                    <table id="datatable" class="table table-bordered table-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                     <a style="float: right;margin-bottom: 15px; " href="{{ route('Product.create') }}" class="pull-right btn btn-primary">Add New</a>   
+                                    <table id="datatable" class="table table-stripped table-responsive nowrap mt-30" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
                                           
                                             <tr>
                                                 <th>#</th>
                                                 <th>Name</th>
-                                                <th>Detail</th>
                                                 <th>Meta Name</th>
                                                 <th>Meta Detail</th>
                                                 <th>Picture</th>
@@ -73,9 +72,7 @@
                                                     <tr>
                                                         <td>{{ $i++ }}</td>
                                                         <td> {{ ucfirst($product->name)}}</td>
-                                                        <td><p>
-                                                            {!! $product->detail !!}
-                                                        </p></td>
+                                                        
                                                          <td> {{ ucfirst($product->meta_name)}}</td>
                                                         <td><p>
                                                             {{ ucfirst($product->meta_detail) }}
@@ -96,7 +93,7 @@
                                                 @endforeach
 
                                             @else
-                                                <tr><td colspan="6" class="text-center">No Product Available</td></tr>
+                                                <tr><td colspan="5" class="text-center">No Product Available</td></tr>
 
                                             @endif
 

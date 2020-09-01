@@ -46,7 +46,7 @@
                                     @if(Session::has('msg'))
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
-    
+                                    <a style="float: right;margin-bottom: 15px; " href="{{ route('Team.create') }}" class="pull-right btn btn-primary">Add New</a>
                                     <table id="datatable" class="table table-bordered table-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>

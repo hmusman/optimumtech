@@ -48,7 +48,7 @@
                                     @if(Session::has('msg'))
                                         <div class="alert alert-success col-md-4">{{ Session::get('msg') }}</div>
                                     @endif
-
+                                    <a style="float: right;margin-bottom: 15px; " href="{{ route('MainMenu.create') }}" class="pull-right btn btn-primary">Add New</a>
                                     <table class="table table-striped">
                                        <thead>
                                            <tr>

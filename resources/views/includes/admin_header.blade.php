@@ -114,7 +114,21 @@
                     </a>
                 </li>
 
-                
+                 <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-scenery"></i></div>
+                        <span>Setting</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('News.index') }}">View News </a></li>
+                        <li><a href="{{ route('Event.index') }}">View Events</a></li>
+                        <li><a href="{{ route('CourseApplication.index') }}">View Course Application </a></li>
+                        <li><a href="{{ route('Client.index') }}">View Clients </a></li>
+                        <li><a href="{{ route('Testimonial.index') }}">View Testimonials </a></li>
+                        <li><a href="{{ route('Gallery.index') }}">View Gallery</a></li>
+                        <li><a href="{{ route('Team.index') }}">View Team </a></li>
+                    </ul>
+                </li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -122,7 +136,7 @@
                         <span>Slider</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('Slider.create') }}">Add Slider/Ticker</a></li>
+                        {{--<li><a href="{{ route('Slider.create') }}">Add Slider/Ticker</a></li>--}}
                         <li><a href="{{ route('Slider.index') }}">View Slider</a></li>
                         <!-- <li><a href="ViewTicker.html">View Ticker</a></li> -->
                     </ul>
@@ -134,7 +148,7 @@
                         <span>Products</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('Product.create') }}">Add Product</a></li>
+                        {{--<li><a href="{{ route('Product.create') }}">Add Product</a></li>--}}
                         <li><a href="{{ route('Product.index') }}">View Products</a></li>
                        
                     </ul>
@@ -146,7 +160,7 @@
                         <span>Services</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('Service.create') }}">Add Service</a></li>
+                        {{--<li><a href="{{ route('Service.create') }}">Add Service</a></li>--}}
                         <li><a href="{{ route('Service.index') }}">View Services</a></li>
                        
                     </ul>
@@ -158,13 +172,13 @@
                         <span>Courses</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('Course.create') }}">Add Course</a></li>
+                        {{--<li><a href="{{ route('Course.create') }}">Add Course</a></li>--}}
                         <li><a href="{{ route('Course.index') }}">View Courses</a></li>
                        
                     </ul>
                 </li>
 
-                <li>
+                {{--<li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
                         <span>Course Application</span>
@@ -174,9 +188,9 @@
                         <li><a href="{{ route('CourseApplication.index') }}">View Course Application</a></li>
                        
                     </ul>
-                </li>
+                </li>--}}
 
-                <li>
+                {{--<li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
                         <span>Course Batches</span>
@@ -186,15 +200,15 @@
                         <li><a href="{{ route('Batch.index') }}">View Batchs</a></li>
                        
                     </ul>
-                </li>
+                </li>--}}
 
-                 <li>
+                <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
                         <span>Category</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{ route('Category.create') }}">Add Category</a></li>
+                        {{--<li><a href="{{ route('Category.create') }}">Add Category</a></li>--}}
                         <li><a href="{{ route('Category.index') }}">View Categorys</a></li>
                        
                     </ul>
@@ -202,7 +216,7 @@
 
 
 
-                <li>
+                {{--<li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-bookmark"></i></div>
                         <span>News/Events</span>
@@ -214,11 +228,11 @@
                         <li><a href="{{ route('Event.index') }}">View Events</a></li>
                        
                     </ul>
-                </li>
+                </li>--}}
 
 
 
-                <li>
+                {{--<li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-comment-message"></i></div>
                         <span>Testimonial</span>
@@ -228,9 +242,9 @@
                         <li><a href="{{ route('Testimonial.index') }}">View Testimonial</a></li>
                        
                     </ul>
-                </li>
+                </li>--}}
 
-                <li>
+                {{--<li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-comment-message"></i></div>
                         <span>Team</span>
@@ -240,9 +254,9 @@
                         <li><a href="{{ route('Team.index') }}">View Team Members</a></li>
                        
                     </ul>
-                </li>
+                </li>--}}
 
-                <li>
+                {{--<li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-comment-message"></i></div>
                         <span>Gallery</span>
@@ -252,19 +266,19 @@
                         <li><a href="{{ route('Gallery.index') }}">View Photos</a></li>
                        
                     </ul>
-                </li>
+                </li>}--}
 
-                <li>
+                {{--<li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <div class="d-inline-block icons-sm mr-1"><i class="uim uim-apps"></i></div>
                         <span>Optimum Clients</span>
-                    </a>
+                    </a>{{--
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('Client.create') }}">Add Client</a></li>
                         <li><a href="{{ route('Client.index') }}">View Client</a></li>
                        
                     </ul>
-                </li>
+                </li>--}}
 
                  <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -272,7 +286,9 @@
                         <span>Menus</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li>
+                        <li><a href="{{ route('MainMenu.index') }}">View Main Menu</a></li>
+                        <li><a href="{{ route('SubMenu.index') }}">View Sub Menu</a></li>
+                        {{--<li>
                             <a href="javascript: void(0);" class="has-arrow waves-effect">
                                 <div class="d-inline-block icons-sm mr-1"><i class="uim uim-apps"></i></div>
                                 <span>Main Menu</span>
@@ -294,7 +310,7 @@
                                 <li><a href="{{ route('SubMenu.index') }}">View Sub Menu</a></li>
                                
                             </ul>
-                        </li>
+                        </li>--}}
                        
                     </ul>
                 </li>

@@ -51,7 +51,8 @@
 
                                     <div class="row">
                                       <div class="col-md-12">
-                                          <table id="subMenuTable" class="table table-striped">
+                                        <a style="float: right;margin-bottom: 15px; " href="{{ route('SubMenu.create') }}" class="pull-right btn btn-primary">Add New</a>
+                                      <table id="subMenuTable" class="table table-striped">
                                        <thead>
                                            <tr>
                                                <th>#</th>

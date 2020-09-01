@@ -43,7 +43,7 @@
                                     @if(Session::has('msg'))
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
-    
+                                    <a style="float: right;margin-bottom: 15px; " href="{{ route('News.create') }}" class="pull-right btn btn-primary">Add New</a>
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
@@ -70,7 +70,7 @@
                                                         <td>{{ $i++ }}</td>
                                                         <td>{{ ucfirst($row->title) }}</td>
                                                         <td><p>
-                                                            {{ ucfirst($row->detail) }}
+                                                           {{ \Illuminate\Support\Str::limit($row->detail, 50, $end='...') }}
                                                         </p></td>
                                                          <td> {{ ucfirst($row->meta_name)}}</td>
                                                         <td><p>

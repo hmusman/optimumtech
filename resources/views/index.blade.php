@@ -93,7 +93,7 @@
 					                      </div>
 					                      <div class="content text-left flip p-25 pt-0">
 					                        <h4 class="line-bottom mb-10">{{ ucfirst($course->title) }}</h4>
-					                        <p  style="text-align: justify;">{{ ucfirst($course->detail) }}</p>
+					                        <p  style="text-align: justify;">{{ ucfirst(substr($course->detail,0,100)) }}</p>
 					                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
 					                          href="{{ route('CourseDetail',$course->id)}}" target="_blank">view details</a>
 					                      </div>

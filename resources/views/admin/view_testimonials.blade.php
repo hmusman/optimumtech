@@ -46,7 +46,7 @@
                                     @if(Session::has('msg'))
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
-    
+                                    <a style="float: right;margin-bottom: 15px; " href="{{ route('Testimonial.create') }}" class="pull-right btn btn-primary">Add New</a>
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
@@ -73,7 +73,7 @@
                                                         <td>{{ $i++ }}</td>
                                                         <td> {{ ucfirst($testimonial->name)}}</td>
                                                         <td><p>
-                                                            {{ ucfirst($testimonial->detail) }}
+                                                            {{ \Illuminate\Support\Str::limit($testimonial->detail, 50, $end='...') }}
                                                         </p></td>
                                                         <td> {{ ucfirst($testimonial->designation) }}</td>
                                                         <td><img src="{{ asset($img) }} " class="appImg"/></td>

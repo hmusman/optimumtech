@@ -44,7 +44,7 @@
                                     @if(Session::has('msg'))
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
-    
+                                    <a style="float: right;margin-bottom: 15px; " href="{{ route('Event.create') }}" class="pull-right btn btn-primary">Add New</a>
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
@@ -72,7 +72,7 @@
                                                         <td>{{ $i++ }}</td>
                                                         <td>{{ ucfirst($event->title) }}</td>
                                                         <td><p>
-                                                           {{ ucfirst($event->detail) }}
+                                                           {{ \Illuminate\Support\Str::limit($event->detail, 50, $end='...') }}
                                                         </p></td>
                                                         <td> {{ ucfirst($event->meta_name)}}</td>
                                                         <td><p>
