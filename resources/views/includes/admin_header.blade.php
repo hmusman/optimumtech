@@ -5,7 +5,7 @@
             <div class="navbar-brand-box">
                 <a href="/Admin" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="{{ asset('storage/admin/images/logo-sm-dark.png') }}" alt="" height="22">
+                        <img src="{{ asset('storage/admin/images/logo.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('storage/admin/images/logo.png') }}" alt="" >
@@ -27,12 +27,12 @@
             </button>
 
             <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
+            <!-- <form class="app-search d-none d-lg-block">
                 <div class="position-relative">
                     <input type="text" class="form-control" placeholder="Search...">
                     <span class="mdi mdi-magnify"></span>
                 </div>
-            </form>
+            </form> -->
         </div>
 
         <div class="d-flex">

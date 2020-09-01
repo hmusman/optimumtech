@@ -38,11 +38,10 @@
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-6">
-                                                    <h5>Add Slider</h5>
-                                                    <p class="text-muted">Home Page Slider</p>
-
+                                                    <h5>Slider</h5>
+                                                    <p class="text-muted">Optimum Slider</p>
                                                     <div class="mt-4">
-                                                        <a href="{{ route('Slider.create') }}" class="btn btn-primary btn-sm">Add Slider <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Slider.index') }}" class="btn btn-primary btn-sm">View Slider <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -62,17 +61,16 @@
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-6">
-                                                    <h5>Add Ticker</h5>
-                                                    <p class="text-muted">Optimum News</p>
-
+                                                    <h5>Testimonial</h5>
+                                                    <p class="text-muted">Optimum Testimonial</p>
                                                     <div class="mt-4">
-                                                        <a href="#" class="btn btn-primary btn-sm">Add news <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Testimonial.index') }}" class="btn btn-primary btn-sm">View Testimonial <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-5 ml-auto">
                                                     <div>
-                                                        <img src="{{ asset('storage/admin/images/QlH7x10jYC.jpg') }}" alt="" class="img-fluid">
+                                                        <img src="{{ asset('storage/admin/images/ykgc6CTcoa.jpg') }}" alt="" class="img-fluid">
                                                     </div>
                                                 </div>
                                             </div>
@@ -87,11 +85,11 @@
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-6">
-                                                    <h5>Add Courses</h5>
+                                                    <h5>Courses</h5>
                                                     <p class="text-muted">Optimum Courses</p>
 
                                                     <div class="mt-4">
-                                                        <a href="{{ route('Course.create') }}" class="btn btn-primary btn-sm">Add course <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Course.index') }}" class="btn btn-primary btn-sm">View Course <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -113,11 +111,11 @@
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-6">
-                                                    <h5>Add Events</h5>
-                                                    <p class="text-muted">Upcomming Events</p>
+                                                    <h5>Events</h5>
+                                                    <p class="text-muted">Optimum Events</p>
 
                                                     <div class="mt-4">
-                                                        <a href="{{ route('Event.create') }}" class="btn btn-primary btn-sm">Add Event <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Event.index') }}" class="btn btn-primary btn-sm">View Event <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -137,17 +135,16 @@
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-6">
-                                                    <h5>Add Faq's </h5>
-                                                    <p class="text-muted">Optimum Home</p>
-
+                                                    <h5>Client</h5>
+                                                   <p class="text-muted">Optimum Client</p>
                                                     <div class="mt-4">
-                                                        <a href="" class="btn btn-primary btn-sm">Add FAQ <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('Client.index') }}" class="btn btn-primary btn-sm">View Client <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-5 ml-auto">
                                                     <div>
-                                                        <img src="{{ asset('storage/admin/images/YCa4b5hUhJ.jpg') }}" alt="" class="img-fluid">
+                                                        <img src="{{ asset('storage/admin/images/01ce7Ljd9r.jpg') }}" alt="" class="img-fluid">
                                                     </div>
                                                 </div>
                                             </div>
@@ -162,11 +159,10 @@
                                         <div class="card-body">
                                         <div class="row">
                                                 <div class="col-6">
-                                                    <h5>Add News</h5>
-                                                    <p class="text-muted">Optimum Courses</p>
-
+                                                    <h5>News</h5>
+                                                    <p class="text-muted">Optimum News</p>
                                                     <div class="mt-4">
-                                                        <a href="{{ route('News.create') }}" class="btn btn-primary btn-sm">Add course <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                                        <a href="{{ route('News.index') }}" class="btn btn-primary btn-sm">View course <i class="mdi mdi-arrow-right ml-1"></i></a>
                                                     </div>
                                                 </div>
 
@@ -181,167 +177,6 @@
                                  
                                 </div>
                             </div>
-                            <!-- end row -->
-
-                            
-                            <div class="row">
-
-                                <div class="col-lg-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-6">
-                                                    <h5>Add Testimonial</h5>
-                                                    <p class="text-muted">Optimum Reviews</p>
-
-                                                    <div class="mt-4">
-                                                        <a href="{{ route('Testimonial.create') }}" class="btn btn-primary btn-sm">Add Testimonial <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-5 ml-auto">
-                                                    <div>
-                                                        <img src="{{ asset('storage/admin/images/ykgc6CTcoa.jpg') }}" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-
-
-
-
-
-
-                                    <div class="card">
-                                        <div class="card-body">
-                                        <div class="row">
-                                                <div class="col-6">
-                                                    <h5>Add Client</h5>
-                                                    <p class="text-muted">Upcomming Events</p>
-
-                                                    <div class="mt-4">
-                                                        <a href="{{ route('Client.create') }}" class="btn btn-primary btn-sm">Add Client <i class="mdi mdi-arrow-right ml-1"></i></a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-5 ml-auto">
-                                                    <div>
-                                                        <img src="{{ asset('storage/admin/images/01ce7Ljd9r.jpg') }}" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                </div>
-
-
-                                <div class="col-lg-4">
-                                    <div class="card">
-                                        <div class="card-header bg-transparent p-3">
-                                            <h5 class="header-title mb-0">Sales Status</h5>
-                                        </div>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">
-                                                <div class="media my-2">
-                                                    
-                                                    <div class="media-body">
-                                                        <p class="text-muted mb-2">Number of Student Enrolled</p>
-                                                        <h5 class="mb-0">1,625</h5>
-                                                    </div>
-                                                    <div class="icons-lg ml-2 align-self-center">
-                                                        <i class="uim uim-layer-group"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media my-2">
-                                                    <div class="media-body">
-                                                        <p class="text-muted mb-2">Sales Revenue </p>
-                                                        <h5 class="mb-0">$ 42,235</h5>
-                                                    </div>
-                                                    <div class="icons-lg ml-2 align-self-center">
-                                                        <i class="uim uim-analytics"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media my-2">
-                                                    <div class="media-body">
-                                                        <p class="text-muted mb-2">Courses Average Price</p>
-                                                        <h5 class="mb-0">$ 14.56</h5>
-                                                    </div>
-                                                    <div class="icons-lg ml-2 align-self-center">
-                                                        <i class="uim uim-ruler"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="list-group-item">
-                                                <div class="media my-2">
-                                                    <div class="media-body">
-                                                        <p class="text-muted mb-2">Services Sold</p>
-                                                        <h5 class="mb-0">8,235</h5>
-                                                    </div>
-                                                    <div class="icons-lg ml-2 align-self-center">
-                                                        <i class="uim uim-box"></i>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="header-title mb-4">Social Source</h5>
-                                            <div id="radial-chart" class="apex-charts"></div>
-
-                                            <div class="text-center mt-3">
-                                                <div class="row">
-                                                    <div class="col-6">
-                                                        <div>
-                                                            <p class="text-muted"><i class="mdi mdi-circle text-primary mr-1"></i> Facebook</p>
-                                                            <h5>$ 1,625</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <div>
-                                                            <p class="text-muted"><i class="mdi mdi-circle text-warning mr-1"></i> Twitter</p>
-                                                            <h5>$ 1,504</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                             
-                            </div>
-                            <!-- end row -->
-
-                     
                             <!-- end row -->
 
                         </div> <!-- container-fluid -->
