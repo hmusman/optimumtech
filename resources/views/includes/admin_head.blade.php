@@ -24,4 +24,4 @@
 <link href="{{ asset('assets/css/app.min.css') }} " rel="stylesheet" type="text/css" />
 
 <link href="{{ asset('assets/tinymce/tinymce.min.css') }} " rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href=https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css"> -->
