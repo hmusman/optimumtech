@@ -7,7 +7,7 @@
     -webkit-transform: translate(5%,0)
 }
 to {
-    -webkit-transform: translate(-100%,0)
+    -webkit-transform: translate(-220%,0)
 }
 90% {
 }
@@ -42,7 +42,7 @@ to {
   /* float: left; */
   padding-left: 20px;
   /* animation: ticker 25s linear infinite; */
-  animation: ticker 92s linear infinite ;
+  animation: ticker 25s linear infinite ;
 
  
 } 

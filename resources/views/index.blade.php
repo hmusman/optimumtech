@@ -39,17 +39,28 @@
 		              <h2 class="text-uppercase font-weight-600 mt-0my font-28 line-bottom" id="NewsLineBtm" >News</h2>
 		              <div id="redNews" class="news red" style="display: inline-flex;   overflow: hidden;     width: 100%;height: 50px !important;">
 		                <span style="padding-bottom: 25px; z-index: 11; margin-top: -1px;padding-top: 13px;">LatestNews</span>
-		                <ul style="display: inline;padding-top: 3px;     z-index: 10; margin-top: 6px;" >
-		                  <li style="float: left; overflow: hidden; display: inline;  ">
-		                   <pre style="display: inline; background-color: #03394400;   border-left-color: #033a45; font-weight: bolder !important;  " > <a  href="#">1- Hurrah2 Free React Bootcamp Comimg on this Weekend Beready , Held at Iqbal Auditorium</a>                                                                               <a style="" href="#">2- BeReady! React NodeJs with MongoDB database New batch is starting Soon  </a>                                                                               <a style="" href="#">3- State Of the Art Technology Cloud Computing using Kubernaties Starting  </a>                                                                               <a style="" href="#">4- Optimum Tech Offer Free Online Tutorial Classes of Digital Marketing Due to LockDown(Covid-19) </a></pre>
+		               
+					   
+						<ul style="display: inline;padding-top: 3px;     z-index: 10; margin-top: 6px;" >
+                  <li style="float: left; overflow: hidden; display: inline;  width: 300% !important; ">
+                 
+                     <a  style="display: inline; margin-right: 100px;" href="#">1- Hurrah2 Free React Bootcamp Comimg on this Weekend Beready , Held at Iqbal Auditorium</a>
+                   
+                  
+                    <a style="display: inline; margin-right: 100px;" href="#">2- BeReady! React NodeJs with MongoDB database New batch is starting Soon  </a>
+                
+                 
+                 
+                    <a style="" href="#">3- Optimum Tech Offer Free Online Tutorial Classes of Digital Marketing Due to LockDown(Covid-19) </a>
+                  
+                  </li>
 
-		                  
-		                  </li>
-		                  <!-- <li style="float: left; margin-left: 200px; background-color: black;"><a href="#">Seminaar on SEO at RoyltonSeminaar on SEO at Roylton</a></li>
-		                  <li style="float: left; margin-left: 200px; background-color: chartreuse; "><a href="#">Seminaar on SEO at RoyltonSeminaar on SEO at Roylton</a></li> -->
-		                  <!-- <li style="float: left;"><a href="#">Free and Paid Intenships Available</a></li>
-		                  <li style="float: left;"><a href="#">New Batch3 (PHP) start from 1-05-2020</a></li> -->
-		                </ul>
+
+                 
+                </ul>
+
+
+
 		              </div>
 		            </div>
 		          </div>
