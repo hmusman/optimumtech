@@ -38,6 +38,7 @@ Route::view('OffshoreITStaffing','offshore_it');
 Route::view('Domain&Hosting','domain_hosting');
 Route::view('Outsourcing','outsourcing');
 Route::view('TaxationAudit','taxation_audit');
+Route::post('SendMail','FrontEndController@sendEmail')->name('SendMail');
 
 Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function(){
 

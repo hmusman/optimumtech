@@ -33,9 +33,9 @@
 <!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
 <!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script> -->
 <script type="text/javascript">
-    $(document).ready(function() {
-        // $('#subMenuTable').DataTable();
-    });
+	$(document).ready(function() {
+	    // $('#subMenuTable').DataTable();
+	});
 
 
 </script>
@@ -63,35 +63,35 @@
         // notificationFun();
 
         $('.status').change(function(){
-            var id = $(this).parent().data('id');
-            var value = $(this).val();
-            $.ajax({
-                url:"{{ route('CourseStatus')}}",
-                type:"get",
-                data:{id:id,status:value },
-                success:function(data)
-                {
-                    $('.statusMsg').css('display','block');
-                    $('.statusMsg').html("Status Has Been Changed");
-                }
-            });
+        	var id = $(this).parent().data('id');
+        	var value = $(this).val();
+        	$.ajax({
+        		url:"{{ route('CourseStatus')}}",
+        		type:"get",
+        		data:{id:id,status:value },
+        		success:function(data)
+        		{
+        			$('.statusMsg').css('display','block');
+        			$('.statusMsg').html("Status Has Been Changed");
+        		}
+        	});
         });
 
         $('.appStatus').change(function(){
-            var id = $(this).parent().data('id');
-            if($(this).is(':checked')){var value = 1;}else{var value = 0;}
-            $.ajax({
-                url:"{{ route('CourseApplicationStatus')}}",
-                type:"get",
-                data:{id:id,status:value },
-                success:function(data)
-                { 
-                    $('.statusMsg').css('display','block');
-                    if(value==1){$('.statusMsg').html("Payment Has Been Confirmed"); }
-                    else if(value==0){ $('.statusMsg').html("Payment Has Been Un Confirmed");  }
-                    
-                }
-            });
+        	var id = $(this).parent().data('id');
+        	if($(this).is(':checked')){var value = 1;}else{var value = 0;}
+        	$.ajax({
+        		url:"{{ route('CourseApplicationStatus')}}",
+        		type:"get",
+        		data:{id:id,status:value },
+        		success:function(data)
+        		{ 
+        			$('.statusMsg').css('display','block');
+        			if(value==1){$('.statusMsg').html("Payment Has Been Confirmed"); }
+        			else if(value==0){ $('.statusMsg').html("Payment Has Been Un Confirmed");  }
+        			
+        		}
+        	});
         });
 
         $('.appImg').click(function(){

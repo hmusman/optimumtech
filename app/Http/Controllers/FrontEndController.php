@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendContactMail;
 use App\Slider;
 use App\Client;
 use App\Gallery;
@@ -16,6 +19,7 @@ use App\Service;
 use App\Category;
 use App\MainMenu;
 use DB;
+use Config;
 
 class FrontEndController extends Controller
 {
@@ -211,5 +215,29 @@ class FrontEndController extends Controller
             return $output;
         }
 
+    }
+
+    public function sendEmail(Request $request)
+    {
+       // $email = Config::get('app.defaultEmail');
+        $validations = Validator::make($request->all(),[
+            'name'=>'required | max:50',
+            'email'=>'required | email',
+            'phone'=>'required | numeric',
+            'subject'=>'required | max:50',
+           'message'=>'required | min:10 | max:150'
+        ]);
+        if($validations->fails())
+            return back()->withErrors($validations)->withInput();
+        $data = array(
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'subject'=>$request->subject,
+            'phone'=>$request->phone,
+            'message'=>$request->message
+        );
+
+        Mail::to('example@gmail.com')->send(new SendContactMail($data));
+        return back()->with('success','Thanks For Contact Us');
     }
 }

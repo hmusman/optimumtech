@@ -30,45 +30,36 @@
 	    </section>
 	     
 	    <!-- Section News Ticker -->
-	    <section style="background-color: #f7f7f7;">
-	        <div class="container" > 
-		        <div class="section-content">
-		          <div class="row">
-		            <div class="col-md-12">
-		              <h6 class="letter-space-4 text-gray-darkgray text-uppercase  mb-0" id="Newsone" >Optimum Tech</h6>
-		              <h2 class="text-uppercase font-weight-600 mt-0my font-28 line-bottom" id="NewsLineBtm" >News</h2>
-		              <div id="redNews" class="news red" style="display: inline-flex;   overflow: hidden;     width: 100%;height: 50px !important;">
-		                <span style="padding-bottom: 25px; z-index: 11; margin-top: -1px;padding-top: 13px;">LatestNews</span>
-		               
-					   
-						<ul style="display: inline;padding-top: 3px;     z-index: 10; margin-top: 6px;" >
-                  <li style="float: left; overflow: hidden; display: inline;  width: 300% !important; ">
-                 
-                     <a  style="display: inline; margin-right: 100px;" href="#">1- Hurrah2 Free React Bootcamp Comimg on this Weekend Beready , Held at Iqbal Auditorium</a>
-                   
-                  
-                    <a style="display: inline; margin-right: 100px;" href="#">2- BeReady! React NodeJs with MongoDB database New batch is starting Soon  </a>
-                
-                 
-                 
-                    <a style="" href="#">3- Optimum Tech Offer Free Online Tutorial Classes of Digital Marketing Due to LockDown(Covid-19) </a>
-                  
-                  </li>
+	    @if($latestNews->count() >0)
+		    <section style="background-color: #f7f7f7;">
+		        <div class="container" > 
+			        <div class="section-content">
+			          <div class="row">
+			            <div class="col-md-12">
+			              <h6 class="letter-space-4 text-gray-darkgray text-uppercase  mb-0" id="Newsone" >Optimum Tech</h6>
+			              <h2 class="text-uppercase font-weight-600 mt-0my font-28 line-bottom" id="NewsLineBtm" >News</h2>
+			              <div id="redNews" class="news red" style="display: inline-flex;   overflow: hidden;     width: 100%;height: 50px !important;">
+			                <span style="padding-bottom: 25px; z-index: 11; margin-top: -1px;padding-top: 13px;">LatestNews</span>
+			                <ul style="display: inline;padding-top: 3px;     z-index: 10; margin-top: 6px;" >
+			                  <li style="float: left; overflow: hidden; display: inline;  width: 300% !important; ">
+			                 	
+			                 	@foreach($latestNews as $singleRow)
+			                 		 <a  style="display: inline; margin-right: 100px;" href="{{ route('NewsDetail',$singleRow->id) }}" target="_blank" >{{ ucfirst($singleRow->title) }}</a>
+			                 	@endforeach
+			                  
+			                	</li>
 
 
-                 
-                </ul>
+	                 
+	               			 </ul>
+			              </div>
+			            </div>
+			          </div>
 
-
-
-		              </div>
-		            </div>
-		          </div>
-
+			        </div>
 		        </div>
-	        </div>
-	    </section><!-- end section -->
-
+		    </section><!-- end section -->
+	    @endif
 
 	      <!-- Section: COURSES -->
 	      <section id="prodSec" class="bg-lighter" style="   
@@ -252,8 +243,8 @@
 			        <div class="container">
 			          <div class="section-title mb-10">
 			            <div class="row">
-			              <div class="col-md-12">
-			                <h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Our <span
+			              <div class="col-md-12 mt-5">
+			                <h2 class="mt-5 text-uppercase font-28 line-bottom line-height-1">Our <span
 			                    class="text-theme-color-2 font-weight-400">Team</span></h2>
 			              </div>
 			            </div>
@@ -262,12 +253,12 @@
 			            <div class="row multi-row-clearfix">
 			            	@foreach($members as $member)
 			            		@php $img = 'storage/'.$member->img @endphp
-			            		<div class="col-sm-6 col-md-3 sm-text-center mb-sm-30">
+			            		<div class="col-sm-6 col-md-4 sm-text-center mb-sm-30">
 					                <div class="team maxwidth400" style="margin-right: -7px !important">
 					                  	<div class="thumb"><img  class="img-fullwidthnew" src="{{  asset($img) }}" alt=""></div>
 						                <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
-						                    <h4 class="name text-theme-color-2 mt-0">{{ $member->name }} - <small>{{ $member->designation }}</small></h4>
-						                    <p class="mb-20">{{ $member->detail }}</p>
+						                    <h4 class="name text-theme-color-2 mt-0">{{ $member->name }} <br> <small>{{ $member->designation }}</small></h4>
+						                    <p class="mb-20">{{ \Illuminate\Support\Str::limit($member->detail,50,$end="...") }}</p>
 						                    <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
 						                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -294,8 +285,8 @@
 		        <div class="container">
 		          <div class="section-title mb-10">
 		            <div class="row">
-		              <div class="col-md-12">
-		                <h2 class="mt-0 text-uppercase text-theme-colored title line-bottom line-height-1">Our<span
+		              <div class="col-md-12 mt-5">
+		                <h2 class="mt-5 text-uppercase text-theme-colored title line-bottom line-height-1">Our<span
 		                    class="text-theme-color-2 font-weight-400"> Gllery</span></h2>
 		              </div>
 		            </div>
@@ -401,7 +392,7 @@
 		            <div class="row">
 		              <div class="col-md-6">
 		              	@if($events->count()>0)
-		              		<h3 class="text-uppercase line-bottom mt-0 line-height-1"><i class="fa fa-calendar mr-10"></i>Upcoming
+		              		<h3 class="text-uppercase line-bottom mt-5 line-height-1"><i class="fa fa-calendar mr-10"></i>Upcoming
 		                  		<span class="text-theme-color-2">Events</span></h3>	
 		                  	@foreach($events as $event)
 		                  		@php $img = 'storage/'.$event->img; @endphp
@@ -492,17 +483,17 @@
        		<section id="blog" class="bg-lighter">
 		        <div class="container" style="padding-top: 0px !important ;">
 			          <div class="section-title mb-10">
-			            <div class="row">
+			            <div class="row mt-5">
 			                <div class="col-md-6">
 				              	@if($news->count()>0)
-				                	<h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Latest <span
+				                	<h2 class="mt-5 text-uppercase font-28 line-bottom line-height-1">Latest <span
 				                    class="text-theme-color-2 font-weight-400">News</span></h2>
 				                @endif
 			                </div>
 
 			                <div class="col-md-6">
 				              	@if($news->count()>0)
-				                	<h2 class="mt-0 text-uppercase font-28 line-bottom line-height-1">Few <span
+				                	<h2 class="mt-5 text-uppercase font-28 line-bottom line-height-1">Few <span
 				                    class="text-theme-color-2 font-weight-400">Testimonials</span></h2>
 				                @endif
 			               </div>
