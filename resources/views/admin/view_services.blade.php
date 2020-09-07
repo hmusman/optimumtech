@@ -57,7 +57,7 @@
                                                 <!-- <th>Detail</th> -->
                                                 <th>Meta Name</th>
                                                 <th>Meta Detail</th>
-                                                 <th>Why</th>
+                                                 <!-- <th>Why</th> -->
                                                 <th>Picture</th>
                                                 <th>Action</th>
                                             </tr>
@@ -81,19 +81,19 @@
                                                         <td>
                                                             {{ ucfirst(substr($service->meta_detail,0,100)) }}
                                                         </td>
-                                                        <td>
+                                                       {{-- <td>
                                                            {{ ucfirst(substr($service->why,0,50)) }}
-                                                        </td>
+                                                        </td>--}}
 
                                                         <td><img src="{{ asset($img) }} " class="appImg" style="width: 100px; height: 100px;" /></td>
                                                        <td>
                                                          
                                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                                           <a href="{{ route('Service.edit',$service->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a>&nbsp;
-                                                            <form style="margin-left: 10px;" method="post" action="{{ route('Service.destroy',$service->id) }}">
+                                                           <a href="{{ route('Service.edit',$service->id) }}" aria-label="Edit Button" class="btn btn-primary mdi mdi-delete-alert title_btn"></a>&nbsp;
+                                                            <form style="margin-left: 10px;" id="{{ $service->id }}" method="post" action="{{ route('Service.destroy',$service->id) }}">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <button type="submit" class="btn btn-danger mdi mdi-close-box-multiple-outline"></button>
+                                                                 <button type="button" data-id="{{ $service->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline item_delete_btn title_btn"></button>
                                                             </form>
                                                         </div>
                                                        </td>
@@ -101,7 +101,7 @@
                                                 @endforeach
 
                                             @else
-                                                <tr><td colspan="6" class="text-center">No Service Available</td></tr>
+                                                <tr><td colspan="5" class="text-center">No Service Available</td></tr>
 
                                             @endif
 

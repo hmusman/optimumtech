@@ -27,7 +27,7 @@ class NewModelController extends Controller
     {
         $validations = Validator::make($request->all(),[
             'title'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:95',
+            'detail'=>'bail | required | string',
             'news_date'=>'required',
             'img'=>'required',
             'meta_name'=>'bail | required | string',
@@ -97,7 +97,7 @@ class NewModelController extends Controller
     {
         $validations = Validator::make($request->all(),[
             'title'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:95',
+            'detail'=>'bail | required | string',
             'news_date'=>'required',
             'meta_name'=>'bail | required | string',
             'meta_detail'=>'required',

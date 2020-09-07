@@ -28,8 +28,9 @@ class EventController extends Controller
        
         $validations = Validator::make($request->all(),[
             'title'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:95',
+            'detail'=>'bail | required | string',
             'event_date'=>'required',
+            'event_time'=>'required',
             'address'=>'bail | required | string | max:100',
             'img'=>'required',
             'meta_name'=>'bail | required | string',
@@ -71,6 +72,7 @@ class EventController extends Controller
            $event->title = $request->title;
            $event->detail = $request->detail;
            $event->event_date = $request->event_date;
+           $event->event_time = $request->event_time;
            $event->address = $request->address;
            $event->img = $filename;
            $event->meta_name = $request->meta_name;
@@ -102,8 +104,9 @@ class EventController extends Controller
     {
        $validations = Validator::make($request->all(),[
             'title'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:95',
+            'detail'=>'bail | required | string',
             'event_date'=>'required',
+            'event_time'=>'required',
             'address'=>'bail | required | string | max:100',
             'meta_name'=>'bail | required | string',
             'meta_detail'=>'required',
@@ -145,6 +148,7 @@ class EventController extends Controller
             $event->title = $request->title;
             $event->detail = $request->detail;
             $event->event_date = $request->event_date;
+            $event->event_time = $request->event_time;
             $event->address = $request->address;
             $event->img = $filename;
             $event->meta_name = $request->meta_name;

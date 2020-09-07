@@ -12,6 +12,10 @@ Route::get('CourseDetail/{id}','FrontEndController@showCourse')->name('CourseDet
 Route::get('ApplyForCourse/{id}','CourseApplicationController@create')->name('ApplyForCourse');
 Route::post('Apply','CourseApplicationController@store')->name('Apply');
 Route::get('ContactUs','FrontEndController@contactUs')->name('ContactUs');
+Route::post('SendMail','FrontEndController@sendEmail')->name('SendMail');
+Route::get('Portfolios','PortfolioController@showPortfolios')->name('Portfolios');
+Route::get('PortfolioDetail/{id}','PortfolioController@show')->name('Portfolio.Detail');
+Route::get('CourseCategory/{id}','CategoryController@showCategoryCourses')->name('Course.Category');
 Route::view('Courses/PHP','single_course');
 Route::view('Courses/NodeJs','single_course');
 Route::view('Courses/Javascript','single_course');
@@ -38,7 +42,6 @@ Route::view('OffshoreITStaffing','offshore_it');
 Route::view('Domain&Hosting','domain_hosting');
 Route::view('Outsourcing','outsourcing');
 Route::view('TaxationAudit','taxation_audit');
-Route::post('SendMail','FrontEndController@sendEmail')->name('SendMail');
 
 Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function(){
 
@@ -50,9 +53,18 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 	Route::get('CourseApplicationStatus','CourseApplicationController@courseApplicationStatus')->name('CourseApplicationStatus');
 	Route::post('CourseApplicationConfirmStatus','CourseApplicationController@courseApplicationConfirmStatus')->name('CourseApplicationConfirmStatus');
 	Route::post('CourseApplicationUnConfirmStatus','CourseApplicationController@courseApplicationUnConfirmStatus')->name('CourseApplicationUnConfirmStatus');
+
+	Route::post('SingleCourseApplicationConfirmStatus','CourseApplicationController@singleCourseApplicationConfirmStatus')->name('SingleCourseApplicationConfirmStatus');
+	Route::post('SingleCourseApplicationUnConfirmStatus','CourseApplicationController@singleCourseApplicationUnConfirmStatus')->name('SingleCourseApplicationUnConfirmStatus');
+
 	Route::resource('Batch','BatchController');
 	Route::resource('CourseApplication','CourseApplicationController');
+	
 	Route::get('ConfirmedRecord','CourseApplicationController@confirmedRecord')->name('ConfirmedRecord');
+	Route::get('SingleConfirmedRecord/{id}','CourseApplicationController@singleConfirmedRecord')->name('SingleConfirmedRecord');
+	Route::get('AllCourseApplicationRecords','CourseApplicationController@allCourseApplicationRecords')->name('AllCourseApplicationRecords');
+	Route::get('AllSingleCourseApplicationRecords/{id}','CourseApplicationController@allSingleCourseApplicationRecords')->name('AllSingleCourseApplicationRecords');
+	Route::post('SpecificCourseApplicationRecords','CourseApplicationController@specificCourseApplicationRecords')->name('SpecificCourseApplicationRecords');
 	Route::get('CourseApplicationDelete/{id}','CourseApplicationController@destroy')->name('CourseApplication.delete');
 	Route::get('CourseDelete/{id}','CourseController@destroy')->name('Course.delete');
 	Route::resource('Category','CategoryController');
@@ -68,10 +80,17 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 	Route::resource('Testimonial','TestimonialController');
 	Route::resource('Team','TeamController');
 	Route::resource('Gallery','GalleryController');
+	Route::resource('Portfolio','PortfolioController');
+	Route::resource('Contact','ContactController');
+	Route::resource('ProductCustomer','ProductCustomerController');
+	Route::resource('SiteContact','SiteContactController');
 	Route::get('SubMenuAuto','FrontEndController@subMenuAutoTitle')->name('SubMenuAuto');
 	Route::get('SubMenuAutoRoute','FrontEndController@subMenuAutoRoute')->name('SubMenuAutoRoute');
 	Route::get('Notification','CourseApplicationController@notification')->name('Notification');
-
+	Route::post('ChangeContactStatus','ContactController@changeContactStatus')->name('ChangeContactStatus');
+	Route::get('ContactDelete/{id}','ContactController@destroy')->name('ContactDelete');
+	Route::get('SingleCourseApplications/{id}','CourseController@courseApplications')->name('SingleCourseApplication');
+	Route::get('GetMainFolder','GalleryController@getMainFolder')->name('GetMainFolder');
 });
 
 

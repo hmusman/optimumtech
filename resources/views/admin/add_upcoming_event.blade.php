@@ -55,7 +55,7 @@
                                                     <form action="{{ route('Event.store') }}" method="post" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Event Title</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Title</label>
                                                             <div class="col-md-10">
                                                                 <input class="form-control" type="text" value="{{ old('title') }}" name="title"  placeholder="Enter  title" id="example-text-input">
                                                                 @error('title')
@@ -66,7 +66,7 @@
 
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Event Detail</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
                                                             <div class="col-md-10">
                                                                 <textarea id="textarea" name="detail" class="form-control" rows="3" placeholder="Enter Detail">{{ old('detail') }}</textarea>
                                                                 @error('detail')
@@ -96,7 +96,7 @@
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">Event Date</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Date</label>
                                                             <div class="col-md-10">
                                                                 <input class="form-control" type="date" value="{{ old('event_date') }}" name="event_date" id="example-date-input">
                                                                 @error('event_date')
@@ -105,6 +105,15 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Time</label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="time" value="{{ old('event_time') }}" name="event_time" id="example-date-input">
+                                                                @error('event_time')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror  
+                                                            </div>
+                                                        </div>
 
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Event Address</label>

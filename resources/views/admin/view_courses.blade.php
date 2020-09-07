@@ -51,7 +51,7 @@
                                                 <button type="button" style="width: 100%; float: right;" class="btn-primary btn c_active">Active</button>
                                             </div>
                                             <div class="col-md-2">
-                                                <button type="button" style="width: 100%; float: right;" class="btn-primary btn blocked">Blocked</button>
+                                                <button type="button" style="width: 100%; float: right;" class="btn-primary btn blocked">Inactive</button>
                                             </div>
                                             <div class="col-md-2">
                                                 <a style="margin-bottom: 15px; " href="{{ route('Course.create') }}" class="btn btn-primary">Add New</a>
@@ -63,7 +63,7 @@
                                                 <th></th>
                                                 <th>#</th>
                                                 <th>Title</th>
-                                                <th>Detail</th>
+                                                <!-- <th>Detail</th> -->
                                                 <th>Type</th>
                                                 <th>Price</th>
                                                 <th>Image</th>
@@ -92,17 +92,17 @@
 
                                                             </td>
                                                             <td>{{ $i++ }}</td>
-                                                            <td>{{ ucwords($course->title)}}</td>
-                                                            <td><p>
+                                                            <td><a href="{{ route('SingleCourseApplication',$course->id) }}">{{ ucwords($course->title)}}</a></td>
+                                                            {{--<td><p>
                                                               {{ \Illuminate\Support\Str::limit($course->detail, 50, $end='...') }}
-                                                            </p></td>
+                                                            </p></td>--}}
                                                             <td>{{ ucfirst($course->type) }}</td>
                                                             <td>{{ $course->price }}</td>
                                                             <td><img src="{{ asset($img) }}" class="appImg" style="height: 50px; width: 100px; "/></td>
                                                             <td>{{ count($course->applications) }}</td>
                                                             <td>{{ $course->url }}</td>
                                                             <td data-id="{{ $course->id }}">
-                                                                <?php echo ($course->status==1) ?  "active" :'blocked'?> 
+                                                                <?php echo ($course->status==1) ?  "active" :'inactive'?> 
                                                             </td>
                                                             <td> {{ ucfirst($course->meta_name)}}</td>
                                                             <td><p>
@@ -111,9 +111,9 @@
                                                             <td> 
 
                                                                 <div class="btn-group" role="group" aria-label="Basic example">
-                                                                    <a href="{{ route('Course.edit',$course->id) }}" class="btn btn-primary mdi mdi-delete-alert"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;
-                                                                    
-                                                                        <a href="{{ route('Course.delete',$course->id) }}" class="btn btn-danger mdi mdi-close-box-multiple-outline"></a>
+                                                                    <a href="{{ route('Course.edit',$course->id) }}" aria-label="Edit Button" class="btn btn-primary mdi mdi-delete-alert title_btn"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;
+                                                                        <input type="hidden" name="" id="route{{ $course->id }}" value="CourseDelete/{{ $course->id }}">
+                                                                        <button type="button" data-id="{{ $course->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline anchor_delete_btn title_btn"></button>
                                                                 </div>
                                                             </td>
                                                            

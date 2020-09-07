@@ -51,8 +51,11 @@
                                               </tr> -->
                                         <tr>
                                             <th>#</th>
-                                            <th>Category</th>
+                                            <th>Main Folder</th>
+                                            <th>Sub Folder</th>
                                             <th>Image</th>
+                                            <th>Title</th>
+                                            <th>Caption</th>
                                             <th>Action</th>
                                             
                                         </tr>
@@ -67,15 +70,18 @@
                                                     <tr>
                                                         <td>{{ $i++ }}</td>
                                                         <td>{{ ucfirst($photo->category) }}</td>
+                                                        <td>{{ ucfirst($photo->sub_folder) }}</td>
                                                         <td><img src="{{ asset($img) }}" class="appImg"  style="height: 100px; width: 100px; "/></td>
+                                                        <td>{{ ucfirst($photo->title) }}</td>
+                                                        <td>{{ ucfirst($photo->caption) }}</td>
                                                         <td> 
 
                                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                                                <a href="{{ route('Gallery.edit',$photo->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a>&nbsp;
-                                                                <form style="margin-left: 10px;" method="post" action="{{ route('Gallery.destroy',$photo->id) }}">
+                                                                <a href="{{ route('Gallery.edit',$photo->id) }}" aria-label="Edit Button" class="btn btn-primary mdi mdi-delete-alert title_btn"></a>&nbsp;
+                                                                <form style="margin-left: 10px;" id="{{ $photo->id }}" method="post" action="{{ route('Gallery.destroy',$photo->id) }}">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    <button type="submit" class="btn btn-danger mdi mdi-close-box-multiple-outline"></button>
+                                                                   <button type="button" data-id="{{ $photo->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline title_btn item_delete_btn"></button>
                                                                 </form>
                                                                 
                                                             </div>
@@ -88,7 +94,7 @@
                                             @else
 
                                                 <tr>
-                                                    <td colspan="4" class="text-center">No Slider Available</td>
+                                                    <td colspan="5" class="text-center">No Slider Available</td>
                                                 </tr>
                                             @endif
                               

@@ -54,7 +54,7 @@
                                                     <form method="post" action="{{ route('News.store') }}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">News Title</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label"> Title</label>
                                                             <div class="col-md-10">
                                                                 <input class="form-control" name="title" value="{{ old('title') }}" type="text" maxlength="100" placeholder="Enter  title" id="example-text-imgt">
                                                                 @error('title')
@@ -65,9 +65,9 @@
 
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">News Detail</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label"> Detail</label>
                                                             <div class="col-md-10">
-                                                                <textarea id="textarea" name="detail" class="form-control" maxlength="95" rows="3" placeholder="This textarea has a limit of 95 chars.">{{ old('detail') }}</textarea>
+                                                                <textarea id="textarea" name="detail" class="form-control" rows="3" placeholder="Enter Detail">{{ old('detail') }}</textarea>
                                                                 @error('detial')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
@@ -95,7 +95,7 @@
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label for="example-text-input" class="col-md-2 col-form-label">News Date</label>
+                                                            <label for="example-text-input" class="col-md-2 col-form-label"> Date</label>
                                                             <div class="col-md-10">
                                                                 <input class="form-control" name="news_date" type="date" value="{{ old('news_date') }}" id="example-date-input">
                                                                 @error('news_date')
@@ -128,7 +128,7 @@
 
                                                       
                                                         <div class="mt-4">
-                                                            <button type="submit" class="btn btn-primary waves-effect waves-light" type="submit">Save News</button>
+                                                            <button type="submit" class="btn btn-primary waves-effect waves-light" type="submit">Save</button>
                                                         </div>
 
                                                     </form>

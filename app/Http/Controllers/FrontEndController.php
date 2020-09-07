@@ -20,6 +20,7 @@ use App\Category;
 use App\MainMenu;
 use DB;
 use Config;
+use App\Contact;
 
 class FrontEndController extends Controller
 {
@@ -75,8 +76,8 @@ class FrontEndController extends Controller
     public function courses()
     {
         $mains = MainMenu::all();
-        $courses = Course::where([['type','=','paid'],['status','=','1']])->get();
-        $categories = Category::join('courses','categories.id','=','courses.category_id')->where('courses.status','1')->select('categories.title')->get();
+        $courses = Course::where('status','=','1')->get();
+        $categories = Category::join('courses','categories.id','=','courses.category_id')->where('courses.status','1')->select('categories.title','categories.id')->get();
         $freeCourses = Course::where([['type','=','free'],['status','=','1']])->get();
         return view('courses',compact(['mains','courses','freeCourses','categories']));
     }
@@ -119,7 +120,7 @@ class FrontEndController extends Controller
     {
         $tbl = $request->tbl;
         $filter = '';
-        if($tbl=="courses" || $tbl=="course" ){ $filter ="courses"; $data = Course::all();}
+        if($tbl=="courses" || $tbl=="course" ){ $filter ="courses"; $data = Category::all();}
         else if($tbl=="products" || $tbl=="product"){ $filter="products"; $data = Product::all();}
         else if($tbl=="services" || $tbl=="service"){ $filter="services"; $data = Service::all();}
         if($data->count()>0)
@@ -165,12 +166,62 @@ class FrontEndController extends Controller
 
     }
 
+    // public function subMenuAutoTitle(Request $request)
+    // {
+    //     $tbl = $request->tbl;
+    //     $filter = '';
+    //     if($tbl=="courses" || $tbl=="course" ){ $filter ="courses"; $data = Course::all();}
+    //     else if($tbl=="products" || $tbl=="product"){ $filter="products"; $data = Product::all();}
+    //     else if($tbl=="services" || $tbl=="service"){ $filter="services"; $data = Service::all();}
+    //     if($data->count()>0)
+    //     {
+    //         $output = '';
+    //         $output = '<select name="title" class="form-control">';
+    //         $output.='<option selected="" disabled="">Select Title</option>';
+    //         foreach($data as $row)
+    //         {
+    //             if($filter=='courses'){
+    //                 if($request->has('title'))
+    //                 {
+    //                     $output.='<option value="'.$row->title.'"';
+    //                     if($row->title==$request->title){ $output.='selected=""'; }
+    //                     $output.='>'.ucwords($row->title).'</option>';
+
+    //                 }
+    //                 else
+    //                 {
+    //                     $output.='<option value="'.$row->title.'">'.ucwords($row->title).'</option>';
+    //                 }
+                    
+    //             }
+    //             else if($filter!="courses")
+    //             {
+    //                 if($request->has('title'))
+    //                 {
+    //                     $output.='<option value="'.$row->name.'"';
+    //                     if($row->name==$request->title){ $output.='selected=""'; }
+    //                     $output.='>'.ucwords($row->name).'</option>';
+
+    //                 }
+    //                 else
+    //                 {
+    //                     $output.='<option value="'.$row->name.'">'.ucwords($row->name).'</option>';
+    //                 }
+                    
+    //             }
+    //         }
+    //         $output.='</select> <input type="hidden" name="tbl" value="'.$filter.'" >';
+    //         return $output;
+    //     }
+
+    // }
+
     public function subMenuAutoRoute(Request $request)
     {
         $tbl = $request->tbl;
         $filter = '';
         $route = "";
-        if($tbl=="courses" || $tbl=="course" ){ $route="/CourseDetail/"; $filter ="course"; $data = Course::all();}
+        if($tbl=="courses" || $tbl=="course" ){ $route="/CourseCategory/"; $filter ="course"; $data = Category::all();}
         else if($tbl=="products" || $tbl=="product"){ $route="/ProductDetail/";  $data = Product::all();}
         else if($tbl=="services" || $tbl=="service"){ $route="/ServiceDetail/"; $data = Service::all();}
         if($data->count()>0)
@@ -217,6 +268,58 @@ class FrontEndController extends Controller
 
     }
 
+    // public function subMenuAutoRoute(Request $request)
+    // {
+    //     $tbl = $request->tbl;
+    //     $filter = '';
+    //     $route = "";
+    //     if($tbl=="courses" || $tbl=="course" ){ $route="/CourseDetail/"; $filter ="course"; $data = Course::all();}
+    //     else if($tbl=="products" || $tbl=="product"){ $route="/ProductDetail/";  $data = Product::all();}
+    //     else if($tbl=="services" || $tbl=="service"){ $route="/ServiceDetail/"; $data = Service::all();}
+    //     if($data->count()>0)
+    //     {
+    //         $output = '';
+    //         $output = '<select name="route" class="form-control">';
+    //         $output.='<option selected="" disabled="">Select Route</option>';
+    //         foreach($data as $row)
+    //         {
+    //            if($filter=='course')
+    //            {
+    //                 if($request->has('title'))
+    //                 {
+    //                     $output.='<option value="'.$route.$row->id.'"';
+    //                     if($row->title==$request->title){ $output.='selected=""'; }
+    //                     $output.='>'.ucwords($row->title).'</option>';
+
+    //                 }
+    //                 else
+    //                 {
+    //                    $output.='<option value="'.$route.$row->id.'">'.ucwords($row->title).'</option>';
+    //                 }
+
+    //             }
+    //             else if($filter=="")
+    //             {
+    //                 if($request->has('title'))
+    //                 {
+    //                     $output.='<option value="'.$route.$row->id.'"';
+    //                     if($row->name==$request->title){ $output.='selected=""'; }
+    //                     $output.='>'.ucwords($row->name).'</option>';
+
+    //                 }
+    //                 else
+    //                 {
+    //                     $output.='<option value="'.$route.$row->id.'">'.ucwords($row->name).'</option>';
+    //                 }
+                    
+    //             }
+    //         }
+    //         $output.='</select>';
+    //         return $output;
+    //     }
+
+    // }
+
     public function sendEmail(Request $request)
     {
        // $email = Config::get('app.defaultEmail');
@@ -236,7 +339,13 @@ class FrontEndController extends Controller
             'phone'=>$request->phone,
             'message'=>$request->message
         );
-
+        $contact = new Contact();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->phone = $request->phone;
+        $contact->subject = $request->subject;
+        $contact->message = $request->message;
+        $contact->save();
         Mail::to('example@gmail.com')->send(new SendContactMail($data));
         return back()->with('success','Thanks For Contact Us');
     }

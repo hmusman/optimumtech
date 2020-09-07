@@ -25,9 +25,11 @@ class TestimonialController extends Controller
        
         $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:95',
+            'detail'=>'bail | required | string',
             'designation'=>'bail | required | string | max:100',
-            'img'=>'required'
+            'img'=>'required',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -66,6 +68,8 @@ class TestimonialController extends Controller
                $testimonial->detail = $request->detail;
                $testimonial->designation = $request->designation;
                $testimonial->img = $filename;
+               $testimonial->meta_name = $request->meta_name;
+               $testimonial->meta_detail = $request->meta_detail;
                if($testimonial->save())
                {
                     $request->session()->flash('msg','Testimonial Added Successfully');
@@ -93,8 +97,10 @@ class TestimonialController extends Controller
     {
        $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:95',
-            'designation'=>'bail | required | string | max:100'
+            'detail'=>'bail | required | string',
+            'designation'=>'bail | required | string | max:100',
+            'meta_name'=>'bail | required | string',
+            'meta_detail'=>'required',
         ]);
 
         if ($validations->fails())
@@ -134,6 +140,8 @@ class TestimonialController extends Controller
             $testimonial->detail = $request->detail;
             $testimonial->designation = $request->designation;
             $testimonial->img = $filename;
+            $testimonial->meta_name = $request->meta_name;
+            $testimonial->meta_detail = $request->meta_detail;
             if($testimonial->save())
             {
                 $request->session()->flash('msg','Testimonial Updated Successfully');

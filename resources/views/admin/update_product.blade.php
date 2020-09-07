@@ -93,11 +93,21 @@
 
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Picture 262*175</label>
-                                                            <div class="col-md-10">
-                                                                @php $img = 'storage/'.$product->img  @endphp
+                                                            <div class="col-md-5">
+                                                                @php $img = 'storage/'.$product->img;  @endphp
+
                                                                 <input type="hidden" name="oldImg" value="{{ $product->img }}">
-                                                                <input name="img" type="file">
-                                                                <img src="{{ asset($img) }}" style="width: 100px; height: 100px;">
+                                                                <div class="input-group">
+                                                                  <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                                                  </div>
+                                                                  <div class="custom-file">
+                                                                    <input type="file" name="img" class="custom-file-input" id="inputGroupFile01"
+                                                                      aria-describedby="inputGroupFileAddon01">
+                                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                                  </div>
+                                                                </div>
+                                                                <img src="{{ asset($img) }}" style="width: 100px; height: 100px; margin-top: 5px;">
                                                                 @error('img')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror  
@@ -112,7 +122,43 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Video</label>
+                                                            <div class="col-md-5">
+                                                                <div class="input-group">
+                                                                  <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                                                  </div>
+                                                                  <div class="custom-file">
+                                                                    <input type="file" name="video" class="custom-file-input" id="inputGroupFile01"
+                                                                      aria-describedby="inputGroupFileAddon01">
+                                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                                  </div>
+                                                                </div>
+                                                                <input type="hidden" name="oldVideo" value="{{ $product->video }}">
+                                                                <p class="text-muted" style="margin-top: 3px;">Ext(mp4), Size(25Mb)</p>
+                                                                @error('video')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror  
 
+                                                                @error('videoSizeWarning')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror  
+
+                                                                @error('videoExtWarning')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror    
+                                                            </div>
+                                                            @if($product->video !='')
+
+                                                                @php $video = '/storage/'.$product->video;  @endphp
+                                                                <div class="col-md-5">
+                                                                   <video width="100%" controls>
+                                                                      <source src="{{ $video }}" type="video/mp4">
+                                                                    </video>
+                                                                </div>
+                                                            @endif
+                                                        </div>
                                                       
                                                         <div class="mt-4">
                                                             <button type="submit" class="btn btn-primary waves-effect waves-light" type="submit">Update</button>

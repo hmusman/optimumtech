@@ -177,4 +177,12 @@ class CourseController extends Controller
        $request->session()->flash('msg','Course is not Active');
         return redirect(route('Course.index'));
     }
+
+    public function courseApplications($id)
+    {
+        $course = Course::where('id',$id)->first();
+        $applications = $course->applications;
+        return view('admin.view_single_course_applications',compact(['applications','id']));
+
+    }
 }

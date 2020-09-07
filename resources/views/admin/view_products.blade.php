@@ -81,11 +81,11 @@
                                                        <td>
                                                          
                                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                                           <a href="{{ route('Product.edit',$product->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a>&nbsp;
-                                                            <form style="margin-left: 10px;" method="post" action="{{ route('Product.destroy',$product->id) }}">
+                                                           <a href="{{ route('Product.edit',$product->id) }}" aria-label="Edit Button" class="btn btn-primary mdi mdi-delete-alert title_btn"></a>&nbsp;
+                                                            <form style="margin-left: 10px;" id="{{ $product->id }}" method="post" action="{{ route('Product.destroy',$product->id) }}">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <button type="submit" class="btn btn-danger mdi mdi-close-box-multiple-outline"></button>
+                                                                <button type="button" data-id="{{ $product->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline title_btn item_delete_btn"></button>
                                                             </form>
                                                         </div>
                                                        </td>

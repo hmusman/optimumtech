@@ -54,16 +54,20 @@
                                                             @csrf
                                                             @method('put')
                                                             <div class="form-group">
-                                                                <label>Select Image :</label>
+                                                                <label>Select Image 1820*500 :</label>
                                                                 @php $img = 'storage/'.$slider->img @endphp
                                                                 <input type="hidden" name="oldImg" value="{{ $slider->img }}">
-                                                                <input name="img" type="file">
+                                                                <input name="img" type="file" id="img">
                                                                 <img src="{{ asset($img) }}" style="widows: 100px; height: 100px;">
                                                             </div>
                                                            
                                                             @error('warningMsg')
-                                                                <p class="text-danger">{{ $message }}</p>
+                                                            <p class="text-danger">{{ $message }}</p>
                                                             @enderror
+                                                             <p class="text-danger img_error"></p>
+                                                            <div class="row">
+                                                                <div id="uploadForm"></div>
+                                                            </div>
                                                             <div class="form-group mt-4">
                                                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Update Slider</button>
                                                             </div>
@@ -71,60 +75,6 @@
                                                     </div>
                     
                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="profile-1" role="tabpanel">
-                                            <div class="card">
-                                                <div class="card-body">
-            
-                                                    <h4 class="header-title">Horizantol News Ticker</h4>
-                                                  
-                                                    <div class="form-group row">
-                                                        <label for="example-text-input" class="col-md-2 col-form-label">Add News 1</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" type="text" maxlength="100" placeholder="News Ticker 1" id="example-text-input">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label for="example-text-input" class="col-md-2 col-form-label">Add News 2</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" type="text" maxlength="100" placeholder="News Ticker 2" id="example-text-input">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group row">
-                                                        <label for="example-text-input" class="col-md-2 col-form-label">Add News 3</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" type="text" maxlength="100" placeholder="News Ticker 3" id="example-text-input">
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <div class="form-group row">
-                                                        <label for="example-text-input" class="col-md-2 col-form-label">Add News 4</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" type="text" maxlength="100" placeholder="News Ticker 4" id="example-text-input">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group row">
-                                                        <label class="col-md-2 col-form-label">Select Speed</label>
-                                                        <div class="col-md-10">
-                                                            <select class="form-control">
-                                                                <option>Select</option>
-                                                                <option>Fast</option>
-                                                                <option>Slow</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mt-4">
-                                                        <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -152,11 +102,50 @@
 	@include('includes.admin_footer')
 @endsection<!-- end footer -->
 
-<script type="text/javascript">
-    Dropzone.autoDiscover = false;
-    var myDropzone = new Dropzone(".dropzone",{ 
-        maxFilesize: 3,  // 3 mb
-        acceptedFiles: ".jpeg,.jpg,.png,.pdf",
-    });
+@section('script')
+    <script type="text/javascript">
 
-</script>
+        function filePreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#uploadForm + img').remove();
+                    $('#uploadForm').after('<img onclick="selectImg(this)" src="'+e.target.result+'" style="margin-top:10px;" width="100%" height="300"/>');
+                };
+                reader.readAsDataURL(input.files[0]);
+           }
+        }
+
+        $(document).ready(function(){
+            $('.img_error').hide();
+            var _URL = window.URL || window.webkitURL;
+            $('#img').change(function(){  
+                filePreview(this);  
+                var file, img;
+                var width=0;var height=0;
+                if (file = this.files[0]) {
+                    img = new Image();
+                    img.onload = function () {
+                       width = this.width; height = this.height;
+                       if(width==1820 && height==500)
+                       {
+                            $('.img_error').hide();
+                            $('.add_file').removeAttr('disabled');
+                       }
+                       else
+                       {
+                            $('.img_error').show();
+                            $('.img_error').text("Slider Resolution Should Be 1820*500");
+                            $('.add_file').attr('disabled','disabled');
+                       }
+                    };
+                   
+
+                    img.src = _URL.createObjectURL(file);
+                }
+            });
+        });
+
+
+    </script>
+@endsection

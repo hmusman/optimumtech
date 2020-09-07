@@ -127,6 +127,8 @@
                         <li><a href="{{ route('Testimonial.index') }}">View Testimonials </a></li>
                         <li><a href="{{ route('Gallery.index') }}">View Gallery</a></li>
                         <li><a href="{{ route('Team.index') }}">View Team </a></li>
+                        <li><a href="{{ route('ProductCustomer.index') }}">View Product Customer </a></li>
+                        <li><a href="{{ route('SiteContact.index') }}">View Website Contact </a></li>
                     </ul>
                 </li>
 
@@ -209,7 +211,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         {{--<li><a href="{{ route('Category.create') }}">Add Category</a></li>--}}
-                        <li><a href="{{ route('Category.index') }}">View Categorys</a></li>
+                        <li><a href="{{ route('Category.index') }}">View Categories</a></li>
                        
                     </ul>
                 </li>
@@ -314,7 +316,17 @@
                        
                     </ul>
                 </li>
-               
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
+                        <span>Portfolio</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        {{--<li><a href="{{ route('Portfolio.create') }}">Add Portfolio</a></li>--}}
+                        <li><a href="{{ route('Portfolio.index') }}">View Portfolios</a></li>
+                       
+                    </ul>
+                </li>
 
             </ul>
 

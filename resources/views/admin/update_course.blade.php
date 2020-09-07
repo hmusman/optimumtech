@@ -81,7 +81,7 @@
                                         <div class="form-group row">
                                             <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
                                             <div class="col-md-10">
-                                                <textarea id="textarea" class="form-control" name="detail" maxlength="500" rows="3" placeholder="This textarea has a limit of 230 chars.">{{ $course->detail }}</textarea>
+                                                <textarea id="textarea" class="form-control tinymce-classic" name="detail" rows="3" placeholder="">{{ $course->detail }}</textarea>
                                                 @error('detail')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
@@ -156,7 +156,7 @@
                                         </div>
 
                                     </form>
-
+                                    @include('mceImageUpload::upload_form')
 
 
                                     <!-- <div class="form-group row">

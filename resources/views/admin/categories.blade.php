@@ -69,12 +69,12 @@
                                                        <td>
                                                            <table>
                                                                <tr>
-                                                                   <td><a href="{{ route('Category.edit',$category->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a></td>
+                                                                   <td><a href="{{ route('Category.edit',$category->id) }}"aria-label="Edit Button" class="btn btn-primary mdi mdi-delete-alert title_btn"></a></td>
                                                                    <td>
-                                                                       <form method="post" action="{{ route('Category.destroy',$category->id) }}">
+                                                                       <form method="post" id="{{ $category->id }}" action="{{ route('Category.destroy',$category->id) }}">
                                                                             @csrf
                                                                             @method('delete')
-                                                                           <button type="submit" class="btn btn-danger mdi mdi-close-box-multiple-outline"></button>
+                                                                           <button type="button" data-id="{{ $category->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline title_btn item_delete_btn"></button>
                                                                        </form>
                                                                    </td>
                                                                </tr>

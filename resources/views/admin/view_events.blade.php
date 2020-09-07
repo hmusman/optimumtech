@@ -45,18 +45,19 @@
                                         <div class="alert alert-success">{{ Session::get('msg') }}</div>
                                     @endif
                                     <a style="float: right;margin-bottom: 15px; " href="{{ route('Event.create') }}" class="pull-right btn btn-primary">Add New</a>
-                                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <table id="datatable" class="table table-bordered table-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                       
                                         <thead>
                                            
                                             <tr>
                                                 <th>#</th>
-                                                <th>Event Title</th>
-                                                <th>Event Detail</th>
+                                                <th>Title</th>
+                                                <th>Detail</th>
                                                 <th>Meta Name</th>
                                                 <th>Meta Detail</th>
-                                                <th>Event Date</th>
-                                                <th>Event Address</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Address</th>
                                                 <th>Banner</th>
                                                 <th>Action</th>
                                             </tr>
@@ -72,13 +73,14 @@
                                                         <td>{{ $i++ }}</td>
                                                         <td>{{ ucfirst($event->title) }}</td>
                                                         <td><p>
-                                                           {{ \Illuminate\Support\Str::limit($event->detail, 50, $end='...') }}
+                                                           {{ ucfirst($event->detail) }}
                                                         </p></td>
                                                         <td> {{ ucfirst($event->meta_name)}}</td>
                                                         <td><p>
                                                             {{ ucfirst($event->meta_detail) }}
                                                         </p></td>
                                                         <td>{{ date('d/m/yy',strtotime($event->event_date)) }}</td>
+                                                        <td>{{ date('h:i a',strtotime($event->event_time) )}}</td>
                                                         <td>{{ ucfirst($event->address) }}</td>
                                                         
                                                         <td> 
@@ -87,11 +89,11 @@
                                                        
                                                        <td>
                                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                                            <a href="{{ route('Event.edit',$event->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a>&nbsp;
-                                                            <form style="margin-left: 10px;" method="post" action="{{ route('Event.destroy',$event->id) }}">
+                                                            <a href="{{ route('Event.edit',$event->id) }}" aria-label="Edit Button" class="btn btn-primary mdi mdi-delete-alert title_btn"></a>&nbsp;
+                                                            <form style="margin-left: 10px;" id="{{ $event->id }}" method="post" action="{{ route('Event.destroy',$event->id) }}">
                                                                 @csrf
                                                                 @method('delete')
-                                                                <button type="submit" class="btn btn-danger mdi mdi-close-box-multiple-outline"></button>
+                                                                <button type="button" data-id="{{ $event->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline title_btn item_delete_btn"></button>
                                                             </form>
                                                         </div>
                                                        </td>

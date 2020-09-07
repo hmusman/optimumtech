@@ -28,10 +28,10 @@ class ServiceController extends Controller
         $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:50',
             'detail'=>'bail | required | string',
-            'why'=>'',
             'img'=>'required',
             'meta_name'=>'bail | required | string',
             'meta_detail'=>'required',
+            'video'=>'mimes:mp4|max:25600'
         ]);
 
         if ($validations->fails())
@@ -64,14 +64,23 @@ class ServiceController extends Controller
                     return back()->withErrors(['extWarning'=>'Please Choose Correct Image'])->withInput();
                }
 
-              
+              if($request->hasFile('video'))
+              {
+                $video = $request->file('video')->store('admin/images/service/videos','public');
+              }
+              else
+              {
+                $video = "";
+              }
                $service = new service();
                $service->name= $request->name;
                $service->detail = $request->detail;
-               $service->why = $request->why;
+               // $service->why = $request->why;
                $service->img = $filename;
                $service->meta_name = $request->meta_name;
                $service->meta_detail = $request->meta_detail;
+               $service->video_link = $request->video_link;
+               $service->video = $video;
                if($service->save())
                {
                     $request->session()->flash('msg','service Added Successfully');
@@ -100,9 +109,9 @@ class ServiceController extends Controller
        $validations = Validator::make($request->all(),[
             'name'=>'bail | required | string | max:50',
             'detail'=>'bail | required | string',
-            'why'=>'',
             'meta_name'=>'bail | required | string',
             'meta_detail'=>'required',
+            'video'=>'mimes:mp4|max:25600'
         ]);
 
         if ($validations->fails())
@@ -137,13 +146,24 @@ class ServiceController extends Controller
                 $filename = $request->oldImg;
             }
           
+            if($request->hasFile('video'))
+            {
+              $video = $request->file('video')->store('admin/images/service/videos','public');
+            }
+            else
+            {
+              $video = $request->oldVideo;
+            }
+
             $service = Service::find($id);
             $service->name = $request->name;
             $service->detail = $request->detail;
-            $service->why = $request->why;
+            // $service->why = $request->why;
             $service->img = $filename;
             $service->meta_name = $request->meta_name;
             $service->meta_detail = $request->meta_detail;
+            $service->video_link = $request->video_link;
+            $service->video = $video;
             if($service->save())
             {
                 $request->session()->flash('msg','Service Updated Successfully');

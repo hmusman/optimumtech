@@ -39,7 +39,30 @@
                    
                       
                       
-                      
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                        <form>
+                                            <div class="form-group">
+                                                <input type="text" name="sub_folder" id="sub_folder" placeholder="Enter Sub Folder Name" class="form-control">
+                                            </div>
+                                        </form>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary save_sub">Save changes</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="header-title">Add Slider</h4>
@@ -55,9 +78,9 @@
                                                             @method('put')
 
                                                             <div class="form-group row">
-                                                                <label>Select Category :</label>
+                                                                <label class="col-md-2 col-form-label">Select Category :</label>
                                                                 <div class="col-md-10">
-                                                                    <select name="category" class="form-control">
+                                                                    <select name="category" class="form-control" id="category">
                                                                         <option selected="" disabled="">Select Photo Category</option>
                                                                         <option <?php if($photo->category==
                                                                             "student"){ echo "selected=''"; } ?> value="student">Student</option>
@@ -74,7 +97,48 @@
                                                             </div>
 
                                                             <div class="form-group row">
-                                                                <label>Image 280*186:</label>
+                                                                <input type="hidden" name="" id="hidden_sub" value="{{ $photo->sub_folder }}">
+                                                                <label class="col-md-2 col-form-label">Sub Folder Name:</label>
+                                                                <div class="col-md-9 mine_select sub_folder_select">
+                                                                     <select name="sub_folder" class="form-control" id="sub_folder_select">
+                                                                        <option selected="" disabled="">Select Photo Category</option>
+                                                                        <option value="student">Student</option>
+                                                                        <option value="photo">Photo</option>
+                                                                        <option value="campus">Campus</option>
+                                                                    </select>
+                                                                     @error('sub_folder')
+                                                                        <p class="text-danger mt-3">{{ $message }}</p>
+                                                                    @enderror
+                                                                </div>  
+
+                                                                 <div class="col-md-1 mine_select">
+                                                                    <button style="float: right;" type="button" class="btn btn-primary add_more" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i></button>
+                                                                </div>   
+                                                            </div>
+
+
+                                                            <div class="form-group row">
+                                                                <label class="col-md-2 col-form-label">Title:</label>
+                                                                <div class="col-md-10">
+                                                                    <input name="title" type="text" class="form-control" value="{{ $photo->title }}">
+                                                                    @error('title')
+                                                                        <p class="text-danger mt-3">{{ $message }}</p>
+                                                                    @enderror
+                                                                </div>   
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-md-2 col-form-label">Caption:</label>
+                                                                <div class="col-md-10">
+                                                                    <textarea class="form-control" placeholder="Enter Detail" name="caption" >{{ $photo->caption }}</textarea> 
+                                                                    @error('caption')
+                                                                        <p class="text-danger mt-3">{{ $message }}</p>
+                                                                    @enderror
+                                                                </div>   
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-md-2 col-form-label">Image 280*186:</label>
                                                                 <div class="col-md-10">
                                                                     @php $img = 'storage/'.$photo->img @endphp
                                                                     <input type="hidden" name="oldImg" value="{{ $photo->img }}">
@@ -83,6 +147,11 @@
                                                                     @error('img')
                                                                         <p class="text-danger mt-3">{{ $message }}</p>
                                                                     @enderror
+
+                                                                    @error('sizeWarning')
+                                                                        <p class="text-danger mt-3">{{ $message }}</p>
+                                                                    @enderror
+
                                                                     @error('warningMsg')
                                                                         <p class="text-danger mt-3">{{ $message }}</p>
                                                                     @enderror
@@ -100,60 +169,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="tab-pane" id="profile-1" role="tabpanel">
-                                            <div class="card">
-                                                <div class="card-body">
-            
-                                                    <h4 class="header-title">Horizantol News Ticker</h4>
-                                                  
-                                                    <div class="form-group row">
-                                                        <label for="example-text-input" class="col-md-2 col-form-label">Add News 1</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" type="text" maxlength="100" placeholder="News Ticker 1" id="example-text-input">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group row">
-                                                        <label for="example-text-input" class="col-md-2 col-form-label">Add News 2</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" type="text" maxlength="100" placeholder="News Ticker 2" id="example-text-input">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group row">
-                                                        <label for="example-text-input" class="col-md-2 col-form-label">Add News 3</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" type="text" maxlength="100" placeholder="News Ticker 3" id="example-text-input">
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <div class="form-group row">
-                                                        <label for="example-text-input" class="col-md-2 col-form-label">Add News 4</label>
-                                                        <div class="col-md-10">
-                                                            <input class="form-control" type="text" maxlength="100" placeholder="News Ticker 4" id="example-text-input">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="form-group row">
-                                                        <label class="col-md-2 col-form-label">Select Speed</label>
-                                                        <div class="col-md-10">
-                                                            <select class="form-control">
-                                                                <option>Select</option>
-                                                                <option>Fast</option>
-                                                                <option>Slow</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mt-4">
-                                                        <button class="btn btn-primary waves-effect waves-light" type="submit">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    
                                      
                                     </div>
     
@@ -178,11 +194,50 @@
 	@include('includes.admin_footer')
 @endsection<!-- end footer -->
 
-<script type="text/javascript">
-    Dropzone.autoDiscover = false;
-    var myDropzone = new Dropzone(".dropzone",{ 
-        maxFilesize: 3,  // 3 mb
-        acceptedFiles: ".jpeg,.jpg,.png,.pdf",
-    });
+@section('script')
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.mine_select').hide();
+            var val = $('#category').val();
+            var s_val = $('#hidden_sub').val();
+            $.ajax({
+                url:'{{ route("GetMainFolder")}}',
+                type:"get",
+                data:{val:val,sub_folder:s_val},
+                success:function(data)
+                {
+                    $('.mine_select').show();
+                    $('#sub_folder_select').html(data);
+                }
 
-</script>
+            });
+
+        });
+        // $('.add_more').click(function(){
+        //     $('#sub_folder').val($('#category').val());
+        // });
+
+        $('.save_sub').on('click',function(){
+            var sub_folder = $('#sub_folder').val();
+            $('#sub_folder_select').append('<option value="'+sub_folder+'">'+sub_folder+'</option>');
+            $('#exampleModal').modal('hide');
+        });
+
+        $('#category').change(function(){
+            var val = $(this).val();
+            $.ajax({
+                url:'{{ route("GetMainFolder")}}',
+                type:"get",
+                data:{val:val},
+                success:function(data)
+                {
+                    $('.mine_select').show();
+                    $('#sub_folder_select').html(data);
+                }
+
+            });
+        });
+    </script>
+    
+@endsection

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-
+use App\MainMenu;
+use App\Course;
 class CategoryController extends Controller
 {
    
@@ -25,7 +26,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validations = Validator::make($request->all(),[
-            'title'=>'bail | required | min:5 | max:25',
+            'title'=>'bail | required | min:5 | max:50',
             'description'=>'bail | required | min:5 | max:100'
         ]);
 
@@ -53,9 +54,15 @@ class CategoryController extends Controller
     }
 
      
-    public function show($id)
+    public function showCategoryCourses($id)
     {
-        //
+        $mains = MainMenu::all();
+        $category = Category::where('id',$id)->first();
+        $categories = Category::join('courses','categories.id','=','courses.category_id')->where([['courses.status','1'],['categories.id','!=',$id]])->select('categories.title','categories.id')->get();
+        $freeCourses = Course::where([['type','=','free'],['status','=','1']])->get();
+        $courses = $category->courses;
+        return view('category_courses',compact(['mains','courses','categories','freeCourses']));
+        
     }
 
    
@@ -69,7 +76,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
          $validations = Validator::make($request->all(),[
-            'title'=>'bail | required | min:5 | max:25',
+            'title'=>'bail | required | min:5 | max:50',
             'description'=>'bail | required | min:5 | max:100'
         ]);
 

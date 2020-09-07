@@ -134,8 +134,16 @@
                                     
                                     <div class="alert alert-success statusMsg" style="display: none;"></div>
                                     <table id="datatable" class="table table-bordered table-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                        <div class="row">
-                                          <div class="col-md-5"></div>
+                                        <div class="row" style="margin-bottom: 15px;">
+                                          <div class="col-md-1"></div>
+                                          <div class="col-md-2">
+                                              <button type="button" style="width: 100%; float: right;" class="btn-primary btn all_records">All Records</button>
+                                          </div>
+
+                                          <div class="col-md-2">
+                                              <button type="button" style="width: 100%; float: right;" class="btn-primary btn specific">Specific</button>
+                                          </div>
+
                                           <div class="col-md-3">
                                               <a href="{{ route('ConfirmedRecord') }}" style="width: 100%; float: right;" class="btn-primary btn confirmRecords">Confirmed Records</a>
                                           </div>
@@ -206,9 +214,10 @@
                                     
                                                             <td> 
 
-                                                                <div class="btn-group" role="group" aria-label="Basic example">
+                                                                <div class="btn-group" role="group" aria-label="Delete Button">
                                                                    
-                                                                      <a href="{{ route('CourseApplication.delete',$application->id) }}" class="btn btn-danger mdi mdi-close-box-multiple-outline"></a>
+                                                                      <input type="hidden" name="" id="route{{ $application->id }}" value="CourseApplicationDelete/{{ $application->id }}">
+                                                                        <button type="button" data-id="{{ $application->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline anchor_delete_btn title_btn"></button>
                                                                     
                                                                 </div>
                                                             </td>
@@ -306,3 +315,39 @@
 @section('footer')
 	@include('includes.admin_footer')
 @endsection<!-- end footer -->
+
+
+@section('script')
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('.unconfirm').click(function(){
+                if($('.changeStatusBox:checkbox').is(":checked"))
+                {
+                    $('.changeStatus').attr('action',"{{ route('CourseApplicationUnConfirmStatus') }}");
+                    $('.changeStatus').submit();
+                }
+            });
+
+            $('.confirm').click(function(){
+                if($('.changeStatusBox:checkbox').is(":checked"))
+                {
+                    $('.changeStatus').attr('action',"{{ route('CourseApplicationConfirmStatus') }}");
+                    $('.changeStatus').submit();
+                }
+            });
+
+            $('.all_records').click(function(){ window.location= "AllCourseApplicationRecords";});
+
+            $('.specific').click(function(){
+              
+                if($('.changeStatusBox:checkbox').is(":checked"))
+                {
+                    $('.changeStatus').attr('action',"{{ route('SpecificCourseApplicationRecords') }}");
+                    $('.changeStatus').submit();
+                }
+            });
+
+        });
+    </script>
+@endsection

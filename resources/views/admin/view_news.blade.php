@@ -70,7 +70,7 @@
                                                         <td>{{ $i++ }}</td>
                                                         <td>{{ ucfirst($row->title) }}</td>
                                                         <td><p>
-                                                           {{ \Illuminate\Support\Str::limit($row->detail, 50, $end='...') }}
+                                                           {{ ucfirst($row->detail) }}
                                                         </p></td>
                                                          <td> {{ ucfirst($row->meta_name)}}</td>
                                                         <td><p>
@@ -82,11 +82,11 @@
                                                        <td>
                                                          
                                                         <div class="btn-group" role="group" aria-label="Basic example">
-                                                            <a href="{{ route('News.edit',$row->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a>&nbsp;
-                                                                <form style="margin-left: 10px;" method="post" action="{{ route('News.destroy',$row->id) }}">
+                                                            <a href="{{ route('News.edit',$row->id) }}" aria-label="Edit Button" class="btn btn-primary mdi mdi-delete-alert title_btn"></a>&nbsp;
+                                                                <form style="margin-left: 10px;" id="{{ $row->id }}" method="post" action="{{ route('News.destroy',$row->id) }}">
                                                                     @csrf
                                                                     @method('delete')
-                                                                    <button type="submit" class="btn btn-danger mdi mdi-close-box-multiple-outline"></button>
+                                                                   <button type="button" data-id="{{ $row->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline title_btn item_delete_btn"></button>
                                                                 </form>
                                                         </div>
                                                        </td>

@@ -74,12 +74,12 @@
                                                        <td>
                                                            <table>
                                                                <tr>
-                                                                   <td><a href="{{ route('SubMenu.edit',$sub->id) }}" class="btn btn-primary mdi mdi-delete-alert"></a></td>
+                                                                   <td><a href="{{ route('SubMenu.edit',$sub->id) }}" aria-label="Edit Button" class="btn btn-primary mdi mdi-delete-alert title_btn"></a></td>
                                                                    <td>
-                                                                       <form method="post" action="{{ route('SubMenu.destroy',$sub->id) }}">
+                                                                       <form method="post" id="{{ $sub->id }}" action="{{ route('SubMenu.destroy',$sub->id) }}">
                                                                             @csrf
                                                                             @method('delete')
-                                                                           <button type="submit" class="btn btn-danger mdi mdi-close-box-multiple-outline"></button>
+                                                                            <button type="button" data-id="{{ $sub->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline title_btn item_delete_btn"></button>
                                                                        </form>
                                                                    </td>
                                                                </tr>

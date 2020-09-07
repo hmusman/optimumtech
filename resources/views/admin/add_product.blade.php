@@ -96,8 +96,17 @@
 
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Picture 262*175</label>
-                                                            <div class="col-md-10">
-                                                                <input name="img" type="file">
+                                                            <div class="col-md-5">
+                                                                <div class="input-group">
+                                                                  <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                                                  </div>
+                                                                  <div class="custom-file">
+                                                                    <input type="file" name="img" class="custom-file-input" id="inputGroupFile01"
+                                                                      aria-describedby="inputGroupFileAddon01">
+                                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                                  </div>
+                                                                </div>
                                                                 @error('img')
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror  
@@ -112,6 +121,25 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Video</label>
+                                                            <div class="col-md-6">
+                                                                <div class="input-group">
+                                                                  <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                                                  </div>
+                                                                  <div class="custom-file">
+                                                                    <input type="file" name="video" class="custom-file-input" id="inputGroupFile01"
+                                                                      aria-describedby="inputGroupFileAddon01">
+                                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                                  </div>
+                                                                </div>
+                                                                <p class="text-muted" style="margin-top: 3px;">Ext(mp4), Size(25Mb)</p>
+                                                                @error('video')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror    
+                                                            </div>
+                                                        </div>
 
                                                       
                                                         <div class="mt-4">

@@ -61,7 +61,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group row">
+                                                       {{-- <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Why take this Services </label>
                                                             <div class="col-md-10">
                                                                 <textarea id="textarea" class="form-control" name="why" rows="3" placeholder="This textarea has a limit of 1000 chars.">{{ $service->why }}</textarea>
@@ -69,7 +69,7 @@
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
-                                                        </div>
+                                                        </div>--}}
 
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Detail</label>
@@ -100,6 +100,7 @@
                                                                 @enderror
                                                             </div>
                                                         </div> 
+
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Picture 750*500</label>
                                                             <div class="col-md-10">
@@ -121,8 +122,46 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Video Link</label>
+                                                            <div class="col-md-10">
+                                                                <textarea id="textarea" class="form-control " name="video_link" rows="3" placeholder="Enter Video Link">{{ $service->video_link }}</textarea>
+                                                                @error('video_link')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Video</label>
+                                                            <div class="col-md-5">
+                                                                <div class="input-group">
+                                                                  <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                                                  </div>
+                                                                  <div class="custom-file">
+                                                                    <input type="file" name="video" class="custom-file-input" id="inputGroupFile01"
+                                                                      aria-describedby="inputGroupFileAddon01">
+                                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                                  </div>
+                                                                </div>
+                                                                <input type="hidden" name="oldVideo" value="{{ $service->video }}">
+                                                                <p class="text-muted" style="margin-top: 3px;">Ext(mp4), Size(25Mb)</p>
+                                                                @error('video')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror   
+                                                            </div>
+                                                            @if($service->video !='')
 
-                                                      
+                                                                @php $video = '/storage/'.$service->video;  @endphp
+                                                                <div class="col-md-5">
+                                                                   <video width="100%" controls>
+                                                                      <source src="{{ $video }}" type="video/mp4">
+                                                                    </video>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+
                                                         <div class="mt-4">
                                                             <button type="submit" class="btn btn-primary waves-effect waves-light" type="submit">Update</button>
                                                         </div>

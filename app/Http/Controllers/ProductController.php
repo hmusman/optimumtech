@@ -31,6 +31,7 @@ class ProductController extends Controller
             'img'=>'required',
             'meta_name'=>'bail | required | string',
             'meta_detail'=>'required',
+            'video'=>'mimes:mp4|max:25600'
 
         ]);
 
@@ -64,18 +65,26 @@ class ProductController extends Controller
                     return back()->withErrors(['extWarning'=>'Please Choose Correct Image'])->withInput();
                }
 
-              
-               $product = new Product();
-               $product->name= $request->name;
-               $product->detail = $request->detail;
-               $product->img = $filename;
-               $product->meta_name = $request->meta_name;
-               $product->meta_detail = $request->meta_detail;
-               if($product->save())
-               {
-                    $request->session()->flash('msg','Product Added Successfully');
-                    return redirect(route('Product.index'));
-               }
+              if($request->hasFile('video'))
+              {
+                $video = $request->file('video')->store('admin/images/product/videos','public');
+              }
+              else
+              {
+                $video = "";
+              }
+              $product = new Product();
+              $product->name= $request->name;
+              $product->detail = $request->detail;
+              $product->img = $filename;
+              $product->meta_name = $request->meta_name;
+              $product->meta_detail = $request->meta_detail;
+              $product->video = $video;
+              if($product->save())
+              {
+                $request->session()->flash('msg','Product Added Successfully');
+                return redirect(route('Product.index'));
+              }
           
         }
     }
@@ -101,6 +110,7 @@ class ProductController extends Controller
             'detail'=>'bail | required | string',
             'meta_name'=>'bail | required | string',
             'meta_detail'=>'required',
+            'video'=>'mimes:mp4|max:25600'
         ]);
 
         if ($validations->fails())
@@ -134,6 +144,16 @@ class ProductController extends Controller
             {
                 $filename = $request->oldImg;
             }
+
+
+            if($request->hasFile('video'))
+            {
+              $video = $request->file('video')->store('admin/images/product/videos','public');
+            }
+            else
+            {
+              $video = $request->oldVideo;
+            }
           
             $product = Product::find($id);
             $product->name = $request->name;
@@ -141,6 +161,7 @@ class ProductController extends Controller
             $product->img = $filename;
             $product->meta_name = $request->meta_name;
             $product->meta_detail = $request->meta_detail;
+            $product->video = $video;
             if($product->save())
             {
                 $request->session()->flash('msg','Product Updated Successfully');

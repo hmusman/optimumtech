@@ -24,8 +24,10 @@ class GalleryController extends Controller
     
     public function store(Request $request)
     {
+        
         $validations = Validator::make($request->all(),[
             'category'=>'required',
+            'sub_folder'=>'required',
             'img'=>'required'
         ]);
 
@@ -42,7 +44,8 @@ class GalleryController extends Controller
                 $size =getimagesize($img);
                 if ($size[0]==280 && $size[1]==186)
                 {
-                    $filename = $request->file('img')->store('admin/images/gallery','public');
+                    $path = "admin/images/gallery/".$request->category."/".$request->sub_folder;
+                    $filename = $request->file('img')->store($path,'public');
                 }
                 else
                 {
@@ -55,6 +58,9 @@ class GalleryController extends Controller
             }
             $photo = new Gallery();
             $photo->category = $request->category;
+            $photo->title = $request->title;
+            $photo->caption = $request->caption;
+            $photo->sub_folder = $request->sub_folder;
             $photo->img = $filename;
             if ($photo->save())
             {
@@ -81,6 +87,7 @@ class GalleryController extends Controller
     {
         $validations = Validator::make($request->all(),[
             'category'=>'required',
+            'sub_folder'=>'required',
         ]);
 
         if ($validations->fails())
@@ -99,7 +106,8 @@ class GalleryController extends Controller
                     $size =getimagesize($img);
                     if ($size[0]==280 && $size[1]==186)
                     {
-                        $filename = $request->file('img')->store('admin/images/gallery','public');
+                        $path = "admin/images/gallery/".$request->category."/".$request->sub_folder;
+                        $filename = $request->file('img')->store($path,'public');
                     }
                     else
                     {
@@ -118,6 +126,9 @@ class GalleryController extends Controller
 
             $photo = Gallery::find($id);
             $photo->category = $request->category;
+            $photo->title = $request->title;
+            $photo->caption = $request->caption;
+            $photo->sub_folder = $request->sub_folder;
             $photo->img = $filename;
             if ($photo->save())
             {
@@ -136,5 +147,30 @@ class GalleryController extends Controller
             $request->session()->flash('msg','Photo Deleted Successfully');
             return redirect()->route('Gallery.index');   
         }
+    }
+
+    public function getMainFolder(Request $request)
+    {
+
+        $data= Gallery::where('category',$request->val)->get();
+        $output = '';
+        
+
+        $output.='<option selected="" disabled="">Select Sub Folder</option>';
+        foreach($data as $row)
+        {
+            if($request->has('sub_folder'))
+            {
+                $output.='<option value="'.$row->sub_folder.'"';
+                if($row->sub_folder==$request->sub_folder){ $output.='selected=""'; }
+                        $output.='>'.$row->sub_folder.'</option>';
+            }
+            else
+            {
+                $output.='<option value="'.$row->sub_folder.'">'.$row->sub_folder.'</option>';
+            }
+        }
+        return $output;
+
     }
 }

@@ -74,7 +74,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group row">
+                                                       {{-- <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Why take this Service</label>
                                                             <div class="col-md-10">
                                                                 <textarea id="textarea" class="form-control" name="why"  rows="3" placeholder="This textarea has a limit of 1000 chars.">{{ old('why') }}</textarea>
@@ -82,7 +82,7 @@
                                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                                 @enderror
                                                             </div>
-                                                        </div>
+                                                        </div>--}}
 
                                                         <div class="form-group row">
                                                             <label for="example-text-input" class="col-md-2 col-form-label">Meta Name</label>
@@ -122,6 +122,35 @@
                                                             </div>
                                                         </div>
 
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Video Link</label>
+                                                            <div class="col-md-10">
+                                                                <textarea id="textarea" class="form-control " name="video_link" rows="3" placeholder="Enter Video Link">{{ old('video_link') }}</textarea>
+                                                                @error('video_link')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group row">
+                                                            <label for="example-text-input" class="col-md-2 col-form-label">Video</label>
+                                                            <div class="col-md-6">
+                                                                <div class="input-group">
+                                                                  <div class="input-group-prepend">
+                                                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                                                                  </div>
+                                                                  <div class="custom-file">
+                                                                    <input type="file" name="video" class="custom-file-input" id="inputGroupFile01"
+                                                                      aria-describedby="inputGroupFileAddon01">
+                                                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                                                  </div>
+                                                                </div>
+                                                                <p class="text-muted" style="margin-top: 3px;">Ext(mp4), Size(25Mb)</p>
+                                                                @error('video')
+                                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                                @enderror    
+                                                            </div>
+                                                        </div>
 
                                                       
                                                         <div class="mt-4">
