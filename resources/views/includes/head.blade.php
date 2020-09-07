@@ -40,6 +40,33 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/>
 
   <style>
+    .container{
+      width: 100% !important;
+    }
+    /*.slick-cloned{
+      width: 100% !important;
+    }*/
+    .img-fullwidthnew {
+        width: 100% !important;
+    }
+    .mobile_header_nav{
+       padding-left: 100px;
+       padding-right: 100px;
+    }
+    @media (min-width: 550px){
+      div[class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix"] {
+          width: 100% !important;
+      }
+    }
+    @media (max-width: 500px){
+      .mobile_header_nav{
+        padding-left: 10px !important;
+        padding-right: 0px !important;
+      }
+    }
+    section > .container-fluid {
+        padding-top: 62px;
+    }
     a > i{
       margin-top: 10px !important;
     }
@@ -100,10 +127,10 @@
 
 
   @media (min-width:500px){
-    
+/*    
     div[class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix"]{
       width: 74% !important;
-    }
+    }*/
     img[src="images/ahsan.jpg"],
     img[src="images/campus.jpg"],
     img[src="images/tour.jpg"]{

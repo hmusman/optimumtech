@@ -58,7 +58,7 @@
       </div>
       <div class="header-nav">
         <div class="header-nav-wrapper navbar-scrolltofixed bg-lightest">
-          <div class="container">
+          <div class="container pr-100 pl-100 mobile_header_nav">
             <nav id="menuzord-right" class="menuzord orange">
               <a href="/" > <img class="mt-5 mb-20" alt="" src="{{ asset('storage/images/logo.png') }}"></a>
               <ul class="menuzord-menu dark">

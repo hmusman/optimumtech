@@ -4,14 +4,14 @@
           <div class="col-sm-6 col-md-3">
             <div class="widget dark">
              <a href="http://theoptimumtech.com/" > <img class="mt-5 mb-20" alt="" src="{{ asset('storage/images/logo.png') }} "></a>
-              <p style="text-align: justify;">25-a, batala colony main road 1st floor gourmet bakers near hardees  Batala Colony Faisalabad. </p>
+              <p style="text-align: justify;">25-a, Batala Colony Main Road 1st Floor Gourmet Bakers Near Hardees  Batala Colony Faisalabad. </p>
          <br/>
               <ul class="list-inline mt-5">
               
                 <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-color-2 mr-5"></i> <a
-                    class="text-gray" href="#"> info@optimumtech.com </a> </li>
+                    class="text-gray" href="mailto:info@optimumtech.com"> info@optimumtech.com </a> </li>
                     <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-color-2 mr-5"></i> <a class="text-gray"
-                      href="#">+92 313 6650965 </a> </li>
+                      href="tel:+92 313 6650965">+92 313 6650965 </a> </li>
               </ul>
             </div>
           </div>
@@ -73,7 +73,7 @@
 
       </div>
       <div class="footer-bottom bg-black-333">
-        <div class="container pt-20 pb-20">
+        <div class="container pt-20 pb-20 pr-90 pl-90">
           <div class="row">
             <div class="col-md-6">
               <p class="font-11 text-black-777 m-0">Copyright © 2020 Optimum Tech All rights reserved.</p>

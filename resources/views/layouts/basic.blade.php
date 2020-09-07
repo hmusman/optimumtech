@@ -3,6 +3,7 @@
 <html>
 <head>
 	@yield('head')
+	@yield('style')
 </head>
 <body>
 	 <div id="wrapper" class="clearfix">
@@ -15,7 +16,6 @@
 
 
 	 </div><!-- end wrapper -->
-
-
+@yield('script')
 </body>
 </html>

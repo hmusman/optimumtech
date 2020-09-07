@@ -21,9 +21,6 @@
 	              <div class="col-md-12">
 	                <h2 class="title text-white">Course List</h2>
 	                <ol class="breadcrumb text-left text-black mt-10">
-	                 <!--  <li><a href="#">Home</a></li>
-	                  <li><a href="#">Pages</a></li>
-	                  <li class="active text-gray-silver">Page Title</li> -->
 	                </ol>
 	              </div>
 	            </div>
@@ -83,57 +80,25 @@
 				                    	@foreach($categories as $category)
 				                    		<li><a href="">{{ ucwords($category->title) }}<span></span></a></li>
 		                				@endforeach
-				                      <!-- <li><a href="/Courses/FinalSmesterCourses">Final Smester Courses<span></span></a></li>
-				                      <li><a href="/Courses/TechnicalCourses">Technical Courses<span></span></a></li>
-				                      <li><a href="/Courses/DesigningCourses">Designing Courses<span></span></a></li>
-				                      <li><a href="/Courses/ShortCourses">Short Courses<span></span></a></li> -->
-				                      <!-- <li><a href="#">Flutter<span></span></a></li> -->
 				                    </ul>
 				                </div>
 			                </div>
 
 		                @endif
-		               
-		                <!-- <div class="widget">
-		                  <h5 class="widget-title line-bottom">Latest <span class="text-theme-color-2">Course</span></h5>
-		                  <div class="latest-posts">
-		                    <article class="post media-post clearfix pb-0 mb-10">
-		                      <a class="post-thumb" href="#"><img src="{{ asset('storage/images/services/react.df70b005.png') }}" alt=""></a>
-		                      <div class="post-right">
-		                        <h5 class="post-title mt-0"><a href="#">React NodeJs</a></h5>
-		                        <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-		                      </div>
-		                    </article>
-		                    <article class="post media-post clearfix pb-0 mb-10">
-		                      <a class="post-thumb" href="#"><img src="{{ asset('storage/images/services/download.png') }}" alt=""></a>
-		                      <div class="post-right">
-		                        <h5 class="post-title mt-0"><a href="#">Flutter</a></h5>
-		                        <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-		                      </div>
-		                    </article>
-		                    <article class="post media-post clearfix pb-0 mb-10">
-		                      <a class="post-thumb" href="#"><img src="{{ asset('storage/images/services/fluter.png') }}" alt=""></a>
-		                      <div class="post-right">
-		                        <h5 class="post-title mt-0"><a href="#">Python/Flask</a></h5>
-		                        <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-		                      </div>
-		                    </article>
-		                  </div>
-		                </div> -->
 		                @if($freeCourses->count()>0)
 		                	<div class="widget">
 				                <h5 class="widget-title line-bottom">Free <span class="text-theme-color-2">Course</span></h5>
 				                <div class="latest-posts">
 				                  	@foreach($freeCourses as $freeCourse)
 				                  		@php $img = 'storage/'.$freeCourse->img @endphp
-				                  		<article class="post media-post clearfix pb-0 mb-10">
-					                      <a class="post-thumb" href="{{ route('CourseDetail',$freeCourse->id) }}"><img src="{{ asset($img) }}" alt=""></a>
+				                  		<article class="post media-post clearfix pb-0 mb-10"> 
+					                      <a class="post-thumb" href="{{ route('CourseDetail',$freeCourse->id) }}" style="width: 100%;">
+					                      	<img src="{{ asset($img) }}" alt="course image" style="width: 100%;"></a>
 					                      <div class="post-right">
-					                        <h5 class="post-title mt-0"><a href="#">{{ ucwords($freeCourse->title) }}</a></h5>
+					                        <a href="#"><h4 class="post-title mt-0">{{ ucwords($freeCourse->title) }}</h4></a>
 					                        <p>{{ ucfirst(substr($freeCourse->detail,0,50)) }}</p>
 					                      </div>
 					                    </article>
-
 				                  	@endforeach
 				 
 				                </div>
@@ -145,22 +110,6 @@
 		              </div>
 		            </div>
 	            </div>
-	            <!-- <div class="row">
-		            <div class="col-sm-12">
-		              <nav>
-		                <ul class="pagination theme-colored xs-pull-center m-0">
-		                  <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">«</span> </a> </li>
-		                  <li class="active"><a href="#">1</a></li>
-		                  <li><a href="#">2</a></li>
-		                  <li><a href="#">3</a></li>
-		                  <li><a href="#">4</a></li>
-		                  <li><a href="#">5</a></li>
-		                  <li><a href="#">...</a></li>
-		                  <li> <a href="#" aria-label="Next"> <span aria-hidden="true">»</span> </a> </li>
-		                </ul>
-		              </nav>
-		            </div>
-	            </div> -->
 	        </div>
       	</section>
     </div>

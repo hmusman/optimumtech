@@ -7,7 +7,140 @@
 @section('header')
 	@include('includes.header')
 @endsection<!-- end header -->
+@section('style')
+<style>
+  @media (max-width: 500px){
+    .card {
+         margin-left: 0% !important; 
+    }
+    .card {
+      margin-bottom: 25px !important;
+      margin-top: 11px !important;
+      width: 100% !important;
+      height: 116px !important;
+      min-height: 256px !important;
+      border-radius: 40px !important;
+      box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+      cursor: pointer !important;
+      transition: 0.4s !important;
+      padding-bottom: 0% !important;
+      margin-left: 14px !important;
+    }
 
+    .card_title p{
+      margin-bottom: -9px !important;
+    }
+
+    .card .card_image {
+      margin-top: -22px !important;
+    }
+
+    .card .card_image img{
+      height: inherit !important;
+      margin-left: 0px !important;
+    }
+
+
+  }
+  .cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-bottom: 10px;
+  margin-top: 11px;
+  width: 430px;
+  height: 90px;
+  min-height: 125px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+  padding-bottom: 0% !important;
+}
+.card p{
+  margin-top: 0px;
+}
+.card:hover{
+  background-color: #202c45;
+    border-left: 5px solid #f2184f;
+}
+.card .card_image {
+  /*width: inherit;*/
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+    width: 192px;
+    height: 85px;
+    /*border-radius: 40px;*/
+    object-fit: cover;
+    /*opacity: 0.3;*/
+    margin-top: 6px;
+    margin-left: 35px;
+    margin-top: 14px;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  /*font-weight: bold;*/
+  /*font-size: 30px;*/
+  /*margin-top: -146px;*/
+  /*height: 0px;*/
+  color: #626363;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.card:hover  h3{
+  color: white !important;
+}
+.card:hover  p{
+  color: white !important;
+}
+.card:hover  a{
+  color: white !important;
+}
+.card:hover img{
+  filter: invert(1.0);
+}
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+.button{
+  background-color: transparent;
+    color: #626363;
+    width: 80%;
+}
+.card_title a:hover{
+  color: #087b92;
+}
+
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+</style>
+@endsection
 
 @section('content')
 	
@@ -22,9 +155,9 @@
             <div class="col-md-12">
               <h2 class="title text-white">Contact Us</h2>
               <ol class="breadcrumb text-left text-black mt-10">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Pages</a></li>
-                <li class="active text-gray-silver">Page Title</li>
+                <li><a href="{{url('/')}}">Home</a></li>
+                <!-- <li><a href="#">Pages</a></li> -->
+                <li class="active text-gray-silver">Contact Us</li>
               </ol>
             </div>
           </div>
@@ -33,12 +166,81 @@
     </section>
 
     <!-- Divider: Contact -->
-    <section class="divider">
+    <section class="divider" style="padding-bottom: 50px;">
       <div class="container">
         <div class="row pt-30">
           <div class="col-md-4">
             <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12">
+               <div class="cards-list">
+                  <div class="card 1">
+                    <div class="row">
+                      <div class="col-md-3">
+                          <div class="card_image">
+                            <img src="{{asset('assets/images/location.png')}}" alt=""> 
+                          </div>
+                      </div>
+                      <div class="col-md-9">
+                          <div class="card_title">
+                            <h3 class="mt-0">Our Office Location</h3>
+                                  <p>25-a, batala colony Fsd</p>
+                            <a href="#map">View on Map <i class="fa fa-long-arrow-right"></i></a>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+
+                   <div class="card 2">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="card_image">
+                          <img src="{{asset('assets/images/phone.png')}}" alt=""> 
+                         </div>
+                      </div>
+                      <div class="col-md-9">
+                        <div class="card_title title-white">
+                          <h3 class="mt-0">Contact Number</h3>
+                          <p>+92 313 6650965</p>
+                          <a href="tel:+92 313 6650965">Make Call <i class="fa fa-long-arrow-right"></i></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card 3">
+                    <div class="row">
+                        <div class="col-md-3">
+                          <div class="card_image">
+                            <img src="{{asset('assets/images/mail.png')}}" alt=""> 
+                          </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card_title">
+                              <h3 class="mt-0">Email Address</h3>
+                                    <p>info@optimumtech.com</p>
+                              <a href="mailto:info@optimumtech.com">Send Mail <i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                    
+                    <div class="card 4">
+                      <div class="row">
+                          <div class="col-md-3">
+                          <div class="card_image">
+                            <img src="{{asset('assets/images/skype.png')}}" alt=""> 
+                          </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="card_title title-black">
+                                <h3 class="mt-0">Optimum Skype</h3>
+                                      <p>Skypr Address</p>
+                                <a href="skype:usman_gcuf?call">Make Skype Call <i class="fa fa-long-arrow-right"></i></a>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>    
+              <!-- <div class="col-xs-12 col-sm-12 col-md-12">
 
                 <div class="icon-box left media bg-deep p-30 mb-20"> <a class="media-left pull-left" href="#"> <i class="pe-7s-map-2 text-theme-colored"></i></a>
                   <div class="media-body"> <strong>OUR OFFICE LOCATION</strong>
@@ -66,7 +268,7 @@
                     <a href="skype:usman_gcuf?call" >   <p>Optimum Skype</p></a>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="col-md-8">
@@ -122,7 +324,7 @@
               </div>
 
               <div class="form-group">
-                <textarea name="message" class="form-control" rows="5" placeholder="Enter Message">{{ old('message') }}</textarea>
+                <textarea name="message" class="form-control" rows="12" placeholder="Enter Message">{{ old('message') }}</textarea>
                 @error('message')
                       <p class="text-danger" style="margin-top: 3px;">{{ $message }}</p>
                     @enderror
@@ -170,11 +372,7 @@
     <!-- Divider: Google Map -->
     <section>
       <div class="container-fluid p-0">
-        <div class="row">
-
-          <!-- Google Map HTML Codes -->
-          <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5456.163483134849!2d144.95177475051227!3d-37.81589041361766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd5a05d97%3A0x3e64f855a564844d!2s121+King+St%2C+Melbourne+VIC+3000%2C+Australia!5e0!3m2!1sen!2sbd!4v1556130803137!5m2!1sen!2sbd" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-           -->
+        <div class="row" id="map" >
           
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.451827165005!2d73.10261061462782!3d31.401675260136532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x392267e208b01dab%3A0xd9f579bb62c0e16c!2sOptimum-Tech!5e0!3m2!1sen!2s!4v1592390273461!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
         </div>

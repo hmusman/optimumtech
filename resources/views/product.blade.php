@@ -8,75 +8,97 @@
 	@include('includes.header')
 @endsection<!-- end header -->
 
+@section('style')
+<style>
+.testimonial-quote {
+    font-size: 16px;
+}
+
+.testimonial-quote blockquote {
+    /* Negate theme styles */
+    border: 0;
+    margin: 0;
+    padding: 0;
+
+    background: none;
+    color: gray;
+    font-family: Georgia, serif;
+    font-size: 1.5em;
+    font-style: italic;
+    line-height: 1.4 !important;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 1px white;
+    /*z-index: 600;*/
+}
+
+.testimonial-quote blockquote * {
+    box-sizing: border-box; 
+}
+
+.testimonial-quote blockquote p {
+    color: #75808a; 
+    line-height: 1.4 !important;
+}
+
+.testimonial-quote blockquote p:first-child:before {
+    content: '\201C';
+    color: #81bedb;
+    font-size: 7.5em;
+    font-weight: 700;
+    opacity: .3;
+    position: absolute;
+    top: -.4em;
+    left: -.2em;    
+    text-shadow: none;
+    z-index: -300;
+}
+
+
+.testimonial-quote cite {
+    color: gray;
+    display: block;
+    font-size: 12px;
+}
+  
+.testimonial-quote cite span {
+    color: #5e5e5e;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 1px white; 
+}
+
+.testimonial-quote {
+    position: relative; 
+}
+
+  
+</style>
+@endsection
 
 @section('content')
 	<section>
-  <div class="container">
+  <div class="container ml-5 mr-5">
         <div class="row">
-          <!-- <div class="col-md-4">
-            <ul>
-              <li>
-                <h5>Client:</h5>
-                <p>Kodesolution Lmd.</p>
-              </li>
-              <li>
-                <h5>Location:</h5>
-                <p>#405, Lan Streen, Los Vegas, USA</p>
-              </li>
-              <li>
-                <h5>Category:</h5>
-                <p>Web design & development, Graphics design</p>
-              </li>
-              <li>
-                <h5>Start Date:</h5>
-                <p>January 26, 2016</p>
-              </li>
-              <li>
-                <h5>End Date:</h5>
-                <p>February 10, 2016</p>
-              </li>
-              <li>
-                <h5>Website:</h5>
-                <p>kodesolution.com</p>
-              </li>
-              <li>
-                <h5>Share:</h5>
-                <div class="styled-icons icon-sm icon-gray icon-circled">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                  <a href="#"><i class="fa fa-instagram"></i></a>
-                  <a href="#"><i class="fa fa-google-plus"></i></a>
-                </div>
-              </li>
-            </ul>
-          </div> -->
-          <!-- <div class="col-md-8">
-            <div class="featured-project-carousel"> -->
-             <!--  <div class="item">
-                <iframe src="http://player.vimeo.com/video/24302498?title=0&amp;byline=0&amp;portrait=0" width="360" height="205" allowfullscreen>
-                </iframe>
-              </div> -->
-              <!-- <div class="item">
-                <iframe width="600" height="360"
-                src="http://www.youtube.com/embed/oIDqz2BrVec?autoplay=0" allowfullscreen>
-                </iframe>
-              </div> -->
-            <!-- </div>
-          </div> -->
         </div>
         <div class="row mt-60">
-          <div class="col-md-6">
-            <h4 class="mt-0">{{ ucwords($product->name) }}</h4>
-            <p style="text-align: justify" >{!! ucfirst($product->detail) !!}</p>
+          <div class="col-md-8" style="padding-left: 20px;">
+            <h2 class="mt-0">{{ ucwords($product->name) }}</h2>
+            <p style="text-align: justify;">{!! ucfirst($product->detail) !!}</p>
           </div>
-          <div class="col-md-6">
-            <blockquote>
-              <p>For over 10 years we are providing premium services as established IT Company of Optimum Tech.</p>
-              <footer><cite title="Source Title">Ahsan Raza</cite></footer>
-            </blockquote>
+          <div class="col-md-4 testimonial-quote group">
+            <div class="quote-container">
+                <blockquote>
+                  <p>For over 10 years we are providing premium services as established IT Company of Optimum Tech.</p>
+                  <cite title="Source Title"><span>Ahsan Raza</span> <br>Co Founder<br>
+                OPTIMUM-TECH</cite>
+                </blockquote>
+            </div>
           </div>
         </div>
-        
   </div>
 </section>
 

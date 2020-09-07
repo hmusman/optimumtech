@@ -24,7 +24,7 @@
                     <img src="{{ asset($img) }} " alt="" class="img-responsive">
                     <div class="featured-blog-details">
                       <h2 class="text-white mb-5 " style="color: #626363; font-size: 22px; font-weight: bold;" >{{ $sliderservice->name }}</h2>
-                      <p class="text-white" style="color: #626363;" >{{ substr($sliderservice->detail ,0,100) }}</p>
+                      <p class="text-white" style="color: #626363;" >{!! substr($sliderservice->detail ,0,100) !!}</p>
                       <a href="{{ route('Service.Detail',$sliderservice->id) }}" class="btn btn-theme-colored btn-sm mt-5">Read More</a>
                     </div>
                   </div>

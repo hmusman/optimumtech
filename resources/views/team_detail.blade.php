@@ -7,7 +7,143 @@
 @section('header')
 	@include('includes.header')
 @endsection<!-- end header -->
+@section('style')
+<style>
+  @media (max-width: 500px){
+    .card {
+         margin-left: 0% !important; 
+    }
+    .card {
+      margin-bottom: 25px !important;
+      margin-top: 11px !important;
+      width: 100% !important;
+      height: 116px !important;
+      min-height: 256px !important;
+      border-radius: 40px !important;
+      box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+      cursor: pointer !important;
+      transition: 0.4s !important;
+      padding-bottom: 0% !important;
+      margin-left: 14px !important;
+    }
 
+    .card_title p{
+      margin-bottom: -9px !important;
+    }
+
+    .card .card_image {
+      margin-top: -22px !important;
+    }
+
+    .card .card_image img{
+      height: inherit !important;
+      margin-left: 0px !important;
+    }
+
+
+  }
+  .cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-bottom: 10px;
+  margin-top: 11px;
+  width: 100%;
+  height: auto;
+  min-height: 125px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+  padding-bottom: 0% !important;
+}
+.card p{
+  margin-top: 0px;
+  font-size: 17px;
+}
+.card:hover{
+  background-color: #202c45;
+    border-left: 5px solid #f2184f;
+}
+.card .card_image {
+  /*width: inherit;*/
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+    width: 192px;
+    height: 85px;
+    max-width: 62%;
+    /*border-radius: 40px;*/
+    object-fit: cover;
+    /* opacity: 0.3; */
+    margin-top: 6px;
+    margin-left: 35px;
+    margin-top: 20px;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  /*font-weight: bold;*/
+  /*font-size: 30px;*/
+  /*margin-top: -146px;*/
+  /*height: 0px;*/
+  color: #626363;
+  margin-top: 12px;
+}
+
+.card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.card:hover  h3{
+  color: white !important;
+}
+.card:hover  p{
+  color: white !important;
+}
+.card:hover  a{
+  color: white !important;
+}
+.card:hover img{
+  filter: invert(1.0);
+}
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+.button{
+  background-color: transparent;
+    color: #626363;
+    width: 80%;
+}
+.card_title a:hover{
+  color: #087b92;
+}
+
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+</style>
+@endsection
 
 @section('content')
 	
@@ -15,17 +151,13 @@
 
     <!-- Section: inner-header -->
     <section class="inner-header divider parallax layer-overlay overlay-dark-5" data-bg-img="{{ asset('storage/images/bg/bg3.jpg') }}">
-      <div class="container pt-70 pb-20">
+      <div class="container pt-70 pb-20 ml-10 mr-10">
         <!-- Section Content -->
         <div class="section-content">
           <div class="row">
             <div class="col-md-12">
               <h2 class="title text-white">Teachers Details</h2>
-              <!-- <ol class="breadcrumb text-left text-black mt-10">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Pages</a></li>
-                <li class="active text-gray-silver">Page Title</li>
-              </ol> -->
+              
             </div>
           </div>
         </div>
@@ -34,108 +166,108 @@
 
     <!-- Section: Experts Details -->
     <section>
-      <div class="container">
+      <div class="container pb-20 ml-10 mr-10">
         <div class="section-content">
           <div class="row">
-            <div class="col-md-4 mt-60">
+            <div class="col-md-3 mt-60">
               <div class="thumb">
                 @php $img='storage/'.$team->img @endphp
-                <img src="{{ asset($img) }}" alt="">
+                <img src="{{ asset($img) }}" alt="" style="height: 100%;width: 100%;">
               </div>
             </div>
-            <div class="col-md-8 mt-60">
+            <div class="col-md-9 mt-60">
               <h4 class="name font-24 mt-0 mb-0">{{ $team->name }}</h4>
               <h5 class="mt-5 text-theme-color-2">{{ $team->designation }}</h5>
                 <p style="text-align: justify;">{{ $team->detail }}</p>
                 
-            
-              <!-- <ul class="styled-icons icon-dark icon-theme-colored icon-sm mt-15 mb-0">
-               <li><a href="https://www.facebook.com/optimumtechofficial/"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="#"><i class="fa fa-skype"></i></a></li>
-               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-             </ul> -->
             </div>
           </div>
           <div class="row mt-30">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <h4 class="line-bottom">About Me:</h4>
               <div class="volunteer-address">
-                <ul>
+                <div class="cards-list">
                   @if($team->education!="")
-                    <li>
-                      <div class="bg-light media border-bottom p-15 mb-20">
-                        <div class="media-left">
-                          <i class="pe-7s-pen text-theme-colored font-24 mt-5"></i>
-                        </div>
-                        <div class="media-body">
-                          <h5 class="mt-0 mb-0">Qualification:</h5>
-                          <p>{{ $team->education }}</p>
-                        </div>
+                  <div class="card 1">
+                    <div class="row">
+                      <div class="col-md-3">
+                          <div class="card_image">
+                            <img src="{{asset('assets/images/education.png')}}" alt=""> 
+                          </div>
                       </div>
-                    </li>
+                      <div class="col-md-9">
+                          <div class="card_title">
+                            <h3 class="mt-0">Qualification</h3>
+                            <p>{{ $team->education }}</p>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
                   @endif
 
                   @if($team->experience!="")
-                    <li>
-                      <div class="bg-light media border-bottom p-15 mb-20">
-                        <div class="media-left">
-                          <i class="pe-7s-pen text-theme-colored font-24 mt-5"></i>
-                        </div>
-                        <div class="media-body">
-                          <h5 class="mt-0 mb-0">Experience:</h5>
+                   <div class="card 2">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="card_image">
+                          <img src="{{asset('assets/images/experience.webp')}}" alt=""> 
+                         </div>
+                      </div>
+                      <div class="col-md-9">
+                        <div class="card_title title-white">
+                          <h3 class="mt-0">Experience:</h3>
                           <p>{{ $team->experience}}</p>
                         </div>
                       </div>
-                    </li>
+                    </div>
+                  </div>
                   @endif
-
                   @if($team->address!="")
-                    <li>
-                      <div class="bg-light media border-bottom p-15 mb-20">
-                        <div class="media-left">
-                          <i class="fa fa-map-marker text-theme-colored font-24 mt-5"></i>
+                  <div class="card 3">
+                    <div class="row">
+                        <div class="col-md-3">
+                          <div class="card_image">
+                            <img src="{{asset('assets/images/location.png')}}" alt=""> 
+                          </div>
                         </div>
-                        <div class="media-body">
-                          <h5 class="mt-0 mb-0">Address:</h5>
-                          <p>{{ $team->address }}</p>
+                        <div class="col-md-9">
+                            <div class="card_title">
+                              <h3 class="mt-0">Address:</h3>
+                              <p>{{ $team->address }}</p>
+                            </div>
                         </div>
-                      </div>
-                    </li>
+                    </div>
+                  </div>
                   @endif
-                  
                   @if($team->phone!="" || $team->email !="")
-                    <li>
-                      <div class="bg-light media border-bottom p-15">
-                          <div class="media-left">
-                            <i class="fa fa-phone text-theme-colored font-24 mt-5"></i>
+                    <div class="card 4">
+                      <div class="row">
+                          <div class="col-md-3">
+                          <div class="card_image">
+                            <img src="{{asset('assets/images/phone.png')}}" alt=""> 
                           </div>
-                          <div class="media-body">
-                            <h5 class="mt-0 mb-0">Contact:</h5>
-                            <p>
-                            @if($team->phone !='')
-                              <span  >Phone:</span><a href="tel:{{ str_replace(' ','',$team->phone) }}">{{ $team->phone }}</a><br><span>  </span>
-                            @endif
+                          </div>
+                          <div class="col-md-9">
+                              <div class="card_title title-black">
+                                <h3 class="mt-0">Contact:</h3>
+                                 <p>
+                                    @if($team->phone !='')
+                                      <span>Phone:</span><a href="tel:{{ str_replace(' ','',$team->phone) }}">{{ $team->phone }}</a><br><span>  </span>
+                                    @endif
 
-                             @if($team->email !='')
-                               <span>Email:</span> <a href="mailto:{{ $team->email }}">{{ $team->email }}</a>
-                            @endif
-                           </p>
+                                     @if($team->email !='')
+                                       <span>Email:</span> <a href="mailto:{{ $team->email }}">{{ $team->email }}</a>
+                                    @endif
+                                  </p>
+                              </div>
                           </div>
                       </div>
-                    </li>
-                  @endif
-                 
-                </ul>
+                    </div>
+                    @endif
+                </div> 
               </div>
             </div>
-            <div class="col-md-4 mb-20">
-              <h4 class="line-bottom">Find Location:</h4>
-
-              <!-- Google Map HTML Codes<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5456.163483134849!2d144.95177475051227!3d-37.81589041361766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd5a05d97%3A0x3e64f855a564844d!2s121+King+St%2C+Melbourne+VIC+3000%2C+Australia!5e0!3m2!1sen!2sbd!4v1556130803137!5m2!1sen!2sbd" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.4736418214347!2d73.10211151462781!3d31.40107401016607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x392267e208b01dab%3A0xd9f579bb62c0e16c!2sOptimum-Tech!5e0!3m2!1sen!2s!4v1593598945145!5m2!1sen!2s" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="clearfix">
                 <h4 class="line-bottom">Quick Contact:</h4>
               </div>
@@ -158,10 +290,10 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <textarea rows="5" placeholder="Enter Message" id="contact_message" name="contact_message" required class="form-control"></textarea>
+                  <textarea rows="11" placeholder="Enter Message" id="contact_message" name="contact_message" required class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                  <button data-loading-text="Please wait..." class="btn btn-flat btn-dark btn-theme-colored mt-5" type="submit">Send your message</button>
+                  <button data-loading-text="Please wait..." class="btn btn-flat btn-dark btn-theme-colored mt-12" type="submit">Send your message</button>
                 </div>
               </form>
             </div>
