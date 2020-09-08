@@ -768,7 +768,7 @@
 		                  <span  > -->
 		              		@if($photoFilter->count()>0)
 		              			@php $i = 1; @endphp
-		              			 <a href="" class="active myFilter all_filter" type="button" data-filter="*"   > All</a>
+		              			 <a href="" class="active myFilter all_filter" type="button"> All</a>
 		              			@foreach($photoFilter as $filter)
 		              				
 		              				<a href="" type="button" class="myFilter" data-id="{{ $filter->category }}"  >{{ ucfirst($filter->category) }}</a>
