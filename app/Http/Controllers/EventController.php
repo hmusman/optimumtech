@@ -171,4 +171,6 @@ class EventController extends Controller
             return redirect(route('Event.index'));
         }
     }
+
+    
 }

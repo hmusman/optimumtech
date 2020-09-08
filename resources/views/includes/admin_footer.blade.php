@@ -28,6 +28,7 @@
 <!-- <script src="{{ asset('assets/libs/') }}"></script> -->
 <script src="{{ asset('assets/tinymce/tinymce/tinymce.js') }}"></script>
 <script src="{{ asset('assets/tinymce/editor-tinymce.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assets\libs/sweetalert2/sweetalert2.min.js') }}"></script>
 
 
 <!-- <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
@@ -202,6 +203,43 @@
                 $('.sub_route').html(route_html);
             }
         }
+
+        $('.item_delete_btn').click(function(){
+            var id  = $(this).data('id');
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+              if (result.value) {
+                $('#'+id).submit();
+              }
+            });
+
+        });
+
+        $('.anchor_delete_btn').click(function(){
+            var id  = $(this).data('id');
+            Swal.fire({
+              title: 'Are you sure?',
+              text: "You won't be able to revert this!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+              if (result.value) {
+                var route = $('#route'+id).val();
+                window.location = route;
+              }
+            });
+
+        });
 
         subAutoLoad(($('#main option:selected').html()).toLowerCase(),$('#hidden_title').val());
        

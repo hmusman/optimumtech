@@ -16,6 +16,7 @@ Route::post('SendMail','FrontEndController@sendEmail')->name('SendMail');
 Route::get('Portfolios','PortfolioController@showPortfolios')->name('Portfolios');
 Route::get('PortfolioDetail/{id}','PortfolioController@show')->name('Portfolio.Detail');
 Route::get('CourseCategory/{id}','CategoryController@showCategoryCourses')->name('Course.Category');
+Route::get('Events','FrontEndController@allEvents')->name('Events');
 Route::view('Courses/PHP','single_course');
 Route::view('Courses/NodeJs','single_course');
 Route::view('Courses/Javascript','single_course');
@@ -42,6 +43,9 @@ Route::view('OffshoreITStaffing','offshore_it');
 Route::view('Domain&Hosting','domain_hosting');
 Route::view('Outsourcing','outsourcing');
 Route::view('TaxationAudit','taxation_audit');
+Route::get('LoadSubFolder','GalleryController@loadSubFolder')->name('LoadSubFolder');
+Route::get('LoadAllSubFolder','GalleryController@loadAllSubFolder')->name('LoadAllSubFolder');
+Route::get('LoadSubFolderImages','GalleryController@loadSubFolderImages')->name('LoadSubFolderImages');
 
 Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function(){
 

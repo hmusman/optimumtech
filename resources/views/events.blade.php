@@ -14,56 +14,7 @@
 	<section>
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
-            <ul>
-              <li>
-                <h5>Client:</h5>
-                <p>Kodesolution Lmd.</p>
-              </li>
-              <li>
-                <h5>Location:</h5>
-                <p>#405, Lan Streen, Los Vegas, USA</p>
-              </li>
-              <li>
-                <h5>Category:</h5>
-                <p>Web design & development, Graphics design</p>
-              </li>
-              <li>
-                <h5>Start Date:</h5>
-                <p>January 26, 2016</p>
-              </li>
-              <li>
-                <h5>End Date:</h5>
-                <p>February 10, 2016</p>
-              </li>
-              <li>
-                <h5>Website:</h5>
-                <p>kodesolution.com</p>
-              </li>
-              <li>
-                <h5>Share:</h5>
-                <div class="styled-icons icon-sm icon-gray icon-circled">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                  <a href="#"><i class="fa fa-instagram"></i></a>
-                  <a href="#"><i class="fa fa-google-plus"></i></a>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-8">
-            <div class="featured-project-carousel">
-              <div class="item">
-                <iframe src="http://player.vimeo.com/video/24302498?title=0&amp;byline=0&amp;portrait=0" width="360" height="205" allowfullscreen>
-                </iframe>
-              </div>
-              <!-- <div class="item">
-                <iframe width="600" height="360"
-                src="http://www.youtube.com/embed/oIDqz2BrVec?autoplay=0" allowfullscreen>
-                </iframe>
-              </div> -->
-            </div>
-          </div>
+          
         </div>
         
 
@@ -88,10 +39,50 @@
 
   <section >
       <div class="container pt-40 pb-40">
+        <div class="row mt-60">
+              <div class="col-xs-12 col-sm-12 col-md-12 pb-sm-20 mt-10 ">
+                <h2 class="line-bottom font-20 text-theme-colored text-uppercase mb-10 mt-0">Our Events</h2>
+              </div>
+        </div>
         <div class="row text-center">
           <div class="col-md-12">
-            <div class="row mt-60">
-              <div class="col-md-6">
+
+            <div class="row">
+
+             
+                @if($events->count()>0)
+                      
+                      @foreach($events as $event)
+                        @php $img = 'storage/'.$event->img; @endphp
+                         <div class="col-md-4 mt-60" style="height: 174px;">
+                            <article class="post media-post clearfix pb-0 mb-10">
+                              <div class="col-md-3" >
+                                  <a href="{{ route('EventDetail',$event->id) }}" target="_blank" class="post-thumb mr-20"><img alt="" src="{{ asset($img) }}" ></a>
+                              </div>
+
+                              <div class="col-md-9">
+                                   <div class="post-right">
+                                    <h4 class="mt-0 mb-5 text-uppercase"><a href="{{ route('EventDetail',$event->id) }}" target="_blank">{{ $event->title }}</a></h4>
+                                    <ul class="list-inline font-12 mb-5">
+                                      <li class="pr-0"><i class="fa fa-calendar mr-5"></i> <!--June 26, 2016 --> {{ date('F',strtotime($event->event_date)) }} {{ date('d',strtotime($event->event_date)) }}, {{ date('Y',strtotime($event->event_date)) }} ,{{ date('h:i a',strtotime($event->event_time)) }}</li>
+                                      <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>{{ $event->address }}</li>
+                                    </ul>
+                                    <p class="mb-0 font-13" style="text-align: justify">{{ substr($event->detail,0,100) }}...</p>
+                                    <a class="text-theme-colored font-13" href="{{ route('EventDetail',$event->id) }}" target="_blank">Read More →</a>
+                                  </div>
+                              </div>
+                            
+                           
+                          </article>
+                        </div>
+
+                      @endforeach
+                @endif
+              
+
+             
+
+              {{--<div class="col-md-6">
 
                 @php $img = 'storage/'.$event->img; @endphp
                 <article class="post media-post clearfix pb-0 mb-10">
@@ -107,13 +98,9 @@
                    
                   </div>
                 </article>
-              </div>
-              <div class="col-md-6">
-                <blockquote>
-                  <p>For over 10 years we are providing premium services as established IT Company of Optimum Tech.</p>
-                  <footer><cite title="Source Title">Ahsan Raza</cite></footer>
-                </blockquote>
-              </div>
+
+
+              </div>--}}
             </div>
           </div>
         </div>
@@ -220,7 +207,7 @@
 
       
   <!-- Divider: testimonials -->
-  <!-- <section style="padding-top: 53px !important;    height: 54% !important;" class="divider parallax layer-overlay overlay-theme-colored-9" data-background-ratio="0.5" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
+<!--   <section style="padding-top: 53px !important;    height: 54% !important;" class="divider parallax layer-overlay overlay-theme-colored-9" data-background-ratio="0.5" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
     <div class="container pb-50">
       <div class="section-title">
         <div class="row">

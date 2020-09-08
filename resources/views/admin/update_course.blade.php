@@ -121,6 +121,10 @@
                                                 @error('warningMsg')
                                                     <p class="text-danger mt-3">{{ $message }}</p>
                                                 @enderror
+
+                                                @error('sizeWarning')
+                                                    <p class="text-danger mt-3">{{ $message }}</p>
+                                                @enderror
                                             </div>
                                             
                                         </div>

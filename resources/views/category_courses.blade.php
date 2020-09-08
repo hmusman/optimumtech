@@ -126,10 +126,14 @@
 				                <div class="latest-posts">
 				                  	@foreach($freeCourses as $freeCourse)
 				                  		@php $img = 'storage/'.$freeCourse->img @endphp
-				                  		<article class="post media-post clearfix pb-0 mb-10">
-					                      <a class="post-thumb" href="{{ route('CourseDetail',$freeCourse->id) }}"><img src="{{ asset($img) }}" alt=""></a>
+				                  		<article class="post media-post clearfix pb-0 mb-10"> 
+					                      <a class="post-thumb" href="{{ route('CourseDetail',$freeCourse->id) }}" style="width: 100%;">
+					                      	<img src="{{ asset($img) }}" alt="course image" style="width: 100%;"></a>
 					                      <div class="post-right">
-					                        <h5 class="post-title mt-0"><a href="#">{{ ucwords($freeCourse->title) }}</a></h5>
+					                        <a href="#"><h4 class="post-title mt-0">{{ ucwords($freeCourse->title) }}</h4></a>
+					                        <p>{!! ucfirst(substr($freeCourse->detail,0,200)) !!}...</p>
+					                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
+					                          href="{{ route('CourseDetail',$freeCourse->id)}}" target="_blank">view details</a>
 					                      </div>
 					                    </article>
 				                  	@endforeach

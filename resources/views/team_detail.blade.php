@@ -178,7 +178,7 @@
             <div class="col-md-9 mt-60">
               <h4 class="name font-24 mt-0 mb-0">{{ $team->name }}</h4>
               <h5 class="mt-5 text-theme-color-2">{{ $team->designation }}</h5>
-                <p style="text-align: justify;">{{ $team->detail }}</p>
+                <p style="text-align: justify;">{!!$team->detail !!}</p>
                 
             </div>
           </div>

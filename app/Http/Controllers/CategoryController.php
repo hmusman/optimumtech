@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\MainMenu;
 use App\Course;
+use App\Product;
+use App\SiteContact;
 class CategoryController extends Controller
 {
    
@@ -57,11 +59,13 @@ class CategoryController extends Controller
     public function showCategoryCourses($id)
     {
         $mains = MainMenu::all();
+        $products = Product::all();
         $category = Category::where('id',$id)->first();
         $categories = Category::join('courses','categories.id','=','courses.category_id')->where([['courses.status','1'],['categories.id','!=',$id]])->select('categories.title','categories.id')->get();
         $freeCourses = Course::where([['type','=','free'],['status','=','1']])->get();
+        $contact = SiteContact::first();
         $courses = $category->courses;
-        return view('category_courses',compact(['mains','courses','categories','freeCourses']));
+        return view('category_courses',compact(['mains','contact','courses','categories','freeCourses','products']));
         
     }
 
@@ -108,4 +112,6 @@ class CategoryController extends Controller
        }
        
     }
+
+    
 }

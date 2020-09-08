@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2020 at 02:13 PM
+-- Generation Time: Sep 08, 2020 at 02:25 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -207,7 +207,8 @@ CREATE TABLE `events` (
 INSERT INTO `events` (`id`, `title`, `detail`, `event_date`, `address`, `img`, `meta_name`, `meta_detail`, `event_time`, `created_at`, `updated_at`) VALUES
 (1, 'Blood Donation', '\"Saving One Life Is As If Saving Whole Of Humanity…\"', '2020-12-11', 'Agriculture University Faisalabad', 'admin/images/events/CuUd3MmN2FJ9sEXvuAN1onCUC6eM3DbLjMlVPFpT.png', 'test', 'test', '14:15', '2020-08-07 00:39:10', '2020-09-05 00:30:45'),
 (2, 'Wordpress Training', 'Optimum Provide For all of its Current or Past Students A Workshop About Wordpress', '2020-08-26', 'Nusrat Auditorium', 'admin/images/events/h3mb74uBYAeJxzoPsP1L0Jea4dlIW1u9nGTY5sfL.png', 'test', 'test', '00:30', '2020-08-07 01:05:50', '2020-09-05 00:30:24'),
-(3, 'Digital Marketing', 'Digital Marketing Master Class Session is going to start this month, Be ready and Cennected.', '2020-09-08', 'Optimum Tech', 'admin/images/events/Gp3FrBZp4rJAZ98WeQ2jRG0Bszu6Xyyjj5emoM0J.png', 'test', 'test', '10:30', '2020-08-07 01:06:27', '2020-09-05 00:29:48');
+(3, 'Digital Marketing', 'Digital Marketing Master Class Session is going to start this month, Be ready and Cennected.', '2020-09-08', 'Optimum Tech', 'admin/images/events/Gp3FrBZp4rJAZ98WeQ2jRG0Bszu6Xyyjj5emoM0J.png', 'test', 'test', '10:30', '2020-08-07 01:06:27', '2020-09-05 00:29:48'),
+(8, 'test', 'Digital Marketing Master Class Session is going to start this month, Be ready and Cennected.Digital Marketing Master Class Session is going to start this month, Be ready and Cennected.Digital Marketing Master Class Session is going to start this month, Be ready and Cennected.Digital Marketing Master Class Session is going to start this month, Be ready and Cennected.', '2020-09-09', 'street-55', 'admin/images/events/XJq9K9btxozdhKmJ5rXAwkBTXqtrgbhPlrQiUSnz.jpeg', 'est', 'test', '23:00', '2020-09-08 01:03:22', '2020-09-08 01:18:16');
 
 -- --------------------------------------------------------
 
@@ -246,9 +247,15 @@ CREATE TABLE `galleries` (
 --
 
 INSERT INTO `galleries` (`id`, `category`, `title`, `caption`, `img`, `sub_folder`, `created_at`, `updated_at`) VALUES
-(8, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
 (9, 'photo', 'test', 'this is for test', 'admin/images/gallery/photo/event photo/dIXnlLkuJZ7vdxH1YIT0hMM77vfpVb7ad9EI5tN4.png', 'event photo', '2020-09-07 06:06:00', '2020-09-07 06:06:00'),
-(10, 'campus', 'test', 'test', 'admin/images/gallery/campus/class room/XArA7Kk6nXvBL534s1lUnMr41oOK802GfITO4c1h.png', 'class room', '2020-09-07 06:06:51', '2020-09-07 06:06:51');
+(10, 'campus', 'test', 'test', 'admin/images/gallery/campus/class room/XArA7Kk6nXvBL534s1lUnMr41oOK802GfITO4c1h.png', 'class room', '2020-09-07 06:06:51', '2020-09-07 06:06:51'),
+(11, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 2', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
+(12, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
+(13, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
+(14, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
+(15, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
+(16, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
+(17, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03');
 
 -- --------------------------------------------------------
 
@@ -829,13 +836,13 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -847,7 +854,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `main_menus`

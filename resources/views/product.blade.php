@@ -84,7 +84,7 @@
   <div class="container ml-5 mr-5">
         <div class="row">
         </div>
-        <div class="row mt-60">
+        <div class="row mt-60 mb-30">
           <div class="col-md-8" style="padding-left: 20px;">
             <h2 class="mt-0">{{ ucwords($product->name) }}</h2>
             <p style="text-align: justify;">{!! ucfirst($product->detail) !!}</p>
@@ -101,69 +101,48 @@
         </div>
   </div>
 </section>
+	
+	@if($product->customers->count()>0)
+		
+		<section style="padding-top: 53px !important;    height: 54% !important;" class="divider parallax layer-overlay overlay-theme-colored-9" data-background-ratio="0.5" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
+		    <div class="container pb-50">
+		      <div class="section-title">
+		        <div class="row">
+		          <div class="col-md-6">
+		            <h5 class="font-weight-300 m-0 text-gray-lightgray">PREVIOUS</h5>
+		            <h2 class="mt-0 mb-0 text-uppercase line-bottom text-white font-28">Happy Customers<span class="font-30 text-theme-color-2">.</span></h2>
+		          </div>
+		        </div>
+		      </div>
+		      <div class="row">
+		        <div class="col-md-12 mb-10">
+		          <div class="owl-carousel-2col boxed" data-dots="true">
+		          	@foreach($product->customers as $customer)
+		          		@php $img = 'storage/'.$customer->img @endphp
+		          		<div class="item">
+			              <div class="testimonial pt-10">
+			                <div class="thumb pull-left mb-0 mr-0 pr-20">
+			                  <img class="img-rounded" alt="" src="{{ asset($img) }}">
+			                </div>
+			                <div class="ml-100 ">
+			                  <h4 class="text-white mt-0">{{ $customer->detail }}</h4>
+			                  <a href="{{ $customer->url }}"><p class="author mt-20">- <span class="text-theme-color-2">{{ $customer->name }},</span> </p></a>
+			                </div>
+			              </div>
+			            </div>
 
-  <section style="padding-top: 53px !important;    height: 54% !important;" class="divider parallax layer-overlay overlay-theme-colored-9" data-background-ratio="0.5" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
-	    <div class="container pb-50">
-	      <div class="section-title">
-	        <div class="row">
-	          <div class="col-md-6">
-	            <h5 class="font-weight-300 m-0 text-gray-lightgray">PREVIOUS</h5>
-	            <h2 class="mt-0 mb-0 text-uppercase line-bottom text-white font-28">Happy Customers<span class="font-30 text-theme-color-2">.</span></h2>
-	          </div>
-	        </div>
-	      </div>
-	      <div class="row">
-	        <div class="col-md-12 mb-10">
-	          <div class="owl-carousel-2col boxed" data-dots="true">
-	            <div class="item">
-	              <div class="testimonial pt-10">
-	                <div class="thumb pull-left mb-0 mr-0 pr-20">
-	                  <img width="75" class="img-circle" alt="" src="{{ asset('storage/images/testimonials/1.jpg') }}">
-	                </div>
-	                <div class="ml-100 ">
-	                  <h4 class="text-white mt-0">Offshore IT Staffing is a great Service provided by the Optimum Tech Company.</h4>
-	                  <p class="author mt-20">- <span class="text-theme-color-2">Catherine Grace,</span> <small><em class="text-gray-lightgray">CEO apple.inc</em></small></p>
-	                </div>
-	              </div>
-	            </div>
-	            <div class="item">
-	              <div class="testimonial pt-10">
-	                <div class="thumb pull-left mb-0 mr-0 pr-20">
-	                  <img width="75" class="img-circle" alt="" src="{{ asset('storage/images/testimonials/2.jpg') }}">
-	                </div>
-	                <div class="ml-100 ">
-	                  <h4 class="text-white mt-0">A very fundamental reason for offshore outsourcing is cost benefits. Expensive resources are easy to find but difficult to endure with.</h4>
-	                  <p class="author mt-20">- <span class="text-theme-color-2">Catherine Grace,</span> <small><em class="text-gray-lightgray">CEO apple.inc</em></small></p>
-	                </div>
-	              </div>
-	            </div>
-	            <div class="item">
-	              <div class="testimonial pt-10">
-	                <div class="thumb pull-left mb-0 mr-0 pr-20">
-	                  <img width="75" class="img-circle" alt="" src="{{ asset('storage/images/testimonials/3.jpg') }}">
-	                </div>
-	                <div class="ml-100 ">
-	                  <h4 class="text-white mt-0">To fulfill these unique strategic and administrative talent needs, offshore staffing services prove to be a great alternative.</h4>
-	                  <p class="author mt-20">- <span class="text-theme-color-2">Catherine Grace,</span> <small><em class="text-gray-lightgray">CEO apple.inc</em></small></p>
-	                </div>
-	              </div>
-	            </div>
-	            <div class="item">
-	              <div class="testimonial pt-10">
-	                <div class="thumb pull-left mb-0 mr-0 pr-20">
-	                  <img width="75" class="img-circle" alt="" src="{{ asset('storage/images/testimonials/2.jpg') }}">
-	                </div>
-	                <div class="ml-100 ">
-	                  <h4 class="text-white mt-0">This have a wide range of software programs, consent us to adapt variety of industries, while left over an affordable and cost-effective option</h4>
-	                  <p class="author mt-20">- <span class="text-theme-color-2">Catherine Grace,</span> <small><em class="text-gray-lightgray">CEO apple.inc</em></small></p>
-	                </div>
-	              </div>
-	            </div>
-	          </div> 
-	        </div>
-	      </div>
-	    </div>
-  	</section>
+		          	@endforeach
+		           
+		            
+		          </div> 
+		        </div>
+		      </div>
+		    </div>
+	  </section>
+
+	@endif
+
+  
 
 
 @endsection<!-- end content -->

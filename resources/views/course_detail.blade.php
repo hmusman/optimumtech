@@ -120,7 +120,7 @@
 	                </div>
 	               	<div class="col-md-7 pb-sm-20">
 		                <h3 class="title line-bottom mb-20 font-28 mt-0 line-height-1">Welcome <span class="text-theme-color-2 font-weight-400"> TO {{ ucwords($course->title) }}</span> !</h3>
-		                <p class="mb-20">{{ ucfirst($course->detail) }}</p>
+		                <p class="mb-20">{!! $course->detail !!}</p>
 		                <h4 class="mt-0"><span class="text-theme-color-2">Price :</span> {{ $course->price }}</h4>
 		                <ul class="review_text list-inline">
 		                  <li>
@@ -152,7 +152,7 @@
 				  </div>
 				  <div class="card_title">
 				  	<h3 class="mt-0">Our Office Location</h3>
-	                <p>25-a, batala colony Fsd</p>
+	                <p>{{ $contact->address }}</p>
 				    <a href="#">View on Map <i class="fa fa-long-arrow-right"></i></a>
 				  </div>
 				</div>
@@ -163,8 +163,8 @@
 				   </div>
 				  <div class="card_title title-white">
 				    <h3 class="mt-0">Contact Number</h3>
-	                <p>+92 313 6650965</p>
-				    <a href="tel:+92 313 6650965">Make Call <i class="fa fa-long-arrow-right"></i></a>
+	                <p>{{ $contact->phone }}</p>
+				    <a href="tel:{{ $contact->phone }}">Make Call <i class="fa fa-long-arrow-right"></i></a>
 				  </div>
 				</div>
 
@@ -174,8 +174,8 @@
 				  </div>
 				  <div class="card_title">
 				    <h3 class="mt-0">Email Address</h3>
-	                <p>info@optimumtech.com</p>
-				    <a href="mailto:info@optimumtech.com">Send Mail <i class="fa fa-long-arrow-right"></i></a>
+	                <p>{{ $contact->email }}</p>
+				    <a href="mailto:{{ $contact->email }}">Send Mail <i class="fa fa-long-arrow-right"></i></a>
 				  </div>
 				</div>
 				  
@@ -185,8 +185,8 @@
 				  </div>
 				  <div class="card_title title-black">
 				    <h3 class="mt-0">Optimum Skype</h3>
-	                <p>Skypr Address</p>
-				    <a href="skype:usman_gcuf?call">Make Skype Call <i class="fa fa-long-arrow-right"></i></a>
+	                <p>Skype Address</p>
+				    <a href="skype:{{ $contact->skype }}">Make Skype Call <i class="fa fa-long-arrow-right"></i></a>
 				  </div>
 				  </div>
 			</div>		

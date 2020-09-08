@@ -41,8 +41,21 @@ class CourseController extends Controller
         }
         else
         {
-            $ext = $request->file('img')->extension();
-            if($ext =='png' || $ext=='jpg' || $ext=='jpeg') {$filename = $request->file('img')->store('admin/images/courses','public');}
+            $img = $request->file('img');
+            $ext = $img->extension();
+            if($ext =='png' || $ext=='jpg' || $ext=='jpeg') 
+            {
+                $size =getimagesize($img);
+                if ($size[0]==220 && $size[1]==160)
+                {
+                   $filename = $request->file('img')->store('admin/images/courses','public');
+                }
+                else
+                {
+                    return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 220*160'])->withInput();
+                }
+                
+            }
             else
             {
                 return back()->withErrors(['warningMsg'=>"Please Select Correct Image"])->withInput();
@@ -107,7 +120,18 @@ class CourseController extends Controller
             if($request->hasFile('img'))
             {
                 $ext = $request->file('img')->extension();
-                if($ext =='png' || $ext=='jpg' || $ext=='jpeg') { $filename = $request->file('img')->store('admin/images/courses','public');}
+                if($ext =='png' || $ext=='jpg' || $ext=='jpeg') 
+                {
+                   $size =getimagesize($request->file('img'));
+                    if ($size[0]==220 && $size[1]==160)
+                    {
+                       $filename = $request->file('img')->store('admin/images/courses','public');
+                    }
+                    else
+                    {
+                        return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 220*160'])->withInput();
+                    }
+                }
                 else
                 {
                     return back()->withErrors(['warningMsg'=>"Please Select Correct Image"])->withInput();

@@ -6,14 +6,14 @@
               <div class="widget no-border m-0">
                 <ul class="list-inline font-13 sm-text-center mt-5">
                   <li>
-                    <a class="text-white" href="tel:+923136650965"><i class="fa fa-phone"></i>
-                      <span style="font-size: 12px;">+92 313 6650965</span></a>
+                    <a class="text-white" href="tel:{{ $contact->phone }}"><i class="fa fa-phone"></i>
+                      <span style="font-size: 12px;">{{ $contact->phone }}</span></a>
                   </li>
                   <li class="text-white">|</li>
                   <li>
 
-                    <a class="text-white" href="mailto:info@optimumtech.com"><i class="fa fa-envelope-o"></i>
-                      <span style="font-size: 12px;">info@optimumtech.com</span></a>
+                    <a class="text-white" href="mailto:{{ $contact->email }}"><i class="fa fa-envelope-o"></i>
+                      <span style="font-size: 12px;">{{ $contact->email }}</span></a>
                   </li>
 
                 </ul>

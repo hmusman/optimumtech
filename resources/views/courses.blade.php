@@ -49,7 +49,7 @@
 					                      <div class="star-rating" title="Rated 4.50 out of 5"><span style="width: 90%;">4.50</span></div>
 					                    </li>
 					                  </ul>
-					                  <p>{{ ucfirst($course->detail) }}</p>
+					                  <p>{!! $course->detail !!}</p>
 					                  <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10" href="{{ route('CourseDetail',$course->id) }}">read more</a> &nbsp; <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10" href="{{ route('ApplyForCourse',$course->id) }}">Book Course</a>
 					                </div>
 					            </div>
@@ -96,7 +96,9 @@
 					                      	<img src="{{ asset($img) }}" alt="course image" style="width: 100%;"></a>
 					                      <div class="post-right">
 					                        <a href="#"><h4 class="post-title mt-0">{{ ucwords($freeCourse->title) }}</h4></a>
-					                        <p>{{ ucfirst(substr($freeCourse->detail,0,50)) }}</p>
+					                        <p>{!! ucfirst(substr($freeCourse->detail,0,200)) !!}...</p>
+					                        <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10"
+					                          href="{{ route('CourseDetail',$freeCourse->id)}}" target="_blank">view details</a>
 					                      </div>
 					                    </article>
 				                  	@endforeach

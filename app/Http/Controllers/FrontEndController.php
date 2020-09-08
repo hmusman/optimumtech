@@ -21,6 +21,7 @@ use App\MainMenu;
 use DB;
 use Config;
 use App\Contact;
+use App\SiteContact;
 
 class FrontEndController extends Controller
 {
@@ -29,91 +30,122 @@ class FrontEndController extends Controller
         // $exactProducts = DB::table('main_menus')->join('sub_menus','main_menus.id','=','sub_menus.main_id')->where('main_menus.title','products')->orWhere('main_menus.title','product')->select('sub_menus.item_id')->get()->toArray();
     	$sliders = Slider::all();
         $mains = MainMenu::all();
+        $contact = SiteContact::first();
     	$freeCourses = Course::where([['type','=','free'],['status','=','1']])->get();
     	$members = Team::all();
-    	$photoFilter = Gallery::select('category')->get();
+    	$photoFilter = Gallery::distinct('category')->select('category')->get();
     	$photos = Gallery::all();
-    	$events = Event::all();
+    	$events = Event::orderBy('id','desc')->take(3)->get();
     	$news = NewModel::all();
     	$testimonials = Testimonial::all();
     	$products = Product::all();
     	$services = Service::all();
-    	$courses = Course::where('status','1')->get();;
+    	$courses = Course::where('status','1')->get();
     	$clients = Client::all();
         $latestNews = NewModel::orderBy('id','desc')->take(5)->get();
-    	return view('index',compact(['sliders','clients','mains','products','services','courses','freeCourses','members','photoFilter','photos','events','news','testimonials','latestNews']));
+    	return view('index',compact(['sliders','clients','mains','contact','products','services','courses','freeCourses','members','photoFilter','photos','events','news','testimonials','latestNews']));
     }
 
     public function productShow($id)
     {
     	$product = Product::where('id',$id)->first();
         $mains = MainMenu::all();
-    	return view('product',compact(['mains','product']));
+        $contact = SiteContact::first();
+        $products  = Product::where('id','!=',$id)->get();
+    	return view('product',compact(['mains','contact','product','products']));
     }
 
     public function serviceShow($id)
     {
         $mains = MainMenu::all();
+        $contact = SiteContact::first();
         $services = Service::all();
+        $products  = Product::all();
     	$service = Service::where('id',$id)->first();
-    	return view('service',compact(['mains','service','services']));
+    	return view('service',compact(['mains','contact','service','services','products']));
     }
 
     public function products()
     {
     	$products  = Product::all();
         $mains = MainMenu::all();
-    	return view('products',compact(['mains','products']));
+        $contact = SiteContact::first();
+    	return view('products',compact(['mains','contact','products']));
     }
 
     public function services()
     {
     	$services = Service::all();
+        $products  = Product::all();
         $mains = MainMenu::all();
-    	return view('services',compact(['mains','services']));
+        $contact = SiteContact::first();
+    	return view('services',compact(['mains','contact','services','products']));
     }
 
     public function courses()
     {
         $mains = MainMenu::all();
+        $contact = SiteContact::first();
+        $products  = Product::all();
         $courses = Course::where('status','=','1')->get();
         $categories = Category::join('courses','categories.id','=','courses.category_id')->where('courses.status','1')->select('categories.title','categories.id')->get();
         $freeCourses = Course::where([['type','=','free'],['status','=','1']])->get();
-        return view('courses',compact(['mains','courses','freeCourses','categories']));
+        return view('courses',compact(['mains','contact','courses','freeCourses','categories','products']));
     }
 
     public function showCourse($id)
     {
         $course = Course::where('id',$id)->first();
+        $products  = Product::all();
         $mains = MainMenu::all();
-        return view('course_detail',compact(['mains','course']));
+        $contact = SiteContact::first();
+        $contact = SiteContact::first();
+        return view('course_detail',compact(['mains','contact','course','products','contact']));
     }
 
     public function contactUs()
     {
         $mains = MainMenu::all();
-        return view('contactus',compact(['mains']));
+        $contact = SiteContact::first();
+        $products  = Product::all();
+        return view('contactus',compact(['mains','contact','products']));
     }
 
     public function newsDetail($id)
     {
         $news = NewModel::where('id',$id)->first();
         $mains = MainMenu::all();
-        return view('news_detail',compact(['mains','news']));
+        $contact = SiteContact::first();
+        $products  = Product::all();
+        return view('news_detail',compact(['mains','contact','news','products']));
     }
 
     public function eventDetail($id)
-    {
+    {   
+        $products  = Product::all();
         $event = Event::where('id',$id)->first();
         $mains = MainMenu::all();
-        return view('book_event',compact(['mains','event']));
+        $contact = SiteContact::first();
+        return view('book_event',compact(['mains','contact','event','products']));
     }
 
     public function teamDetail($id)
     {
+        $products  = Product::all();
         $team = Team::where('id',$id)->first();
         $mains = MainMenu::all();
-        return view('team_detail',compact(['mains','team']));
+        $contact = SiteContact::first();
+        return view('team_detail',compact(['mains','contact','team','products']));
+    }
+
+    public function allEvents()
+    {
+        $products  = Product::all();
+        $events = Event::orderBy('id','desc')->get();
+        $mains = MainMenu::all();
+        $contact = SiteContact::first();
+        return view('events',compact(['mains','contact','events','products']));
+
     }
 
     public function subMenuAutoTitle(Request $request)

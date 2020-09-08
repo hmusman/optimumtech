@@ -41,7 +41,7 @@
     @if($services->count()>0)
 
     	<section>
-		    <div class="container mt-60">
+		    <div class="container mt-60 mb-20">
 		      <div class="row">
 		        <div class="col-md-8 blog-pull-right">
 		          <div class="single-service">
@@ -86,7 +86,7 @@
 
   
     <!-- Divider: testimonials -->
-  	<section style="padding-top: 53px !important;    height: 54% !important;" class="divider parallax layer-overlay overlay-theme-colored-9" data-background-ratio="0.5" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
+  <!-- 	<section style="padding-top: 53px !important;    height: 54% !important;" class="divider parallax layer-overlay overlay-theme-colored-9" data-background-ratio="0.5" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
 	    <div class="container pb-50">
 	      <div class="section-title">
 	        <div class="row">
@@ -147,7 +147,7 @@
 	        </div>
 	      </div>
 	    </div>
-    </section>
+    </section> -->
 
 
  
