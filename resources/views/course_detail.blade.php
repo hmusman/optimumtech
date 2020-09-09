@@ -32,11 +32,15 @@
   cursor: pointer;
   transition: 0.4s;
   padding-bottom: 0% !important;
+  	padding: 0px 5px 0px 5px !important;
 }
 .card:hover{
 	background-color: #202c45;
-    border-left: 5px solid #f2184f;
+	border-left: 5px solid #f2184f;
+	font-size: 1vw !important;
+
 }
+
 .card .card_image {
   width: inherit;
   height: inherit;
@@ -44,8 +48,8 @@
 }
 
 .card .card_image img {
-    width: 150px;
-    height: 150px;
+    width: 120px;
+    height: 120px;
     border-radius: 40px;
     object-fit: cover;
     /*opacity: 0.3;*/
@@ -58,10 +62,12 @@
   font-family: sans-serif;
   /*font-weight: bold;*/
   /*font-size: 30px;*/
-  margin-top: -125px;
+  margin-top: -153px;
   height: 40px;
   color: #626363;
 }
+
+
 
 .card:hover {
   transform: scale(0.9, 0.9);

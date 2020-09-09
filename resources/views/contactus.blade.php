@@ -63,7 +63,8 @@
   padding-bottom: 0% !important;
 }
 .card p{
-  margin-top: 0px;
+  margin-top: -15px;
+      font-size: 14px !important;
 }
 .card:hover{
   background-color: #202c45;
@@ -105,6 +106,7 @@
 
 .card:hover  h3{
   color: white !important;
+      font-size: 14px !important;
 }
 .card:hover  p{
   color: white !important;
@@ -130,7 +132,9 @@
 .card_title a:hover{
   color: #087b92;
 }
-
+p{
+  margin-bottom: 3px !important;
+}
 
 @media all and (max-width: 500px) {
   .card-list {
@@ -181,7 +185,7 @@
                       </div>
                       <div class="col-md-9">
                           <div class="card_title">
-                            <h3 class="mt-0">Our Office Location</h3>
+                            <h3 class="mt-0" style="padding-top: 10px !important;">Our Office Location</h3>
                                   <p>{{ $contact->address }}</p>
                             <a href="#map">View on Map <i class="fa fa-long-arrow-right"></i></a>
                           </div>

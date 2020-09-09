@@ -226,7 +226,14 @@ class GalleryController extends Controller
         foreach ($sub_folders as $folder)
         {
             $img = 'storage/'.$folder->img;
-            $output.='<div class="col-md-4 mt-5"><img src="'.asset($img).'"/></div>';
+            $output.='<div class="col-md-4 mt-5">
+            <img  title="Principal OF Degree College Fsd Visited Optimum" src="'.asset($img).'"/>
+            </div>';
+
+
+
+
+            
         }
         return $output;
 

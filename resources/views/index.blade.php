@@ -748,7 +748,7 @@
 
 		    @endif
 		    <!-- Section: Gallery -->
-		     <section id="gallery" class="bg-lighter mt-60 mb-60 pb-60">
+		     <section id="gallery" class="bg-lighter mt-60 mb-60 pb-250">
 		        <div class="container">
 		          <div class="section-title mb-10">
 		            <div class="row">
@@ -759,7 +759,7 @@
 		            </div>
 		          </div>
 		          
-		          <div class="section-content">
+		          <div class="section-content" id="DynamicwidthOfGallary">
 		            <div class="row">
 		              <div class="col-md-12">
 		                <!-- Works Filter -->
@@ -886,6 +886,9 @@
 	  
 	}
 
+
+
+
 	function closeMyAll() {
 	  const galleryActv = document.querySelector('.Gallery--active');
 	  const cardActv = document.querySelector('.Card--active');
@@ -948,4 +951,20 @@
 	// });
 
 </script>
+
+
+
+
+
+<script>
+	
+</script>
+
+
+
+
+
+
+
+
 @endsection
