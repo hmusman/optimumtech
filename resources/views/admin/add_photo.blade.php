@@ -43,7 +43,7 @@
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                   <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Sub Folder</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                     </button>
@@ -110,7 +110,7 @@
                                                                 </div>   
                                                             </div>
 
-                                                            <div class="form-group row">
+                                                            {{--<div class="form-group row">
                                                                 <label class="col-md-2 col-form-label">Title:</label>
                                                                 <div class="col-md-10">
                                                                     <input name="title" type="text" class="form-control" value="{{ old('title') }}">
@@ -118,7 +118,7 @@
                                                                         <p class="text-danger mt-3">{{ $message }}</p>
                                                                     @enderror
                                                                 </div>   
-                                                            </div>
+                                                            </div>--}}
 
                                                             <div class="form-group row">
                                                                 <label class="col-md-2 col-form-label">Caption:</label>

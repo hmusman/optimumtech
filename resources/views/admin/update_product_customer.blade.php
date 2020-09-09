@@ -20,11 +20,8 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Add Optimum Courses</h4>
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                            <li class="breadcrumb-item active">File Upload</li>
-                            </ol>
+                            <h4 class="page-title mb-1">Update Product Customer</h4>
+                           
                         </div>
                         <div class="col-md-4">
                             
@@ -46,7 +43,7 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <h4 class="header-title">Update Course</h4>
+                                    <h4 class="header-title">Update Product Cusotmer</h4>
                                
                                     <form method="post" action="{{ route('ProductCustomer.update',$product->id) }}" enctype="multipart/form-data">
 

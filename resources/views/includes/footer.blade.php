@@ -240,7 +240,7 @@
           if (input.files && input.files[0]) {
               var reader = new FileReader();
               reader.onload = function (e) {
-                  $('#uploadForm + img').remove();
+                  $('uploadForm + img').remove();
                   $('#uploadForm').after('<img onclick="selectImg(this)" src="'+e.target.result+'" style="margin-top:10px;" width="200" height="200"/>');
               };
               reader.readAsDataURL(input.files[0]);

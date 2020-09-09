@@ -161,6 +161,7 @@
                                                 <th>#</th>
                                                  <th>Status</th>
                                                 <th>Number</th>
+                                                <th>Profile</th>
                                                 <th>Image</th>
                                                 <th>Course</th>
                                                 <th>Name</th>
@@ -182,6 +183,7 @@
                                                     @php $i=1; $counter=0; @endphp
                                                     @foreach($applications as $application)
                                                         @php $img = 'storage/'.$application->img @endphp
+                                                        @php $imgp = 'storage/'.$application->user_img @endphp
                                                         <tr>
                                                             <td>
                                                               <div class="custom-control custom-checkbox" data-id="{{ $application->id }}">
@@ -196,6 +198,12 @@
                                                             <td>{{ $i++ }}</td>
                                                             <td><?php echo ($application->status==1) ? 'Confirmed' : ' ' ?></td>
                                                             <td>{{ $application->applicant_number }}</td>
+                                                            <td>
+                                                               @if($application->course->price > 0)
+                                                                  <img src="{{ asset($imgp) }}" class="appImg" style="width: 100px; height: 100px">
+                                                               @endif
+                                                               
+                                                            </td>
                                                             <td>
                                                                @if($application->course->price > 0)
                                                                   <img src="{{ asset($img) }}" class="appImg" style="width: 100px; height: 100px">

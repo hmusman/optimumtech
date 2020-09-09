@@ -754,7 +754,7 @@
 		            <div class="row">
 		              <div class="col-md-12 mt-5">
 		                <h2 class="mt-5 text-uppercase text-theme-colored title line-bottom line-height-1">Our<span
-		                    class="text-theme-color-2 font-weight-400"> Gllery</span></h2>
+		                    class="text-theme-color-2 font-weight-400"> Gallery</span></h2>
 		              </div>
 		            </div>
 		          </div>
@@ -783,11 +783,10 @@
 		                <!-- End Works Filter -->
 
 		                <!-- partial:index.partial.html -->
-							<section class="Grid">
-							  <div class="Grid-row row my_grid_row">
-							  
-							  </div>
-							</section>
+							<section class="Grid ">
+							  <div class="Grid-row my_grid_row"> 
+ 								</div>
+							</section> 
 							<section class="Gallery" id="gallery-1">
 							  <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
 
@@ -886,9 +885,6 @@
 	  
 	}
 
-
-
-
 	function closeMyAll() {
 	  const galleryActv = document.querySelector('.Gallery--active');
 	  const cardActv = document.querySelector('.Card--active');
@@ -915,11 +911,29 @@
 	}
 
 	$(document).ready(function(){
-		all_load();
+		var main = "*";
+		$.ajax({
+			url:"{{ route('LoadAllSubFolder') }}",
+			type:'get',
+			data:{main:main},
+			success:function(data)
+			{
+				$('.my_grid_row').html(data);
+			}
+		});
 	});
 
 	$('.all_filter').click(function(){
-		all_load();
+		var main = "*";
+		$.ajax({
+			url:"{{ route('LoadAllSubFolder') }}",
+			type:'get',
+			data:{main:main},
+			success:function(data)
+			{
+				$('.my_grid_row').html(data);
+			}
+		});
 	});
 
 	$('.myFilter').click(function(){
@@ -951,20 +965,5 @@
 	// });
 
 </script>
-
-
-
-
-
-<script>
-	
-</script>
-
-
-
-
-
-
-
 
 @endsection

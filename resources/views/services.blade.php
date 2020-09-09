@@ -157,7 +157,7 @@
 
 
     <!-- Divider: Funfact -->
-    <section style="height: 50% !important;"  class="divider parallax  "  data-parallax-ratio="0.7">
+  <!--   <section style="height: 50% !important;"  class="divider parallax  "  data-parallax-ratio="0.7">
     
 	    <div class="container">
 	      <div class="row">
@@ -197,7 +197,7 @@
 	        </div>
 	      </div>
 	    </div>
-    </section>
+    </section> -->
 
 @endsection<!-- end content -->
 

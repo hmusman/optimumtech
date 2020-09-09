@@ -9,6 +9,7 @@ use App\Service;
 use App\MainMenu;
 use App\Course;
 use App\Contact;
+use App\SiteContact;
 use Illuminate\Support\Facades\Validator;
 
 // PDF is a alias  define in app.php which in config folder
@@ -25,9 +26,11 @@ class CourseApplicationController extends Controller
 
     public function create($id)
     {
+        $contact = SiteContact::first();
         $mains = MainMenu::all();
+        $products = Product::all();
         $course = Course::where('id',$id)->first(); 
-       return view('course_application',compact(['mains','course']));
+       return view('course_application',compact(['products','mains','course','contact']));
     }
 
     
@@ -52,9 +55,9 @@ class CourseApplicationController extends Controller
                 'first_name'=>'bail | required',
                 'last_name'=>'bail | required',
                 'email'=>'bail | required',
-                'cnic'=>'bail | required | numeric',
-                'phone'=>'bail | required | numeric',
-                'address'=>'bail | required | string | max:100',
+                'cnic'=>'bail | required |',
+                'phone'=>'bail | required',
+                'address'=>'bail | required',
                 'zip'=>'bail | required',
                 'city'=>'bail | required',
                 'province'=>'required',
@@ -74,7 +77,8 @@ class CourseApplicationController extends Controller
                 'city'=>'bail | required',
                 'province'=>'required',
                 'country'=>'required', 
-                'img'=>'required'
+                'img'=>'required',
+                'user_img'=>'required'
             ]);
         }
         
@@ -101,6 +105,20 @@ class CourseApplicationController extends Controller
                 {
                     return back()->withErrors(['img'=>"Payment transaction image is required"])->withInput();
                 }
+
+                if($request->hasFile('user_img'))
+                {
+                    $ext = $request->file('user_img')->extension();
+                    if($ext =='png' || $ext=='jpg' || $ext=='jpeg') {$filename1 = $request->file('user_img')->store('admin/images/courseApplication','public');}
+                    else
+                    {
+                        return back()->withErrors(['userwWarningMsg'=>"Please Select Correct Image"])->withInput();
+                    }
+                }
+                else
+                {
+                    return back()->withErrors(['user_img'=>"Payment transaction image is required"])->withInput();
+                }
             }
             
 
@@ -123,6 +141,7 @@ class CourseApplicationController extends Controller
             $application->country = $request->country;
             $application->zip = $request->zip;
             if($priceCheckData->price > 0) {$application->img = $filename;}
+            if($priceCheckData->price > 0) {$application->user_img = $filename1;}
             if($application->save())
             {
 
@@ -156,7 +175,7 @@ class CourseApplicationController extends Controller
         if(CourseApplication::where('id',$id)->delete())
         {
             $request->session()->flash('msg','Application Has Been Deleted Successfully');
-            return redirect(route('CourseApplication.index'));
+            return back();
         }
     }
 

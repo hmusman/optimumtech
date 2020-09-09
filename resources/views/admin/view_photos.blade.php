@@ -20,7 +20,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Slider View</h4>
+                            <h4 class="page-title mb-1">Gallery View</h4>
                         </div>
                         <div class="col-md-4">
                            
@@ -54,7 +54,7 @@
                                             <th>Main Folder</th>
                                             <th>Sub Folder</th>
                                             <th>Image</th>
-                                            <th>Title</th>
+                                            <!-- <th>Title</th> -->
                                             <th>Caption</th>
                                             <th>Action</th>
                                             
@@ -72,7 +72,7 @@
                                                         <td>{{ ucfirst($photo->category) }}</td>
                                                         <td>{{ ucfirst($photo->sub_folder) }}</td>
                                                         <td><img src="{{ asset($img) }}" class="appImg"  style="height: 100px; width: 100px; "/></td>
-                                                        <td>{{ ucfirst($photo->title) }}</td>
+                                                        {{--<td>{{ ucfirst($photo->title) }}</td>--}}
                                                         <td>{{ ucfirst($photo->caption) }}</td>
                                                         <td> 
 

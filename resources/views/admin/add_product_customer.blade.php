@@ -20,11 +20,8 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Add Optimum Product Customer</h4>
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                            <li class="breadcrumb-item active">File Upload</li>
-                            </ol>
+                            <h4 class="page-title mb-1">Add Product Customer</h4>
+                            
                         </div>
                         <div class="col-md-4">
                             

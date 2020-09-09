@@ -160,6 +160,7 @@
                                                 <th></th>
                                                 <th>#</th>
                                                  <th>Status</th>
+                                                 <th>Profile</th>
                                                 <th>Number</th>
                                                 <th>Image</th>
                                                 <th>Course</th>
@@ -182,6 +183,8 @@
                                                     @php $i=1; $counter=0; @endphp
                                                     @foreach($applications as $application)
                                                         @php $img = 'storage/'.$application->img @endphp
+                                                        @php $imgp = 'storage/'.$application->user_img @endphp
+
                                                         <tr>
                                                             <td>
                                                               <div class="custom-control custom-checkbox" data-id="{{ $application->id }}">
@@ -196,6 +199,12 @@
                                                             <td>{{ $i++ }}</td>
                                                             <td><?php echo ($application->status==1) ? 'Confirmed' : ' ' ?></td>
                                                             <td>{{ $application->applicant_number }}</td>
+                                                             <td>
+                                                               @if($application->course->price > 0)
+                                                                  <img src="{{ asset($imgp) }}" class="appImg" style="width: 100px; height: 100px">
+                                                               @endif
+                                                               
+                                                            </td>
                                                             <td>
                                                                @if($application->course->price > 0)
                                                                   <img src="{{ asset($img) }}" class="appImg" style="width: 100px; height: 100px">
@@ -216,7 +225,7 @@
 
                                                                 <div class="btn-group" role="group" aria-label="Delete Button">
                                                                    
-                                                                      <input type="hidden" name="" id="route{{ $application->id }}" value="CourseApplicationDelete/{{ $application->id }}">
+                                                                      <input type="hidden" name="" id="route{{ $application->id }}" value="/Admin/CourseApplicationDelete/{{ $application->id }}">
                                                                         <button type="button" data-id="{{ $application->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline anchor_delete_btn title_btn"></button>
                                                                     
                                                                 </div>

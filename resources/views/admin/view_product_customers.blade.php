@@ -20,7 +20,7 @@
                 <div class="container-fluid">
                     <div class="row align-items-center">
                         <div class="col-md-8">
-                            <h4 class="page-title mb-1">Courses View</h4>
+                            <h4 class="page-title mb-1">Product Customer View</h4>
                             
                         </div>
                         <div class="col-md-4">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2020 at 02:25 PM
+-- Generation Time: Sep 09, 2020 at 02:23 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -43,6 +43,7 @@ CREATE TABLE `applications` (
   `zip` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `country` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_img` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -52,10 +53,11 @@ CREATE TABLE `applications` (
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`id`, `applicant_number`, `course_id`, `first_name`, `last_name`, `email`, `address`, `cnic`, `phone`, `city`, `province`, `zip`, `country`, `img`, `status`, `created_at`, `updated_at`) VALUES
-(8, 'AppNo -33763', 1, 'testfirst', 'testlast', 'test786@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/35zyl3dsT842Xh0FVXn3EhSJ6dQa5UQXz21poWb9.png', 0, '2020-08-24 06:21:38', '2020-09-07 07:05:19'),
-(10, 'AppNo -90259', 2, 'testfirst', 'testlast', 'test@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/zOZ9tbTZ0jPK8N1AnDUAgoCLUiUPZ6y8pRUui6dK.png', 0, '2020-08-26 00:04:31', '2020-09-07 07:00:12'),
-(21, 'AppNo -30779', 1, 'Muhammad', 'Waseem', 'waseemulfat961@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', NULL, 1, '2020-09-04 07:21:21', '2020-09-07 07:05:25');
+INSERT INTO `applications` (`id`, `applicant_number`, `course_id`, `first_name`, `last_name`, `email`, `address`, `cnic`, `phone`, `city`, `province`, `zip`, `country`, `img`, `user_img`, `status`, `created_at`, `updated_at`) VALUES
+(8, 'AppNo -33763', 1, 'testfirst', 'testlast', 'test786@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/35zyl3dsT842Xh0FVXn3EhSJ6dQa5UQXz21poWb9.png', '', 0, '2020-08-24 06:21:38', '2020-09-09 07:03:12'),
+(10, 'AppNo -90259', 2, 'testfirst', 'testlast', 'test@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/zOZ9tbTZ0jPK8N1AnDUAgoCLUiUPZ6y8pRUui6dK.png', 'admin/images/courseApplication/1bbyIsN2hJhpOVq9uVmJ6Jolq8UP0Mu9lXHRttB6.png', 0, '2020-08-26 00:04:31', '2020-09-09 07:03:59'),
+(21, 'AppNo -30779', 1, 'Muhammad', 'Waseem', 'waseemulfat961@gmail.com', '434', '3550103259583', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', NULL, '', 1, '2020-09-04 07:21:21', '2020-09-07 07:05:25'),
+(22, 'AppNo -69532', 2, 'Muhammad', 'Waseem', 'waseemulfat961test@gmail.com', '434dd', '35501-0325958-9', '03013435656', 'lahore', 'punjab', '38000', 'pakistan', 'admin/images/courseApplication/jg53mES2vQge9XLRtLLD1tXBM6gCKj7NjPAfMVNN.png', 'admin/images/courseApplication/1bbyIsN2hJhpOVq9uVmJ6Jolq8UP0Mu9lXHRttB6.png', 0, '2020-09-09 05:43:53', '2020-09-09 05:43:53');
 
 -- --------------------------------------------------------
 
@@ -255,7 +257,9 @@ INSERT INTO `galleries` (`id`, `category`, `title`, `caption`, `img`, `sub_folde
 (14, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
 (15, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
 (16, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
-(17, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03');
+(17, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 3', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
+(18, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 7', '2020-09-07 06:05:03', '2020-09-07 06:05:03'),
+(19, 'student', 'this is title', 'this is caption', 'admin/images/gallery/student/class session/2d4Ekdd1HLpsXNpQhkiHjVTvzW0mzaK1Fsxz8yOy.png', 'class session 78', '2020-09-07 06:05:03', '2020-09-07 06:05:03');
 
 -- --------------------------------------------------------
 
@@ -598,7 +602,7 @@ CREATE TABLE `teams` (
 
 INSERT INTO `teams` (`id`, `name`, `email`, `phone`, `education`, `experience`, `address`, `designation`, `detail`, `img`, `meta_name`, `meta_detail`, `created_at`, `updated_at`) VALUES
 (1, 'Ahsan Raza', 'ahsanraza363@gmail.com', '+92 313 6650965', 'BS-IT, MS-CS', '4 years', '25-a, batala colony Faisalabad', 'Co Founder', '<!DOCTYPE html>\r\n<html>\r\n<head>\r\n</head>\r\n<body>\r\n<p>OPTIMUM-TECH enjoying a very positive reputation across the town by the grace of Allah Almighty</p>\r\n</body>\r\n</html>', 'admin/images/team/stj7r136SWCSMyLXaL44oeDEIMoihoqBheOF5XXR.jpeg', 'meta name', 'meta detail', '2020-08-07 02:37:43', '2020-09-05 00:54:46'),
-(3, 'Ali', '', '', '', '', '', 'Campus Manager', 'Our main focus is to make our Students enough capable to support their family financially.', 'admin/images/team/YBZ2y3qntsDzs7vVpitnRn57lxC18CbW6yg3pukV.jpeg', '', '', '2020-08-08 01:19:20', '2020-08-08 01:26:02'),
+(3, 'Ali', '', '', '', '', '', 'Campus Manager', 'Our main focus is to make our Students enough capable.', 'admin/images/team/YBZ2y3qntsDzs7vVpitnRn57lxC18CbW6yg3pukV.jpeg', '', '', '2020-08-08 01:19:20', '2020-08-08 01:26:02'),
 (4, 'Ahmad', '', '', '', '', '', 'Head Tourism', 'Tourism is travel for pleasure to boost energy of our staff and students to', 'admin/images/team/m3oiesywRZoWcfQ1Zd85lT4odbbNdfrQKYKPOcfM.jpeg', '', '', '2020-08-08 01:20:39', '2020-08-08 01:26:25');
 
 -- --------------------------------------------------------
@@ -806,7 +810,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applications`
 --
 ALTER TABLE `applications`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `batches`
@@ -818,7 +822,7 @@ ALTER TABLE `batches`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -854,7 +858,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `main_menus`
@@ -872,7 +876,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `portfolios`
@@ -908,7 +912,7 @@ ALTER TABLE `site_contacts`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `sub_menus`

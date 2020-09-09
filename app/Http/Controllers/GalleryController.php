@@ -58,7 +58,7 @@ class GalleryController extends Controller
             }
             $photo = new Gallery();
             $photo->category = $request->category;
-            $photo->title = $request->title;
+            // $photo->title = $request->title;
             $photo->caption = $request->caption;
             $photo->sub_folder = $request->sub_folder;
             $photo->img = $filename;
@@ -126,7 +126,7 @@ class GalleryController extends Controller
 
             $photo = Gallery::find($id);
             $photo->category = $request->category;
-            $photo->title = $request->title;
+            // $photo->title = $request->title;
             $photo->caption = $request->caption;
             $photo->sub_folder = $request->sub_folder;
             $photo->img = $filename;
@@ -176,7 +176,7 @@ class GalleryController extends Controller
 
     public function loadSubFolder(Request $request)
     {
-        $sub_folders = Gallery::where('category',$request->main)->select('sub_folder')->distinct()->get();
+        $sub_folders = Gallery::where('category',$request->main)->select('sub_folder')->distinct()->take(12)->get();
         return view('partials.load_all_sub_folder',compact('sub_folders'));
         // $output = "";
         // foreach ($sub_folders as $folder)
@@ -197,9 +197,9 @@ class GalleryController extends Controller
 
     }
 
-     public function loadAllSubFolder(Request $request)
+    public function loadAllSubFolder(Request $request)
     {
-        $sub_folders = Gallery::select('sub_folder')->distinct()->get();
+        $sub_folders = Gallery::select('sub_folder')->distinct()->take(12)->get();
         return view('partials.load_all_sub_folder',compact('sub_folders'));
         // foreach ($sub_folders as $folder)
         // {
@@ -226,14 +226,7 @@ class GalleryController extends Controller
         foreach ($sub_folders as $folder)
         {
             $img = 'storage/'.$folder->img;
-            $output.='<div class="col-md-4 mt-5">
-            <img  title="Principal OF Degree College Fsd Visited Optimum" src="'.asset($img).'"/>
-            </div>';
-
-
-
-
-            
+            $output.='<div class="col-md-4 mt-5"><img src="'.asset($img).'" title="'.$folder->caption.'"/></div>';
         }
         return $output;
 
