@@ -6,6 +6,8 @@ use App\Portfolio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\MainMenu;
+use App\SiteContact;
+use App\Product;
 class PortfolioController extends Controller
 {
    
@@ -19,7 +21,9 @@ class PortfolioController extends Controller
     {
         $portfolios = Portfolio::all();
         $mains = MainMenu::all();
-        return view('portfolios')->with(compact(['portfolios','mains']));
+        $contact = SiteContact::first();
+        $products = Product::all();
+        return view('portfolios')->with(compact(['portfolios','mains','contact','products']));
     }
 
     /**
@@ -151,7 +155,9 @@ class PortfolioController extends Controller
     {
         $portfolio = Portfolio::where('id',$id)->first();
         $mains = MainMenu::all();
-        return view('portfolio')->with(compact(['portfolio','mains']));
+        $contact = SiteContact::first();
+        $products = Product::all();
+        return view('portfolio')->with(compact(['portfolio','mains','contact','products']));
     }
 
     public function edit($id)

@@ -24,7 +24,7 @@
 
       <div class="row">
         <div class="col-sm-8">
-          <section id="home" class="divider"  style="background-color: #f7f7f7;">
+          <section id="home" class="divider">
               <div id="portfolio" class="owl-carousel owl-theme" style="height: 300px; width: 750px;">
                   @php $img1 = 'storage/'.$portfolio->img1 @endphp
                   @php $img2 = 'storage/'.$portfolio->img2 @endphp

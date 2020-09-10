@@ -1,44 +1,49 @@
 @extends('layouts.basic')
 
 @section('head')
-	@include('includes.head')
+  @include('includes.head')
 @endsection<!-- end head -->
 
 @section('header')
-	@include('includes.header')
+  @include('includes.header')
 @endsection<!-- end header -->
 
 
 @section('content')
-	
+  
 <section >
   <div class="container" >
     <div class="section-content">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-3 pb-sm-20 mt-10 ">
+        <div class="col-xs-12 col-sm-12 col-md-3 pb-sm-20 mt-10 ">
           <h2 class="line-bottom font-20 text-theme-colored text-uppercase mb-10 mt-0">Welcome to Our<span class="text-theme-color-2"> Products</span></h2>
           <!-- <p class="lead font-18"></p> -->
           <p style="text-align: justify;">Optimum Tech is regarded as a development House located at Faisalabad.
              We are registered and are providing facilities to our valuable customers/students since 2005 and working on our products because we believe in quality. Optimum tech offer's multiple products like  Ecommerce website, Development of Taxi App, Hospital Management system, Hotels Rooms Reservation System, Finance Management System, job portal, Hajj Umrah vouchers Management system, Student information System etc.</p>
          <!--  <a class="btn btn-colored btn-theme-colored btn-sm" href="#">View Details</a> -->
         </div>
-        @if($products->count()>0)
+        <div class="col-xs-12 col-sm-12 col-md-9 pb-sm-20 mt-10 ">
+            
+            @if($products->count()>0)
 
-            @foreach($products as $product)
-              @php $img = 'storage/'.$product->img @endphp
-              <div class="col-xs-12 col-sm-6 col-md-3 pb-sm-20 mt-10">
-                <div class="image-box-thum">
-                  <img class="img-fullwidth" alt="" src="{{ asset($img) }} ">
-                </div>
-                <div class="image-box-details pt-20 pb-sm-20">
-                  <h4 class="title text-uppercase line-bottom mt-0">{{ $product->name }}</h4>
-                  <p class="desc mb-10">{{ $product->detail }}</p>
-                  <a href="" class="btn btn-xs btn-theme-colored">Ask for demo</a> <a href="{{ route('Product.Detail',$product->id) }}" target="_blank" class="btn btn-xs btn-theme-colored">Explore</a>
-                </div>
-              </div>
-            @endforeach
-
-        @endif
+                @foreach($products as $product)
+                  @php $img = 'storage/'.$product->img @endphp
+                  <div class="col-xs-12 col-sm-6 col-md-4 pb-sm-20 mt-30">
+                    <div class="image-box-thum">
+                      <img class="img-fullwidth" alt="" src="{{ asset($img) }} ">
+                    </div>
+                    <div class="image-box-details pt-20 pb-sm-20">
+                      <h4 class="title text-uppercase line-bottom mt-0">{{ $product->name }}</h4>
+                      {{--<p class="desc mb-10">{!! $product->detail !!}</p>--}}
+                      <a href="" class="btn btn-xs btn-theme-colored">Ask for demo</a> <a href="{{ route('Product.Detail',$product->id) }}" target="_blank" class="btn btn-xs btn-theme-colored">Explore</a>
+                    </div>
+                  </div>
+                @endforeach
+    
+            @endif    
+        
+        </div>
+        
       </div>
     </div>
   </div>
@@ -84,5 +89,5 @@
 @endsection<!-- end content -->
 
 @section('footer')
-	@include('includes.footer')
+  @include('includes.footer')
 @endsection<!-- end footer -->
