@@ -52,7 +52,7 @@
 	                    <div class="form-group col-md-6">
 	                      <label for="first_name">First Name</label>
 	                      <input type="hidden" name="course" value="{{ $course->id }}">
-	                      <input id="first_name" type="test" name="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="First Name">
+	                      <input id="first_name" type="test" name="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="Enter First Name">
 	                      <p id="first_name_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
 	                      {{--@error('first_name')
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
@@ -60,7 +60,7 @@
 	                    </div>
 	                    <div class="form-group col-md-6">
 	                      <label for="last_name">Last Name</label>
-	                      <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" class="form-control" placeholder="Last Name">
+	                      <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" class="form-control" placeholder="Enter Last Name">
 	                       <p id="last_name_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
 	                      {{--@error('last_name')
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
@@ -70,7 +70,7 @@
 
 	                       <div class="form-group">
 	                        <label for="email">Email Address</label>
-	                        <input id="email" type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Enter CNIC Number">
+	                        <input id="email" type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Enter Email Adress Ex.test@gmail.com">
 	                         <p id="email_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
 	                        {{--@error('email')
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
@@ -79,7 +79,7 @@
 
 	                      <div class="form-group">
 	                        <label for="cnic">Identity Card Number</label>
-	                        <input id="cnic" type="text" name="cnic" maxlength="15" value="{{ old('cnic') }}" class="form-control" placeholder="Enter CNIC Number">
+	                        <input id="cnic" type="text" name="cnic" maxlength="15" value="{{ old('cnic') }}" class="form-control" placeholder="Enter CNIC Number Ex. 32325-45678903-2">
 	                         <p id="cnic_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
 	                        {{--@error('cnic')
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
@@ -88,7 +88,7 @@
 
 	                      <div class="form-group">
 	                        <label for="phone">Phone</label>
-	                        <input id="phone" type="text" name="phone" maxlength="11" value="{{ old('phone') }}" class="form-control" placeholder="Enter Phone Number">
+	                        <input id="phone" type="text" name="phone" maxlength="11" value="{{ old('phone') }}" class="form-control" placeholder="Enter Phone Number Ex. 03014576890">
 	                         <p id="phone_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
 	                        {{--@error('phone')
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
@@ -98,7 +98,7 @@
 
 	                      <div class="form-group">
 	                        <label for="address">Address</label>
-	                        <textarea id="address" name="address" class="form-control" value="{{ old('address') }}" placeholder="Street address">{{ old('address') }}</textarea>
+	                        <textarea id="address" name="address" class="form-control" value="{{ old('address') }}" placeholder="Enter Street Address">{{ old('address') }}</textarea>
 	                        <p id="address_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
 	                        {{--@error('address')
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
@@ -108,7 +108,7 @@
 	                    </div>
 	                    <div class="form-group col-md-12">
 	                      <label for="city">City</label>
-	                      <input id="city" type="text" name="city" value="{{ old('city') }}" class="form-control" placeholder="City">
+	                      <input id="city" type="text" name="city" value="{{ old('city') }}" class="form-control" placeholder="Enter City">
 	                       <p id="city_error" class="text-danger" style="color: #ff7f7f;"></p>
 	                      {{--@error('city')
 	                      	  <p class="text-danger">{{ $message }}</p>
@@ -133,7 +133,7 @@
 	                    
 	                    <div class="form-group col-md-12">
 		                      <label for="zip">Zip/Postal Code</label>
-		                      <input id="zip" type="text" name="zip" value="{{ old('zip') }}" class="form-control" placeholder="Zip/Postal Code">
+		                      <input id="zip" type="text" name="zip" value="{{ old('zip') }}" class="form-control" placeholder="Enter Zip/Postal Code">
 		                       <p id="zip_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
 		                       {{--@error('zip')
 		                      	  <p class="text-danger">{{ $message }}</p>
