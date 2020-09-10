@@ -46,7 +46,8 @@ class PortfolioController extends Controller
             'url'=>'required | active_url',
             'objective'=>'bail | required',
             'technology'=>'required',
-            'img'=>'required'
+            'img'=>'required',
+            'detail'=>'required',
 
         ]);
 
@@ -140,6 +141,7 @@ class PortfolioController extends Controller
                $portfolio->img3 = $filename3;
                $portfolio->objective = $request->objective;
                $portfolio->technology = $request->technology;
+               $portfolio->detail = $request->detail;
                $portfolio->url = $request->url;
                if($portfolio->save())
                 {
@@ -174,6 +176,7 @@ class PortfolioController extends Controller
             'url'=>'required | active_url',
             'objective'=>'bail | required',
             'technology'=>'required',
+            'detail'=>'required'
 
         ]);
 
@@ -269,6 +272,7 @@ class PortfolioController extends Controller
            $portfolio->img3 = $filename3;
            $portfolio->objective = $request->objective;
            $portfolio->technology = $request->technology;
+           $portfolio->detail = $request->detail;
            $portfolio->url = $request->url;
            if($portfolio->save())
             {

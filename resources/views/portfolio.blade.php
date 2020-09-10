@@ -62,6 +62,12 @@
             <p class="text-muted">{{ ucfirst($portfolio->technology) }}</p>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p>{!! $portfolio->detail !!}</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
