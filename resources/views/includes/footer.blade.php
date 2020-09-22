@@ -116,6 +116,14 @@
   <!-- JS | Custom script for all pages -->
   <script src="{{ asset('js/custom.js') }} "></script>
   <script>
+
+  function galleryImage(id)
+  {
+      var imgSrc =$('#image'+id).attr('src');
+      var img = $('#img01');
+      img.attr("src",imgSrc);
+      $('.myModel').css('display','block');
+  }
     $(document).ready(function() {
 
       var sync1 = $("#sync1");

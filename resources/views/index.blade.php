@@ -64,7 +64,60 @@
 @endsection
 
 @section('content')
-	
+	<style type="text/css">
+      .myModel {
+          display: none; 
+          position: fixed;
+          z-index: 9999;
+          padding-top: 100px; 
+          left: 0;
+          top: 0;
+          width: 100%; 
+          height: 100%; 
+          overflow: auto; 
+          background-color: rgb(0,0,0); 
+          background-color: rgba(0,0,0,0.9); 
+        }
+
+        .modal-content {
+          display: block;
+          width: 80%;
+          max-width: 700px;
+          margin-left: 24%;
+        }
+        
+        .modal-content{
+          animation-name: zoom;
+          animation-duration: 0.6s;
+        }
+
+        .close {
+          position: absolute;
+          top: 15px;
+          right: 35px;
+          color: #f1f1f1;
+          font-size: 40px;
+          font-weight: bold;
+          transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+          color: #bbb;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        @media only screen and (max-width: 700px){
+          .modal-content {
+            width: 100%;
+          }
+        }                      
+        </style>
+        <div class="myModel" >
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+        </div>
 	<div class="main-content">
 		
 		<!-- Section: home -->

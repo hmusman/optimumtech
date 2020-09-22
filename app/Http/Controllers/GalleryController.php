@@ -156,7 +156,7 @@ class GalleryController extends Controller
     public function getMainFolder(Request $request)
     {
 
-        $data= Gallery::where('category',$request->val)->get();
+        $data= Gallery::where('category',$request->val)->select('sub_folder')->distinct()->get();
         $output = '';
         
 
@@ -230,7 +230,7 @@ class GalleryController extends Controller
         foreach ($sub_folders as $folder)
         {
             $img = 'storage/'.$folder->img;
-            $output.='<div class="col-md-4 mt-5"><img src="'.asset($img).'" title="'.$folder->caption.'"/></div>';
+            $output.='<div class="col-md-4 mt-5"><img src="'.asset($img).'" onclick="galleryImage('.$folder->id.');"  title="'.$folder->caption.'" style="height:186px !important;" id="image'.$folder->id.'"/></div>';
         }
         return $output;
 
