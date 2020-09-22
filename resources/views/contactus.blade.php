@@ -284,7 +284,7 @@ p{
           </div>
           <div class="col-md-8">
             <h3 class="line-bottom mt-0 mb-20">Interested in discussing?</h3>
-            <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error optio in quia ipsum quae neque alias eligendi, nulla nisi. Veniam ut quis similique culpa natus dolor aliquam officiis ratione libero. Expedita asperiores aliquam provident amet dolores.</p>
+            <p class="mb-20">We are available at 10:00 am to 7:00 pm. Contact us with your questions you want to ask. </p>
             
                   @if(Session::has('success'))
                       <div class="alert alert-success">
