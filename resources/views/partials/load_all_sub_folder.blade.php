@@ -19,7 +19,7 @@ document.getElementById("DynamicwidthOfGallary").style.height="900px";
 </script>
 
 @endif
-@foreach ($sub_folders as $folder)
+@foreach ($sub_folders->unique('sub_folder') as $folder)
         @php $img = 'storage/'.$folder->img @endphp
         <a class="Card col-md-4" style="float: left;" onClick="openMyGallery(1,'{{ $folder->sub_folder }}')" >
             <div class="Card-thumb">
