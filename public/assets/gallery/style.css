@@ -29,7 +29,7 @@ left: -1209px !important;
 } */
 .Card:nth-child(6) {
 
-color: aqua !important;
+/* color: aqua !important; */
 
 position: relative !important;
 top: 300px !important;
@@ -39,7 +39,7 @@ left: -1334px !important;
 
 .Card:nth-child(7) {
 
-color: rgb(115, 255, 0) !important;
+/* color: rgb(115, 255, 0) !important; */
 
 position: relative !important;
 top: 300px !important;
@@ -48,7 +48,7 @@ left: -1334px !important;
 }
 .Card:nth-child(8) {
 
-color: aqua !important;
+/* color: aqua !important; */
 
 position: relative !important;
 top: 300px !important;
@@ -57,7 +57,7 @@ left: -1334px !important;
 }
 .Card:nth-child(9) {
 
-color: rgb(218, 13, 23) !important;
+/* color: rgb(218, 13, 23) !important; */
 
 position: relative !important;
 top: 300px !important;
@@ -66,7 +66,7 @@ left: -1334px !important;
 }
 .Card:nth-child(10) {
 
-color: aqua !important;
+/* color: aqua !important; */
 
 position: relative !important;
 top: 600px !important;
@@ -75,7 +75,7 @@ left: -2673px !important;
 }
 .Card:nth-child(11) {
 
-color: aqua !important;
+/* color: aqua !important; */
 
 position: relative !important;
 top: 600px !important;
@@ -84,7 +84,7 @@ left: -2673px !important;
 }
 .Card:nth-child(12) {
 
-color: aqua !important;
+/* color: aqua !important; */
 
 position: relative !important;
 top: 600px !important;
@@ -94,7 +94,7 @@ left: -2673px !important;
 
 .Card:nth-child(13) {
 
-color: rgb(37, 22, 247) !important;
+/* color: rgb(37, 22, 247) !important; */
 
 position: relative !important;
 top: 600px !important;
@@ -169,7 +169,9 @@ left: -2673px !important;
 }
 .Card-image {
   position: relative;
-  background-size: auto 100%;
+  /* background-size: auto 100%; */
+  background-size:100%;
+
   background-position: center;
   background-repeat: no-repeat;
   background-color: #607d8b;

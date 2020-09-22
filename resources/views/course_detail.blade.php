@@ -25,21 +25,27 @@
 .card {
   margin-bottom: 30px;
   margin-top: 30px;
-  width: 300px;
-  height: 300px;
+  /* width: 300px;
+  height: 300px; */
+  width: 150px !important;
+  height: 150px !important;
+  min-height: 150px !important;
   border-radius: 40px;
   box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
   transition: 0.4s;
   padding-bottom: 0% !important;
-  	padding: 0px 5px 0px 5px !important;
+  padding: 0px 5px 0px 5px !important;
+  background: #202c45 !important;
+  color: white !important;
+  border-left: 5px solid #f2184f;
 }
-.card:hover{
+/* .card:hover{
 	background-color: #202c45;
 	border-left: 5px solid #f2184f;
 	font-size: 1vw !important;
 
-}
+} */
 
 .card .card_image {
   width: inherit;
@@ -48,9 +54,12 @@
 }
 
 .card .card_image img {
-    width: 120px;
+    /* width: 120px;
     height: 120px;
-    border-radius: 40px;
+     */
+    width: 70px;
+    height: 69px;
+    /* border-radius: 40px; */
     object-fit: cover;
     /*opacity: 0.3;*/
     margin-top: 20px;
@@ -62,19 +71,22 @@
   font-family: sans-serif;
   /*font-weight: bold;*/
   /*font-size: 30px;*/
-  margin-top: -153px;
+  /* margin-top: -153px; */
+  margin-top: -67px;
   height: 40px;
-  color: #626363;
+  /* color: #626363; */
+  color: white
 }
 
 
 
-.card:hover {
+/* .card:hover {
   transform: scale(0.9, 0.9);
   box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
     -5px -5px 30px 15px rgba(0,0,0,0.22);
-}
-
+} */
+.card h3{ color: white;  }
+.card h4{ color: white; font-size: 14px; }
 .card:hover  h3{
 	color: white !important;
 }
@@ -103,6 +115,18 @@
 	color: #087b92;
 }
 
+.card_image_internal{
+	/* width: 30%;
+    margin: 0px auto;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin-top: 20px; */
+    width: 54%;
+    margin-left: 18%;
+/*     border: 1px solid white;
+ */    border-radius: 50%;
+    margin-top: 20px;
+}
 
 @media all and (max-width: 500px) {
   .card-list {
@@ -151,53 +175,67 @@
 	          </div>
 	        
 	        </div>
+	        
 	        <div class="cards-list">
 				<div class="card 1">
 				  <div class="card_image">
-				  	<img src="{{asset('assets/images/location.png')}}" alt=""> 
+				  		<div class="card_image_internal">
+				  			<a href="#s"><i class="fa fa-map-marker" style="font-size: 50px;color: white;"></i></a>
+				  		</div>
+				  		
 				  </div>
 				  <div class="card_title">
-				  	<h3 class="mt-0">Our Office Location</h3>
-	                <p>{{ $contact->address }}</p>
-				    <a href="#">View on Map <i class="fa fa-long-arrow-right"></i></a>
+				  	<h4 class="mt-0">Our Office Location</h4>
+	                <!-- <p>{{ $contact->address }}</p>
+				    <a href="#">View on Map <i class="fa fa-long-arrow-right"></i></a> -->
 				  </div>
 				</div>
 
 				 <div class="card 2">
 				  <div class="card_image">
-				  	<img src="{{asset('assets/images/phone.png')}}" alt=""> 
+
+				  		<div class="card_image_internal">
+				  			<a href="tel:{{ $contact->phone }}"><i class="fa fa-phone" style="font-size: 50px;color: white;"></i></a>
+				  		</div>
+				  	<!-- <img src="{{asset('assets/images/phone.png')}}" alt="">  -->
 				   </div>
 				  <div class="card_title title-white">
-				    <h3 class="mt-0">Contact Number</h3>
-	                <p>{{ $contact->phone }}</p>
-				    <a href="tel:{{ $contact->phone }}">Make Call <i class="fa fa-long-arrow-right"></i></a>
+				    <h4 class="mt-0">Contact Number</h4>
+	               <!--  <p>{{ $contact->phone }}</p>
+				    <a href="tel:{{ $contact->phone }}">Make Call <i class="fa fa-long-arrow-right"></i></a> -->
 				  </div>
 				</div>
 
 				<div class="card 3">
 				  <div class="card_image">
-				  	<img src="{{asset('assets/images/mail.png')}}" alt=""> 
+				  		<div class="card_image_internal">
+				  			<a href="mailto:{{ $contact->email }}"><i class="fa fa-envelope" style="font-size: 50px;color: white;"></i></a>
+				  		</div>
+				  	
+				  	<!-- <img src="{{asset('assets/images/mail.png')}}" alt="">  -->
 				  </div>
 				  <div class="card_title">
-				    <h3 class="mt-0">Email Address</h3>
-	                <p>{{ $contact->email }}</p>
-				    <a href="mailto:{{ $contact->email }}">Send Mail <i class="fa fa-long-arrow-right"></i></a>
+				    <h4 class="mt-0">Email Address</h4>
+	               <!--  <p>{{ $contact->email }}</p>
+				    <a href="mailto:{{ $contact->email }}">Send Mail <i class="fa fa-long-arrow-right"></i></a> -->
 				  </div>
 				</div>
 				  
 				  <div class="card 4">
 				  <div class="card_image">
-				  	<img src="{{asset('assets/images/skype.png')}}" alt=""> 
+				  	<div class="card_image_internal">
+				  			<a href="skype:{{ $contact->skype }}"><i class="fa fa-skype" style="font-size: 50px;color: white;"></i></a>
+				  		</div>
+				  	<!-- <img src="{{asset('assets/images/skype.png')}}" alt="">  -->
 				  </div>
 				  <div class="card_title title-black">
-				    <h3 class="mt-0">Optimum Skype</h3>
-	                <p>Skype Address</p>
-				    <a href="skype:{{ $contact->skype }}">Make Skype Call <i class="fa fa-long-arrow-right"></i></a>
+				    <h4 class="mt-0">Optimum Skype</h4>
+	                <!-- <p>Skype Address</p>
+				    <a href="skype:{{ $contact->skype }}">Make Skype Call <i class="fa fa-long-arrow-right"></i></a> -->
 				  </div>
 				  </div>
 			</div>		
 
-        
         <!-- <div class="row">
          
 	        <div class="col-xs-3 col-sm-6 col-md-3">

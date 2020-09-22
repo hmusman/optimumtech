@@ -26,7 +26,7 @@ class CourseController extends Controller
     {
         $validations = Validator::make($request->all(),[
             'title'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:500',
+            'detail'=>'bail | required',
             'img'=>'required',
             'type'=>'required',
             'price'=>'bail | required | numeric',
@@ -46,13 +46,13 @@ class CourseController extends Controller
             if($ext =='png' || $ext=='jpg' || $ext=='jpeg') 
             {
                 $size =getimagesize($img);
-                if ($size[0]==220 && $size[1]==160)
+                if ($size[0]==1280 && $size[1]==720)
                 {
                    $filename = $request->file('img')->store('admin/images/courses','public');
                 }
                 else
                 {
-                    return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 220*160'])->withInput();
+                    return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 1280*720'])->withInput();
                 }
                 
             }
@@ -103,7 +103,7 @@ class CourseController extends Controller
     {
         $validations = Validator::make($request->all(),[
             'title'=>'bail | required | string | max:25',
-            'detail'=>'bail | required | string | max:500',
+            'detail'=>'bail | required',
             'type'=>'required',
             'price'=>'bail | required | numeric',
             'meta_name'=>'bail | required | string',
@@ -123,13 +123,13 @@ class CourseController extends Controller
                 if($ext =='png' || $ext=='jpg' || $ext=='jpeg') 
                 {
                    $size =getimagesize($request->file('img'));
-                    if ($size[0]==220 && $size[1]==160)
+                    if ($size[0]==1280 && $size[1]==720)
                     {
                        $filename = $request->file('img')->store('admin/images/courses','public');
                     }
                     else
                     {
-                        return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 220*160'])->withInput();
+                        return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 1280*720'])->withInput();
                     }
                 }
                 else

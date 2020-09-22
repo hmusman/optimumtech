@@ -724,7 +724,7 @@
 			            		@php $img = 'storage/'.$member->img @endphp
 			            		<div class="col-sm-3 col-md-3 sm-text-center ">
 					                <div class="team maxwidth400" style="margin-right: -7px !important">
-					                  	<div class="thumb"><img  class="img-fullwidthnew" src="{{  asset($img) }}" alt=""></div>
+					                  	<div class="thumb"><img  class="img-fullwidthnew" src="{{  asset($img) }}" alt="" style="width: 50% !important; "></div>
 						                <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
 						                    <h4 class="name text-theme-color-2 mt-0">{{ $member->name }} <br> <small>{{ $member->designation }}</small></h4>
 						                    <p class="mb-20">{!! \Illuminate\Support\Str::limit($member->detail,100,$end="...") !!}</p>

@@ -111,7 +111,7 @@
 
 
                                         <div class="form-group row">
-                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture</label>
+                                            <label for="example-text-input" class="col-md-2 col-form-label">Picture 1280*720</label>
                                             <div class="col-md-10">
                                                 <input name="img" type="file" style="margin-left: 10px;" >
                                                 @error('img')

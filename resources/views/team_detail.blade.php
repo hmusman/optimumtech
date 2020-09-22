@@ -61,15 +61,18 @@
   cursor: pointer;
   transition: 0.4s;
   padding-bottom: 0% !important;
+  background-color: #202c45;
+  border-left: 5px solid #f2184f;
+  color: white;
 }
 .card p{
   margin-top: 0px;
   font-size: 17px;
 }
-.card:hover{
+/* .card:hover{
   background-color: #202c45;
     border-left: 5px solid #f2184f;
-}
+} */
 .card .card_image {
   /*width: inherit;*/
   height: inherit;
@@ -100,22 +103,22 @@
   margin-top: 12px;
 }
 
-.card:hover {
+/* .card:hover {
   transform: scale(0.9, 0.9);
   box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
     -5px -5px 30px 15px rgba(0,0,0,0.22);
-}
-
+} */
+.card h3{ color: white;  }
 .card:hover  h3{
   color: white !important;
 }
-.card:hover  p{
+.card  p{
   color: white !important;
 }
-.card:hover  a{
+.card  a{
   color: white !important;
 }
-.card:hover img{
+.card img{
   filter: invert(1.0);
 }
 .title-white {
@@ -192,7 +195,8 @@
                     <div class="row">
                       <div class="col-md-3">
                           <div class="card_image">
-                            <img src="{{asset('assets/images/education.png')}}" alt=""> 
+                            <i class="fa fa-graduation-cap" style="font-size: 50px;margin-top: 30px;"></i>
+                            <!-- <img src="{{asset('assets/images/education.png')}}" alt="">  -->
                           </div>
                       </div>
                       <div class="col-md-9">
@@ -210,7 +214,8 @@
                     <div class="row">
                       <div class="col-md-3">
                         <div class="card_image">
-                          <img src="{{asset('assets/images/experience.webp')}}" alt=""> 
+                         <i class="fa fa-black-tie" style="font-size: 50px;margin-top: 30px;"></i>
+                         <!--  <img src="{{asset('assets/images/experience.webp')}}" alt="">  -->
                          </div>
                       </div>
                       <div class="col-md-9">
@@ -227,7 +232,8 @@
                     <div class="row">
                         <div class="col-md-3">
                           <div class="card_image">
-                            <img src="{{asset('assets/images/location.png')}}" alt=""> 
+                            <i class="fa fa-map-marker" style="font-size: 50px;margin-top: 30px;"></i>
+                            <!-- <img src="{{asset('assets/images/location.png')}}" alt="">  -->
                           </div>
                         </div>
                         <div class="col-md-9">
@@ -244,7 +250,8 @@
                       <div class="row">
                           <div class="col-md-3">
                           <div class="card_image">
-                            <img src="{{asset('assets/images/phone.png')}}" alt=""> 
+                            <i class="fa fa-phone" style="font-size: 50px;margin-top: 30px;"></i>
+                            <!-- <img src="{{asset('assets/images/phone.png')}}" alt=""> --> 
                           </div>
                           </div>
                           <div class="col-md-9">

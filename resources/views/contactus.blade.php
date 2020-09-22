@@ -61,15 +61,17 @@
   cursor: pointer;
   transition: 0.4s;
   padding-bottom: 0% !important;
+  background-color: #202c45;
+  border-left: 5px solid #f2184f;
 }
 .card p{
   margin-top: -15px;
       font-size: 14px !important;
 }
-.card:hover{
+/* .card:hover{
   background-color: #202c45;
     border-left: 5px solid #f2184f;
-}
+} */
 .card .card_image {
   /*width: inherit;*/
   height: inherit;
@@ -95,26 +97,27 @@
   /*font-size: 30px;*/
   /*margin-top: -146px;*/
   /*height: 0px;*/
-  color: #626363;
+  /* color: #626363; */
+  color: white;
 }
 
-.card:hover {
+/* .card:hover {
   transform: scale(0.9, 0.9);
   box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
     -5px -5px 30px 15px rgba(0,0,0,0.22);
-}
+} */
 
-.card:hover  h3{
+.card  h3{
   color: white !important;
       font-size: 14px !important;
 }
-.card:hover  p{
+.card p{
   color: white !important;
 }
-.card:hover  a{
+.card  a{
   color: white !important;
 }
-.card:hover img{
+.card img{
   filter: invert(1.0);
 }
 .title-white {
@@ -180,7 +183,8 @@ p{
                     <div class="row">
                       <div class="col-md-3">
                           <div class="card_image">
-                            <img src="{{asset('assets/images/location.png')}}" alt=""> 
+                            <i class="fa fa-map-marker" style="font-size: 50px;color:white;"></i>
+                            <!-- <img src="{{asset('assets/images/location.png')}}" alt="">  -->
                           </div>
                       </div>
                       <div class="col-md-9">
@@ -194,10 +198,11 @@ p{
                   </div>
 
                    <div class="card 2">
-                    <div class="row">
+                    <div class="row" style="width: 100%;">
                       <div class="col-md-3">
                         <div class="card_image">
-                          <img src="{{asset('assets/images/phone.png')}}" alt=""> 
+                          <i class="fa fa-phone" style="font-size: 50px;color:white;"></i>
+                          <!-- <img src="{{asset('assets/images/phone.png')}}" alt="">  -->
                          </div>
                       </div>
                       <div class="col-md-9">
@@ -211,10 +216,11 @@ p{
                   </div>
 
                   <div class="card 3">
-                    <div class="row">
+                    <div class="row"style="width: 100%;">
                         <div class="col-md-3">
                           <div class="card_image">
-                            <img src="{{asset('assets/images/mail.png')}}" alt=""> 
+                            <i class="fa fa-envelope" style="font-size: 50px;color:white;"></i>
+                            <!-- <img src="{{asset('assets/images/mail.png')}}" alt="">  -->
                           </div>
                         </div>
                         <div class="col-md-9">
@@ -228,16 +234,17 @@ p{
                   </div>
                     
                     <div class="card 4">
-                      <div class="row">
+                      <div class="row" style="width: 100%;">
                           <div class="col-md-3">
                           <div class="card_image">
-                            <img src="{{asset('assets/images/skype.png')}}" alt=""> 
+                           <i class="fa fa-skype" style="font-size: 50px;color:white;"></i>
+                           <!--  <img src="{{asset('assets/images/skype.png')}}" alt="">  -->
                           </div>
                           </div>
                           <div class="col-md-9">
                               <div class="card_title title-black">
                                 <h3 class="mt-0">Optimum Skype</h3>
-                                      <p>Skypr Address</p>
+                                      <p>Skype Address</p>
                                 <a href="skype:{{ $contact->skype }}">Make Skype Call <i class="fa fa-long-arrow-right"></i></a>
                               </div>
                           </div>

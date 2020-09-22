@@ -176,7 +176,7 @@ class GalleryController extends Controller
 
     public function loadSubFolder(Request $request)
     {
-        $sub_folders = Gallery::where('category',$request->main)->select('sub_folder')->distinct()->take(12)->get();
+        $sub_folders = Gallery::where('category',$request->main)->select('img','sub_folder')->distinct()->take(12)->get();
         return view('partials.load_all_sub_folder',compact('sub_folders'));
         // $output = "";
         // foreach ($sub_folders as $folder)
@@ -199,7 +199,7 @@ class GalleryController extends Controller
 
     public function loadAllSubFolder(Request $request)
     {
-        $sub_folders = Gallery::select('sub_folder')->distinct()->take(12)->get();
+        $sub_folders = Gallery::select('img','sub_folder')->distinct()->take(12)->get();
         return view('partials.load_all_sub_folder',compact('sub_folders'));
         // foreach ($sub_folders as $folder)
         // {
