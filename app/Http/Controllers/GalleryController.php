@@ -42,15 +42,17 @@ class GalleryController extends Controller
             if($ext=='png' || $ext=='jpg' || $ext=='jpeg')
             {
                 $size =getimagesize($img);
-                if ($size[0]==280 && $size[1]==186)
-                {
-                    $path = "admin/images/gallery/".$request->category."/".$request->sub_folder;
-                    $filename = $request->file('img')->store($path,'public');
-                }
-                else
-                {
-                    return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 280*186'])->withInput();
-                }
+                $path = "admin/images/gallery/".$request->category."/".$request->sub_folder;
+                $filename = $request->file('img')->store($path,'public');
+                // if ($size[0]==280 && $size[1]==186)
+                // {
+                //     $path = "admin/images/gallery/".$request->category."/".$request->sub_folder;
+                //     $filename = $request->file('img')->store($path,'public');
+                // }
+                // else
+                // {
+                //     return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 280*186'])->withInput();
+                // }
             }
             else
             {
@@ -104,15 +106,17 @@ class GalleryController extends Controller
                 if($ext=='png' || $ext=='jpg' || $ext=='jpeg')
                 {
                     $size =getimagesize($img);
-                    if ($size[0]==280 && $size[1]==186)
-                    {
-                        $path = "admin/images/gallery/".$request->category."/".$request->sub_folder;
-                        $filename = $request->file('img')->store($path,'public');
-                    }
-                    else
-                    {
-                        return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 280*186'])->withInput();
-                    }
+                    $path = "admin/images/gallery/".$request->category."/".$request->sub_folder;
+                    $filename = $request->file('img')->store($path,'public');
+                    // if ($size[0]==280 && $size[1]==186)
+                    // {
+                    //     $path = "admin/images/gallery/".$request->category."/".$request->sub_folder;
+                    //     $filename = $request->file('img')->store($path,'public');
+                    // }
+                    // else
+                    // {
+                    //     return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 280*186'])->withInput();
+                    // }
                 }
                 else
                 {

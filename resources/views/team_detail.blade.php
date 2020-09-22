@@ -16,7 +16,7 @@
     .card {
       margin-bottom: 25px !important;
       margin-top: 11px !important;
-      width: 100% !important;
+      width: 70% !important;
       height: 116px !important;
       min-height: 256px !important;
       border-radius: 40px !important;
@@ -53,7 +53,7 @@
 .card {
   margin-bottom: 10px;
   margin-top: 11px;
-  width: 100%;
+  width: 70%;
   height: auto;
   min-height: 125px;
   border-radius: 40px;
