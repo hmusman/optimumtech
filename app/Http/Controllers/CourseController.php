@@ -65,6 +65,7 @@ class CourseController extends Controller
                 return back()->withErrors(['existMsg'=>"Course Already Exist"])->withInput();
             }
             $course = new Course();
+            $course->category_id = $request->category;
             $course->title = $request->title;
             $course->detail = $request->detail;
             $course->img= $filename;
@@ -141,6 +142,7 @@ class CourseController extends Controller
 
             
             $course = Course::find($id);
+            $course->category_id = $request->category;
             $course->title = $request->title;
             $course->detail = $request->detail;
             $course->img= $filename;
