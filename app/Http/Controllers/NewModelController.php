@@ -45,13 +45,13 @@ class NewModelController extends Controller
            if($ext=='png' || $ext=='jpg' || $ext=='jpeg')
            {
                $size =getimagesize($img);
-               if ($size[0]==270 && $size[1]==184)
+               if ($size[0]==1280 && $size[1]==720)
                {
                     $filename = $request->file('img')->store('admin/images/news','public');
                }
                else
                {
-                    return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 270*184'])->withInput();
+                    return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 1280*720'])->withInput();
                }
            }
            else
@@ -116,13 +116,13 @@ class NewModelController extends Controller
                    if($ext=='png' || $ext=='jpg' || $ext=='jpeg')
                    {
                        $size =getimagesize($img);
-                       if ($size[0]==270 && $size[1]==184)
+                       if ($size[0]==1280 && $size[1]==720)
                        {
                             $filename = $request->file('img')->store('admin/images/news','public');
                        }
                        else
                        {
-                            return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 270*184'])->withInput();
+                            return back()->withErrors(['sizeWarning'=>'Image Resolution Should Be 1280*720'])->withInput();
                        }
                    }
                    else
