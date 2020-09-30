@@ -180,52 +180,15 @@ class GalleryController extends Controller
 
     public function loadSubFolder(Request $request)
     {
-        $sub_folders = Gallery::where('category',$request->main)->select('img','sub_folder')->distinct()->take(12)->get();
+        $sub_folders = Gallery::where('category',$request->main)->select('img','sub_folder')->distinct()->get();
         return view('partials.load_all_sub_folder',compact('sub_folders'));
-        // $output = "";
-        // foreach ($sub_folders as $folder)
-        // {
-        //     $output.='<a class="Card col-md-4" onClick="openGallery(1)" id="card-1">
-        //                              <div class="Card-thumb">
-        //                                 <div class="Card-shadow"></div>
-        //                                 <div class="Card-shadow"></div>
-        //                                 <div class="Card-shadow"></div>
-        //                                 <div class="Card-image" style="background-image: url(https://robohash.org/1)"></div>
-        //                              </div>
-        //                              <div class="Card-title"><span>'.ucwords($folder->sub_folder).'</span></div>
-        //                              <div class="Card-explore"><span>Explore more</span></div>
-        //                              <button class="Card-button view_all_images" onClick="view_all_images("'.$folder->sub_folder.'");" data-id="'.$folder->sub_folder.'">view more</button>
-        //                         </a>';
-        // }
-        // return $output;
 
     }
 
     public function loadAllSubFolder(Request $request)
     {
-        // if(isset($request->from_ajax)){
-        //     $sub_folders = Gallery::select('img','sub_folder')->distinct()->take(12)->get();
-        //     return $sub_folders;
-        // }else{
-            $sub_folders = Gallery::select('img','sub_folder')->distinct()->take(12)->get();
+            $sub_folders = Gallery::select('sub_folder','img')->distinct()->get();
             return view('partials.load_all_sub_folder',compact('sub_folders'));
-
-        // }
-        // foreach ($sub_folders as $folder)
-        // {
-        //     $output.='<a class="Card col-md-4" onClick="openGallery(1)" >
-        //                              <div class="Card-thumb">
-        //                                 <div class="Card-shadow"></div>
-        //                                 <div class="Card-shadow"></div>
-        //                                 <div class="Card-shadow"></div>
-        //                                 <div class="Card-image" style="background-image: url(https://robohash.org/1)"></div>
-        //                              </div>
-        //                              <div class="Card-title"><span>'.ucwords($folder->sub_folder).'</span></div>
-        //                              <div class="Card-explore"><span>Explore more</span></div>
-        //                              <button class="Card-button view_all_images" onClick="view_all_images("'.$folder->sub_folder.'");" data-id="'.$folder->sub_folder.'">view more</button>
-        //                         </a>';
-        // }
-        // return $output;
 
     }
 
