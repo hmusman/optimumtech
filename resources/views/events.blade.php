@@ -7,7 +7,136 @@
 @section('header')
 	@include('includes.header')
 @endsection<!-- end header -->
+@section('style')
+<style>
+@media (max-width: 500px){
+  .card {
+       margin-left: 0% !important; 
+  }
+}
+.cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
 
+.card {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  /* width: 300px;
+  height: 300px; */
+  width: 150px !important;
+  height: 150px !important;
+  min-height: 150px !important;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+  padding-bottom: 0% !important;
+  padding: 0px 5px 0px 5px !important;
+  background: #202c45 !important;
+  color: white !important;
+  border-left: 5px solid #f2184f;
+}
+/* .card:hover{
+  background-color: #202c45;
+  border-left: 5px solid #f2184f;
+  font-size: 1vw !important;
+
+} */
+
+.card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.card .card_image img {
+    /* width: 120px;
+    height: 120px;
+     */
+    width: 70px;
+    height: 69px;
+    /* border-radius: 40px; */
+    object-fit: cover;
+    /*opacity: 0.3;*/
+    margin-top: 20px;
+}
+
+.card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  /*font-weight: bold;*/
+  /*font-size: 30px;*/
+  /* margin-top: -153px; */
+  margin-top: -67px;
+  height: 40px;
+  /* color: #626363; */
+  color: white
+}
+
+
+
+/* .card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+} */
+.card h3{ color: white;  }
+.card h4{ color: white; font-size: 14px; }
+.card:hover  h3{
+  color: white !important;
+}
+.card:hover  p{
+  color: white !important;
+}
+.card:hover  a{
+  color: white !important;
+}
+.card:hover img{
+  filter: invert(1.0);
+}
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+.button{
+  background-color: transparent;
+    color: #626363;
+    width: 80%;
+}
+.card_title a:hover{
+  color: #087b92;
+}
+
+.card_image_internal{
+  /* width: 30%;
+    margin: 0px auto;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin-top: 20px; */
+    width: 54%;
+    margin-left: 18%;
+/*     border: 1px solid white;
+ */    border-radius: 50%;
+    margin-top: 20px;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+</style>
+@endsection
 
 @section('content')
 	
@@ -282,40 +411,66 @@
     
     <div class="container">
       <div class="row">
-        <h3 class="line-bottom mt-0 mb-50 ml-15">Book Events</h3>
-        <div class="col-xs-3 col-sm-6 col-md-3">
-          <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-map-2 text-theme-colored"></i></a>
-            <div class="media-body">
-              <h5 class="mt-0">Our Office Location</h5>
-              <p>25-a, batala colony Fsd</p>
-            </div>
+        <!-- <h3 class="line-bottom mt-0 mb-50 ml-15">Book Events</h3> -->
+        <div class="cards-list">
+        <div class="card 1">
+          <div class="card_image">
+              <div class="card_image_internal">
+                <a href="#s"><i class="fa fa-map-marker" style="font-size: 50px;color: white;"></i></a>
+              </div>
+              
+          </div>
+          <div class="card_title">
+            <h4 class="mt-0">Our Office Location</h4>
+                  <!-- <p>{{ $contact->address }}</p>
+            <a href="#">View on Map <i class="fa fa-long-arrow-right"></i></a> -->
           </div>
         </div>
-        <div class="col-xs-3 col-sm-6 col-md-3">
-         
-          <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-call text-theme-colored"></i></a>
-              <div class="media-body">
-              <h5 class="mt-0"> <a href="tel:+6494461709">Contact Number</a></h5>
-              <p> <a href="tel:+92 313 6650965">+92 313 6650965</a></p>
-            </div>
-          </div></a>
-        </div>
-        <div class="col-xs-3 col-sm-6 col-md-3">
-          <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="pe-7s-mail text-theme-colored"></i></a>
-            <div class="media-body">
-              <h5 class="mt-0"><a href="mailto:info@optimumtech.com">Email Address</a></h5>
-              <p><a href="mailto:info@optimumtech.com">info@optimumtech.com</a></p>
-            </div>
+
+         <div class="card 2">
+          <div class="card_image">
+
+              <div class="card_image_internal">
+                <a href="tel:{{ $contact->phone }}"><i class="fa fa-phone" style="font-size: 50px;color: white;"></i></a>
+              </div>
+            <!-- <img src="{{asset('assets/images/phone.png')}}" alt="">  -->
+           </div>
+          <div class="card_title title-white">
+            <h4 class="mt-0">Contact Number</h4>
+                 <!--  <p>{{ $contact->phone }}</p>
+            <a href="tel:{{ $contact->phone }}">Make Call <i class="fa fa-long-arrow-right"></i></a> -->
           </div>
         </div>
-        <div class="col-xs-3 col-sm-6 col-md-3">
-          <div class="icon-box media bg-deep p-30 mb-20"> <a class="media-left pull-left flip" href="#"> <i class="fa fa-skype text-theme-colored"></i></a>
-           <a href="skype:usman_gcuf?call" ><div  class="media-body">
-              <h5 class="mt-0">Make a Video Call</h5>
-              <p>OptimumSkype</p></a>
-            </div>
+
+        <div class="card 3">
+          <div class="card_image">
+              <div class="card_image_internal">
+                <a href="mailto:{{ $contact->email }}"><i class="fa fa-envelope" style="font-size: 50px;color: white;"></i></a>
+              </div>
+            
+            <!-- <img src="{{asset('assets/images/mail.png')}}" alt="">  -->
+          </div>
+          <div class="card_title">
+            <h4 class="mt-0">Email Address</h4>
+                 <!--  <p>{{ $contact->email }}</p>
+            <a href="mailto:{{ $contact->email }}">Send Mail <i class="fa fa-long-arrow-right"></i></a> -->
           </div>
         </div>
+          
+          <div class="card 4">
+          <div class="card_image">
+            <div class="card_image_internal">
+                <a href="skype:{{ $contact->skype }}"><i class="fa fa-skype" style="font-size: 50px;color: white;"></i></a>
+              </div>
+            <!-- <img src="{{asset('assets/images/skype.png')}}" alt="">  -->
+          </div>
+          <div class="card_title title-black">
+            <h4 class="mt-0">Optimum Skype</h4>
+                  <!-- <p>Skype Address</p>
+            <a href="skype:{{ $contact->skype }}">Make Skype Call <i class="fa fa-long-arrow-right"></i></a> -->
+          </div>
+          </div>
+      </div>  
       </div>
     </div>
   </section>

@@ -139,7 +139,7 @@
 	    <!-- Section News Ticker -->
 	    @if($latestNews->count() >0)
 		    <section style="background-color: #f7f7f7;">
-		        <div class="container ml-5 mr-5"> 
+		        <div class="container"> 
 			        <div class="section-content">
 			          <div class="row">
 			            <div class="col-md-12">
@@ -155,9 +155,6 @@
 			                 	@endforeach
 			                  
 			                	</li>
-
-
-	                 
 	               			 </ul>
 			              </div>
 			            </div>
@@ -171,7 +168,7 @@
 	      <!-- Section: COURSES -->
 	      <section id="prodSec" class="bg-lighter" style="   
 	      padding-top: 55px;">
-		        <div class="container pb-60 ml-5 mr-5">
+		        <div class="container pb-60">
 		          <div class="section-title mb-10">
 		            <div class="row">
 		              <div class="col-md-3">
@@ -553,7 +550,7 @@
 	      	
 	      	<!-- Section: Why Choose Us -->
 		    <section id="event" class="">
-		        <div class="container pb-50 ml-5 mr-5">
+		        <div class="container pb-50">
 		          <div class="section-content">
 		            <div class="row">
 			              <div class="col-md-6" style="overflow-y: auto;">
@@ -570,7 +567,7 @@
 					                      <li class="pr-0"><i class="fa fa-calendar mr-5"></i> <!--June 26, 2016 --> {{ date('F',strtotime($event->event_date)) }} {{ date('d',strtotime($event->event_date)) }}, {{ date('Y',strtotime($event->event_date)) }},{{ date('h:i a',strtotime($event->event_time)) }} |</li>
 					                      <li class="pl-5"><i class="fa fa-map-marker mr-5"></i>{{ $event->address }}</li>
 					                    </ul>
-					                    <p class="mb-0 font-13">{{ $event->detail }}</p>
+					                    <p class="mb-0 font-13">{{ \Illuminate\Support\Str::limit($event->detail, 100, $end='...') }}</p>
 					                    <a class="text-theme-colored font-13" href="{{ route('EventDetail',$event->id) }}" target="_blank">Read More →</a>
 					                  </div>
 					                </article>
@@ -635,7 +632,7 @@
 	       <!-- Section: blog -->
 	      
        		<section id="blog" class="bg-lighter">
-		        <div class="container ml-5 mr-5" style="padding-top: 0px !important ;">
+		        <div class="container" style="padding-top: 0px !important ;">
 			          <div class="section-title mb-10">
 			            <div class="row mt-5">
 			                <div class="col-md-6">
@@ -762,7 +759,7 @@
 		    @if($members->count()>0)
 
 			    <section>
-			        <div class="container ml-5 mr-5">
+			        <div class="container">
 			          <div class="section-title mb-10">
 			            <div class="row">
 			              <div class="col-md-12">
@@ -780,7 +777,7 @@
 					                  	<div class="thumb"><img  class="img-fullwidthnew" src="{{  asset($img) }}" alt="" style="width: 50% !important; "></div>
 						                <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
 						                    <h4 class="name text-theme-color-2 mt-0">{{ $member->name }} <br> <small>{{ $member->designation }}</small></h4>
-						                    <p class="mb-20">{!! \Illuminate\Support\Str::limit($member->detail,100,$end="...") !!}</p>
+						                    <p class="mb-20">{!! \Illuminate\Support\Str::limit($member->detail,120,$end="...") !!}</p>
 						                    <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
 						                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -812,7 +809,7 @@
 		            </div>
 		          </div>
 		          
-		          <div class="section-content" id="DynamicwidthOfGallary">
+		          <div class="section-content" id="DynamicwidthOfGallary" style="height: auto !important;">
 		            <div class="row">
 		              <div class="col-md-12">
 		                <!-- Works Filter -->
@@ -821,7 +818,7 @@
 		                  <span  > -->
 		              		@if($photoFilter->count()>0)
 		              			@php $i = 1; @endphp
-		              			 <a href="" class="active myFilter all_filter" type="button"> All</a>
+		              			 <a href="" class="active all_filter" type="button"> All</a>
 		              			@foreach($photoFilter as $filter)
 		              				
 		              				<a href="" type="button" class="myFilter" data-id="{{ $filter->category }}"  >{{ ucfirst($filter->category) }}</a>
@@ -837,14 +834,17 @@
 
 		                <!-- partial:index.partial.html -->
 							<section class="Grid ">
-							  <div class="Grid-row my_grid_row"> 
- 								</div>
+							  <div class="row my_grid_row"> 
+ 							  </div>
 							</section> 
 							<section class="Gallery" id="gallery-1">
-							  <div class="Gallery-header"><a class="Gallery-close" onclick="closeAll()">×</a></div>
+							  
+							  <div class="Gallery-header"><h3 id="open-folder" style="text-align: center;"></h3><a class="Gallery-close" onclick="closeAll()">×</a></div>
 
-							  <div class="container row " id="sub_folder_images">
-							   
+							  <div class="container" >
+							   <div class="row" id="sub_folder_images">
+							   	
+							   </div>
 							  </div>
 							  
 							</section>
@@ -859,7 +859,7 @@
 	    @if($clients->count()>0)
 
 	    	<section class="" style="z-index: 12;">
-		        <div class="container pt-10 mt-10 ml-5 mr-5">
+		        <div class="container pt-10 mt-10">
 		          <div class="row">
 		            <div class="col-md-12">
 		              <h3 class="line-bottom mt-0 line-height-1">Our<span class="text-theme-color-2">Clients</span></h3>
@@ -870,7 +870,7 @@
 		    </section>
 
 		    <section class="clients bg-theme-color-2" style="height: 170px !important;">
-		      <div class="container pt-10 pb-0 ml-5 mr-5">
+		      <div class="container pt-10 pb-0">
 		        <div class="row">
 		          <div class="col-md-12">
 		            <!-- Section: Clients -->
@@ -926,7 +926,8 @@
 	      data:{sub:sub},
 	      success:function(data)
 	      {
-	        $('#sub_folder_images').html(data);
+	        $('#sub_folder_images').html(data.output);
+	        $('#open-folder').html(data.folder);
 	      }
 	    });
 	  closeMyAll();
@@ -976,7 +977,8 @@
 		});
 	});
 
-	$('.all_filter').click(function(){
+	$('.all_filter').click(function(event){
+		event.preventDefault();
 		var main = "*";
 		$.ajax({
 			url:"{{ route('LoadAllSubFolder') }}",

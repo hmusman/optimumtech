@@ -40,11 +40,15 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('slick/slick-theme.css') }}"/>
 
   <style>
-    .container{
+    /*.container{
       width: 100% !important;
-    }
+    }*/
     /*.slick-cloned{
       width: 100% !important;
+    }*/
+    /*.btn-read-more {
+        color: #087b92 !important;
+        font-weight: bold;
     }*/
     .img-fullwidthnew {
         width: 100% !important;
@@ -177,5 +181,12 @@
   }
     }
 
-
+@media screen and (min-width: 1400px) {
+  .container {
+    width: 85%;
+  }
+  .Card-thumb {
+    width: 24rem !important;
+  }
+}
   </style>

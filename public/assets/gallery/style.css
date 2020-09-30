@@ -16,91 +16,77 @@ section[class="Grid"]{
 
 }
 
-/* .Card:nth-child(5) {
+/*.Card:nth-child(5) {
+  color: rgb(77, 250, 34) !important;
+  font-size: 20px !important;
+  position: relative !important;
+  top: 300px !important;
+  left: -1209px !important;
+} 
+*/
+/*.Card:nth-child(6) {
 
-color: rgb(77, 250, 34) !important;
-font-size: 20px !important;
-position: relative !important;
-top: 300px !important;
-left: -1209px !important;
+    position: relative !important;
+    top: 280px !important;
+    left: -1146px !important;
 
+}*/
 
+/*.Card:nth-child(7) {
 
-} */
-.Card:nth-child(6) {
+  position: relative !important;
+  top: 280px !important;
+  left: -1146px !important;
 
-/* color: aqua !important; */
-
-position: relative !important;
-top: 300px !important;
-left: -1334px !important;
-
-}
-
-.Card:nth-child(7) {
-
-/* color: rgb(115, 255, 0) !important; */
-
-position: relative !important;
-top: 300px !important;
-left: -1334px !important;
-
-}
-.Card:nth-child(8) {
+}*/
+/*.Card:nth-child(8) {*/
 
 /* color: aqua !important; */
+/*
+  position: relative !important;
+  top: 280px !important;
+  left: -1146px !important;
 
-position: relative !important;
-top: 300px !important;
-left: -1334px !important;
+}*/
+/*.Card:nth-child(9) {
 
-}
-.Card:nth-child(9) {
 
-/* color: rgb(218, 13, 23) !important; */
+    position: relative !important;
+    top: 280px !important;
+    left: -1146px !important;
 
-position: relative !important;
-top: 300px !important;
-left: -1334px !important;
+}*/
+/*.Card:nth-child(10) {
 
-}
-.Card:nth-child(10) {
-
-/* color: aqua !important; */
 
 position: relative !important;
 top: 600px !important;
 left: -2673px !important;
 
-}
-.Card:nth-child(11) {
+}*/
+/*.Card:nth-child(11) {
 
-/* color: aqua !important; */
-
-position: relative !important;
-top: 600px !important;
-left: -2673px !important;
-
-}
-.Card:nth-child(12) {
-
-/* color: aqua !important; */
 
 position: relative !important;
 top: 600px !important;
 left: -2673px !important;
 
-}
-
-.Card:nth-child(13) {
-
-/* color: rgb(37, 22, 247) !important; */
+}*/
+/*.Card:nth-child(12) {
 
 position: relative !important;
 top: 600px !important;
 left: -2673px !important;
 
-}
+}*/
+
+/*.Card:nth-child(13) {
+
+position: relative !important;
+top: 600px !important;
+left: -2673px !important;
+
+}*/
 
 .Grid-row {
   display: -webkit-box;
@@ -118,11 +104,12 @@ left: -2673px !important;
   -webkit-transition: background-color 0.2s cubic-bezier(0.5, 0.3, 0.8, 0.06);
   transition: background-color 0.2s cubic-bezier(0.5, 0.3, 0.8, 0.06);
   color: #000;
-  width: 100%;
+  /*width: 100%;*/
+  background: transparent;
 }
 .Card-thumb {
   position: relative;
-  width: 19rem;
+  width: 16rem;
   height: 11rem;
   -webkit-perspective-origin: 50% 0%;
           perspective-origin: 50% 0%;
@@ -546,7 +533,7 @@ left: -2673px !important;
 .Gallery-close {
   position: absolute;
   right: 1rem;
-  top: 1rem;
+  top: 0rem;
   font-size: 3rem;
   opacity: 0.5;
   cursor: pointer;

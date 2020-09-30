@@ -181,13 +181,13 @@ p{
                <div class="cards-list">
                   <div class="card 1">
                     <div class="row">
-                      <div class="col-md-3">
-                          <div class="card_image">
+                      <div class="col-md-2">
+                          <div class="card_image ml-30 mt-10">
                             <i class="fa fa-map-marker" style="font-size: 50px;color:white;"></i>
                             <!-- <img src="{{asset('assets/images/location.png')}}" alt="">  -->
                           </div>
                       </div>
-                      <div class="col-md-9">
+                      <div class="col-md-10">
                           <div class="card_title">
                             <h3 class="mt-0" style="padding-top: 10px !important;">Our Office Location</h3>
                                   <p>{{ $contact->address }}</p>
@@ -199,13 +199,13 @@ p{
 
                    <div class="card 2">
                     <div class="row" style="width: 100%;">
-                      <div class="col-md-3">
-                        <div class="card_image">
+                      <div class="col-md-2">
+                        <div class="card_image ml-30 mt-10">
                           <i class="fa fa-phone" style="font-size: 50px;color:white;"></i>
                           <!-- <img src="{{asset('assets/images/phone.png')}}" alt="">  -->
                          </div>
                       </div>
-                      <div class="col-md-9">
+                      <div class="col-md-10">
                         <div class="card_title title-white">
                           <h3 class="mt-0">Contact Number</h3>
                           <p>{{ $contact->phone }}</p>
@@ -217,13 +217,13 @@ p{
 
                   <div class="card 3">
                     <div class="row"style="width: 100%;">
-                        <div class="col-md-3">
-                          <div class="card_image">
+                        <div class="col-md-2">
+                          <div class="card_image ml-30 mt-10">
                             <i class="fa fa-envelope" style="font-size: 50px;color:white;"></i>
                             <!-- <img src="{{asset('assets/images/mail.png')}}" alt="">  -->
                           </div>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-md-10">
                             <div class="card_title">
                               <h3 class="mt-0">Email Address</h3>
                                     <p>{{ $contact->email }}</p>
@@ -235,13 +235,13 @@ p{
                     
                     <div class="card 4">
                       <div class="row" style="width: 100%;">
-                          <div class="col-md-3">
-                          <div class="card_image">
+                          <div class="col-md-2">
+                          <div class="card_image ml-30 mt-10">
                            <i class="fa fa-skype" style="font-size: 50px;color:white;"></i>
                            <!--  <img src="{{asset('assets/images/skype.png')}}" alt="">  -->
                           </div>
                           </div>
-                          <div class="col-md-9">
+                          <div class="col-md-10">
                               <div class="card_title title-black">
                                 <h3 class="mt-0">Optimum Skype</h3>
                                       <p>Skype Address</p>

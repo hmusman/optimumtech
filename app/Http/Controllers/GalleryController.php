@@ -203,8 +203,14 @@ class GalleryController extends Controller
 
     public function loadAllSubFolder(Request $request)
     {
-        $sub_folders = Gallery::select('img','sub_folder')->distinct()->take(12)->get();
-        return view('partials.load_all_sub_folder',compact('sub_folders'));
+        // if(isset($request->from_ajax)){
+        //     $sub_folders = Gallery::select('img','sub_folder')->distinct()->take(12)->get();
+        //     return $sub_folders;
+        // }else{
+            $sub_folders = Gallery::select('img','sub_folder')->distinct()->take(12)->get();
+            return view('partials.load_all_sub_folder',compact('sub_folders'));
+
+        // }
         // foreach ($sub_folders as $folder)
         // {
         //     $output.='<a class="Card col-md-4" onClick="openGallery(1)" >
@@ -230,9 +236,14 @@ class GalleryController extends Controller
         foreach ($sub_folders as $folder)
         {
             $img = 'storage/'.$folder->img;
-            $output.='<div class="col-md-4 mt-5"><img src="'.asset($img).'" onclick="galleryImage('.$folder->id.');"  title="'.$folder->caption.'" style="height:186px !important;width: 100% !important;" id="image'.$folder->id.'"/></div>';
+            $output.='<div class="col-md-3 mt-5"><img src="'.asset($img).'" onclick="galleryImage('.$folder->id.');"  title="'.$folder->caption.'" style="height:186px !important;width: 100% !important;" id="image'.$folder->id.'"/></div>';
         }
-        return $output;
+
+        return response()->json([
+                   'output' => $output,
+                   'folder' => strtoupper($request->sub),
+                  ]);
+        return ;
 
     }
 }

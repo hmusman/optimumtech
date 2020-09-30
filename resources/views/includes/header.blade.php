@@ -77,7 +77,7 @@
                              <li><a href="/Portfolios" >{{ ucwords($main->title) }}</a></li>
                           @else
                               @if($main->submenus->count()>0)
-                                <li><a>{{ ucwords($main->title) }}<span class="label label-info">New</span></a>
+                                <li><a>{{ ucwords($main->title) }}</a>
                                   <ul class="dropdown">
                                     @foreach($main->submenus as $sub)
                                        <li><a href="{{ $sub->route }}">{{ ucwords($sub->title) }}</a></li>
@@ -93,7 +93,7 @@
                 @endif 
 
                {{-- @if($products->count()>0)
-                  <li><a href="Products">Products <span class="label label-info">New</span></a>
+                  <li><a href="Products">Products </a>
                     <ul class="dropdown">
                       @foreach($products as $product)
                          <li><a href="{{ route('Product.Detail',$product->id) }}">{{ ucwords($product->name) }}</a></li>
@@ -104,7 +104,7 @@
                
 
                {{-- @if($services->count()>0)
-                  <li><a href="/Services">Services <span class="label label-info">New</span></a>
+                  <li><a href="/Services">Services </a>
                       <ul class="dropdown">
                         @foreach($services as $service)
                            <li><a href="{{ route('Service.Detail',$service->id) }}">{{ ucwords($service->name) }}</a></li>

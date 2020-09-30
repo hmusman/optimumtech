@@ -81,7 +81,7 @@
 
 @section('content')
 	<section>
-  <div class="container ml-5 mr-5">
+  <div class="container">
         <div class="row">
         </div>
         <div class="row mt-60 mb-30">
