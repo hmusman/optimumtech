@@ -862,7 +862,7 @@
 		        <div class="container pt-10 mt-10">
 		          <div class="row">
 		            <div class="col-md-12">
-		              <h3 class="line-bottom mt-0 line-height-1">Our<span class="text-theme-color-2">Clients</span></h3>
+		              <h3 class="line-bottom mt-0 line-height-1">Our<span class="text-theme-color-2"> Clients</span></h3>
 		              </div>
 		            </div>
 		          </div>
@@ -877,7 +877,7 @@
 		            <div class="autoplay2 clients-logo transparent text-center mr-10">
 		            	@foreach($clients as $client)
 		            		@php $img = 'storage/'.$client->img;  @endphp
-		            		<div class="item"  ><figure > 
+		            		<div class="item"><figure> 
 				                <img src="{{ asset($img) }}" alt="Trulli" data-toggle="tooltip" data-placement="right" title="{{ ucwords($client->name) }}"  >
 				                <!-- <figcaption style="color: aliceblue;margin-left: -80px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" >{{ ucwords($client->name) }}</figcaption> -->
 				              </figure>
