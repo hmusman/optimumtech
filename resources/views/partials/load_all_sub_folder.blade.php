@@ -12,11 +12,11 @@ document.getElementById("DynamicwidthOfGallary").style.height="auto";
 
 @if($sub_folders->count()>8 && $sub_folders->count()<=12)
    
-
+<!-- 
 <script>
 
 document.getElementById("DynamicwidthOfGallary").style.height="900px";
-</script>
+</script> -->
 
 @endif
 @foreach ($sub_folders->unique('sub_folder') as $folder)

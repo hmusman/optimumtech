@@ -777,7 +777,7 @@
 					                  	<div class="thumb"><img  class="img-fullwidthnew" src="{{  asset($img) }}" alt="" style="width: 50% !important; "></div>
 						                <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
 						                    <h4 class="name text-theme-color-2 mt-0">{{ $member->name }} <br> <small>{{ $member->designation }}</small></h4>
-						                    <p class="mb-20">{!! \Illuminate\Support\Str::limit($member->detail,120,$end="...") !!}</p>
+						                    <p class="mb-20">{!! \Illuminate\Support\Str::limit($member->detail,90,$end="...") !!}</p>
 						                    <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
 						                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
 						                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
