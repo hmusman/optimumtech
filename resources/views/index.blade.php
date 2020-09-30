@@ -809,7 +809,7 @@
 		            </div>
 		          </div>
 		          
-		          <div class="section-content" id="DynamicwidthOfGallary" style="height: auto !important;">
+		          <div class="section-content" id="DynamicwidthOfGallary">
 		            <div class="row">
 		              <div class="col-md-12">
 		                <!-- Works Filter -->

@@ -1,10 +1,10 @@
 @if($sub_folders->count()>4 && $sub_folders->count()<=8)
    
 
-<script>
+<!-- <script>
 
 document.getElementById("DynamicwidthOfGallary").style.height="auto";
-</script>
+</script> -->
 
 @endif
 
