@@ -225,5 +225,11 @@ class EventController extends Controller
         return view('admin.eventsapplications',compact('applications'));
     }
 
+    public function DeleteEvents($id){
+      $delete = EventRegister::where('id',$id)->delete();
+
+      return redirect()->back()->with('msg','Event deleted successfully.');
+    }
+
     
 }

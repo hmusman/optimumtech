@@ -62,6 +62,7 @@
                                                     <th>Student Email</th>
                                                     <th>Studetn Phone</th>
                                                     <th>Registered At</th>
+                                                    <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -75,6 +76,9 @@
                                                     <td>{{$app->student_email}}</td>
                                                     <td>{{$app->student_phone}}</td>
                                                     <td>{{$app->created_at}}</td>
+                                                    <td>                                               
+                                                        <a href="{{route('delete_applications', $app->id)}}" type="button" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline title_btn" style="color: white;"></a>
+                                                    </td>
                                                 </tr>
                                                 @endforeach
                                                 @else

@@ -80,6 +80,7 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 	Route::resource('Batch','BatchController');
 	Route::resource('CourseApplication','CourseApplicationController');
 	Route::get('Events/applications','EventController@EventsApplications')->name('events_applications');
+	Route::get('Events/delete/{id}','EventController@DeleteEvents')->name('delete_applications');
 	Route::get('ConfirmedRecord','CourseApplicationController@confirmedRecord')->name('ConfirmedRecord');
 	Route::get('SingleConfirmedRecord/{id}','CourseApplicationController@singleConfirmedRecord')->name('SingleConfirmedRecord');
 	Route::get('AllCourseApplicationRecords','CourseApplicationController@allCourseApplicationRecords')->name('AllCourseApplicationRecords');
