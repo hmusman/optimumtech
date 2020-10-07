@@ -32,7 +32,7 @@ Route::get('Portfolios','PortfolioController@showPortfolios')->name('Portfolios'
 Route::get('PortfolioDetail/{id}','PortfolioController@show')->name('Portfolio.Detail');
 Route::get('CourseCategory/{id}','CategoryController@showCategoryCourses')->name('Course.Category');
 Route::get('Events','FrontEndController@allEvents')->name('Events');
-Route::get('Events/applications','EventController@EventsApplications')->name('events_applications');
+
 Route::view('Courses/PHP','single_course');
 Route::view('Courses/NodeJs','single_course');
 Route::view('Courses/Javascript','single_course');
@@ -79,7 +79,7 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 
 	Route::resource('Batch','BatchController');
 	Route::resource('CourseApplication','CourseApplicationController');
-	
+	Route::get('Events/applications','EventController@EventsApplications')->name('events_applications');
 	Route::get('ConfirmedRecord','CourseApplicationController@confirmedRecord')->name('ConfirmedRecord');
 	Route::get('SingleConfirmedRecord/{id}','CourseApplicationController@singleConfirmedRecord')->name('SingleConfirmedRecord');
 	Route::get('AllCourseApplicationRecords','CourseApplicationController@allCourseApplicationRecords')->name('AllCourseApplicationRecords');
