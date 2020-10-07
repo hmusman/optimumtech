@@ -327,6 +327,16 @@
                        
                     </ul>
                 </li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <div class="d-inline-block icons-sm mr-1"><i class="uim uim-layers-alt"></i></div>
+                        <span>Events</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('events_applications')}}">Events Application</a></li>
+                       
+                    </ul>
+                </li>
 
             </ul>
 

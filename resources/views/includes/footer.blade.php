@@ -49,12 +49,12 @@
 
 
               <form id="mailchimp-subscription-form-footer" class="newsletter-form">
+                @csrf
                 <div class="input-group">
-                  <input type="email" value="" name="EMAIL" placeholder="Your Email"
-                    class="form-control input-lg font-16" data-height="45px" id="mce-EMAIL-footer">
+                  <input id="email" type="email" value="" name="email" placeholder="Your Email"
+                    class="form-control input-lg font-16" data-height="45px" id="mce-EMAIL-footer" required="">
                   <span class="input-group-btn">
-                    <button data-height="45px" class="btn bg-theme-color-2 text-white btn-xs m-0 font-14"
-                      type="submit">Subscribe</button>
+                    <button id="subscribe_me" data-height="45px" class="btn bg-theme-color-2 text-white btn-xs m-0 font-14" type="button">Subscribe</button>
                   </span>
                 </div>
               </form>
@@ -286,4 +286,59 @@
       $('.myModel').css('display','none');
     });
         
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
+<script>
+  $('#subscribe_me').on('click',function(event){
+    event.preventDefault();
+    var email = $('#email').val();
+    if(email == '' || email == 'undefined'){
+        Command: toastr["error"]('Email is required for subscription.');
+    }else{
+      $.ajax({
+        url:'{{route("subscribe_me")}}',
+        type:'post',
+        data:{'_token':'{{ csrf_token() }}','email':email},
+        success:function(data){
+          if(data.success){
+            Command: toastr["success"](data.success);
+            $('#mailchimp-subscription-form-footer').reset();
+          }else if(data.error){
+            Command: toastr["error"](data.error);
+          }
+        },
+        error:function(e){
+          Command: toastr["error"](e);
+        }
+      });
+    }
+  })
+</script>
+<script>
+  $('#booking_form').on('submit',function(e){
+    // alert('here');
+    e.preventDefault();
+    // var data = new FormData(this); 
+     $.ajax({
+        url:'{{route("register_event")}}',
+        type:'post',
+        processData: false,
+        contentType: false,
+        data: new FormData(this),
+        success:function(data){
+          if(data.success){
+            Command: toastr["success"](data.success);
+            $('#booking_form').reset();
+          }else if(data.error){
+            Command: toastr["error"](data.error);
+          }
+        },
+        error:function(e){
+
+          Command: toastr["error"](e);
+        }
+
+     });
+  });
 </script>

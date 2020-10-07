@@ -62,19 +62,18 @@
             <nav id="menuzord-right" class="menuzord orange">
               <a href="/" > <img class="mt-5 mb-20" alt="" src="{{ asset('storage/images/logo.png') }}"></a>
               <ul class="menuzord-menu dark">
-                {{--<li class="active"><a href="/">Home</a>
-                </li>--}}
+                
                 
               @if($mains->count()>0)
                   @foreach($mains as $main)
                       @if($main->title=='home' || $main->title=='Home')
-                          <li class="active"><a href="/">Home</a>
+                          <li class="@if(\Request::getRequestUri() == '/') active @endif"><a href="/">Home</a>
                       @else
-                        @if(($main->title=='contact us' || $main->title=='Contact Us') && $main->submenus->count()==0)
-                             <li><a href="/ContactUs" >{{ ucwords($main->title) }}</a></li>
+                        @if(($main->title=='contact us' || $main->title=='Contact Us'))
+                             <li class="@if(\Request::getRequestUri() == '/ContactUs') active @endif"><a href="/ContactUs" >{{ ucwords($main->title) }}</a></li>
                         @else
                           @if(($main->title=='portfolios' || $main->title=='portfolio' || $main->title=='Portfolio' || $main->title=='Portfolios') && $main->submenus->count()==0)
-                             <li><a href="/Portfolios" >{{ ucwords($main->title) }}</a></li>
+                             <li class="@if(\Request::getRequestUri() == '/Portfolios') active @endif"><a href="/Portfolios" >{{ ucwords($main->title) }}</a></li>
                           @else
                               @if($main->submenus->count()>0)
                                 <li><a>{{ ucwords($main->title) }}</a>
@@ -113,11 +112,11 @@
                   </li>
                 @endif
               --}}
-                {{-- <li><a href="{{ route('Courses') }}">Courses</a>
+                <li class="@if(\Request::getRequestUri() == '/gallery') active @endif"><a href="{{ route('gallery') }}">Gallery</a>
                   
                 </li>
               
-                <li><a href="{{ route('ContactUs')}}">Contact Us</a> 
+                {{-- <li><a href="{{ route('ContactUs')}}">Contact Us</a> 
                
                 </li>--}}
 

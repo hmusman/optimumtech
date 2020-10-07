@@ -8,8 +8,89 @@
 	@include('includes.header')
 @endsection<!-- end header -->
 @section('style')
-<link rel="stylesheet" href="{{asset('assets/gallery/style.css')}}">
 <style>
+	@import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
+.team1 {
+  font-family: "Montserrat", sans-serif;
+	color: #8d97ad;
+  font-weight: 300;
+}
+
+.team1 h1, .team1 h2, .team1 h3, .team1 h4, .team1 h5, .team1 h6 {
+  color: #3e4555;
+}
+
+.team1 .font-weight-medium {
+	font-weight: 500;
+}
+
+.team1 .bg-light {
+    background-color: #f4f8fa !important;
+}
+
+.team1 .subtitle {
+    color: #8d97ad;
+    line-height: 24px;
+}
+
+.team1 .pro-pic {
+  min-height: 200px;
+}
+
+.team1 .pro-pic .card-img-overlay {
+  background: rgba(26, 139, 243, 0.87);
+  display: none;
+}
+
+.team1 .pro-pic .card-img-overlay ul {
+  top: 50%;
+}
+
+.team1 .pro-pic .card-img-overlay ul li a {
+  -webkit-transition: 0.1s ease-in;
+  -o-transition: 0.1s ease-in;
+  transition: 0.1s ease-in;
+}
+
+.team1 .pro-pic .card-img-overlay ul li a:hover {
+  -webkit-transform: translate3d(0px, -5px, 0px);
+  transform: translate3d(0px, -5px, 0px);
+}
+
+/*.team1 .pro-pic:hover .card-img-overlay {
+  display: block;
+}*/
+
+.team-section .card{
+	width: 100%;
+    height: auto;
+    justify-content: flex-start;
+    padding-bottom: 0%;
+    min-height: auto;
+    box-shadow: 1px 2px 19px 0px rgba(168,158,168,1) !important;
+}
+.card:hover .make_black > p{
+	color: black !important;
+}
+.card .make_black > p {
+    font-size: 17px;
+    color: #4C5656;
+    margin-top: 0px;
+    z-index: 1000;
+    transition: color 0.3s ease-out;
+}
+.short-detail{
+	margin-left: inherit;
+    text-align: initial;
+    padding-top: 6px;
+}
+
+@media screen and (min-width: 1400px) {
+  .pro-pic{
+  	    margin-left: -23px;
+  }
+}
+
 	.service-block .content {
           border: none; 
     }
@@ -19,47 +100,20 @@
     	color: #2e6da4;
     }
 
-    @media (max-width: 550px){
-
-    	.Grid-row {
-    		display: block !important;
-    	}
-    	.Card {
-    		background-color: transparent !important;
-    	}
-    	.Card-thumb {
-    		margin-left: 13px !important;
-    		margin-bottom: 7px !important;
-    		width: 44rem !important;
-    		height: 23rem !important;
-    	}
-    	.Card-title, .Card-explore {
-    		height: 2rem !important;
-    	}
-		.Card-button {
-			left: 23rem !important;
-    		top: 15rem !important;
-    		padding: 1.5rem 11rem !important;
-    		font-size: 1.75rem !important;
-		}
-		.Card-explore span {
-			font-size: 15px !important;
-		}
-		.Card-title, .Card-explore {
-			position: unset !important;
-			display: flex !important;
-		}
-		.Gallery-image {
-			width: 15rem !important;
-    		height: 14rem !important;
-		}
-		.Gallery-image--primary {
-		    width: 31rem !important;
-		    height: 30rem !important;
-		}
-
-
+    /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	.team_card{
+		margin-left: 15% !important;
 	}
+	.team-section .card {
+	    width: 70%;
+	}
+	.short-detail{
+		padding-left: 14%;
+    	padding-right: 10%;
+	}
+}
+
 </style>
 @endsection
 
@@ -757,108 +811,64 @@
 	       </section>
 	       <!-- Section: team -->
 		    @if($members->count()>0)
-
-			    <section>
-			        <div class="container">
-			          <div class="section-title mb-10">
-			            <div class="row">
-			              <div class="col-md-12">
-			                <h2 class="mt-5 text-uppercase font-28 line-bottom line-height-1">Our <span
-			                    class="text-theme-color-2 font-weight-400">Team</span></h2>
-			              </div>
-			            </div>
-			          </div>
-			          <div class="section-content">
-			            <div class="row multi-row-clearfix">
-			            	@foreach($members as $member)
-			            		@php $img = 'storage/'.$member->img @endphp
-			            		<div class="col-sm-3 col-md-3 sm-text-center ">
-					                <div class="team maxwidth400" style="margin-right: -7px !important">
-					                  	<div class="thumb"><img  class="img-fullwidthnew" src="{{  asset($img) }}" alt="" style="width: 50% !important; "></div>
-						                <div class="content border-1px border-bottom-theme-color-2-2px p-15 bg-light clearfix">
-						                    <h4 class="name text-theme-color-2 mt-0">{{ $member->name }} <br> <small>{{ $member->designation }}</small></h4>
-						                    <p class="mb-20">{!! \Illuminate\Support\Str::limit($member->detail,90,$end="...") !!}</p>
-						                    <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
-						                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						                    </ul>
-						                    <a class="btn btn-theme-colored btn-sm pull-right flip" href="{{ route('TeamDetail',$member->id) }}" target="_blank">
-						                      Detail</a>
-						                 </div>
-					                </div>
-					             </div>
-
-			            	@endforeach
-
-			            </div>
-			          </div>
-			        </div>
-			    </section>
+		    	<!-- Section: Team v.1 -->
+				<section class="team-section text-center my-5 mt-5">
+			  	<div class="py-5 bg-white team1">
+				  <div class="container">
+				    <div class="row mb-3">
+				      <div class="col-md-7 text-center">
+				         <h2 class="mt-5 text-uppercase font-28 line-bottom line-height-1 text-left">Our <span class="text-theme-color-2 font-weight-400"> Amazing Team</span></h2>
+				      </div>
+				    </div>
+				    <div class="row">
+				      <!-- column  -->
+			      	@foreach($members as $member)
+		            @php $img = 'storage/'.$member->img @endphp
+				      <div class="col-lg-6">
+				        <div class=" card card-shadow border-0 mb-10 team_card">
+				          <!-- Row -->
+				          <div class="row no-gutters">
+				            <div class="col-md-5 pro-pic" style="background:url() center center no-repeat / cover">
+				            	<img src="{{  asset($img) }}" alt="">
+				              <!-- <div class="card-img-overlay">
+				                <ul class="list-inline position-relative text-center">
+				                  <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-facebook"></i></a></li>
+				                  <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-twitter"></i></a></li>
+				                  <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-instagram"></i></a></li>
+				                  <li class="list-inline-item"><a href="#" class="text-decoration-none d-block text-white px-1"><i class="icon-social-behance"></i></a></li>
+				                </ul>
+				              </div> -->
+				            </div>
+				            <div class="col-md-7 bg-white short-detail">
+				              <div class="p-4 make_black">
+				                <h3 class="mb-3 font-weight-medium">{{ $member->name }}</h3>
+				                <p class="detail" style="margin-top: -15px;"><small>___{{ $member->designation }}___</small></p>
+				                <p class="detail" style="margin-top: 0px;">
+				                	{!! \Illuminate\Support\Str::limit(trim($member->detail),150,$end="...") !!}
+				                </p>
+				                <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
+			                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+			                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+			                    </ul>
+			                     <a class="btn btn-theme-colored btn-sm pull-right flip" href="{{ route('TeamDetail',$member->id) }}" target="_blank">Detail</a>
+				              </div>
+				            </div>
+				          </div>
+				          <!-- Row -->
+				        </div> 
+				      </div>
+				     @endforeach
+				    </div>
+				  </div>
+				</div>
+				</section>
 
 		    @endif
-		    <!-- Section: Gallery -->
-		     <section id="gallery" class="bg-lighter mt-60 mb-60 pb-250">
-		        <div class="container">
-		          <div class="section-title mb-10">
-		            <div class="row">
-		              <div class="col-md-12 mt-5">
-		                <h2 class="mt-5 text-uppercase text-theme-colored title line-bottom line-height-1">Our<span
-		                    class="text-theme-color-2 font-weight-400"> Gallery</span></h2>
-		              </div>
-		            </div>
-		          </div>
-		          
-		          <div class="section-content" id="DynamicwidthOfGallary">
-		            <div class="row">
-		              <div class="col-md-12">
-		                <!-- Works Filter -->
-		                <div class="portfolio-filter font-alt align-center">
-		                  <!-- <a href="#select4"  class="active" data-filter=".select4">Album</a>
-		                  <span  > -->
-		              		@if($photoFilter->count()>0)
-		              			@php $i = 1; @endphp
-		              			 <a href="" class="active all_filter" type="button"> All</a>
-		              			@foreach($photoFilter as $filter)
-		              				
-		              				<a href="" type="button" class="myFilter" data-id="{{ $filter->category }}"  >{{ ucfirst($filter->category) }}</a>
-		              				@php $i++; @endphp
-		              			@endforeach
-		              			
-				               
-		              		@endif
-		                 
-		                  </span>
-		                </div>
-		                <!-- End Works Filter -->
-
-		                <!-- partial:index.partial.html -->
-							<section class="Grid ">
-							  <div class="row my_grid_row"> 
- 							  </div>
-							</section> 
-							<section class="Gallery" id="gallery-1">
-							  
-							  <div class="Gallery-header"><h3 id="open-folder" style="text-align: center;"></h3><a class="Gallery-close" onclick="closeAll()">×</a></div>
-
-							  <div class="container" >
-							   <div class="row" id="sub_folder_images">
-							   	
-							   </div>
-							  </div>
-							  
-							</section>
-					
-		                <!-- End Portfolio Gallery Grid -->
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-		    </section>
 
 	    @if($clients->count()>0)
 
-	    	<section class="" style="z-index: 12;">
+	    	<section class="mt-5" style="z-index: 12;">
 		        <div class="container pt-10 mt-10">
 		          <div class="row">
 		            <div class="col-md-12">
@@ -879,7 +889,6 @@
 		            		@php $img = 'storage/'.$client->img;  @endphp
 		            		<div class="item"><figure> 
 				                <img src="{{ asset($img) }}" alt="Trulli" data-toggle="tooltip" data-placement="right" title="{{ ucwords($client->name) }}"  >
-				                <!-- <figcaption style="color: aliceblue;margin-left: -80px;" data-toggle="tooltip" data-placement="top" title="Tooltip on top" >{{ ucwords($client->name) }}</figcaption> -->
 				              </figure>
 				              </div>
 		            	@endforeach
@@ -899,126 +908,4 @@
 
 @section('footer')
 	@include('includes.footer')
-@endsection<!-- end footer -->
-@section('script')
-<!-- partial -->
-<script  src="{{asset('assets/gallery/script.js')}}"></script>
-<script type="text/javascript">
-	
-	function view_all_images(sub)
-	{
-		$.ajax({
-			url:"{{ route('LoadSubFolderImages') }}",
-			type:'get',
-			data:{sub:sub},
-			success:function(data)
-			{
-				$('.sub_folder_images').html(data);
-			}
-		});
-	}
-
-	function openMyGallery(id,sub) {
-
-	  $.ajax({
-	      url:"{{ route('LoadSubFolderImages') }}",
-	      type:'get',
-	      data:{sub:sub},
-	      success:function(data)
-	      {
-	        $('#sub_folder_images').html(data.output);
-	        $('#open-folder').html(data.folder);
-	      }
-	    });
-	  closeMyAll();
-	  const gallery = document.getElementById('gallery-' + id);
-	  const card = document.getElementById('card-' + id);
-	  gallery.classList.add('Gallery--active');
-	  // card.classList.add('Card--active');
-
-	  
-	}
-
-	function closeMyAll() {
-	  const galleryActv = document.querySelector('.Gallery--active');
-	  const cardActv = document.querySelector('.Card--active');
-	  if (galleryActv) {
-	    galleryActv.classList.remove('Gallery--active');
-	  }
-	  if (cardActv) {
-	    cardActv.classList.remove('Card--active');
-	  }
-	}
-
-	function all_load()
-	{
-		var main = "*";
-		$.ajax({
-			url:"{{ route('LoadAllSubFolder') }}",
-			type:'get',
-			data:{main:main},
-			success:function(data)
-			{
-				$('.my_grid_row').html(data);
-			}
-		});
-	}
-
-	$(document).ready(function(){
-		var main = "*";
-		$.ajax({
-			url:"{{ route('LoadAllSubFolder') }}",
-			type:'get',
-			data:{main:main},
-			success:function(data)
-			{
-				$('.my_grid_row').html(data);
-			}
-		});
-	});
-
-	$('.all_filter').click(function(event){
-		event.preventDefault();
-		var main = "*";
-		$.ajax({
-			url:"{{ route('LoadAllSubFolder') }}",
-			type:'get',
-			data:{main:main},
-			success:function(data)
-			{
-				$('.my_grid_row').html(data);
-			}
-		});
-	});
-
-	$('.myFilter').click(function(){
-		var main = $(this).data('id');
-		$.ajax({
-			url:"{{ route('LoadSubFolder') }}",
-			type:'get',
-			data:{main:main},
-			success:function(data)
-			{
-				$('.my_grid_row').html(data);
-			}
-		});
-	});
-
-	// $('.view_all_images').click(function(){
-	// 	var sub = $(this).data('id');
-	// 	alert(sub);
-	// 	$.ajax({
-	// 		url:"{{ route('LoadSubFolderImages') }}",
-	// 		type:'get',
-	// 		data:{sub:sub},
-	// 		success:function(data)
-	// 		{
-	// 			// $('.sub_folder_images').html(data);
-	// 			console.log(data);
-	// 		}
-	// 	});
-	// });
-
-</script>
-
 @endsection

@@ -33,8 +33,6 @@ class FrontEndController extends Controller
         $contact = SiteContact::first();
     	$freeCourses = Course::where([['type','=','free'],['status','=','1']])->get();
     	$members = Team::all();
-    	$photoFilter = Gallery::distinct('category')->select('category')->get();
-    	$photos = Gallery::all();
     	$events = Event::orderBy('id','desc')->take(3)->get();
     	$news = NewModel::all();
     	$testimonials = Testimonial::all();
@@ -43,7 +41,7 @@ class FrontEndController extends Controller
     	$courses = Course::where('status','1')->get();
     	$clients = Client::all();
         $latestNews = NewModel::orderBy('id','desc')->take(5)->get();
-    	return view('index',compact(['sliders','clients','mains','contact','products','services','courses','freeCourses','members','photoFilter','photos','events','news','testimonials','latestNews']));
+    	return view('index',compact(['sliders','clients','mains','contact','products','services','courses','freeCourses','members','events','news','testimonials','latestNews']));
     }
 
     public function productShow($id)
@@ -380,5 +378,15 @@ class FrontEndController extends Controller
         $contact->save();
         Mail::to('example@gmail.com')->send(new SendContactMail($data));
         return back()->with('success','Thanks For Contact Us');
+    }
+
+    public function Gallery(Request $request){
+        $photoFilter = Gallery::distinct('category')->select('category')->get();
+        $photos = Gallery::all();
+        $mains = MainMenu::all();
+        $contact = SiteContact::first();
+        $products  = Product::all();
+
+        return view('gallery',compact('photoFilter','photos','mains','contact','products'));
     }
 }

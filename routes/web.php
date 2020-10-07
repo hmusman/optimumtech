@@ -1,5 +1,19 @@
 <?php
-Route::get('/', 'FrontEndController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'FrontEndController@index')->name('home');
+
+
+Route::post('/subscribe_me', 'SubscriptionController@Subscribe')->name('subscribe_me');
+Route::post('/register_event', 'EventController@RegisterEvent')->name('register_event');
+
+
+// Route::get('/subscribingemail', function(){
+// 	return view('emails.subscribingemail');
+// });
+
 Route::get('ProductDetail/{id}','FrontEndController@productShow')->name('Product.Detail');
 Route::get('ServiceDetail/{id}','FrontEndController@serviceShow')->name('Service.Detail');
 Route::get('Products','FrontEndController@products');
@@ -12,11 +26,13 @@ Route::get('CourseDetail/{id}','FrontEndController@showCourse')->name('CourseDet
 Route::get('ApplyForCourse/{id}','CourseApplicationController@create')->name('ApplyForCourse');
 Route::post('Apply','CourseApplicationController@store')->name('Apply');
 Route::get('ContactUs','FrontEndController@contactUs')->name('ContactUs');
+Route::get('gallery','FrontEndController@Gallery')->name('gallery');
 Route::post('SendMail','FrontEndController@sendEmail')->name('SendMail');
 Route::get('Portfolios','PortfolioController@showPortfolios')->name('Portfolios');
 Route::get('PortfolioDetail/{id}','PortfolioController@show')->name('Portfolio.Detail');
 Route::get('CourseCategory/{id}','CategoryController@showCategoryCourses')->name('Course.Category');
 Route::get('Events','FrontEndController@allEvents')->name('Events');
+Route::get('Events/applications','EventController@EventsApplications')->name('events_applications');
 Route::view('Courses/PHP','single_course');
 Route::view('Courses/NodeJs','single_course');
 Route::view('Courses/Javascript','single_course');
@@ -98,6 +114,3 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 });
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
