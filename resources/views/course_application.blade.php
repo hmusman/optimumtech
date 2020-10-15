@@ -158,8 +158,8 @@
 		                    <div class="col-md-12" style="margin-top: 10px;">
 		                    	<label>Our Accounts Information</label>
 		                    	<div style="border: 1px solid #ccc;padding: 10px 10px;color: #000; margin-bottom: 30px;">
-		                    		Easy Paisa Number : 03434<br>
-			                    	Jazz Cash         : 0301<br>
+		                    		Easy Paisa Number : 0333 99 41 145<br>
+			                    	Jazz Cash         : 0333 99 41 145<br>
 			                    	A/c               : 034343345678901<br>
 			                    	Contact No        : 032111221212<br>
 			                    	Note              : Please take a photo of your payment transaction and then upload it<br>
