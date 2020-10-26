@@ -8,6 +8,9 @@
 	@include('includes.header')
 @endsection<!-- end header -->
 @section('style')
+
+
+
 <style>
 	@import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
 .team1 {
@@ -166,12 +169,70 @@
           .modal-content {
             width: 100%;
           }
-        }                      
-        </style>
+		} 
+		
+		
+		.btn-primary {
+   
+    border-color: #087b92 !important;
+}
+
+ .btn-primary:active:hover{
+	     background-color: #087b92
+ }
+
+ .btn-primary.focus, .btn-primary:focus {
+   
+    background-color: #087b92 !important;
+   
+}
+.btn-primary:hover {
+  
+	background-color: #087b92 !important;
+}
+		</style>
+		
+
+
+
+
+
+
+<style>
+	.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#25d366;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+  font-size:30px;
+	box-shadow: 2px 2px 3px #999;
+  z-index:100;
+}
+
+.my-float{
+	margin-top:16px;
+}
+
+i[class="fa fa-whatsapp my-float"]{
+	margin-top: 15px !important;
+}
+</style>
+
+
+
         <div class="myModel" >
             <span class="close">&times;</span>
             <img class="modal-content" id="img01">
-        </div>
+		</div>
+		
+		<a href="https://api.whatsapp.com/send?phone=+9203026650909&text=Hola%21%20Optimum-Tech%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
 	<div class="main-content">
 		
 		<!-- Section: home -->
@@ -460,9 +521,9 @@
 				                                  <div class="icon-box mb-0">
 				                                    <a href="#" class="icon mb-0" style="
 				                                    margin-top: -20px;">
-				                                      <i class="text-theme-colored pe-7s-world font-72" style="color: #087b92 !important;"></i>
+				                                      <i class="text-theme-colored pe-7s-target font-72" style="color: #087b92 !important;"></i>
 				                                    </a>
-				                                    <h3  class="icon-box-title text-theme-colored" style="color: #626363 !important">Services</h3>
+				                                    <h3  class="icon-box-title text-theme-colored" style="color: #626363 !important">BootCamp</h3>
 				                                  </div>
 				                                </div>
 				                              </div>
@@ -474,7 +535,7 @@
 				                          <div class="display-table-parent p-30">
 				                              <div class="display-table">
 				                                <div class="display-table-cell">
-				                                  <h3 id="specialhed" class="text-theme-color-2">Services</h3>
+				                                  <h3 id="specialhed" class="text-theme-color-2">BootCamp</h3>
 				                                  <p id="specialp" class="text-gray-lightgray">our Services is a way of analyzing and building websites so that they can be found a lot easier 
 				                                    when they are indexed by the Search Engines. </p>
 				                                  <a href="/Services" class="btn btn-default mt-10"> Read More </a>
@@ -496,9 +557,9 @@
 		                                  <div class="icon-box mb-0">
 		                                    <a href="#" class="icon mb-0" style="
 		                                    margin-top: -20px;">
-		                                      <i class="text-theme-colored pe-7s-world font-72" style="color: #087b92 !important;"></i>
+		                                      <i class="text-theme-colored pe-7s-target font-72" style="color: #087b92 !important;"></i>
 		                                    </a>
-		                                    <h3  class="icon-box-title text-theme-colored" style="color: #626363 !important">Services</h3>
+		                                    <h3  class="icon-box-title text-theme-colored" style="color: #626363 !important">BootCamp</h3>
 		                                  </div>
 		                                </div>
 		                              </div>
@@ -509,8 +570,8 @@
 		                        <div class="card__text">
 		                          <div class="display-table-parent p-30">
 		                              <div class="display-table">
-		                                <div class="display-table-cell">
-		                                  <h3 id="specialhed" class="text-theme-color-2">Services</h3>
+		                                <div class="display-table-test">
+		                                  <h3 id="specialhed" class="text-theme-color-2">BootCamp</h3>
 		                                  <p id="specialp" class="text-gray-lightgray">our Services is a way of analyzing and building websites so that they can be found a lot easier 
 		                                    when they are indexed by the Search Engines. </p>
 		                                  <a href="#" class="btn btn-default mt-10"> Read More </a>
@@ -695,8 +756,8 @@
 
 			                <div class="col-md-6">
 				              	@if($news->count()>0)
-				                	<h2 class="mt-5 text-uppercase font-28 line-bottom line-height-1">Few <span
-				                    class="text-theme-color-2 font-weight-400">Testimonials</span></h2>
+				                	<h2 class="mt-5 text-uppercase font-28 line-bottom line-height-1">Clients <span
+				                    class="text-theme-color-2 font-weight-400">Reviews</span></h2>
 				                @endif
 			               </div>
 			            </div>
@@ -817,7 +878,7 @@
 				  <div class="container">
 				    <div class="row mb-3">
 				      <div class="col-md-7 text-center">
-				         <h2 class="mt-5 text-uppercase font-28 line-bottom line-height-1 text-left">Our <span class="text-theme-color-2 font-weight-400"> Amazing Team</span></h2>
+				         <h2 class="mt-5 text-uppercase font-28 line-bottom line-height-1 text-left">Our <span class="text-theme-color-2 font-weight-400"> Team Members</span></h2>
 				      </div>
 				    </div>
 				    <div class="row">

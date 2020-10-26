@@ -46,10 +46,12 @@
               <div class="widget no-border m-0 mr-15 pull-right flip sm-pull-none sm-text-center">
                 <ul class="styled-icons icon-circled icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
                   <li><a href="https://www.facebook.com/optimumtechofficial/"><i class="fa fa-facebook text-white"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter text-white"></i></a></li>
-                  <li><a href="#"><i class="fa fa-google-plus text-white"></i></a></li>
-                  <li><a href="#"><i class="fa fa-instagram text-white"></i></a></li>
-                  <li><a href="#"><i class="fa fa-linkedin text-white"></i></a></li>
+                  <li><a href="https://www.youtube.com/channel/UCD_588wMiwVQj7TDCEBHcfw"><i class=" fa fa-youtube text-white"></i></a></li>
+                
+                 
+                  <li><a href="mailto:theoptimumtech@gmail.com"><i class="fa fa-google-plus text-white"></i></a></li>
+                  <li><a href="https://www.instagram.com/optimumtech_official/"><i class="fa fa-instagram text-white"></i></a></li>
+                  <!-- <li><a href=""><i class="fa fa-linkedin text-white"></i></a></li> -->
                 </ul>
               </div>
             </div>
@@ -75,14 +77,22 @@
                           @if(($main->title=='portfolios' || $main->title=='portfolio' || $main->title=='Portfolio' || $main->title=='Portfolios') && $main->submenus->count()==0)
                              <li class="@if(\Request::getRequestUri() == '/Portfolios') active @endif"><a href="/Portfolios" >{{ ucwords($main->title) }}</a></li>
                           @else
-                              @if($main->submenus->count()>0)
-                                <li><a>{{ ucwords($main->title) }}</a>
-                                  <ul class="dropdown">
-                                    @foreach($main->submenus as $sub)
-                                       <li><a href="{{ $sub->route }}">{{ ucwords($sub->title) }}</a></li>
-                                    @endforeach
-                                  </ul>
-                                </li>
+                              @if($main->title=='Get Register With Us' || $main->title=='get register with us' && $main->submenus->count()==0)
+                              <li class="active"><a href="#"  >{{ ucwords($main->title) }}</a></li>
+                              @else
+                                @if($main->title=='Gallery' || $main->title=='gallery' && $main->submenus->count()==0)
+                                <li><a href="{{ route('gallery') }}" >{{ ucwords($main->title) }}</a></li>
+                                @else
+                                    @if($main->submenus->count()>0)
+                                      <li><a>{{ ucwords($main->title) }}</a>
+                                        <ul class="dropdown">
+                                          @foreach($main->submenus as $sub)
+                                            <li><a href="{{ $sub->route }}">{{ ucwords($sub->title) }}</a></li>
+                                          @endforeach
+                                        </ul>
+                                      </li>
+                                    @endif
+                                @endif
                               @endif
                           @endif
                          
@@ -112,9 +122,9 @@
                   </li>
                 @endif
               --}}
-                <li class="@if(\Request::getRequestUri() == '/gallery') active @endif"><a href="{{ route('gallery') }}">Gallery</a>
+                 {{--<li class="@if(\Request::getRequestUri() == '/gallery') active @endif"><a href="{{ route('gallery') }}">Gallery</a>
                   
-                </li>
+                </li>--}}
               
                 {{-- <li><a href="{{ route('ContactUs')}}">Contact Us</a> 
                

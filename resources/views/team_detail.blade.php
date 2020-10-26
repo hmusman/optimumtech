@@ -61,8 +61,8 @@
   cursor: pointer;
   transition: 0.4s;
   padding-bottom: 0% !important;
-  background-color: #202c45;
-  border-left: 5px solid #f2184f;
+     background-color: #087b92;
+    border-left: 5px solid #626363;
   color: white;
 }
 .card p{
