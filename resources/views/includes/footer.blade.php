@@ -1,4 +1,43 @@
- <footer  id="footer" class="footer divider layer-overlay overlay-dark-9" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
+
+
+
+
+
+
+
+
+<div>
+     <input type="checkbox" id="click">
+    <label for="click">
+        <i class="fab fa-facebook-messenger"></i>
+        <i class="fas fa-times"></i>
+    </label>
+    <div class="wrapper">
+        <div class="head-text">
+            Let's chat? - Online</div>
+        <div class="chat-box">
+            <div class="desc-text">
+                Please fill out the form below to start chatting with the next available agent.</div>
+            <form action="#">
+                <div class="field">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="field">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="field textarea">
+                    <!-- Due to more textarea fields I got an error so I've changed the textarea name into changeit..Change the tag name to use it -->
+                    <changeit cols="30" rows="10" placeholder="Explain your queries.." required></changeit>
+                </div>
+                <div class="field">
+                    <button type="submit">Start Chat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer  id="footer" class="footer divider layer-overlay overlay-dark-9" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
       <div class="container">
         <div class="row border-bottom">
           <div class="col-sm-6 col-md-4">

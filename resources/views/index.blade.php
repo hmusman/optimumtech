@@ -9,9 +9,14 @@
 @endsection<!-- end header -->
 @section('style')
 
-
-
+   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
+div[class="wrapper"]{
+	z-index: 100;
+}
+
+
 	@import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
 .team1 {
   font-family: "Montserrat", sans-serif;
@@ -199,6 +204,12 @@
 
 
 <style>
+#bgimgwhtasaap{
+
+}
+
+
+
 	.float{
 	position:fixed;
 	width:60px;
@@ -221,18 +232,209 @@
 i[class="fa fa-whatsapp my-float"]{
 	margin-top: 15px !important;
 }
+
+
+.float{
+	right: 1285px !important;
+}
 </style>
 
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
 
+#click{
+  display: none;
+}
+label{
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
+  height: 55px;
+  width: 55px;
+background: -webkit-linear-gradient(left, #626363, #087b92);
+  text-align: center;
+  line-height: 55px;
+  border-radius: 50px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 100
+}
+label i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+}
+label i.fas{
+  opacity: 0;
+  pointer-events: none;
+}
+#click:checked ~ label i.fas{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+#click:checked ~ label i.fab{
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(180deg);
+}
+.wrapper{
+  position: fixed;
+  right: 30px;
+  bottom: 0px;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.6s cubic-bezier(0.68,-0.55,0.265,1.55);
+}
+#click:checked ~ .wrapper{
+  opacity: 1;
+  bottom: 24px;
+  pointer-events: auto;
+}
+.wrapper .head-text{
+  line-height: 60px;
+  color: #fff;
+  border-radius: 15px 15px 0 0;
+  padding: 0 20px;
+  font-weight: 500;
+  font-size: 20px;
+    background: -webkit-linear-gradient(left, #626363, #087b92);
+}
+.wrapper .chat-box{
+  padding: 20px;
+  width: 100%;
+}
+.chat-box .desc-text{
+  color: #515365;
+  text-align: center;
+  line-height: 25px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.chat-box form{
+  padding: 10px 15px;
+  margin: 20px 0;
+  border-radius: 25px;
+  border: 1px solid lightgrey;
+}
+.chat-box form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+.chat-box form .field:last-child{
+  margin-bottom: 15px;
+}
+form .field input,
+form .field button,
+form .textarea textarea{
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  outline: none;
+  border-radius: 25px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+form .field input:focus,
+form .textarea textarea:focus{
+  border-color: #fc83bb;
+}
+form .field input::placeholder,
+form .textarea textarea::placeholder{
+  color: silver;
+  transition: all 0.3s ease;
+}
+form .field input:focus::placeholder,
+form .textarea textarea:focus::placeholder{
+  color: lightgrey;
+}
+.chat-box form .textarea{
+  height: 70px;
+  width: 100%;
+}
+.chat-box form .textarea textarea{
+  height: 100%;
+  border-radius: 50px;
+  resize: none;
+  padding: 15px 20px;
+  font-size: 16px;
+}
+.chat-box form .field button{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  background: -webkit-linear-gradient(left, #626363, #087b92);
+  transition: all 0.3s ease;
+}
+.chat-box form .field button:active{
+  transform: scale(0.97);
+}
+
+
+#whtsappImg{
+	    margin-top: -106px !important;
+    border-radius: 50% !important;
+}
+</style>
 
         <div class="myModel" >
             <span class="close">&times;</span>
             <img class="modal-content" id="img01">
 		</div>
 		
+		
 		<a href="https://api.whatsapp.com/send?phone=+9203026650909&text=Hola%21%20Optimum-Tech%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
 <i class="fa fa-whatsapp my-float"></i>
+<img id="whtsappImg" alt="featured project" src="{{  asset('images/download (1).png') }}" class="img-fullwidth"> 
 </a>
+
+
+ 
+
+<div>
+	  <input type="checkbox" id="click">
+    <label for="click">
+        <i class="fab fa-facebook-messenger"></i>
+        <i class="fas fa-times"></i>
+    </label>
+    <div class="wrapper">
+        <div class="head-text">
+            Let's chat? - Online</div>
+        <div class="chat-box">
+            <div class="desc-text">
+                Please fill out the form below to start chatting with the next available agent.</div>
+            <form action="#">
+                <div class="field">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="field">
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+                <div class="field textarea">
+                    <!-- Due to more textarea fields I got an error so I've changed the textarea name into changeit..Change the tag name to use it -->
+                    <changeit cols="30" rows="10" placeholder="Explain your queries.." required></changeit>
+                </div>
+                <div class="field">
+                    <button type="submit">Start Chat</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 	<div class="main-content">
 		
 		<!-- Section: home -->
