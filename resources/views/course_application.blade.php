@@ -40,7 +40,7 @@
 	              <div class="col-md-2"></div>	
 	              <div class="col-md-8">
 	                <div class="billing-details">
-	                  <h3 class="mb-30">Registration</h3>
+	                  <h3 class="mb-30" style="margin-left: -17px !important;">Registration</h3>
 	                  <div class="row">
 	                  	@if(Session::has('msg'))
 	                  		<div class="alert alert-success">{{ Session::get('msg') }}</div>
@@ -49,139 +49,152 @@
 	                  	@if(Session::has('warningMsg'))
 	                  		<div class="alert alert-warning">{{ Session::get('warningMsg') }}</div>
 	                  	@endif
-	                    <div class="form-group col-md-6">
-	                      <label for="first_name">First Name</label>
-	                      <input type="hidden" name="course" value="{{ $course->id }}">
-	                      <input id="first_name" type="test" name="first_name" value="{{ old('first_name') }}" class="form-control" placeholder="Enter First Name">
-	                      <p id="first_name_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
-	                      {{--@error('first_name')
-	                      	  <p class="text-danger mt-3">{{ $message }}</p>
-	                      @enderror--}}
+	                    
+	                  	<div class="row">
+	                  		
+	                  		<div class="form-group col-md-6">
+		                      <label>Applying For</label>
+		                      <select class="form-control" name="course" id="course">
+		                        <option disabled="" selected="">Select Course</option>
+		                        @foreach($courses as $row)
+		                        	<option @if($course->id==$row->id) selected @endif value="{{ $row->id }}">{{ ucwords($row->title) }}</option>
+		                        @endforeach
+		                      </select>
+		                      <p id="course_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+		                      {{--@error('province')
+		                      	  <p class="text-danger">{{ $message }}</p>
+		                       @enderror--}}
+		                    </div>
+
+		                    <div class="form-group col-md-6">
+		                      <label>Available Timing</label>
+		                      <select class="form-control" name="shift" id="shift">
+		                        <option disabled="" selected="">Select Your Shift</option>
+		                        <option value="morning">Morning</option>
+		                       	<option value="evening">Evening</option>
+		                      </select>
+		                      <p id="shift_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+		                     
+		                    </div>
+
+	                  	</div>
+
+	                    <div class="row">
+	                    	
+	                    	<div class="form-group col-md-6">
+		                      <label for="name">Name</label>
+		                   
+		                      <input id="name" type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Enter Name">
+		                      <p id="name_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+		                      {{--@error('name')
+		                      	  <p class="text-danger mt-3">{{ $message }}</p>
+		                      @enderror--}}
+		                    </div>
+		                    
+		                    <div class="form-group col-md-6">
+		                      <label for="father_name">Father Name</label>
+		                      <input id="father_name" type="text" name="father_name" value="{{ old('father_name') }}" class="form-control" placeholder="Enter Father Name">
+		                       <p id="father_name_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+		                      {{--@error('father_name')
+		                      	  <p class="text-danger mt-3">{{ $message }}</p>
+		                      @enderror--}}
+		                    </div>
+
 	                    </div>
-	                    <div class="form-group col-md-6">
-	                      <label for="last_name">Last Name</label>
-	                      <input id="last_name" type="text" name="last_name" value="{{ old('last_name') }}" class="form-control" placeholder="Enter Last Name">
-	                       <p id="last_name_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
-	                      {{--@error('last_name')
-	                      	  <p class="text-danger mt-3">{{ $message }}</p>
-	                      @enderror--}}
+
+                        <div class="row">
+                        	
+                        	<div class="form-group col-md-6">
+		                        <label for="email">Email Address</label>
+		                        <input id="email" type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Enter Email Adress Ex.test@gmail.com">
+		                         <p id="email_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+		                        {{--@error('email')
+		                      	  <p class="text-danger mt-3">{{ $message }}</p>
+		                        @enderror--}}
+	                        </div>
+
+	                        <div class="form-group col-md-6">
+		                        <label for="cnic">Identity Card Number</label>
+		                        <input id="cnic" type="text" name="cnic" maxlength="15" value="{{ old('cnic') }}" class="form-control" placeholder="Enter CNIC Number Ex. 32325-45678903-2">
+		                         <p id="cnic_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+		                        {{--@error('cnic')
+		                      	  <p class="text-danger mt-3">{{ $message }}</p>
+		                        @enderror--}}
+	                        </div>
+
+                        </div>
+
+	                    <div class="row">
+	                    	
+	                    	<div class="form-group col-md-6">
+		                      <label for="date">Date Of Birth</label>
+		                      <input id="date" type="date" name="date_of_birth" value="{{ old('date_of_birth') }}" class="form-control">
+		                       <p id="date_error" class="text-danger" style="color: #ff7f7f;"></p>
+		                      {{--@error('city')
+		                      	  <p class="text-danger">{{ $message }}</p>
+		                       @enderror--}}
+		                    </div>
+
+		                    <div class="form-group col-md-6">
+		                      <label>Gender</label>
+		                      <select class="form-control" name="gender" id="gender">
+		                        <option disabled="" selected="">Select</option>
+		                       	<option value="male">Male</option>
+		                       	<option value="female">Female</option>
+		                       	<option value="other">Other</option>
+		                      </select>
+		                      <p id="gender_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+		                      
+		                    </div>
+
 	                    </div>
-	                    <div class="col-md-12">
 
-	                       <div class="form-group">
-	                        <label for="email">Email Address</label>
-	                        <input id="email" type="email" name="email" value="{{ old('email') }}" class="form-control" placeholder="Enter Email Adress Ex.test@gmail.com">
-	                         <p id="email_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
-	                        {{--@error('email')
-	                      	  <p class="text-danger mt-3">{{ $message }}</p>
-	                        @enderror--}}
-	                      </div>
-
-	                      <div class="form-group">
-	                        <label for="cnic">Identity Card Number</label>
-	                        <input id="cnic" type="text" name="cnic" maxlength="15" value="{{ old('cnic') }}" class="form-control" placeholder="Enter CNIC Number Ex. 32325-45678903-2">
-	                         <p id="cnic_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
-	                        {{--@error('cnic')
-	                      	  <p class="text-danger mt-3">{{ $message }}</p>
-	                        @enderror--}}
-	                      </div>
-
-	                      <div class="form-group">
-	                        <label for="phone">Phone</label>
+	                    <div class="form-group">
+	                        <label for="phone">Phone Number</label>
 	                        <input id="phone" type="text" name="phone" maxlength="11" value="{{ old('phone') }}" class="form-control" placeholder="Enter Phone Number Ex. 03014576890">
 	                         <p id="phone_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
 	                        {{--@error('phone')
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
 	                        @enderror--}}
-	                      </div>
+	                    </div>
 
-
-	                      <div class="form-group">
+	                    <div class="form-group">
 	                        <label for="address">Address</label>
 	                        <textarea id="address" name="address" class="form-control" value="{{ old('address') }}" placeholder="Enter Street Address">{{ old('address') }}</textarea>
 	                        <p id="address_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
 	                        {{--@error('address')
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
 	                        @enderror--}}
-	                      </div>
-	                  
-	                    </div>
-	                    <div class="form-group col-md-12">
-	                      <label for="city">City</label>
-	                      <input id="city" type="text" name="city" value="{{ old('city') }}" class="form-control" placeholder="Enter City">
-	                       <p id="city_error" class="text-danger" style="color: #ff7f7f;"></p>
-	                      {{--@error('city')
-	                      	  <p class="text-danger">{{ $message }}</p>
-	                       @enderror--}}
 	                    </div>
 
-	                    <div class="form-group col-md-12">
-	                      <label>State/Province</label>
-	                      <select class="form-control" name="province" id="province">
-	                        <option disabled="" selected="">Select</option>
-	                        <option <?php if(old('province')=='punjab'){ echo "selected=''"; } ?> value="punjab">Punjab</option>
-	                        <option <?php if(old('province')=='sindh'){ echo "selected=''"; } ?> value="sindh">Sindh</option>
-	                        <option <?php if(old('province')=='balochistan'){ echo "selected=''"; } ?> value="balochistan">Balochistan</option>
-	                        <option <?php if(old('province')=='khyber pakhtunkhan'){ echo "selected=''"; } ?> value="khyber pakhtunkhan">Khyber Pakhtunkhan</option>
-	                        <option <?php if(old('province')=='gilgit balitistan'){ echo "selected=''"; } ?> value="gilgit balitistan">Gilgit Balitistan</option>
-	                      </select>
-	                      <p id="province_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
-	                      {{--@error('province')
-	                      	  <p class="text-danger">{{ $message }}</p>
-	                       @enderror--}}
+	                    <div class="form-group">
+	                        <label for="institute">Institute Name</label>
+	                        <textarea id="institute" name="institute_name" class="form-control" value="{{ old('institute_name') }}" placeholder="Enter Institute Name">{{ old('address') }}</textarea>
+	                        <p id="institute_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+	                        {{--@error('institute_name')
+	                      	  <p class="text-danger mt-3">{{ $message }}</p>
+	                        @enderror--}}
 	                    </div>
 	                    
-	                    <div class="form-group col-md-12">
-		                      <label for="zip">Zip/Postal Code</label>
-		                      <input id="zip" type="text" name="zip" value="{{ old('zip') }}" class="form-control" placeholder="Enter Zip/Postal Code">
-		                       <p id="zip_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
-		                       {{--@error('zip')
-		                      	  <p class="text-danger">{{ $message }}</p>
-		                       @enderror--}}
-		                    </div>
+	                    <div class="form-group">
+	                        <label for="current_degree">Current Degree</label>
+	                        <textarea id="current_degree" name="current_degree" class="form-control" value="{{ old('current_degree') }}" placeholder="Enter Current Degree">{{ old('current_degree') }}</textarea>
+	                        <p id="current_degree_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+	                        {{--@error('current_degree')
+	                      	  <p class="text-danger mt-3">{{ $message }}</p>
+	                        @enderror--}}
+	                    </div>
 
-		                    <div class="form-group col-md-12">
-		                      <label>Country</label>
-		                      <select class="form-control" id="country" name="country">
-		                        <option disabled="" selected="">Select Country</option>
-		                        <option <?php if(old('country')=='pakistan'){ echo "selected=''"; } ?> value="pakistan">Pakistan</option>
-		                        
-		                      </select>
-		                      <p id="country_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
-		                       {{--@error('country')
-		                      	  <p class="text-danger">{{ $message }}</p>
-		                       @enderror--}}
-		                    </div>
-		                    <input type="hidden" id="payment" value="{{ $course->price }}">
-	                    @if($course->price>0)
-
-		                    <div class="col-md-12" style="margin-top: 10px;">
-		                    	<label>Our Accounts Information</label>
-		                    	<div style="border: 1px solid #ccc;padding: 10px 10px;color: #000; margin-bottom: 30px;">
-		                    		Easy Paisa Number : 0333 99 41 145<br>
-			                    	Jazz Cash         : 0333 99 41 145<br>
-			                    	A/c               : 034343345678901<br>
-			                    	Contact No        : 032111221212<br>
-			                    	Note              : Please take a photo of your payment transaction and then upload it<br>
-			                    	<h3>Your Payment Is   : {{ $course->price }}</h3>
-		                    	</div>
-		                    </div>
-		                    
-		                    <div class="form-group col-md-6">
-		                    	<label>Upload Payment Image</label>
-		                    	<input type="file" name="img" id="img">
-		                    	<p class="text-danger" id="payment_img_error" style="color: #ff7f7f;"></p>
-		                    	{{--@error('img')
-		                      	  <p class="text-danger mt-3">{{ $message }}</p>
-		                        @enderror--}}
-		                        <div id="uploadForm"></div>
-
-		                        @error('warningMsg')
-		                       	  <p class="text-danger mt-3">{{ $message }}</p>
-		                        @enderror
-		                    </div>
-	                    @endif
-	                    <div class="form-group col-md-6">
+	                    <div class="form-group">
+	                        <label for="degree_title">Degree Title</label>
+	                        <textarea id="degree_title" name="degree_title" class="form-control" placeholder="Enter Institute Name">{{ old('degree_title') }}</textarea>
+	                        <p id="degree_title_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
+	                        {{--@error('degree_title')
+	                      	  <p class="text-danger mt-3">{{ $message }}</p>
+	                        @enderror--}}
+	                    </div>
+   		
+	                    <div class="form-group">
 	                    	<label>Your Latest Image</label>
 	                    	<input type="file" name="user_img" id="user_img">
 	                    	<p class="text-danger" id="user_img_error" style="color: #ff7f7f;"></p>
@@ -189,6 +202,14 @@
 		                       	  <p class="text-danger mt-3">{{ $message }}</p>
 		                    @enderror
 	                    </div>
+
+	                    <div class="col-md-12" style="margin-top: 10px;">
+	                    	<label>Additional Information</label>
+	                    	<div style="border: 1px solid #ccc;padding: 10px 10px;color: #000; margin-bottom: 30px;">
+		                    	<h3>Registration Fee   : 1500 PKR</h3>
+	                    	</div>
+		                </div>
+
 	                  </div>
 	                </div>
 	              </div>
@@ -393,6 +414,24 @@
 
 		}
 
+		function date_field_check(id,error,check)
+		{
+			var value = id.val();
+			var c_error = error.replace('_',' ');
+			if(id.val() =='')
+			{
+				$('#'+error+'_error').show();
+				id.css('border','1px solid #ff7f7f');
+				$('#'+error+'_error').text('The '+check +' field is required');
+			}
+
+			else
+			{
+				$('#'+error+'_error').hide();
+				id.css('border','1px solid green');
+			}
+		}
+
 		function blank_field_check(id,check,error,pattern,minlength,maxlength)
 		{
 			var value = id.val();
@@ -468,38 +507,33 @@
 		$(document).ready(function(){
 
 
-			blank_field_check($('#first_name'),'character','first_name',/^[a-zA-Z]+$/,5,30);
-			blank_field_check($('#last_name'),'character','last_name',/^[a-zA-Z]+$/,5,30);
-			blank_field_check($('#city'),'character','city',/^[a-zA-Z]+$/,5,30);
+			blank_field_check($('#name'),'character','name',/^[a-zA-Z ]+$/,5,30);
+			blank_field_check($('#father_name'),'character','father_name',/^[a-zA-Z ]+$/,5,30);
 			blank_field_check($('#address'),'character and number','address',/^[a-zA-Z0-9 ]*$/,5,100);
+			blank_field_check($('#institute'),'character and number','institute',/^[a-zA-Z0-9 ]*$/,5,100);
+			blank_field_check($('#current_degree'),'character and number','current_degree',/^[a-zA-Z0-9 ]*$/,5,100);
+			blank_field_check($('#degree_title'),'character and number','degree_title',/^[a-zA-Z0-9 ]*$/,5,100);
 			blank_field_check($('#last_name'),'charactoer','last_name',/^[a-zA-Z]+$/,5,30);
 			blank_field_check($('#phone'),'numbers','phone',/^[0-9]+$/,11,11);
 			blank_field_check($('#zip'),'numbers','zip',/^[0-9]+$/,3,5);
 			cnic_blank_field_check($('#cnic'),'numbers','cnic',new RegExp('^[0-9+]{5}-[0-9+]{7}-[0-9]{1}$'),15,15);
 			email_blank_field_check($('#email'),'Enter Valid Email Address','email',/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i,25,50);
 			select_check($('#province'),'province');
+			date_field_check($('#date'),'date','date of birth');
 			select_check($('#country'),'country');
+			select_check($('#course'),'course');
+			select_check($('#shift'),'shift');
+			select_check($('#gender'),'gender');
 			if($('#payment').val()>0){file_blank_check($('#img'),'payment','payment_img')};
 			file_blank_check($('#user_img'),'user','user_img');
 
+			$('#date').change(function(){date_field_check($('#date'),'date','date of birth');});
 
 			setInterval(function(){
-				if($('#payment').val()>0)
-				{
-					if($('#first_name_error').is(':hidden') && $('#last_name_error').is(':hidden') && $('#email_error').is(':hidden') && $('#cnic_error').is(':hidden') && $('#phone_error').is(':hidden') && $('#address_error').is(':hidden') && $('#country_error').is(':hidden') && $('#province_error').is(':hidden') && $('#payment_img_error').is(':hidden') && $('#user_img_error').is(':hidden'))
+				if($('#name_error').is(':hidden') && $('#father_name_error').is(':hidden') && $('#email_error').is(':hidden') && $('#cnic_error').is(':hidden') && $('#phone_error').is(':hidden') && $('#address_error').is(':hidden') && $('#current_degree_error').is(':hidden') && $('#degree_title_error').is(':hidden') && $('#user_img_error').is(':hidden') && $('#course_error').is(':hidden') && $('#shift_error').is(':hidden') && $('#institute_error').is(':hidden') && $('#date_error').is(':hidden') && $('#gender_error').is(':hidden'))
 					{
 						$('.mySubmit').removeAttr('disabled','disabled');
 					}
-				}
-
-				else{
-					
-					if($('#first_name_error').is(':hidden') && $('#last_name_error').is(':hidden') && $('#email_error').is(':hidden') && $('#cnic_error').is(':hidden') && $('#phone_error').is(':hidden') && $('#address_error').is(':hidden') && $('#country_error').is(':hidden') && $('#province_error').is(':hidden') && $('#user_img_error').is(':hidden'))
-					{
-						$('.mySubmit').removeAttr('disabled','disabled');
-					}
-				}
-				
 
 			}, 1000);
 		});

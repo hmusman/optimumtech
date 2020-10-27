@@ -29,8 +29,9 @@ class CourseApplicationController extends Controller
         $contact = SiteContact::first();
         $mains = MainMenu::all();
         $products = Product::all();
+        $courses = Course::where('status',1)->get();
         $course = Course::where('id',$id)->first(); 
-       return view('course_application',compact(['products','mains','course','contact']));
+       return view('course_application',compact(['products','mains','course','contact','courses']));
     }
 
     public function othercreate()
