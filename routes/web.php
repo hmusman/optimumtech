@@ -24,6 +24,7 @@ Route::get('EventDetail/{id}','FrontEndController@eventDetail')->name('EventDeta
 Route::get('TeamDetail/{id}','FrontEndController@teamDetail')->name('TeamDetail');
 Route::get('CourseDetail/{id}','FrontEndController@showCourse')->name('CourseDetail');
 Route::get('ApplyForCourse/{id}','CourseApplicationController@create')->name('ApplyForCourse');
+Route::get('Registeration','CourseApplicationController@othercreate')->name('registration');
 Route::post('Apply','CourseApplicationController@store')->name('Apply');
 Route::get('ContactUs','FrontEndController@contactUs')->name('ContactUs');
 Route::get('gallery','FrontEndController@Gallery')->name('gallery');
@@ -78,6 +79,8 @@ Route::prefix('Admin')->middleware(['auth:web','can:isAdmin'])->group(function()
 	Route::post('SingleCourseApplicationUnConfirmStatus','CourseApplicationController@singleCourseApplicationUnConfirmStatus')->name('SingleCourseApplicationUnConfirmStatus');
 
 	Route::resource('Batch','BatchController');
+	Route::get('Application/{id}/Edit','CourseApplicationController@edit')->name('application.edit');
+	Route::put('Application/{id}/Update','CourseApplicationController@update')->name('application.update');
 	Route::resource('CourseApplication','CourseApplicationController');
 	Route::get('Events/applications','EventController@EventsApplications')->name('events_applications');
 	Route::get('Events/delete/{id}','EventController@DeleteEvents')->name('delete_applications');
