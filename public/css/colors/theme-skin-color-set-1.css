@@ -653,8 +653,10 @@ fieldset[disabled] .btn-border.btn-theme-colored.focus {
 */
 .btn-dark.btn-theme-colored {
   color: #fff;
-  background-color: #202C45;
-  border-color: #202C45;
+ 
+     background-color: #626363;
+    border-left: 5px solid #087b92;
+    border-radius: 4px;
 }
 .btn-dark.btn-theme-colored:focus,
 .btn-dark.btn-theme-colored.focus {
@@ -664,15 +666,17 @@ fieldset[disabled] .btn-border.btn-theme-colored.focus {
 }
 .btn-dark.btn-theme-colored:hover {
   color: #fff;
-  background-color: #101622;
-  border-color: #0d111b;
+    background-color: #087b92;
+    border-left: 5px solid #626363;
+
+    border-radius: 4px;
 }
 .btn-dark.btn-theme-colored:active,
 .btn-dark.btn-theme-colored.active,
 .open > .dropdown-toggle.btn-dark.btn-theme-colored {
   color: #fff;
-  background-color: #101622;
-  border-color: #0d111b;
+  background-color: #087b92;
+    border-color: #626363;
 }
 .btn-dark.btn-theme-colored:active:hover,
 .btn-dark.btn-theme-colored.active:hover,
@@ -775,8 +779,8 @@ fieldset[disabled] .btn-gray.btn-theme-colored.focus {
 */
 .btn-theme-colored {
   color: #fff;
-  background-color: #202C45;
-  border-color: #202C45;
+      background-color: #087b92;
+    border-left: 3px solid #626363 ;
 }
 .btn-theme-colored:focus,
 .btn-theme-colored.focus {
@@ -786,8 +790,10 @@ fieldset[disabled] .btn-gray.btn-theme-colored.focus {
 }
 .btn-theme-colored:hover {
   color: #fff;
-  background-color: #101622;
-  border-color: #0d111b;
+   background-color: #087b92;
+    border-left: 3px solid #626363 ;
+
+    box-shadow: 0px 0px 0px 1px #087b92;
 }
 .btn-theme-colored:active,
 .btn-theme-colored.active,
@@ -909,11 +915,12 @@ fieldset[disabled] .btn-theme-colored.focus {
   color: #fff;
 }
 .icon-theme-colored.icon-dark a {
-  background-color: #202C45;
+  background-color: #626363;
   color: #fff;
+      box-shadow: 1px 0px 3px 1px #087b92;
 }
 .icon-theme-colored.icon-dark a:hover {
-  background-color: #101622;
+  background-color: #087b92;
   color: #e6e6e6;
 }
 .icon-theme-colored.icon-dark.icon-bordered a {

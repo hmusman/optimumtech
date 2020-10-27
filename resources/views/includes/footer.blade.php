@@ -1,7 +1,17 @@
- <footer  id="footer" class="footer divider layer-overlay overlay-dark-9" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
+
+
+
+
+
+
+
+
+
+
+<footer  id="footer" class="footer divider layer-overlay overlay-dark-9" data-bg-img="{{ asset('storage/images/bg/bg2.jpg') }}">
       <div class="container">
         <div class="row border-bottom">
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-4">
             <div class="widget dark">
              <a href="http://theoptimumtech.com/" > <img class="mt-5 mb-20" alt="" src="{{ asset('storage/images/logo.png') }} "></a>
               <p style="text-align: justify;">{{ ucwords($contact->address) }}</p>
@@ -15,13 +25,11 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <!-- <div class="col-sm-6 col-md-3">
             <div class="widget dark">
               <h4 class="widget-title">Products</h4>
               <ul class="list angle-double-right list-border">
-                <!-- <li><a href="#">Erp</a></li>
-                <li><a href="#">Management system</a></li>
-                <li><a href="#">Pos System</a></li> -->
+              
                 @if($products->count()>0)
                   @foreach($products as $product)
                      <li><a href="{{ route('Product.Detail',$product->id) }}">{{ ucwords($product->name) }}</a></li>
@@ -29,8 +37,8 @@
                 @endif
               </ul>
             </div>
-          </div>
-          <div class="col-sm-6 col-md-3">
+          </div> -->
+          <div class="col-sm-6 col-md-4">
             <div class="widget dark">
               <h4 class="widget-title">Help</h4>
               <ul class="list angle-double-right list-border">
@@ -42,7 +50,7 @@
               </ul>
             </div>
           </div>
-          <div class="col-sm-6 col-md-3">
+          <div class="col-sm-6 col-md-4">
             <div class="widget dark">
               <h4 class="widget-title line-bottom-theme-colored-2">NewsLetter</h4>
 
@@ -64,11 +72,13 @@
                 <h5 class="widget-title mb-10">Connect With Us</h5>
                 <ul class="styled-icons icon-bordered icon-sm">
                   <li><a href="https://www.facebook.com/optimumtechofficial/"><i class="fa fa-facebook"></i></a></li>
-                  <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                  <li><a href="#"><i class="fa fa-skype"></i></a></li>
-                  <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                  <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                  <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                  <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
+                  <!-- <li><a href="#"><i class="fa fa-skype"></i></a></li> -->
+                  <li><a href="https://www.youtube.com/channel/UCD_588wMiwVQj7TDCEBHcfw"><i class="fa fa-youtube"></i></a></li>
+                  <li><a href="https://www.instagram.com/optimumtech_official/"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="mailto:theoptimumtech@gmail.com"><i class="fa fa-google-plus text-white"></i></a></li>
+
+              
                 </ul>
               </div>
 

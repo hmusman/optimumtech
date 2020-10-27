@@ -4,7 +4,7 @@
 
 
   from {
-    -webkit-transform: translate(5%,0)
+    -webkit-transform: translate(200%,0)
 }
 to {
     -webkit-transform: translate(-220%,0)
