@@ -428,7 +428,7 @@ form .textarea textarea:focus::placeholder{
                 </div>
                 <div class="field textarea">
                     <!-- Due to more textarea fields I got an error so I've changed the textarea name into changeit..Change the tag name to use it -->
-                    <changeit cols="30" rows="10" placeholder="Explain your queries.." required></changeit>
+                    <textarea cols="30" rows="10" placeholder="Explain your queries.." required></textarea>
                 </div>
                 <div class="field">
                     <button type="submit">Start Chat</button>
