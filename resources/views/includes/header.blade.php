@@ -78,7 +78,7 @@
                              <li class="@if(\Request::getRequestUri() == '/Portfolios') active @endif"><a href="/Portfolios" >{{ ucwords($main->title) }}</a></li>
                           @else
                               @if($main->title=='Get Register With Us' || $main->title=='get register with us' && $main->submenus->count()==0)
-                              <li class="active"><a href="#"  >{{ ucwords($main->title) }}</a></li>
+                              <li class="active"><a href="/Registeration"  >{{ ucwords($main->title) }}</a></li>
                               @else
                                 @if($main->title=='Gallery' || $main->title=='gallery' && $main->submenus->count()==0)
                                 <li><a href="{{ route('gallery') }}" >{{ ucwords($main->title) }}</a></li>

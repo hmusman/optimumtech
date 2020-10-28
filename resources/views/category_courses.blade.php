@@ -47,10 +47,11 @@
 					                <div class="col-sm-6 col-md-8">
 					                  <h4 class="line-bottom mt-0 mt-sm-20">{{ ucwords($course->title) }}</h4>
 					                  <ul class="review_text list-inline">
-					                    <li><h4 class="mt-0"><span class="text-theme-color-2">Price :</span> {{ $course->price }}</h4></li>
-					                    <li>
+					                  	<li><h4 class="mt-0"><span class="text-theme-color-2">Registration Fee :</span> 1500 PKR</h4></li>
+					                    <li><h4 class="mt-0"><span class="text-theme-color-2">Course Fee :</span> {{ $course->price }} PKR</h4></li>
+					                    <!-- <li>
 					                      <div class="star-rating" title="Rated 4.50 out of 5"><span style="width: 90%;">4.50</span></div>
-					                    </li>
+					                    </li> -->
 					                  </ul>
 					                  <p>{!! ucfirst($course->detail) !!}</p>
 					                  <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10" href="{{ route('CourseDetail',$course->id) }}">read more</a> &nbsp; <a class="btn btn-dark btn-theme-colored btn-sm text-uppercase mt-10" href="{{ route('ApplyForCourse',$course->id) }}">Book Course</a>

@@ -57,7 +57,7 @@
 		                      <select class="form-control" name="course" id="course">
 		                        <option disabled="" selected="">Select Course</option>
 		                        @foreach($courses as $row)
-		                        	<option @if($course->id==$row->id) selected @endif value="{{ $row->id }}">{{ ucwords($row->title) }}</option>
+		                        	<option value="{{ $row->id }}">{{ ucwords($row->title) }}</option>
 		                        @endforeach
 		                      </select>
 		                      <p id="course_error" class="text-danger mt-1" style="color: #ff7f7f;"></p>
@@ -193,7 +193,7 @@
 	                      	  <p class="text-danger mt-3">{{ $message }}</p>
 	                        @enderror--}}
 	                    </div>
-   		
+   
 	                    <div class="form-group">
 	                    	<label>Your Latest Image</label>
 	                    	<input type="file" name="user_img" id="user_img">
@@ -215,9 +215,12 @@
 	              </div>
 	              <div class="col-md-2"></div>
 	             
-	              <div class="col-md-12">
-	                <div class="text-center"> <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px mb-30 mySubmit" disabled="" data-loading-text="Please wait...">Submit</button> </div>
-	              </div>
+	             <div class="row">
+	             	 <div class="col-md-12">
+		                <div class="text-center"> <button type="submit" class="btn btn-flat btn-theme-colored text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px mb-30 mySubmit" disabled="" data-loading-text="Please wait...">Submit</button> </div>
+		              </div>	
+	             </div>
+
 	            </form>
 	          </div>
 	        </div>

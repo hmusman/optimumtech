@@ -29,9 +29,8 @@ class CourseApplicationController extends Controller
         $contact = SiteContact::first();
         $mains = MainMenu::all();
         $products = Product::all();
-        $courses = Course::where('status',1)->get();
         $course = Course::where('id',$id)->first(); 
-       return view('course_application',compact(['products','mains','course','contact','courses']));
+       return view('course_application',compact(['products','mains','course','contact']));
     }
 
     public function othercreate()
@@ -58,43 +57,80 @@ class CourseApplicationController extends Controller
             $applicant_number = rand(10000, 99999);
         } while (in_array($applicant_number, $arr));
 
-        $validations = Validator::make($request->all(),[
+        $priceCheckData = Course::where('id',$request->course)->first();
+        if($priceCheckData->pricie == 0)
+        {
+            $validations = Validator::make($request->all(),[
                 'name'=>'bail | required',
                 'father_name'=>'bail | required',
                 'email'=>'bail | required',
-                'cnic'=>'bail | required',
+                'cnic'=>'bail | required |',
                 'phone'=>'bail | required',
-                'address'=>'bail | required | string | max:100',
-                'user_img'=>'required',
+                'address'=>'bail | required',
                 'shift'=>'bail | required',
                 'course'=>'bail | required',
                 'institute_name'=>'required',
                 'current_degree'=>'required',
                 'degree_title'=>'required',
-                'date_of_birth'=>'required',
-                'gender'=>'required'
+                'date'=>'required',
+                'gender'=>'gender'
+           ]);
+        }
+        else if($priceCheckData->pricie > 0)
+        {
+            $validations = Validator::make($request->all(),[
+                'first_name'=>'bail | required',
+                'last_name'=>'bail | required',
+                'email'=>'bail | required',
+                'cnic'=>'bail | required | numeric',
+                'phone'=>'bail | required | numeric',
+                'address'=>'bail | required | string | max:100',
+                'zip'=>'bail | required',
+                'city'=>'bail | required',
+                'province'=>'required',
+                'country'=>'required', 
+                'img'=>'required',
+                'user_img'=>'required'
             ]);
+        }
         
 
        if($validations->fails())
        {
-
             return back()->withErrors($validations)->withInput();
        }
        else
        {  
-            if($request->hasFile('user_img'))
+
+            if($priceCheckData->price>0)
             {
-                $ext = $request->file('user_img')->extension();
-                if($ext =='png' || $ext=='jpg' || $ext=='jpeg') {$filename1 = $request->file('user_img')->store('admin/images/courseApplication','public');}
+                if($request->hasFile('img'))
+                {
+                    $ext = $request->file('img')->extension();
+                    if($ext =='png' || $ext=='jpg' || $ext=='jpeg') {$filename = $request->file('img')->store('admin/images/courseApplication','public');}
+                    else
+                    {
+                        return back()->withErrors(['warningMsg'=>"Please Select Correct Image"])->withInput();
+                    }
+                }
                 else
                 {
-                    return back()->withErrors(['userwWarningMsg'=>"Please Select Correct Image"])->withInput();
+                    return back()->withErrors(['img'=>"Payment transaction image is required"])->withInput();
                 }
-            }
-            else
-            {
-                return back()->withErrors(['user_img'=>"Payment transaction image is required"])->withInput();
+
+                if($request->hasFile('user_img'))
+                {
+                    $ext = $request->file('user_img')->extension();
+                    if($ext =='png' || $ext=='jpg' || $ext=='jpeg') {$filename1 = $request->file('user_img')->store('admin/images/courseApplication','public');}
+                    else
+                    {
+                        return back()->withErrors(['userwWarningMsg'=>"Please Select Correct Image"])->withInput();
+                    }
+                }
+                else
+                {
+                    return back()->withErrors(['user_img'=>"Payment transaction image is required"])->withInput();
+                }
             }
             
 
@@ -106,19 +142,18 @@ class CourseApplicationController extends Controller
             $application = new CourseApplication();
             $application->applicant_number ='AppNo -'.$applicant_number;
             $application->course_id = $request->course;
-            $application->first_name = $request->name;
-            $application->last_name= $request->father_name;
+            $application->first_name = $request->first_name;
+            $application->last_name= $request->last_name;
             $application->email = $request->email;
             $application->cnic = $request->cnic;
             $application->phone = $request->phone;
             $application->address = $request->address;
-            $application->shift = $request->shift;
-            $application->gender = $request->gender;
-            $application->date_of_birth = $request->date_of_birth;
-            $application->institute_name = $request->institute_name;
-            $application->current_degree = $request->current_degree;
-            $application->degree_title = $request->degree_title;
-            $application->user_img = $filename1;
+            $application->city = $request->city;
+            $application->province = $request->province;
+            $application->country = $request->country;
+            $application->zip = $request->zip;
+            if($priceCheckData->price > 0) {$application->img = $filename;}
+            if($priceCheckData->price > 0) {$application->user_img = $filename1;}
             if($application->save())
             {
 
@@ -137,74 +172,13 @@ class CourseApplicationController extends Controller
    
     public function edit($id)
     {
-        $courses = Course::where('status',1)->get();
-        $application = CourseApplication::where('id',$id)->first();
-        return view('admin.update_application',compact(['application','courses']));
+        //
     }
 
    
     public function update(Request $request, $id)
     {
-        $validations = Validator::make($request->all(),[
-                'name'=>'bail | required',
-                'father_name'=>'bail | required',
-                'email'=>'bail | required',
-                'cnic'=>'bail | required',
-                'phone'=>'bail | required',
-                'address'=>'bail | required | string | max:100',
-                'shift'=>'bail | required',
-                'course'=>'bail | required',
-                'institute_name'=>'required',
-                'current_degree'=>'required',
-                'degree_title'=>'required',
-                'date_of_birth'=>'required',
-                'gender'=>'required'
-            ]);
-        
-
-           if($validations->fails())
-           {
-
-                return back()->withErrors($validations)->withInput();
-           }
-           else
-           {  
-                if($request->hasFile('user_img'))
-                {
-                    $ext = $request->file('user_img')->extension();
-                    if($ext =='png' || $ext=='jpg' || $ext=='jpeg') {$filename1 = $request->file('user_img')->store('admin/images/courseApplication','public');}
-                    else
-                    {
-                        return back()->withErrors(['userwWarningMsg'=>"Please Select Correct Image"])->withInput();
-                    }
-                }
-                else
-                {
-                    $filename1 = $request->old_user_img;
-                }
-
-                $application = CourseApplication::find($id);
-                $application->course_id = $request->course;
-                $application->first_name = $request->name;
-                $application->last_name= $request->father_name;
-                $application->email = $request->email;
-                $application->cnic = $request->cnic;
-                $application->phone = $request->phone;
-                $application->address = $request->address;
-                $application->shift = $request->shift;
-                $application->gender = $request->gender;
-                $application->date_of_birth = $request->date_of_birth;
-                $application->institute_name = $request->institute_name;
-                $application->current_degree = $request->current_degree;
-                $application->degree_title = $request->degree_title;
-                $application->user_img = $filename1;
-                if($application->save())
-                {
-
-                    $request->session()->flash('msg','Your Application Has Been Updated Successfully');
-                    return redirect()->route('CourseApplication.index');
-                }
-           }
+        //
     }
 
     

@@ -1,16 +1,16 @@
 @extends('layouts.basic')
 
 @section('head')
-  @include('includes.admin_head')
+	@include('includes.admin_head')
 @endsection<!-- end head -->
 
 @section('header')
-  @include('includes.admin_header')
+	@include('includes.admin_header')
 @endsection<!-- end header -->
 
 
 @section('content')
-  <style type="text/css">
+	<style type="text/css">
      
         #myImg {
   border-radius: 5px;
@@ -100,7 +100,7 @@
 
 
     </style>
-  <div class="main-content">
+	<div class="main-content">
 
         <div class="page-content">
 
@@ -162,17 +162,15 @@
                                                  <th>Status</th>
                                                 <th>Number</th>
                                                 <th>Profile</th>
+                                                <th>Image</th>
                                                 <th>Course</th>
                                                 <th>Name</th>
-                                                <th>Father</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
                                                 <th>CNIC</th>
-                                                <th>Gender</th>
-                                                <th>Date Of Birth</th>
-                                                <th>Institute</th>
-                                                <th>Current Degree</th>
-                                                <th>Degree Title</th>
+                                                <th>City</th>
+                                                <th>Province</th>
+                                                <th>Country</th>
                                                 <th>Date</th>
                                                 <th>Actions</th>
                                             </tr>
@@ -184,6 +182,7 @@
                                                 @if($applications->count()>0)
                                                     @php $i=1; $counter=0; @endphp
                                                     @foreach($applications as $application)
+                                                        @php $img = 'storage/'.$application->img @endphp
                                                         @php $imgp = 'storage/'.$application->user_img @endphp
                                                         <tr>
                                                             <td>
@@ -200,28 +199,31 @@
                                                             <td><?php echo ($application->status==1) ? 'Confirmed' : ' ' ?></td>
                                                             <td>{{ $application->applicant_number }}</td>
                                                             <td>
+                                                               @if($application->course->price > 0)
                                                                   <img src="{{ asset($imgp) }}" class="appImg" style="width: 100px; height: 100px">
+                                                               @endif
                                                                
                                                             </td>
-                                                           
+                                                            <td>
+                                                               @if($application->course->price > 0)
+                                                                  <img src="{{ asset($img) }}" class="appImg" style="width: 100px; height: 100px">
+                                                               @endif
+                                                               
+                                                            </td>
                                                             <td>{{ ucwords($application->course->title) }}</td>
-                                                            <td>{{ ucwords($application->first_name)}}</td>
-                                                            <td>{{ ucwords($application->last_name)}}</td>
+                                                            <td>{{ ucwords($application->first." ". $application->last_name)}}</td>
                                                             <td>{{ $application->email }}</td>
                                                             <td>{{ $application->phone }}</td>
                                                             <td>{{ $application->cnic }}</td>
-                                                            <td>{{ ucfirst($application->gender) }}</td>
-                                                            <td>{{ date('m/d/y',strtotime($application->date_of_birth)) }}</td>
-                                                            <td>{{ ucfirst($application->institute_name) }}</td>
-                                                            <td>{{ ucfirst($application->current_degree) }}</td>
-                                                            <td>{{ ucfirst($application->degree_title) }}</td>
+                                                            <td>{{ ucfirst($application->city) }}</td>
+                                                            <td>{{ ucfirst($application->province) }}</td>
+                                                            <td>{{ ucfirst($application->country) }}</td>
                                                             <td>{{ date('m/d/y',strtotime($application->created_at)) }}</td>
                                     
                                                             <td> 
 
                                                                 <div class="btn-group" role="group" aria-label="Delete Button">
-                                                                  <a href="" aria-label="Print Challan" class="btn btn-primary title_btn">Challan</a>&nbsp;
-                                                                   <a href="{{ route('application.edit',$application->id) }}" aria-label="Edit Button" class="btn btn-primary mdi mdi-delete-alert title_btn"></a>&nbsp;
+                                                                   
                                                                       <input type="hidden" name="" id="route{{ $application->id }}" value="CourseApplicationDelete/{{ $application->id }}">
                                                                         <button type="button" data-id="{{ $application->id }}" aria-label="Delete Button" class="btn btn-danger mdi mdi-close-box-multiple-outline anchor_delete_btn title_btn"></button>
                                                                     
@@ -314,12 +316,12 @@
             <img class="modal-content" id="img01">
         </div> -->
     </div>
-   
+	 
 @endsection<!-- end content -->
 
 
 @section('footer')
-  @include('includes.admin_footer')
+	@include('includes.admin_footer')
 @endsection<!-- end footer -->
 
 
