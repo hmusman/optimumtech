@@ -12,7 +12,7 @@
                   <li class="text-white">|</li>
                   <li>
 
-                    <a class="text-white" href="mailto:{{ $contact->email }}"><i class="fa fa-envelope-o"></i>
+                    <a class="text-white" href="mailto:{{ $contact->email }}"><img style="margin-top: 0px;"  alt="" src="{{ asset('images/image_2020_10_28T11_30_35_292Z.png') }} "></i>
                       <span style="font-size: 12px;">{{ $contact->email }}</span></a>
                   </li>
 
@@ -45,13 +45,13 @@
               </div>
               <div class="widget no-border m-0 mr-15 pull-right flip sm-pull-none sm-text-center">
                 <ul class="styled-icons icon-circled icon-sm pull-right flip sm-pull-none sm-text-center mt-sm-15">
-                  <li><a href="https://www.facebook.com/optimumtechofficial/"><i class="fa fa-facebook text-white"></i></a></li>
-                  <li><a href="https://www.youtube.com/channel/UCD_588wMiwVQj7TDCEBHcfw"><i class=" fa fa-youtube text-white"></i></a></li>
-                
-                 
-                  <li><a href="mailto:theoptimumtech@gmail.com"><i class="fa fa-google-plus text-white"></i></a></li>
-                  <li><a href="https://www.instagram.com/optimumtech_official/"><i class="fa fa-instagram text-white"></i></a></li>
-                  <!-- <li><a href=""><i class="fa fa-linkedin text-white"></i></a></li> -->
+                 <li><a href="https://www.facebook.com/optimumtechofficial/"> <img style="margin-top: 7px;"  alt="" src="{{ asset('images/image_2020_10_28T07_47_49_624Z.png') }} "></a></li>
+                  <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
+                  <!-- <li><a href="#"><i class="fa fa-skype"></i></a></li> -->
+                  <li><a href="https://www.youtube.com/channel/UCD_588wMiwVQj7TDCEBHcfw"> <img style="margin-top: 7px;"  alt="" src="{{ asset('images/image_2020_10_28T10_56_55_097Z.png') }} "></a></li>
+                  <li><a href="https://www.instagram.com/optimumtech_official/"><img style="margin-top: 7px;"  alt="" src="{{ asset('images/image_2020_10_28T07_51_53_359Z.png') }} "></a></li>
+                  <li><a href="#"><img style="margin-top: 7px;"  alt="" src="{{ asset('images/image_2020_10_28T10_46_02_784Z.png') }} "></a></li>
+
                 </ul>
               </div>
             </div>

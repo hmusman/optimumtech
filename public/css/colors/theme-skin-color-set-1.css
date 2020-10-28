@@ -780,7 +780,7 @@ fieldset[disabled] .btn-gray.btn-theme-colored.focus {
 .btn-theme-colored {
   color: #fff;
       background-color: #087b92;
-    border-left: 3px solid #626363 ;
+    border-left: 3px solid #626363 !important;
 }
 .btn-theme-colored:focus,
 .btn-theme-colored.focus {

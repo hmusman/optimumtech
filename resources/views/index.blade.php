@@ -245,7 +245,7 @@ i[class="fa fa-whatsapp my-float"]{
 #click{
   display: none;
 }
-label{
+.MessageBox{
   position: fixed;
   right: 30px;
   bottom: 20px;
@@ -260,14 +260,14 @@ background: -webkit-linear-gradient(left, #626363, #087b92);
   cursor: pointer;
   z-index: 100
 }
-label i{
+.MessageBox i{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.4s ease;
 }
-label i.fas{
+.MessageBox i.fas{
   opacity: 0;
   pointer-events: none;
 }
@@ -387,6 +387,10 @@ form .textarea textarea:focus::placeholder{
 	    margin-top: -106px !important;
     border-radius: 50% !important;
 }
+#TeamSoacialImg{
+    margin-top: -65px !important;
+    border-radius: 50% !important;
+}
 </style>
 
         <div class="myModel" >
@@ -405,7 +409,7 @@ form .textarea textarea:focus::placeholder{
 
 <div>
 	  <input type="checkbox" id="click">
-    <label for="click">
+    <label class="MessageBox" for="click" style="z-index: 1000;">
         <i class="fab fa-facebook-messenger"></i>
         <i class="fas fa-times"></i>
     </label>
@@ -1110,9 +1114,11 @@ form .textarea textarea:focus::placeholder{
 				                	{!! \Illuminate\Support\Str::limit(trim($member->detail),150,$end="...") !!}
 				                </p>
 				                <ul class="styled-icons icon-dark icon-circled icon-theme-colored icon-sm pull-left flip">
-			                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-			                      <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								  <li><a href="#"><i class="fa fa-facebook"></i>
+							<img id="TeamSoacialImg" alt="featured project" src="{{  asset('images/image_2020_10_28T07_47_49_624Z.png') }}" class="img-fullwidth"> 
+								</a></li>
+			                      <li><a href="#"><i class="fa fa-twitter"></i>	<img id="TeamSoacialImg" alt="featured project" src="{{  asset('images/image_2020_10_28T07_50_35_608Z.png') }}" class="img-fullwidth"> </a></li>
+			                      <li><a href="#"><i class="fa fa-google-plus"></i>	<img id="TeamSoacialImg" alt="featured project" src="{{  asset('images/image_2020_10_28T11_16_42_135Z.png') }}" class="img-fullwidth"> </a></li>
 			                    </ul>
 			                     <a class="btn btn-theme-colored btn-sm pull-right flip" href="{{ route('TeamDetail',$member->id) }}" target="_blank">Detail</a>
 				              </div>

@@ -36,9 +36,9 @@
   transition: 0.4s;
   padding-bottom: 0% !important;
   padding: 0px 5px 0px 5px !important;
-  background: #202c45 !important;
-  color: white !important;
-  border-left: 5px solid #f2184f;
+  background-color: #087b92;
+	border-left: 3px solid #626363;
+	color: white;
 }
 /* .card:hover{
 	background-color: #202c45;

@@ -4423,8 +4423,9 @@ blockquote p {
   border: 1px solid #777777;
 }
 .styled-icons.icon-bordered a:hover {
-  background-color: #777777;
-  color: #fff;
+    background-color: #191816;
+    color: #fff;
+    border: 1px #fcfcfc solid;
 }
 .styled-icons.icon-rounded a {
   border-radius: 3px;
@@ -5292,10 +5293,7 @@ blockquote p {
 .styled-icons.icon-bordered a {
   border: 1px solid #777777;
 }
-.styled-icons.icon-bordered a:hover {
-  background-color: #777777;
-  color: #fff;
-}
+
 .styled-icons.icon-rounded a {
   border-radius: 3px;
 }

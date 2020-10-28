@@ -18,7 +18,7 @@
          <br/>
               <ul class="list-inline mt-5">
               
-                <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-color-2 mr-5"></i> <a
+                <li class="m-0 pl-10 pr-10"> <img  alt="" src="{{ asset('images/image_2020_10_28T11_24_44_715Z.png') }} "> <a
                     class="text-gray" href="mailto:info@optimumtech.com"> {{ $contact->email }} </a> </li>
                     <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-color-2 mr-5"></i> <a class="text-gray"
                       href="tel:{{ $contact->phone }}">{{ $contact->phone }} </a> </li>
@@ -71,12 +71,12 @@
               <div class="widget dark">
                 <h5 class="widget-title mb-10">Connect With Us</h5>
                 <ul class="styled-icons icon-bordered icon-sm">
-                  <li><a href="https://www.facebook.com/optimumtechofficial/"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://www.facebook.com/optimumtechofficial/"> <img style="margin-top: -7px;" class="footerSocial" alt="" src="{{ asset('images/image_2020_10_28T10_21_24_467Z.png') }} "></a></li>
                   <!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li> -->
                   <!-- <li><a href="#"><i class="fa fa-skype"></i></a></li> -->
-                  <li><a href="https://www.youtube.com/channel/UCD_588wMiwVQj7TDCEBHcfw"><i class="fa fa-youtube"></i></a></li>
-                  <li><a href="https://www.instagram.com/optimumtech_official/"><i class="fa fa-instagram"></i></a></li>
-                  <li><a href="mailto:theoptimumtech@gmail.com"><i class="fa fa-google-plus text-white"></i></a></li>
+                  <li><a href="https://www.youtube.com/channel/UCD_588wMiwVQj7TDCEBHcfw"> <img style="margin-top: -7px;" class="footerSocial" alt="" src="{{ asset('images/image_2020_10_28T10_19_23_522Z.png') }} "></a></li>
+                  <li><a href="https://www.instagram.com/optimumtech_official/"><img style="margin-top: -7px;" class="footerSocial" alt="" src="{{ asset('images/image_2020_10_28T10_20_00_593Z.png') }} "></a></li>
+                  <li><a href="mailto:theoptimumtech@gmail.com"><img style="margin-top: -7px;" class="footerSocial" alt="" src="{{ asset('images/image_2020_10_28T10_20_19_335Z.png') }} "></a></li>
 
               
                 </ul>
